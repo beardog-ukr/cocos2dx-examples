@@ -51,4 +51,4 @@ Cocos Console 2.3
 
 Нарешті, запустити програму можна за допомогою `cocos run`, в результаті повинно з'явитись щось таке:
 
-{{< figure src="/content-img/first-steps/hello.jpg" title="Steve Francia" position="center" >}}
+{{< figure src="/cocos2dx-examples/post/first-steps-img/first" title="Steve Francia" position="center" >}}
