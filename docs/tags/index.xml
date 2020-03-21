@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tags on Основи Cocos2d-x</title>
+    <link>https://beardog-ukr.github.io/cocos2dx-examples/tags/</link>
+    <description>Recent content in Tags on Основи Cocos2d-x</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>uk-UA</language>
+    <lastBuildDate>Sat, 21 Mar 2020 17:30:25 +0300</lastBuildDate>
+    
+	<atom:link href="https://beardog-ukr.github.io/cocos2dx-examples/tags/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>initial</title>
+      <link>https://beardog-ukr.github.io/cocos2dx-examples/tags/initial/</link>
+      <pubDate>Sat, 21 Mar 2020 17:30:25 +0300</pubDate>
+      
+      <guid>https://beardog-ukr.github.io/cocos2dx-examples/tags/initial/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>installation</title>
+      <link>https://beardog-ukr.github.io/cocos2dx-examples/tags/installation/</link>
+      <pubDate>Sat, 21 Mar 2020 17:30:25 +0300</pubDate>
+      
+      <guid>https://beardog-ukr.github.io/cocos2dx-examples/tags/installation/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Action</title>
+      <link>https://beardog-ukr.github.io/cocos2dx-examples/tags/action/</link>
+      <pubDate>Sat, 21 Sep 2019 15:55:25 +0300</pubDate>
+      
+      <guid>https://beardog-ukr.github.io/cocos2dx-examples/tags/action/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>keyboard processing</title>
+      <link>https://beardog-ukr.github.io/cocos2dx-examples/tags/keyboard-processing/</link>
+      <pubDate>Sat, 21 Sep 2019 15:55:25 +0300</pubDate>
+      
+      <guid>https://beardog-ukr.github.io/cocos2dx-examples/tags/keyboard-processing/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

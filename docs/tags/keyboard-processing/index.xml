@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>keyboard processing on Основи Cocos2d-x</title>
+    <link>https://beardog-ukr.github.io/cocos2dx-examples/tags/keyboard-processing/</link>
+    <description>Recent content in keyboard processing on Основи Cocos2d-x</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>uk-UA</language>
+    <lastBuildDate>Sat, 21 Sep 2019 15:55:25 +0300</lastBuildDate>
+    
+	<atom:link href="https://beardog-ukr.github.io/cocos2dx-examples/tags/keyboard-processing/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Action: move sprite over screen</title>
+      <link>https://beardog-ukr.github.io/cocos2dx-examples/post/basic-actions/</link>
+      <pubDate>Sat, 21 Sep 2019 15:55:25 +0300</pubDate>
+      
+      <guid>https://beardog-ukr.github.io/cocos2dx-examples/post/basic-actions/</guid>
+      <description>Use actions to move some sprites over the screeen
+Keyboard processing First, initialize keyboard processing with following code
+ auto sceneKeyboardListener = EventListenerKeyboard::create(); sceneKeyboardListener-&amp;gt;onKeyPressed = CC_CALLBACK_2(MainGameScene::onKeyPressedScene, this); _eventDispatcher-&amp;gt;addEventListenerWithSceneGraphPriority(sceneKeyboardListener, this); then process it like
+void MainGameScene::onKeyPressedScene(EventKeyboard::KeyCode keyCode, Event *event) { log(&amp;quot;%s: processing key %d pressed&amp;quot;, __func__, (int)keyCode); switch (keyCode) { case EventKeyboard::KeyCode::KEY_UP_ARROW: do_something_for_up_arrow(); break; // more options here default: log(&amp;quot;%s: key %d will be ignored&amp;quot;, __func__, (int)keyCode); } } Action class To be done.</description>
+    </item>
+    
+  </channel>
+</rss>

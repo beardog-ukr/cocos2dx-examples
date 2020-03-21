@@ -1,3 +1,7 @@
+# Default hugo results
+hugo_src/public/*
+!hugo_src/public/dummy.txt
+
 # Prerequisites
 *.d
 

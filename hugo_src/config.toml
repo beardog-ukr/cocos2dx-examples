@@ -1,0 +1,37 @@
+baseurl = "https://beardog-ukr.github.io/cocos2dx-examples/"
+languageCode = "uk-UA"
+theme = "hugo-theme-terminal"
+paginate = 10
+
+DefaultContentLanguage = "uk"
+
+[params]
+  contentTypeName = "post"
+  themeColor = "green"
+  showMenuItems = 2
+  fullWidthTheme = false
+  centerTheme = true
+
+[languages]
+  [languages.uk]
+    title = "Основи Cocos2d-x"
+    subtitle = "Про розробку 2d-ігор на Cocos2d-x"
+    keywords = ""
+    copyright = ""
+    menuMore = "Інше"
+    readMore = "Читати далі"
+    readOtherPosts = "Інші пости"
+
+    [languages.uk.params.logo]
+      logoText = "Основи Cocos2d-x"
+      logoHomeLink = "/"
+
+    [languages.uk.menu]
+      [[languages.uk.menu.main]]
+        identifier = "Про це"
+        name = "About"
+        url = "/about"
+      [[languages.uk.menu.main]]
+        identifier = "showcase"
+        name = "Showcase (to be removed)"
+        url = "/showcase"
