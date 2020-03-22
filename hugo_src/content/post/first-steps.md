@@ -6,9 +6,11 @@ tags: ["initial", "installation"]
 author: beardog-ukr
 ---
 
-Cocos2d-x — це фреймворк для створення кросплатформенних 2d-ігор на C++.
+Cocos2d-x — це фреймворк для створення кросплатформенних 2d-ігор на C++. З ним можна створювати відносно прості ігри типу Flappy Bird abo Fruit Ninja, а також більш складні сайд-скроллери та навіть стратегії.
 
 Перебування на карантині можна розглядати як привід вивчити щось нове, тому я спробую зробити серію постів, що описують основи цього [програмного каркасу](https://uk.wikipedia.org/wiki/%D0%9F%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BD%D0%B8%D0%B9_%D0%BA%D0%B0%D1%80%D0%BA%D0%B0%D1%81).
+
+{{< figure src="/cocos2dx-examples/post/first-steps-img/battle_of_pathogens.png" title="Гра Battle of Pathogens розроблена за допомогою Cocos Creator" position="center" >}}
 
 # Встановлення
 
