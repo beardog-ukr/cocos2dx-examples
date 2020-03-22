@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>links on Основи Cocos2d-x</title>
+    <link>https://beardog-ukr.github.io/cocos2dx-examples/tags/links/</link>
+    <description>Recent content in links on Основи Cocos2d-x</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>uk-UA</language>
+    <lastBuildDate>Sun, 22 Mar 2020 11:30:25 +0300</lastBuildDate>
+    
+	<atom:link href="https://beardog-ukr.github.io/cocos2dx-examples/tags/links/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Інформація</title>
+      <link>https://beardog-ukr.github.io/cocos2dx-examples/post/info_sources/</link>
+      <pubDate>Sun, 22 Mar 2020 11:30:25 +0300</pubDate>
+      
+      <guid>https://beardog-ukr.github.io/cocos2dx-examples/post/info_sources/</guid>
+      <description>Документації по Cocos2d-x порівняно небагато, але досить для вивчення. Проблема в тому, що у більшості випадків вона застаріла, тому доведеться співвідносити написане і реальний стан речей.
+Спочатку &amp;ldquo;офіційні&amp;rdquo; джерела:
+ посібник з основними термінами. Застарілий російськомовний переклад можна знайти на хабрі. документація по коду, згенерована Doxygen форум, там багато навчальних матеріалів, але вони теж сильно застаріли. функціональні тести — розробники розглядають їх як демонстрацію того, як правильно використовувати програмний каркас. На форумі часто можуть порадити &amp;ldquo;глянути, як зроблено в тестах&amp;rdquo;  Крім того, у різних блогах є серії постів, присвячених cocos2d-x:</description>
+    </item>
+    
+  </channel>
+</rss>
