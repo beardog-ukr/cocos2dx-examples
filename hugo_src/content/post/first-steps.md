@@ -30,7 +30,7 @@ Cocos Console 2.3
 
 # Перший проект
 
-Для перевірки, що все втановлено правильно, Cocos2d-x може створити проект за помовчанням. Для цього треба виконати команду `cocos new`:
+Для перевірки, що все встановлено правильно, Cocos2d-x може створити проект за помовчанням. Для цього треба виконати команду `cocos new`:
 ```
 ::>cocos new -d ./ -l cpp SmokeTest
 > Copy template into /home/username/proj/cocos2d/SmokeTest
