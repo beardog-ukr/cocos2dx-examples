@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  
+    <title>Використання Sprite :: Основи Cocos2d-x — Про розробку 2d-ігор на Cocos2d-x</title>
+  
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="description" content="У цьому пості ми спробуємо створити першу власноруч написану програму. Поки що вона не буде нічого робити, ми просто візьмемо кілька зображеннь космічних кораблів з безкоштовного набору та покажемо їх на екрані. Основна мета — навчитись працювати з класом Sprite.
+Координати та опорна точка Cocos2d використовує &amp;ldquo;шкільну&amp;rdquo; систему координат:
+ x змінюється по горизонталі зліва направо y змінюється по вертикалі знизу вверх.  Центр системи координат знаходиться в опорній точці (anchor point)." />
+<meta name="keywords" content="" />
+<meta name="robots" content="noodp" />
+<link rel="canonical" href="https://beardog-ukr.github.io/cocos2dx-examples/post/static-img-practice-app/" />
+
+
+
+
+<link rel="stylesheet" href="https://beardog-ukr.github.io/cocos2dx-examples/assets/style.css">
+
+  <link rel="stylesheet" href="https://beardog-ukr.github.io/cocos2dx-examples/assets/green.css">
+
+
+
+
+
+
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://beardog-ukr.github.io/cocos2dx-examples/img/apple-touch-icon-144-precomposed.png">
+
+  <link rel="shortcut icon" href="https://beardog-ukr.github.io/cocos2dx-examples/img/favicon/green.png">
+
+
+
+<meta name="twitter:card" content="summary" />
+
+<meta name="twitter:creator" content="beardog-ukr" />
+
+
+<meta property="og:locale" content="uk" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Використання Sprite :: Основи Cocos2d-x">
+<meta property="og:description" content="У цьому пості ми спробуємо створити першу власноруч написану програму. Поки що вона не буде нічого робити, ми просто візьмемо кілька зображеннь космічних кораблів з безкоштовного набору та покажемо їх на екрані. Основна мета — навчитись працювати з класом Sprite.
+Координати та опорна точка Cocos2d використовує &amp;ldquo;шкільну&amp;rdquo; систему координат:
+ x змінюється по горизонталі зліва направо y змінюється по вертикалі знизу вверх.  Центр системи координат знаходиться в опорній точці (anchor point)." />
+<meta property="og:url" content="https://beardog-ukr.github.io/cocos2dx-examples/post/static-img-practice-app/" />
+<meta property="og:site_name" content="Використання Sprite" />
+<meta property="og:image" content="https://beardog-ukr.github.io/cocos2dx-examples/">
+<meta property="og:image:width" content="2048">
+<meta property="og:image:height" content="1024">
+
+
+  <meta property="article:published_time" content="2020-03-23 22:30:25 &#43;0300 &#43;0300" />
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+<body class="">
+
+
+<div class="container center headings--one-size">
+
+  <header class="header">
+  <div class="header__inner">
+    <div class="header__logo">
+      <a href="/">
+  <div class="logo">
+    Основи Cocos2d-x
+  </div>
+</a>
+
+    </div>
+    <div class="menu-trigger">menu</div>
+  </div>
+  
+    <nav class="menu">
+  <ul class="menu__inner menu__inner--desktop">
+    
+      
+        
+          <li><a href="/cocos2dx-examples/about">About</a></li>
+        
+      
+        
+          <li><a href="/cocos2dx-examples/showcase">Showcase (to be removed)</a></li>
+        
+      
+      
+    
+
+    
+  </ul>
+
+  <ul class="menu__inner menu__inner--mobile">
+    
+      
+        <li><a href="/cocos2dx-examples/about">About</a></li>
+      
+    
+      
+        <li><a href="/cocos2dx-examples/showcase">Showcase (to be removed)</a></li>
+      
+    
+    
+  </ul>
+</nav>
+
+  
+</header>
+
+
+  <div class="content">
+    
+<div class="post">
+  <h1 class="post-title">
+    <a href="https://beardog-ukr.github.io/cocos2dx-examples/post/static-img-practice-app/">Використання Sprite</a></h1>
+  <div class="post-meta">
+      
+    <span class="post-date">
+      2020-03-23
+    </span>
+    
+    
+    <span class="post-author">::
+      beardog-ukr
+    </span>
+    
+  </div>
+
+  
+  <span class="post-tags">
+    
+    #<a href="https://beardog-ukr.github.io/cocos2dx-examples/tags/sprite/">Sprite</a>&nbsp;
+    
+    #<a href="https://beardog-ukr.github.io/cocos2dx-examples/tags/static-images/">Static Images</a>&nbsp;
+    
+  </span>
+  
+
+  
+
+  <div class="post-content"><div>
+        <p>У цьому пості ми спробуємо створити першу власноруч написану програму. Поки що вона не буде нічого робити, ми просто візьмемо кілька зображеннь космічних кораблів з <a href="https://www.kenney.nl/assets/space-shooter-redux">безкоштовного набору</a> та покажемо їх на екрані. Основна мета — навчитись працювати з класом <a href="https://docs.cocos2d-x.org/api-ref/cplusplus/v4x/d3/d5c/classcocos2d_1_1_sprite.html">Sprite</a>.</p>
+<h1 id="координати-та-опорна-точка">Координати та опорна точка<a href="#координати-та-опорна-точка" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h1>
+<p>Cocos2d використовує &ldquo;шкільну&rdquo; систему координат:</p>
+<ul>
+<li>x змінюється по горизонталі зліва направо</li>
+<li>y змінюється по вертикалі знизу вверх.</li>
+</ul>
+<p>Центр системи координат знаходиться в опорній точці (anchor point). Положення опорної точки можна задавати окремо для кожного об'єкту <code>Node</code> методом <a href="https://docs.cocos2d-x.org/api-ref/cplusplus/v4x/d3/d82/classcocos2d_1_1_node.html#abf77210f31f01d0f564600c94c90e2be">setAnchorPoint</a>. Метод отримує два параметри у діапазоні від 0 до 1, найчастіше це значення 0, 0.5 або 1. Наприклад:</p>
+<ul>
+<li>setActionPoint(Vec2(0.5, 0.5)) встановлює опорну точку в центр об'єкту.</li>
+<li>setActionPoint(Vec2(0, 0)) встановлює опорну точку у лівий нижній кут об'єкту. Так за помовчанням робить клас Scene.</li>
+<li>setActionPoint(Vec2(0, 1)) встановлює опорну точку у лівий верхній кут об'єкту. Це схоже на систему координат, прийняту у <a href="https://www.w3schools.com/graphics/canvas_coordinates.asp">html canvas</a> або <a href="https://doc.qt.io/archives/qt-4.8/coordsys.html">Qt</a>, але, на відміну від них, вісь Y все ще направлена знизу вверх.</li>
+</ul>
+<h1 id="програма-з-фоном">Програма з фоном<a href="#програма-з-фоном" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h1>
+<p>Щоб побачити. як це все працює, ми візьмемо малюнок, що складається з клітин розміром 160х120 пікселів і використаємо його, як фонове зображення для програми.</p>
+
+  <figure class="center" >
+    <img src="/cocos2dx-examples/post/static-img-practice-app/empty_grid.png"   />
+    
+  </figure>
+
+
+<p>Робиться це за допомогою такого коду, розміщеного у фунції <code>init</code> сцени:</p>
+<pre><code>const char backFilename[] = &quot;background.png&quot;;
+
+Sprite* sprite = Sprite::create(backFilename);
+if (sprite == nullptr) {
+  printf(&quot;Error while loading: %s\n&quot;, backFilename);
+  return false;
+}
+
+sprite-&gt;setAnchorPoint(Vec2(0,0));
+sprite-&gt;setPosition(0,0);
+addChild(sprite, 0);
+</code></pre><p>Спрайт створюється за допомогою статичного методу <a href="https://docs.cocos2d-x.org/api-ref/cplusplus/v4x/d3/d5c/classcocos2d_1_1_sprite.html#a3f75a553fe02f3de82042e81b76da010">create</a>. Це стандартна для Cocos2d практика — майже у кожного класу є такий метод, за допомогою якого і треба створювати об'єкти.</p>
+<p>Потім ми встановлюємо опорну точку спрайту у лівий нижній кут і ставимо спрайт на центр координат сцени (який теж знаходиться у лівому нижньому куті).</p>
+<p>Метод <code>addChild</code> додає новостворений спрайт на сцену. Другим параметром цього методу є <a href="https://docs.cocos2d-x.org/cocos2d-x/v4/en/basic_concepts/scene.html">z-order</a>: якщо без подробиць, це число, яке визначає порядок &ldquo;перекривання&rdquo; елементів. Елементи з більшим числом будуть намальовані пізніше, відповідно, менші стануть для них фоном.</p>
+<h1 id="більше-спрайтів">Більше спрайтів<a href="#більше-спрайтів" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h1>
+<p>Тепер додамо до сцени ще пару спрайтів. Один за допомогою ось такого коду:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#66d9ef">const</span> <span style="color:#66d9ef">char</span> shipFilename[] <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;ships/playerShip3_blue.png&#34;</span>;
+
+Sprite<span style="color:#f92672">*</span> sprite <span style="color:#f92672">=</span> Sprite<span style="color:#f92672">::</span>create(shipFilename);
+
+sprite<span style="color:#f92672">-&gt;</span>setAnchorPoint(Vec2(<span style="color:#ae81ff">0.5</span>,<span style="color:#ae81ff">0.5</span>));
+sprite<span style="color:#f92672">-&gt;</span>setPosition(Vec2(<span style="color:#ae81ff">160</span>, <span style="color:#ae81ff">240</span>));
+
+addChild(sprite, <span style="color:#ae81ff">10</span>);
+</code></pre></div><p>А інший ось так:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#66d9ef">const</span> <span style="color:#66d9ef">char</span> shipFilename[] <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;ships/playerShip3_blue.png&#34;</span>;
+Sprite<span style="color:#f92672">*</span> sprite <span style="color:#f92672">=</span> Sprite<span style="color:#f92672">::</span>create(shipFilename);
+
+sprite<span style="color:#f92672">-&gt;</span>setRotation(<span style="color:#ae81ff">45</span>);
+sprite<span style="color:#f92672">-&gt;</span>setPosition(Vec2(<span style="color:#ae81ff">160</span>, <span style="color:#ae81ff">120</span>));
+
+addChild(sprite, <span style="color:#ae81ff">10</span>);
+</code></pre></div><p>Відмінність у тому, що в другому випадку спрайт додатково повертається на 45 градусів.</p>
+<p>В обох спрайтів опорна точка знаходиться в центрі (0.5, 0.5). Відповідно, після встановлення позиції центр спрайту опиниться на перетині квадратів, ось так:</p>
+
+  <figure class="center" >
+    <img src="/cocos2dx-examples/post/static-img-practice-app/normal.png"   />
+    
+  </figure>
+
+
+<p>Створимо ще два спрайти, ось таким чином:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#66d9ef">const</span> <span style="color:#66d9ef">char</span> shipFilename[] <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;ships/playerShip3_green.png&#34;</span>;
+Sprite<span style="color:#f92672">*</span> sprite <span style="color:#f92672">=</span> Sprite<span style="color:#f92672">::</span>create(shipFilename);
+
+sprite<span style="color:#f92672">-&gt;</span>setAnchorPoint(Vec2(<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">0</span>));
+sprite<span style="color:#f92672">-&gt;</span>setPosition(Vec2(<span style="color:#ae81ff">480</span>, <span style="color:#ae81ff">240</span>));
+
+addChild(sprite, <span style="color:#ae81ff">10</span>);
+
+</code></pre></div><p>і таким:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#66d9ef">const</span> <span style="color:#66d9ef">char</span> shipFilename[] <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;ships/playerShip3_green.png&#34;</span>;
+Sprite<span style="color:#f92672">*</span> sprite <span style="color:#f92672">=</span> Sprite<span style="color:#f92672">::</span>create(shipFilename);
+
+sprite<span style="color:#f92672">-&gt;</span>setAnchorPoint(Vec2(<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">0</span>));
+sprite<span style="color:#f92672">-&gt;</span>setRotation(<span style="color:#ae81ff">45</span>);
+sprite<span style="color:#f92672">-&gt;</span>setPosition(Vec2(<span style="color:#ae81ff">480</span>, <span style="color:#ae81ff">120</span>));
+
+addChild(sprite, <span style="color:#ae81ff">10</span>);
+</code></pre></div><p>Тут опорна точка спрайтів встановлюється у нижній лівий кут, також другий спрайт повертається на 45 градусів.</p>
+<p>Результат виглядає таким чином:</p>
+
+  <figure class="center" >
+    <img src="/cocos2dx-examples/post/static-img-practice-app/normal.png"   />
+    
+  </figure>
+
+
+<p>Опорна точка у зелених кораблів знаходиться на перетині квадратів, тому самі спрайти опинились правіше і вище. У другому випадку поворот здійснено навколо опорної точки.</p>
+<h1 id="node">Node<a href="#node" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h1>
+<p>Обє'кти класу Node можна використовувати для групування об'єктів. Наприклад, можна зібрати власний корабель, скомбінувавши три зображення:</p>
+
+  <figure class="center" >
+    <img src="/cocos2dx-examples/post/static-img-practice-app/mixproj.png"   />
+    
+  </figure>
+
+
+<p>Для цього потрібен такий код:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#66d9ef">const</span> <span style="color:#66d9ef">char</span> cockpitFilename[] <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;parts/cockpitRed.png&#34;</span>;
+Sprite<span style="color:#f92672">*</span> cockpitSprite <span style="color:#f92672">=</span> Sprite<span style="color:#f92672">::</span>create(cockpitFilename);
+
+<span style="color:#66d9ef">const</span> <span style="color:#66d9ef">char</span> wingFilename[] <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;parts/wingRed.png&#34;</span>;
+Sprite<span style="color:#f92672">*</span> rightWingSprite <span style="color:#f92672">=</span> Sprite<span style="color:#f92672">::</span>create(wingFilename);
+Sprite<span style="color:#f92672">*</span> leftWingSprite <span style="color:#f92672">=</span> Sprite<span style="color:#f92672">::</span>create(wingFilename);
+
+Node<span style="color:#f92672">*</span> resultNode <span style="color:#f92672">=</span> Node<span style="color:#f92672">::</span>create();
+resultNode<span style="color:#f92672">-&gt;</span>setAnchorPoint(Vec2(<span style="color:#ae81ff">0.5</span>,<span style="color:#ae81ff">0.5</span>));
+
+<span style="color:#75715e">//
+</span><span style="color:#75715e"></span>rightWingSprite<span style="color:#f92672">-&gt;</span>setAnchorPoint(Vec2(<span style="color:#ae81ff">0.5</span>,<span style="color:#ae81ff">0.5</span>));
+rightWingSprite<span style="color:#f92672">-&gt;</span>setScale(<span style="color:#ae81ff">1</span>, <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>);
+rightWingSprite<span style="color:#f92672">-&gt;</span>setPosition(Vec2(<span style="color:#ae81ff">60</span>, <span style="color:#ae81ff">15</span>));
+rightWingSprite<span style="color:#f92672">-&gt;</span>setRotation(<span style="color:#ae81ff">90</span>);
+resultNode<span style="color:#f92672">-&gt;</span>addChild(rightWingSprite);
+
+leftWingSprite<span style="color:#f92672">-&gt;</span>setAnchorPoint(Vec2(<span style="color:#ae81ff">0.5</span>,<span style="color:#ae81ff">0.5</span>));
+leftWingSprite<span style="color:#f92672">-&gt;</span>setPosition(Vec2(<span style="color:#f92672">-</span><span style="color:#ae81ff">60</span>, <span style="color:#ae81ff">15</span>));
+leftWingSprite<span style="color:#f92672">-&gt;</span>setRotation(<span style="color:#ae81ff">90</span>);
+resultNode<span style="color:#f92672">-&gt;</span>addChild(leftWingSprite);
+
+resultNode<span style="color:#f92672">-&gt;</span>addChild(cockpitSprite);
+<span style="color:#75715e">//
+</span><span style="color:#75715e"></span>resultNode<span style="color:#f92672">-&gt;</span>setAnchorPoint(Vec2(<span style="color:#ae81ff">0.5</span>,<span style="color:#ae81ff">0.5</span>));
+</code></pre></div><p>Спершу ми створюємо три спрайти (два крила та фюзеляж) і порожній об'єкт <code>Node</code>, який об'єднає ці елементи.</p>
+<p>Спрайти крил повертаються та встановлюються у потрібне положення. Координати для їх встановлення (60, 15) підбираються емпірично, так, що більш-менш гарно виглядало. Крім того, спрайт правого крила треба відзеркалити викликом <code>setScale(1, -1)</code>.</p>
+<p>В кінці окремі спрайти додаються у якості дітей до вузла-результату. Робота з фінальним об'єктом не відрізняється від роботи з одиноким спрайтом, тому я тут не буду наводити цей код. Як і все інше, його можна знайти у <a href="https://github.com/beardog-ukr/cocos2dx-examples/blob/master/examples/StaticSprites/Classes/StaticSpritesScene.cpp">проекті-прикладі на гітхабі</a>.</p>
+<p>В результаті наша тестова програма стане такою:</p>
+
+  <figure class="center" >
+    <img src="/cocos2dx-examples/post/static-img-practice-app/mixed.png"   />
+    
+  </figure>
+
+
+<p>На цьому поки що все, дякую за увагу. У наступних постах зображення почнуть рухатись, стане цікавіше :)</p>
+
+      </div></div>
+  
+  <div class="pagination">
+    <div class="pagination__title">
+      <span
+        class="pagination__title-h">Інші пости</span>
+      <hr />
+    </div>
+    <div class="pagination__buttons">
+      
+      
+      <span class="button next">
+        <a href="https://beardog-ukr.github.io/cocos2dx-examples/post/screen-resolution-01/">
+          <span class="button__text">Розмір екрану</span>
+          <span class="button__icon">→</span>
+        </a>
+      </span>
+      
+    </div>
+  </div>
+  
+
+  
+
+</div>
+
+  </div>
+
+  
+    <footer class="footer">
+  <div class="footer__inner">
+    
+      <div class="copyright">
+        <span>© 2020 Powered by <a href="http://gohugo.io">Hugo</a></span>
+    
+        <span>:: Theme made by <a href="https://twitter.com/panr">panr</a></span>
+      </div>
+  </div>
+</footer>
+
+<script src="https://beardog-ukr.github.io/cocos2dx-examples/assets/main.js"></script>
+<script src="https://beardog-ukr.github.io/cocos2dx-examples/assets/prism.js"></script>
+
+
+
+
+
+  
+</div>
+
+</body>
+</html>
