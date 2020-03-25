@@ -104,7 +104,7 @@ addChild(sprite, 10);
 
 Результат виглядає таким чином:
 
-{{< figure src="/cocos2dx-examples/post/static-img-practice-app/normal.png" title="Зелені кораблі, опорна точка збоку внизу" position="center" >}}
+{{< figure src="/cocos2dx-examples/post/static-img-practice-app/cornered.png" title="Зелені кораблі, опорна точка збоку внизу" position="center" >}}
 
 Опорна точка у зелених кораблів знаходиться на перетині квадратів, тому самі спрайти опинились правіше і вище. У другому випадку поворот здійснено навколо опорної точки.
 
@@ -112,7 +112,7 @@ addChild(sprite, 10);
 
 Обє'кти класу Node можна використовувати для групування об'єктів. Наприклад, можна зібрати власний корабель, скомбінувавши три зображення:
 
-{{< figure src="/cocos2dx-examples/post/static-img-practice-app/mixproj.png" title="Зелені кораблі, опорна точка збоку внизу" position="center" >}}
+{{< figure src="/cocos2dx-examples/post/static-img-practice-app/mixproj.png" title="Збирання корабля з частин" position="center" >}}
 
 Для цього потрібен такий код:
 ```cpp
