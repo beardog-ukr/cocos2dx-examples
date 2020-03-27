@@ -50,6 +50,6 @@ Cocos Console 2.3
 
 Нарешті, запустити програму можна за допомогою `cocos run`, в результаті повинно з'явитись щось таке:
 
-{{< figure src="/cocos2dx-examples/post/first-steps-img/first_app_screenshot.png" title="First application screenshot" position="center" >}}
+{{< figure src="/cocos2dx-examples/post/first-steps-img/first_app_screenshot.png" title="Тестова програма" position="center" >}}
 
 У наступних постах я спробую детальніше розібрати, що тут до чого, а поки що це все, дякую за увагу.
