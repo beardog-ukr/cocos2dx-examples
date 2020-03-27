@@ -19,7 +19,7 @@
       <guid>https://beardog-ukr.github.io/cocos2dx-examples/post/screen-resolution-01/</guid>
       <description>У попередніх постах було розказано, як створити дефолтну програму і з чого вона складається. Тепер можна переходити до написання власного проекту, але перед тим залишився ще один маленький нюанс — розмір екрану.
  Наша дефолтна програма працює у вікні розміром 480 на 320 пікселів. Цей розмір було вказано у файлі AppDelegate.cpp ось в такому рядку:
-static cocos2d::Size designResolutionSize = cocos2d::Size(480, 320); Там розробники Cococ2d-x щось перемудрили, тому поряд з цією змінною оголошені ще кілька інших розмірів.</description>
+static cocos2d::Size designResolutionSize = cocos2d::Size(480, 320); Розробники Cococ2d-x щось перемудрили, тому поряд з цією змінною оголошені ще кілька інших розмірів.</description>
     </item>
     
     <item>

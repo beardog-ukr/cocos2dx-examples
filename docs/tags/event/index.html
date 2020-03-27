@@ -2,14 +2,14 @@
 <html lang="uk">
 <head>
   
-    <title>installation :: Основи Cocos2d-x — Про розробку 2d-ігор на Cocos2d-x</title>
+    <title>event :: Основи Cocos2d-x — Про розробку 2d-ігор на Cocos2d-x</title>
   
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
 <meta name="description" content="" />
 <meta name="keywords" content="" />
 <meta name="robots" content="noodp" />
-<link rel="canonical" href="https://beardog-ukr.github.io/cocos2dx-examples/tags/installation/" />
+<link rel="canonical" href="https://beardog-ukr.github.io/cocos2dx-examples/tags/event/" />
 
 
 
@@ -36,10 +36,10 @@
 
 <meta property="og:locale" content="uk" />
 <meta property="og:type" content="website" />
-<meta property="og:title" content="installation :: Основи Cocos2d-x">
+<meta property="og:title" content="event :: Основи Cocos2d-x">
 <meta property="og:description" content="" />
-<meta property="og:url" content="https://beardog-ukr.github.io/cocos2dx-examples/tags/installation/" />
-<meta property="og:site_name" content="installation" />
+<meta property="og:url" content="https://beardog-ukr.github.io/cocos2dx-examples/tags/event/" />
+<meta property="og:site_name" content="event" />
 <meta property="og:image" content="https://beardog-ukr.github.io/cocos2dx-examples/">
 <meta property="og:image:width" content="2048">
 <meta property="og:image:height" content="1024">
@@ -48,7 +48,7 @@
 
 
 
-  <link href="/cocos2dx-examples/tags/installation/index.xml" rel="alternate" type="application/rss+xml" title="Основи Cocos2d-x" />
+  <link href="/cocos2dx-examples/tags/event/index.xml" rel="alternate" type="application/rss+xml" title="Основи Cocos2d-x" />
 
 
 
@@ -126,10 +126,10 @@
   
   <div class="post on-list">
     <h1 class="post-title">
-      <a href="https://beardog-ukr.github.io/cocos2dx-examples/post/first-steps/">Знайомство</a></h1>
+      <a href="https://beardog-ukr.github.io/cocos2dx-examples/post/events-callbacks/">Обробка подій та колбеки</a></h1>
     <div class="post-meta">
       <span class="post-date">
-        2020-03-21
+        2020-03-26
       </span>
       <span class="post-author">::
         beardog-ukr</span>
@@ -138,9 +138,13 @@
     
     <span class="post-tags">
       
-      #<a href="https://beardog-ukr.github.io/cocos2dx-examples/tags/initial/">initial</a>&nbsp;
+      #<a href="https://beardog-ukr.github.io/cocos2dx-examples/tags/event/">event</a>&nbsp;
       
-      #<a href="https://beardog-ukr.github.io/cocos2dx-examples/tags/installation/">installation</a>&nbsp;
+      #<a href="https://beardog-ukr.github.io/cocos2dx-examples/tags/event-processing/">event processing</a>&nbsp;
+      
+      #<a href="https://beardog-ukr.github.io/cocos2dx-examples/tags/stdbind/">std::bind</a>&nbsp;
+      
+      #<a href="https://beardog-ukr.github.io/cocos2dx-examples/tags/cc_callback/">CC_CALLBACK</a>&nbsp;
       
     </span>
     
@@ -150,9 +154,10 @@
     <div class="post-content">
       
       
-      Cocos2d-x — це фреймворк для створення кросплатформенних 2d-ігор на C++. З ним можна створювати відносно прості ігри типу Flappy Bird abo Fruit Ninja, а також більш складні сайд-скроллери та навіть стратегії.
-Перебування на карантині можна розглядати як привід вивчити щось нове, тому я спробую зробити серію постів, що описують основи цього програмного каркасу.
-Встановлення Процес встановлення непогано описаний для різних платформ в офіційній документації. Також відносно свіжі інструкції можна знайти у цьому блозі:linux або Windows.
+      У тій дефолній програмі, яку було створено у перших постах, залишився без пояснення ще один момент — це кнопка, за допомогою якої ця програма закривалась.
+Використання CC_CALLBACK_1 у MenuItemImage Сама програма, якщо пам'ятаєте, виглядала так:
+Якщо ви мишкою натискали на кнопку в правому нижньому куті, викликався ось такий метод, який припиняв роботу програми:
+void SmokeTestScene::menuCloseCallback(Ref *pSender) { // Close the cocos2d-x game scene and quit the application Director::getInstance()-&gt;end(); } Але чому цей колбек взагалі викликається?
       
       
     </div>
@@ -160,44 +165,7 @@
     
     <div>
       <a class="read-more button"
-        href="/cocos2dx-examples/post/first-steps/">Читати далі →</a>
-    </div>
-    
-  </div>
-  
-  <div class="post on-list">
-    <h1 class="post-title">
-      <a href="https://beardog-ukr.github.io/cocos2dx-examples/post/actions-animations/">Рух об'єктів: Action та Animation</a></h1>
-    <div class="post-meta">
-      <span class="post-date">
-        2020-03-21
-      </span>
-      <span class="post-author">::
-        beardog-ukr</span>
-    </div>
-
-    
-    <span class="post-tags">
-      
-      #<a href="https://beardog-ukr.github.io/cocos2dx-examples/tags/initial/">initial</a>&nbsp;
-      
-      #<a href="https://beardog-ukr.github.io/cocos2dx-examples/tags/installation/">installation</a>&nbsp;
-      
-    </span>
-    
-
-    
-
-    <div class="post-content">
-      
-      
-      
-    </div>
-
-    
-    <div>
-      <a class="read-more button"
-        href="/cocos2dx-examples/post/actions-animations/">Читати далі →</a>
+        href="/cocos2dx-examples/post/events-callbacks/">Читати далі →</a>
     </div>
     
   </div>

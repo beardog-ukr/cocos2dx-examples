@@ -3,12 +3,42 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://beardog-ukr.github.io/cocos2dx-examples/tags/design-resolution/</loc>
-    <lastmod>2020-03-23T22:30:25+03:00</lastmod>
+    <loc>https://beardog-ukr.github.io/cocos2dx-examples/tags/cc_callback/</loc>
+    <lastmod>2020-03-26T17:30:25+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://beardog-ukr.github.io/cocos2dx-examples/tags/event/</loc>
+    <lastmod>2020-03-26T17:30:25+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://beardog-ukr.github.io/cocos2dx-examples/tags/event-processing/</loc>
+    <lastmod>2020-03-26T17:30:25+03:00</lastmod>
   </url>
   
   <url>
     <loc>https://beardog-ukr.github.io/cocos2dx-examples/post/</loc>
+    <lastmod>2020-03-26T17:30:25+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://beardog-ukr.github.io/cocos2dx-examples/tags/stdbind/</loc>
+    <lastmod>2020-03-26T17:30:25+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://beardog-ukr.github.io/cocos2dx-examples/tags/</loc>
+    <lastmod>2020-03-26T17:30:25+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://beardog-ukr.github.io/cocos2dx-examples/post/events-callbacks/</loc>
+    <lastmod>2020-03-26T17:30:25+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://beardog-ukr.github.io/cocos2dx-examples/tags/design-resolution/</loc>
     <lastmod>2020-03-23T22:30:25+03:00</lastmod>
   </url>
   
@@ -24,11 +54,6 @@
   
   <url>
     <loc>https://beardog-ukr.github.io/cocos2dx-examples/tags/static-images/</loc>
-    <lastmod>2020-03-23T22:30:25+03:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://beardog-ukr.github.io/cocos2dx-examples/tags/</loc>
     <lastmod>2020-03-23T22:30:25+03:00</lastmod>
   </url>
   
@@ -89,6 +114,11 @@
   
   <url>
     <loc>https://beardog-ukr.github.io/cocos2dx-examples/post/first-steps/</loc>
+    <lastmod>2020-03-21T17:30:25+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://beardog-ukr.github.io/cocos2dx-examples/post/actions-animations/</loc>
     <lastmod>2020-03-21T17:30:25+03:00</lastmod>
   </url>
   

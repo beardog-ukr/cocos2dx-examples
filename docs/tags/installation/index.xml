@@ -22,5 +22,14 @@
  Встановлення Процес встановлення непогано описаний для різних платформ в офіційній документації. Також відносно свіжі інструкції можна знайти у цьому блозі:linux або Windows.</description>
     </item>
     
+    <item>
+      <title>Рух об&#39;єктів: Action та Animation</title>
+      <link>https://beardog-ukr.github.io/cocos2dx-examples/post/actions-animations/</link>
+      <pubDate>Sat, 21 Mar 2020 17:30:25 +0300</pubDate>
+      
+      <guid>https://beardog-ukr.github.io/cocos2dx-examples/post/actions-animations/</guid>
+      <description>https://github.com/cocos2d/cocos2d-x/blob/v4/cocos/base/ccMacros.h</description>
+    </item>
+    
   </channel>
 </rss>

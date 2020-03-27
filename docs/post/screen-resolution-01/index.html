@@ -8,7 +8,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
 <meta name="description" content="У попередніх постах було розказано, як створити дефолтну програму і з чого вона складається. Тепер можна переходити до написання власного проекту, але перед тим залишився ще один маленький нюанс — розмір екрану.
  Наша дефолтна програма працює у вікні розміром 480 на 320 пікселів. Цей розмір було вказано у файлі AppDelegate.cpp ось в такому рядку:
-static cocos2d::Size designResolutionSize = cocos2d::Size(480, 320); Там розробники Cococ2d-x щось перемудрили, тому поряд з цією змінною оголошені ще кілька інших розмірів." />
+static cocos2d::Size designResolutionSize = cocos2d::Size(480, 320); Розробники Cococ2d-x щось перемудрили, тому поряд з цією змінною оголошені ще кілька інших розмірів." />
 <meta name="keywords" content="" />
 <meta name="robots" content="noodp" />
 <link rel="canonical" href="https://beardog-ukr.github.io/cocos2dx-examples/post/screen-resolution-01/" />
@@ -41,7 +41,7 @@ static cocos2d::Size designResolutionSize = cocos2d::Size(480, 320); Там ро
 <meta property="og:title" content="Розмір екрану :: Основи Cocos2d-x">
 <meta property="og:description" content="У попередніх постах було розказано, як створити дефолтну програму і з чого вона складається. Тепер можна переходити до написання власного проекту, але перед тим залишився ще один маленький нюанс — розмір екрану.
  Наша дефолтна програма працює у вікні розміром 480 на 320 пікселів. Цей розмір було вказано у файлі AppDelegate.cpp ось в такому рядку:
-static cocos2d::Size designResolutionSize = cocos2d::Size(480, 320); Там розробники Cococ2d-x щось перемудрили, тому поряд з цією змінною оголошені ще кілька інших розмірів." />
+static cocos2d::Size designResolutionSize = cocos2d::Size(480, 320); Розробники Cococ2d-x щось перемудрили, тому поряд з цією змінною оголошені ще кілька інших розмірів." />
 <meta property="og:url" content="https://beardog-ukr.github.io/cocos2dx-examples/post/screen-resolution-01/" />
 <meta property="og:site_name" content="Розмір екрану" />
 <meta property="og:image" content="https://beardog-ukr.github.io/cocos2dx-examples/">
@@ -156,9 +156,9 @@ static cocos2d::Size designResolutionSize = cocos2d::Size(480, 320); Там ро
   </figure>
 
 
-<p>Наша дефолтна програма працює у вікні розміром 480 на 320 пікселів. Цей розмір було вказано у файлі <em>AppDelegate.cpp</em> ось в такому рядку:</p>
+<p>Наша <a href="https://github.com/beardog-ukr/cocos2dx-examples/tree/master/examples/SmokeTest">дефолтна програма</a> працює у вікні розміром 480 на 320 пікселів. Цей розмір було вказано у файлі <em>AppDelegate.cpp</em> ось в такому рядку:</p>
 <pre><code>static cocos2d::Size designResolutionSize = cocos2d::Size(480, 320);
-</code></pre><p>Там розробники Cococ2d-x щось перемудрили, тому поряд з цією змінною оголошені ще кілька інших розмірів. Крім того, далі ці інші розміри нібито використовуються в якихось розрахунках, але насправді це все не важливо.</p>
+</code></pre><p>Розробники Cococ2d-x щось перемудрили, тому поряд з цією змінною оголошені ще кілька інших розмірів. Крім того, далі ці інші розміри нібито використовуються в якихось розрахунках, але насправді це все не важливо.</p>
 <p>Роботі з розміром екрану на мобільних пристроях (або при повноекранному запуску на десктопі) буде присвячено окремий пост пізніше. Поки що просто повірте у дві речі:</p>
 <ul>
 <li>щоб задати розмір вікна тестової програми на Linux чи Windows, досить вказати бажані цифри саме у <code>designResolutionSize</code>.</li>

@@ -126,6 +126,52 @@
   
   <div class="post on-list">
     <h1 class="post-title">
+      <a href="https://beardog-ukr.github.io/cocos2dx-examples/post/events-callbacks/">Обробка подій та колбеки</a></h1>
+    <div class="post-meta">
+      <span class="post-date">
+        2020-03-26
+      </span>
+      <span class="post-author">::
+        beardog-ukr</span>
+    </div>
+
+    
+    <span class="post-tags">
+      
+      #<a href="https://beardog-ukr.github.io/cocos2dx-examples/tags/event/">event</a>&nbsp;
+      
+      #<a href="https://beardog-ukr.github.io/cocos2dx-examples/tags/event-processing/">event processing</a>&nbsp;
+      
+      #<a href="https://beardog-ukr.github.io/cocos2dx-examples/tags/stdbind/">std::bind</a>&nbsp;
+      
+      #<a href="https://beardog-ukr.github.io/cocos2dx-examples/tags/cc_callback/">CC_CALLBACK</a>&nbsp;
+      
+    </span>
+    
+
+    
+
+    <div class="post-content">
+      
+      
+      У тій дефолній програмі, яку було створено у перших постах, залишився без пояснення ще один момент — це кнопка, за допомогою якої ця програма закривалась.
+Використання CC_CALLBACK_1 у MenuItemImage Сама програма, якщо пам'ятаєте, виглядала так:
+Якщо ви мишкою натискали на кнопку в правому нижньому куті, викликався ось такий метод, який припиняв роботу програми:
+void SmokeTestScene::menuCloseCallback(Ref *pSender) { // Close the cocos2d-x game scene and quit the application Director::getInstance()-&gt;end(); } Але чому цей колбек взагалі викликається?
+      
+      
+    </div>
+
+    
+    <div>
+      <a class="read-more button"
+        href="/cocos2dx-examples/post/events-callbacks/">Читати далі →</a>
+    </div>
+    
+  </div>
+  
+  <div class="post on-list">
+    <h1 class="post-title">
       <a href="https://beardog-ukr.github.io/cocos2dx-examples/post/static-img-practice-app/">Використання Sprite</a></h1>
     <div class="post-meta">
       <span class="post-date">
@@ -193,7 +239,7 @@ x змінюється по горизонталі зліва направо y �
       
       У попередніх постах було розказано, як створити дефолтну програму і з чого вона складається. Тепер можна переходити до написання власного проекту, але перед тим залишився ще один маленький нюанс — розмір екрану.
 Наша дефолтна програма працює у вікні розміром 480 на 320 пікселів. Цей розмір було вказано у файлі AppDelegate.cpp ось в такому рядку:
-static cocos2d::Size designResolutionSize = cocos2d::Size(480, 320); Там розробники Cococ2d-x щось перемудрили, тому поряд з цією змінною оголошені ще кілька інших розмірів.
+static cocos2d::Size designResolutionSize = cocos2d::Size(480, 320); Розробники Cococ2d-x щось перемудрили, тому поряд з цією змінною оголошені ще кілька інших розмірів.
       
       
     </div>
@@ -365,6 +411,43 @@ Scene Scene — це тло, контейнер, всередині якого �
     <div>
       <a class="read-more button"
         href="/cocos2dx-examples/post/first-steps/">Читати далі →</a>
+    </div>
+    
+  </div>
+  
+  <div class="post on-list">
+    <h1 class="post-title">
+      <a href="https://beardog-ukr.github.io/cocos2dx-examples/post/actions-animations/">Рух об'єктів: Action та Animation</a></h1>
+    <div class="post-meta">
+      <span class="post-date">
+        2020-03-21
+      </span>
+      <span class="post-author">::
+        beardog-ukr</span>
+    </div>
+
+    
+    <span class="post-tags">
+      
+      #<a href="https://beardog-ukr.github.io/cocos2dx-examples/tags/initial/">initial</a>&nbsp;
+      
+      #<a href="https://beardog-ukr.github.io/cocos2dx-examples/tags/installation/">installation</a>&nbsp;
+      
+    </span>
+    
+
+    
+
+    <div class="post-content">
+      
+      
+      
+    </div>
+
+    
+    <div>
+      <a class="read-more button"
+        href="/cocos2dx-examples/post/actions-animations/">Читати далі →</a>
     </div>
     
   </div>
