@@ -126,6 +126,48 @@
   
   <div class="post on-list">
     <h1 class="post-title">
+      <a href="https://beardog-ukr.github.io/cocos2dx-examples/post/keyboard-processing/">Обробка клавіатури</a></h1>
+    <div class="post-meta">
+      <span class="post-date">
+        2020-03-27
+      </span>
+      <span class="post-author">::
+        beardog-ukr</span>
+    </div>
+
+    
+    <span class="post-tags">
+      
+      #<a href="https://beardog-ukr.github.io/cocos2dx-examples/tags/keyboard-processing/">keyboard processing</a>&nbsp;
+      
+      #<a href="https://beardog-ukr.github.io/cocos2dx-examples/tags/cc_callback/">CC_CALLBACK</a>&nbsp;
+      
+    </span>
+    
+
+    
+
+    <div class="post-content">
+      
+      
+      Ще одним прикладом використання макросу CC_CALLBACK може бути робота з клавіатурою.
+Для того, щоб додати у програму можливість обробки клавіатури, в init сцени треба додати такий код:
+// keyboard processing EventListenerKeyboard* sceneKeyboardListener = EventListenerKeyboard::create(); sceneKeyboardListener-&gt;onKeyPressed = CC_CALLBACK_2(ActionsDemoScene::onKeyPressedScene, this); _eventDispatcher-&gt;addEventListenerWithSceneGraphPriority(sceneKeyboardListener, this); при цьому сама обробка натискання може виглядати так:
+void ActionsDemoScene::onKeyPressedScene(EventKeyboard::KeyCode keyCode, Event *event) { printf(&quot;%s: processing key %d pressed\n&quot;, __func__, (int)keyCode); if (EventKeyboard::KeyCode::KEY_A == keyCode) { printf(&quot;%s: key 'a' was pressed\n&quot;, __func__); } else { printf(&quot;%s: failed to process.
+      
+      
+    </div>
+
+    
+    <div>
+      <a class="read-more button"
+        href="/cocos2dx-examples/post/keyboard-processing/">Читати далі →</a>
+    </div>
+    
+  </div>
+  
+  <div class="post on-list">
+    <h1 class="post-title">
       <a href="https://beardog-ukr.github.io/cocos2dx-examples/post/events-callbacks/">Обробка подій та колбеки</a></h1>
     <div class="post-meta">
       <span class="post-date">
@@ -154,7 +196,7 @@
     <div class="post-content">
       
       
-      У тій дефолній програмі, яку було створено у перших постах, залишився без пояснення ще один момент — це кнопка, за допомогою якої ця програма закривалась.
+      У дефолній програмі, яку було створено у перших постах, залишився без пояснення ще один момент — це кнопка, за допомогою якої ця програма закривалась.
 Використання CC_CALLBACK_1 у MenuItemImage Сама програма, якщо пам'ятаєте, виглядала так:
 Якщо ви мишкою натискали на кнопку в правому нижньому куті, викликався ось такий метод, який припиняв роботу програми:
 void SmokeTestScene::menuCloseCallback(Ref *pSender) { // Close the cocos2d-x game scene and quit the application Director::getInstance()-&gt;end(); } Але чому цей колбек взагалі викликається?

@@ -17,7 +17,7 @@
       <pubDate>Thu, 26 Mar 2020 17:30:25 +0300</pubDate>
       
       <guid>https://beardog-ukr.github.io/cocos2dx-examples/post/events-callbacks/</guid>
-      <description>У тій дефолній програмі, яку було створено у перших постах, залишився без пояснення ще один момент — це кнопка, за допомогою якої ця програма закривалась.
+      <description>У дефолній програмі, яку було створено у перших постах, залишився без пояснення ще один момент — це кнопка, за допомогою якої ця програма закривалась.
 Використання CC_CALLBACK_1 у MenuItemImage Сама програма, якщо пам&#39;ятаєте, виглядала так:
  Якщо ви мишкою натискали на кнопку в правому нижньому куті, викликався ось такий метод, який припиняв роботу програми:
 void SmokeTestScene::menuCloseCallback(Ref *pSender) { // Close the cocos2d-x game scene and quit the application Director::getInstance()-&amp;gt;end(); } Але чому цей колбек взагалі викликається?</description>

@@ -6,7 +6,7 @@
   
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
-<meta name="description" content="У тій дефолній програмі, яку було створено у перших постах, залишився без пояснення ще один момент — це кнопка, за допомогою якої ця програма закривалась.
+<meta name="description" content="У дефолній програмі, яку було створено у перших постах, залишився без пояснення ще один момент — це кнопка, за допомогою якої ця програма закривалась.
 Використання CC_CALLBACK_1 у MenuItemImage Сама програма, якщо пам&#39;ятаєте, виглядала так:
  Якщо ви мишкою натискали на кнопку в правому нижньому куті, викликався ось такий метод, який припиняв роботу програми:
 void SmokeTestScene::menuCloseCallback(Ref *pSender) { // Close the cocos2d-x game scene and quit the application Director::getInstance()-&amp;gt;end(); } Але чому цей колбек взагалі викликається?" />
@@ -40,7 +40,7 @@ void SmokeTestScene::menuCloseCallback(Ref *pSender) { // Close the cocos2d-x ga
 <meta property="og:locale" content="uk" />
 <meta property="og:type" content="article" />
 <meta property="og:title" content="Обробка подій та колбеки :: Основи Cocos2d-x">
-<meta property="og:description" content="У тій дефолній програмі, яку було створено у перших постах, залишився без пояснення ще один момент — це кнопка, за допомогою якої ця програма закривалась.
+<meta property="og:description" content="У дефолній програмі, яку було створено у перших постах, залишився без пояснення ще один момент — це кнопка, за допомогою якої ця програма закривалась.
 Використання CC_CALLBACK_1 у MenuItemImage Сама програма, якщо пам&#39;ятаєте, виглядала так:
  Якщо ви мишкою натискали на кнопку в правому нижньому куті, викликався ось такий метод, який припиняв роботу програми:
 void SmokeTestScene::menuCloseCallback(Ref *pSender) { // Close the cocos2d-x game scene and quit the application Director::getInstance()-&amp;gt;end(); } Але чому цей колбек взагалі викликається?" />
@@ -154,7 +154,7 @@ void SmokeTestScene::menuCloseCallback(Ref *pSender) { // Close the cocos2d-x ga
   
 
   <div class="post-content"><div>
-        <p>У тій дефолній програмі, яку було створено у <a href="/first-steps.md">перших постах</a>, залишився без пояснення ще один момент — це кнопка, за допомогою якої ця програма закривалась.</p>
+        <p>У дефолній програмі, яку було створено у <a href="/first-steps.md">перших постах</a>, залишився без пояснення ще один момент — це кнопка, за допомогою якої ця програма закривалась.</p>
 <h1 id="використання-cc_callback_1-у-menuitemimage">Використання CC_CALLBACK_1 у MenuItemImage<a href="#використання-cc_callback_1-у-menuitemimage" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h1>
 <p>Сама програма, якщо пам'ятаєте, виглядала так:</p>
 
@@ -196,7 +196,7 @@ void SmokeTestScene::menuCloseCallback(Ref *pSender) { // Close the cocos2d-x ga
 </span><span style="color:#75715e"></span><span style="color:#66d9ef">auto</span> menu <span style="color:#f92672">=</span> Menu<span style="color:#f92672">::</span>create(closeItem, NULL);
 menu<span style="color:#f92672">-&gt;</span>setPosition(Vec2<span style="color:#f92672">::</span>ZERO);
 <span style="color:#66d9ef">this</span><span style="color:#f92672">-&gt;</span>addChild(menu, <span style="color:#ae81ff">1</span>);
-</code></pre></div><p>Більшість цього коду нагадує створення складного спрайту, яке вже розглядали <a href="static-img-practice-app.md">раніше</a>. Але є один новий момент: використання макросу <code>CC_CALLBACK_1</code> для того, щоб прив'язати метод, що буде обробляти колбек, до об'єкту меню.</p>
+</code></pre></div><p>Більшість цього коду нагадує конструювання складного спрайту, яке ми вже розглядали <a href="static-img-practice-app.md">раніше</a>. Але є один новий момент: використання макросу <code>CC_CALLBACK_1</code> для того, щоб прив'язати метод, що буде обробляти колбек, до об'єкту меню.</p>
 <p>Макроси <code>CC_CALLBACK_*</code> у Cocos2d зустрічаються дуже часто, а реалізовані вони за допомогою магії C++11, приблизно <a href="https://github.com/cocos2d/cocos2d-x/blob/v4/cocos/base/ccMacros.h">так</a>:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#75715e">// new callbacks based on C++11
 </span><span style="color:#75715e"></span><span style="color:#75715e">#define CC_CALLBACK_0(__selector__,__target__, ...) std::bind(&amp;__selector__,__target__, ##__VA_ARGS__)
@@ -213,7 +213,7 @@ menu<span style="color:#f92672">-&gt;</span>setPosition(Vec2<span style="color:#
 <li>об'єкт, якому належить цей метод.</li>
 </ul>
 <p>Число у макросі <code>CC_CALBACK_*</code> означає кількість аргументів, які отримає функція-колбек.</p>
-<p>Результатом є <code>std::function</code>, сворений <a href="https://en.cppreference.com/w/cpp/utility/functional/bind">std::bind</a>. Об'єкт Cocos2d, який откримав такий колбек, збереже його і викличе, коли буде потрібо.</p>
+<p>Результатом є <code>std::function</code>, сворений <a href="https://en.cppreference.com/w/cpp/utility/functional/bind">std::bind</a>. Об'єкт Cocos2d, який откримав такий колбек, збереже його і викличе, коли буде потрібно.</p>
 
       </div></div>
   
@@ -224,6 +224,13 @@ menu<span style="color:#f92672">-&gt;</span>setPosition(Vec2<span style="color:#
       <hr />
     </div>
     <div class="pagination__buttons">
+      
+      <span class="button previous">
+        <a href="https://beardog-ukr.github.io/cocos2dx-examples/post/advanced-callbacks/">
+          <span class="button__icon">←</span>
+          <span class="button__text">Складніша робота з CC_CALBACK</span>
+        </a>
+      </span>
       
       
       <span class="button next">

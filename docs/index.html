@@ -129,6 +129,205 @@
   
   <div class="post on-list">
     <h1 class="post-title">
+      <a href="https://beardog-ukr.github.io/cocos2dx-examples/post/basic-sequence/">Послідовності</a></h1>
+    <div class="post-meta">
+      <span class="post-date">
+        2020-03-29
+      </span>
+      <span class="post-author">::
+        beardog-ukr</span>
+    </div>
+
+    
+    <span class="post-tags">
+      
+      #<a href="https://beardog-ukr.github.io/cocos2dx-examples/tags/sequence/">Sequence</a>&nbsp;
+      
+      #<a href="https://beardog-ukr.github.io/cocos2dx-examples/tags/action/">Action</a>&nbsp;
+      
+    </span>
+    
+
+    
+
+    <div class="post-content">
+      
+      
+      Якщо вам потрібно виконати кілька акцій одну за одною, на допомогу прийде клас Sequence.
+Наприклад, синій корабель за помовчанням створюється “носом доверху”. Щоб зобразити його “переліт” направо, спочатку треба зробити поворот на 90 градусів, а вже потім переміщувати.
+Для того, щоб це спрацювало, треба створити акції RotateTo та MoveTo, а потім об'єднати їх у послідовність:
+RotateBy* rotateBy = RotateBy::create(2, 90); MoveBy* moveBy = MoveBy::create(4, Vec2(160,0)); Sequence* seq = Sequence::create(rotateBy, moveBy, nullptr); blueShip-&gt;runAction(seq); Фабричний метод, який створює Sequence, може отримувати будь-яке число вказівників на об'єкти-нащадки Action, а останнім обов'язково має бути nullptr.
+      
+      
+    </div>
+
+    
+    <div>
+      <a class="read-more button"
+        href="/cocos2dx-examples/post/basic-sequence/">Читати далі →</a>
+    </div>
+    
+  </div>
+  
+  <div class="post on-list">
+    <h1 class="post-title">
+      <a href="https://beardog-ukr.github.io/cocos2dx-examples/post/basic-animations/">Анімація</a></h1>
+    <div class="post-meta">
+      <span class="post-date">
+        2020-03-29
+      </span>
+      <span class="post-author">::
+        beardog-ukr</span>
+    </div>
+
+    
+    <span class="post-tags">
+      
+      #<a href="https://beardog-ukr.github.io/cocos2dx-examples/tags/animation/">Animation</a>&nbsp;
+      
+      #<a href="https://beardog-ukr.github.io/cocos2dx-examples/tags/action/">Action</a>&nbsp;
+      
+    </span>
+    
+
+    
+
+    <div class="post-content">
+      
+      
+      
+    </div>
+
+    
+    <div>
+      <a class="read-more button"
+        href="/cocos2dx-examples/post/basic-animations/">Читати далі →</a>
+    </div>
+    
+  </div>
+  
+  <div class="post on-list">
+    <h1 class="post-title">
+      <a href="https://beardog-ukr.github.io/cocos2dx-examples/post/basic-actions/">Рух та інші перетворення об'єктів</a></h1>
+    <div class="post-meta">
+      <span class="post-date">
+        2020-03-29
+      </span>
+      
+    </div>
+
+    
+    <span class="post-tags">
+      
+      #<a href="https://beardog-ukr.github.io/cocos2dx-examples/tags/action/">Action</a>&nbsp;
+      
+      #<a href="https://beardog-ukr.github.io/cocos2dx-examples/tags/moveto/">MoveTo</a>&nbsp;
+      
+    </span>
+    
+
+    
+
+    <div class="post-content">
+      
+      
+      Ми вже вміємо обробляти події клавіатури або натискання на кнопки. Тепер треба починати реагувати на ці події та щось зробити з об'єктом.
+Наприклад, ви хочете, щоб після натиснення кнопки спрайт перемістився з одного місця екрану до іншого. Для того, щоб це виглядало саме як пересування, а не телепортація, координати треба змінювати дуже маленькими, але частими порціями, десятки разів на секунду. Вручну це програмувати незручно, тому у Cococ2d зробили клас Action та його нащадки.
+      
+      
+    </div>
+
+    
+    <div>
+      <a class="read-more button"
+        href="/cocos2dx-examples/post/basic-actions/">Читати далі →</a>
+    </div>
+    
+  </div>
+  
+  <div class="post on-list">
+    <h1 class="post-title">
+      <a href="https://beardog-ukr.github.io/cocos2dx-examples/post/keyboard-processing/">Обробка клавіатури</a></h1>
+    <div class="post-meta">
+      <span class="post-date">
+        2020-03-27
+      </span>
+      <span class="post-author">::
+        beardog-ukr</span>
+    </div>
+
+    
+    <span class="post-tags">
+      
+      #<a href="https://beardog-ukr.github.io/cocos2dx-examples/tags/keyboard-processing/">keyboard processing</a>&nbsp;
+      
+      #<a href="https://beardog-ukr.github.io/cocos2dx-examples/tags/cc_callback/">CC_CALLBACK</a>&nbsp;
+      
+    </span>
+    
+
+    
+
+    <div class="post-content">
+      
+      
+      Ще одним прикладом використання макросу CC_CALLBACK може бути робота з клавіатурою.
+Для того, щоб додати у програму можливість обробки клавіатури, в init сцени треба додати такий код:
+// keyboard processing EventListenerKeyboard* sceneKeyboardListener = EventListenerKeyboard::create(); sceneKeyboardListener-&gt;onKeyPressed = CC_CALLBACK_2(ActionsDemoScene::onKeyPressedScene, this); _eventDispatcher-&gt;addEventListenerWithSceneGraphPriority(sceneKeyboardListener, this); при цьому сама обробка натискання може виглядати так:
+void ActionsDemoScene::onKeyPressedScene(EventKeyboard::KeyCode keyCode, Event *event) { printf(&quot;%s: processing key %d pressed\n&quot;, __func__, (int)keyCode); if (EventKeyboard::KeyCode::KEY_A == keyCode) { printf(&quot;%s: key 'a' was pressed\n&quot;, __func__); } else { printf(&quot;%s: failed to process.
+      
+      
+    </div>
+
+    
+    <div>
+      <a class="read-more button"
+        href="/cocos2dx-examples/post/keyboard-processing/">Читати далі →</a>
+    </div>
+    
+  </div>
+  
+  <div class="post on-list">
+    <h1 class="post-title">
+      <a href="https://beardog-ukr.github.io/cocos2dx-examples/post/advanced-callbacks/">Складніша робота з CC_CALBACK</a></h1>
+    <div class="post-meta">
+      <span class="post-date">
+        2020-03-27
+      </span>
+      <span class="post-author">::
+        beardog-ukr</span>
+    </div>
+
+    
+    <span class="post-tags">
+      
+      #<a href="https://beardog-ukr.github.io/cocos2dx-examples/tags/callbacks/">callbacks</a>&nbsp;
+      
+      #<a href="https://beardog-ukr.github.io/cocos2dx-examples/tags/events/">events</a>&nbsp;
+      
+      #<a href="https://beardog-ukr.github.io/cocos2dx-examples/tags/cc_calback/">CC_CALBACK</a>&nbsp;
+      
+    </span>
+    
+
+    
+
+    <div class="post-content">
+      
+      
+      
+    </div>
+
+    
+    <div>
+      <a class="read-more button"
+        href="/cocos2dx-examples/post/advanced-callbacks/">Читати далі →</a>
+    </div>
+    
+  </div>
+  
+  <div class="post on-list">
+    <h1 class="post-title">
       <a href="https://beardog-ukr.github.io/cocos2dx-examples/post/events-callbacks/">Обробка подій та колбеки</a></h1>
     <div class="post-meta">
       <span class="post-date">
@@ -157,7 +356,7 @@
     <div class="post-content">
       
       
-      У тій дефолній програмі, яку було створено у перших постах, залишився без пояснення ще один момент — це кнопка, за допомогою якої ця програма закривалась.
+      У дефолній програмі, яку було створено у перших постах, залишився без пояснення ще один момент — це кнопка, за допомогою якої ця програма закривалась.
 Використання CC_CALLBACK_1 у MenuItemImage Сама програма, якщо пам'ятаєте, виглядала так:
 Якщо ви мишкою натискали на кнопку в правому нижньому куті, викликався ось такий метод, який припиняв роботу програми:
 void SmokeTestScene::menuCloseCallback(Ref *pSender) { // Close the cocos2d-x game scene and quit the application Director::getInstance()-&gt;end(); } Але чому цей колбек взагалі викликається?
@@ -210,47 +409,6 @@ x змінюється по горизонталі зліва направо y �
     <div>
       <a class="read-more button"
         href="/cocos2dx-examples/post/static-img-practice-app/">Читати далі →</a>
-    </div>
-    
-  </div>
-  
-  <div class="post on-list">
-    <h1 class="post-title">
-      <a href="https://beardog-ukr.github.io/cocos2dx-examples/post/screen-resolution-01/">Розмір екрану</a></h1>
-    <div class="post-meta">
-      <span class="post-date">
-        2020-03-23
-      </span>
-      <span class="post-author">::
-        beardog-ukr</span>
-    </div>
-
-    
-    <span class="post-tags">
-      
-      #<a href="https://beardog-ukr.github.io/cocos2dx-examples/tags/design-resolution/">design resolution</a>&nbsp;
-      
-      #<a href="https://beardog-ukr.github.io/cocos2dx-examples/tags/smoke-test-project/">Smoke Test Project</a>&nbsp;
-      
-    </span>
-    
-
-    
-
-    <div class="post-content">
-      
-      
-      У попередніх постах було розказано, як створити дефолтну програму і з чого вона складається. Тепер можна переходити до написання власного проекту, але перед тим залишився ще один маленький нюанс — розмір екрану.
-Наша дефолтна програма працює у вікні розміром 480 на 320 пікселів. Цей розмір було вказано у файлі AppDelegate.cpp ось в такому рядку:
-static cocos2d::Size designResolutionSize = cocos2d::Size(480, 320); Розробники Cococ2d-x щось перемудрили, тому поряд з цією змінною оголошені ще кілька інших розмірів.
-      
-      
-    </div>
-
-    
-    <div>
-      <a class="read-more button"
-        href="/cocos2dx-examples/post/screen-resolution-01/">Читати далі →</a>
     </div>
     
   </div>
@@ -377,159 +535,16 @@ Scene Scene — це тло, контейнер, всередині якого �
     
   </div>
   
-  <div class="post on-list">
-    <h1 class="post-title">
-      <a href="https://beardog-ukr.github.io/cocos2dx-examples/post/first-steps/">Знайомство</a></h1>
-    <div class="post-meta">
-      <span class="post-date">
-        2020-03-21
-      </span>
-      <span class="post-author">::
-        beardog-ukr</span>
-    </div>
-
-    
-    <span class="post-tags">
-      
-      #<a href="https://beardog-ukr.github.io/cocos2dx-examples/tags/initial/">initial</a>&nbsp;
-      
-      #<a href="https://beardog-ukr.github.io/cocos2dx-examples/tags/installation/">installation</a>&nbsp;
-      
-    </span>
-    
-
-    
-
-    <div class="post-content">
-      
-      
-      Cocos2d-x — це фреймворк для створення кросплатформенних 2d-ігор на C++. З ним можна створювати відносно прості ігри типу Flappy Bird abo Fruit Ninja, а також більш складні сайд-скроллери та навіть стратегії.
-Перебування на карантині можна розглядати як привід вивчити щось нове, тому я спробую зробити серію постів, що описують основи цього програмного каркасу.
-Встановлення Процес встановлення непогано описаний для різних платформ в офіційній документації. Також відносно свіжі інструкції можна знайти у цьому блозі:linux або Windows.
-      
-      
-    </div>
-
-    
-    <div>
-      <a class="read-more button"
-        href="/cocos2dx-examples/post/first-steps/">Читати далі →</a>
-    </div>
-    
-  </div>
-  
-  <div class="post on-list">
-    <h1 class="post-title">
-      <a href="https://beardog-ukr.github.io/cocos2dx-examples/post/actions-animations/">Рух об'єктів: Action та Animation</a></h1>
-    <div class="post-meta">
-      <span class="post-date">
-        2020-03-21
-      </span>
-      <span class="post-author">::
-        beardog-ukr</span>
-    </div>
-
-    
-    <span class="post-tags">
-      
-      #<a href="https://beardog-ukr.github.io/cocos2dx-examples/tags/initial/">initial</a>&nbsp;
-      
-      #<a href="https://beardog-ukr.github.io/cocos2dx-examples/tags/installation/">installation</a>&nbsp;
-      
-    </span>
-    
-
-    
-
-    <div class="post-content">
-      
-      
-      
-    </div>
-
-    
-    <div>
-      <a class="read-more button"
-        href="/cocos2dx-examples/post/actions-animations/">Читати далі →</a>
-    </div>
-    
-  </div>
-  
-  <div class="post on-list">
-    <h1 class="post-title">
-      <a href="https://beardog-ukr.github.io/cocos2dx-examples/post/basic-actions/">Action: move sprite over screen</a></h1>
-    <div class="post-meta">
-      <span class="post-date">
-        2019-09-21
-      </span>
-      
-    </div>
-
-    
-    <span class="post-tags">
-      
-      #<a href="https://beardog-ukr.github.io/cocos2dx-examples/tags/action/">Action</a>&nbsp;
-      
-      #<a href="https://beardog-ukr.github.io/cocos2dx-examples/tags/keyboard-processing/">keyboard processing</a>&nbsp;
-      
-    </span>
-    
-
-    
-
-    <div class="post-content">
-      
-      
-      Use actions to move some sprites over the screeen
-Keyboard processing First, initialize keyboard processing with following code
-auto sceneKeyboardListener = EventListenerKeyboard::create(); sceneKeyboardListener-&gt;onKeyPressed = CC_CALLBACK_2(MainGameScene::onKeyPressedScene, this); _eventDispatcher-&gt;addEventListenerWithSceneGraphPriority(sceneKeyboardListener, this); then process it like
-void MainGameScene::onKeyPressedScene(EventKeyboard::KeyCode keyCode, Event *event) { log(&quot;%s: processing key %d pressed&quot;, <strong>func</strong>, (int)keyCode); switch (keyCode) { case EventKeyboard::KeyCode::KEY_UP_ARROW: do_something_for_up_arrow(); break; // more options here default: log(&quot;%s: key %d will be ignored&quot;, <strong>func</strong>, (int)keyCode); } } Action class To be done.
-      
-      
-    </div>
-
-    
-    <div>
-      <a class="read-more button"
-        href="/cocos2dx-examples/post/basic-actions/">Читати далі →</a>
-    </div>
-    
-  </div>
-  
-  <div class="post on-list">
-    <h1 class="post-title">
-      <a href="https://beardog-ukr.github.io/cocos2dx-examples/post/hello/">Hello Friend</a></h1>
-    <div class="post-meta">
-      <span class="post-date">
-        2019-01-25
-      </span>
-      <span class="post-author">::
-        Lorem Ipsum</span>
-    </div>
-
-    
-
-    
-    <img src="https://beardog-ukr.github.io/cocos2dx-examples/hello.jpg" class="post-cover" />
-    
-
-    <div class="post-content">
-      
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam nec interdum metus. Aenean rutrum ligula sodales ex auctor, sed tempus dui mollis. Curabitur ipsum dui, aliquet nec commodo at, tristique eget ante.
-      
-    </div>
-
-    
-    <div>
-      <a class="read-more button"
-        href="/cocos2dx-examples/post/hello/">Читати далі →</a>
-    </div>
-    
-  </div>
-  
   <div class="pagination">
   <div class="pagination__buttons">
     
+    
+      <span class="button next">
+        <a href="/cocos2dx-examples/page/2/">
+          <span class="button__text">Older posts</span>
+          <span class="button__icon">→</span>
+        </a>
+      </span>
     
   </div>
 </div>

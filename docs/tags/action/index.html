@@ -126,20 +126,21 @@
   
   <div class="post on-list">
     <h1 class="post-title">
-      <a href="https://beardog-ukr.github.io/cocos2dx-examples/post/basic-actions/">Action: move sprite over screen</a></h1>
+      <a href="https://beardog-ukr.github.io/cocos2dx-examples/post/basic-sequence/">Послідовності</a></h1>
     <div class="post-meta">
       <span class="post-date">
-        2019-09-21
+        2020-03-29
       </span>
-      
+      <span class="post-author">::
+        beardog-ukr</span>
     </div>
 
     
     <span class="post-tags">
       
-      #<a href="https://beardog-ukr.github.io/cocos2dx-examples/tags/action/">Action</a>&nbsp;
+      #<a href="https://beardog-ukr.github.io/cocos2dx-examples/tags/sequence/">Sequence</a>&nbsp;
       
-      #<a href="https://beardog-ukr.github.io/cocos2dx-examples/tags/keyboard-processing/">keyboard processing</a>&nbsp;
+      #<a href="https://beardog-ukr.github.io/cocos2dx-examples/tags/action/">Action</a>&nbsp;
       
     </span>
     
@@ -149,10 +150,86 @@
     <div class="post-content">
       
       
-      Use actions to move some sprites over the screeen
-Keyboard processing First, initialize keyboard processing with following code
-auto sceneKeyboardListener = EventListenerKeyboard::create(); sceneKeyboardListener-&gt;onKeyPressed = CC_CALLBACK_2(MainGameScene::onKeyPressedScene, this); _eventDispatcher-&gt;addEventListenerWithSceneGraphPriority(sceneKeyboardListener, this); then process it like
-void MainGameScene::onKeyPressedScene(EventKeyboard::KeyCode keyCode, Event *event) { log(&quot;%s: processing key %d pressed&quot;, <strong>func</strong>, (int)keyCode); switch (keyCode) { case EventKeyboard::KeyCode::KEY_UP_ARROW: do_something_for_up_arrow(); break; // more options here default: log(&quot;%s: key %d will be ignored&quot;, <strong>func</strong>, (int)keyCode); } } Action class To be done.
+      Якщо вам потрібно виконати кілька акцій одну за одною, на допомогу прийде клас Sequence.
+Наприклад, синій корабель за помовчанням створюється “носом доверху”. Щоб зобразити його “переліт” направо, спочатку треба зробити поворот на 90 градусів, а вже потім переміщувати.
+Для того, щоб це спрацювало, треба створити акції RotateTo та MoveTo, а потім об'єднати їх у послідовність:
+RotateBy* rotateBy = RotateBy::create(2, 90); MoveBy* moveBy = MoveBy::create(4, Vec2(160,0)); Sequence* seq = Sequence::create(rotateBy, moveBy, nullptr); blueShip-&gt;runAction(seq); Фабричний метод, який створює Sequence, може отримувати будь-яке число вказівників на об'єкти-нащадки Action, а останнім обов'язково має бути nullptr.
+      
+      
+    </div>
+
+    
+    <div>
+      <a class="read-more button"
+        href="/cocos2dx-examples/post/basic-sequence/">Читати далі →</a>
+    </div>
+    
+  </div>
+  
+  <div class="post on-list">
+    <h1 class="post-title">
+      <a href="https://beardog-ukr.github.io/cocos2dx-examples/post/basic-animations/">Анімація</a></h1>
+    <div class="post-meta">
+      <span class="post-date">
+        2020-03-29
+      </span>
+      <span class="post-author">::
+        beardog-ukr</span>
+    </div>
+
+    
+    <span class="post-tags">
+      
+      #<a href="https://beardog-ukr.github.io/cocos2dx-examples/tags/animation/">Animation</a>&nbsp;
+      
+      #<a href="https://beardog-ukr.github.io/cocos2dx-examples/tags/action/">Action</a>&nbsp;
+      
+    </span>
+    
+
+    
+
+    <div class="post-content">
+      
+      
+      
+    </div>
+
+    
+    <div>
+      <a class="read-more button"
+        href="/cocos2dx-examples/post/basic-animations/">Читати далі →</a>
+    </div>
+    
+  </div>
+  
+  <div class="post on-list">
+    <h1 class="post-title">
+      <a href="https://beardog-ukr.github.io/cocos2dx-examples/post/basic-actions/">Рух та інші перетворення об'єктів</a></h1>
+    <div class="post-meta">
+      <span class="post-date">
+        2020-03-29
+      </span>
+      
+    </div>
+
+    
+    <span class="post-tags">
+      
+      #<a href="https://beardog-ukr.github.io/cocos2dx-examples/tags/action/">Action</a>&nbsp;
+      
+      #<a href="https://beardog-ukr.github.io/cocos2dx-examples/tags/moveto/">MoveTo</a>&nbsp;
+      
+    </span>
+    
+
+    
+
+    <div class="post-content">
+      
+      
+      Ми вже вміємо обробляти події клавіатури або натискання на кнопки. Тепер треба починати реагувати на ці події та щось зробити з об'єктом.
+Наприклад, ви хочете, щоб після натиснення кнопки спрайт перемістився з одного місця екрану до іншого. Для того, щоб це виглядало саме як пересування, а не телепортація, координати треба змінювати дуже маленькими, але частими порціями, десятки разів на секунду. Вручну це програмувати незручно, тому у Cococ2d зробили клас Action та його нащадки.
       
       
     </div>

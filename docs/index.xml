@@ -12,12 +12,66 @@
     
     
     <item>
+      <title>Послідовності</title>
+      <link>https://beardog-ukr.github.io/cocos2dx-examples/post/basic-sequence/</link>
+      <pubDate>Sun, 29 Mar 2020 21:30:25 +0300</pubDate>
+      
+      <guid>https://beardog-ukr.github.io/cocos2dx-examples/post/basic-sequence/</guid>
+      <description>Якщо вам потрібно виконати кілька акцій одну за одною, на допомогу прийде клас Sequence.
+Наприклад, синій корабель за помовчанням створюється &amp;ldquo;носом доверху&amp;rdquo;. Щоб зобразити його &amp;ldquo;переліт&amp;rdquo; направо, спочатку треба зробити поворот на 90 градусів, а вже потім переміщувати.
+Для того, щоб це спрацювало, треба створити акції RotateTo та MoveTo, а потім об&#39;єднати їх у послідовність:
+RotateBy* rotateBy = RotateBy::create(2, 90); MoveBy* moveBy = MoveBy::create(4, Vec2(160,0)); Sequence* seq = Sequence::create(rotateBy, moveBy, nullptr); blueShip-&amp;gt;runAction(seq); Фабричний метод, який створює Sequence, може отримувати будь-яке число вказівників на об&#39;єкти-нащадки Action, а останнім обов&#39;язково має бути nullptr.</description>
+    </item>
+    
+    <item>
+      <title>Анімація</title>
+      <link>https://beardog-ukr.github.io/cocos2dx-examples/post/basic-animations/</link>
+      <pubDate>Sun, 29 Mar 2020 17:30:25 +0300</pubDate>
+      
+      <guid>https://beardog-ukr.github.io/cocos2dx-examples/post/basic-animations/</guid>
+      <description>Ще одним способом створення &amp;ldquo;живого&amp;rdquo; об&#39;єкту є анімація. Художники малюють ряд кадрів, а Cocos2d їх послідовно показує, використовуючи клас Animation. Робота з ним схожа на інші акції, хоча сам клас має трошки інше походження.
+Для прикладу візьмемо анімацію атаки скелету з безкоштовного паку. Ось кадри:
+ А так має виглядати результат:  https://github.com/cocos2d/cocos2d-x/blob/v4/cocos/base/ccMacros.h</description>
+    </item>
+    
+    <item>
+      <title>Рух та інші перетворення об&#39;єктів</title>
+      <link>https://beardog-ukr.github.io/cocos2dx-examples/post/basic-actions/</link>
+      <pubDate>Sun, 29 Mar 2020 15:55:25 +0300</pubDate>
+      
+      <guid>https://beardog-ukr.github.io/cocos2dx-examples/post/basic-actions/</guid>
+      <description>Ми вже вміємо обробляти події клавіатури або натискання на кнопки. Тепер треба починати реагувати на ці події та щось зробити з об&#39;єктом.
+Наприклад, ви хочете, щоб після натиснення кнопки спрайт перемістився з одного місця екрану до іншого. Для того, щоб це виглядало саме як пересування, а не телепортація, координати треба змінювати дуже маленькими, але частими порціями, десятки разів на секунду. Вручну це програмувати незручно, тому у Cococ2d зробили клас Action та його нащадки.</description>
+    </item>
+    
+    <item>
+      <title>Обробка клавіатури</title>
+      <link>https://beardog-ukr.github.io/cocos2dx-examples/post/keyboard-processing/</link>
+      <pubDate>Fri, 27 Mar 2020 19:30:25 +0300</pubDate>
+      
+      <guid>https://beardog-ukr.github.io/cocos2dx-examples/post/keyboard-processing/</guid>
+      <description>Ще одним прикладом використання макросу CC_CALLBACK може бути робота з клавіатурою.
+Для того, щоб додати у програму можливість обробки клавіатури, в init сцени треба додати такий код:
+// keyboard processing EventListenerKeyboard* sceneKeyboardListener = EventListenerKeyboard::create(); sceneKeyboardListener-&amp;gt;onKeyPressed = CC_CALLBACK_2(ActionsDemoScene::onKeyPressedScene, this); _eventDispatcher-&amp;gt;addEventListenerWithSceneGraphPriority(sceneKeyboardListener, this); при цьому сама обробка натискання може виглядати так:
+void ActionsDemoScene::onKeyPressedScene(EventKeyboard::KeyCode keyCode, Event *event) { printf(&amp;#34;%s: processing key %d pressed\n&amp;#34;, __func__, (int)keyCode); if (EventKeyboard::KeyCode::KEY_A == keyCode) { printf(&amp;#34;%s: key &amp;#39;a&amp;#39; was pressed\n&amp;#34;, __func__); } else { printf(&amp;#34;%s: failed to process.</description>
+    </item>
+    
+    <item>
+      <title>Складніша робота з CC_CALBACK</title>
+      <link>https://beardog-ukr.github.io/cocos2dx-examples/post/advanced-callbacks/</link>
+      <pubDate>Fri, 27 Mar 2020 13:30:25 +0300</pubDate>
+      
+      <guid>https://beardog-ukr.github.io/cocos2dx-examples/post/advanced-callbacks/</guid>
+      <description>https://evolutionarygames.itch.io/interface-elements-mobile-metallic</description>
+    </item>
+    
+    <item>
       <title>Обробка подій та колбеки</title>
       <link>https://beardog-ukr.github.io/cocos2dx-examples/post/events-callbacks/</link>
       <pubDate>Thu, 26 Mar 2020 17:30:25 +0300</pubDate>
       
       <guid>https://beardog-ukr.github.io/cocos2dx-examples/post/events-callbacks/</guid>
-      <description>У тій дефолній програмі, яку було створено у перших постах, залишився без пояснення ще один момент — це кнопка, за допомогою якої ця програма закривалась.
+      <description>У дефолній програмі, яку було створено у перших постах, залишився без пояснення ще один момент — це кнопка, за допомогою якої ця програма закривалась.
 Використання CC_CALLBACK_1 у MenuItemImage Сама програма, якщо пам&#39;ятаєте, виглядала так:
  Якщо ви мишкою натискали на кнопку в правому нижньому куті, викликався ось такий метод, який припиняв роботу програми:
 void SmokeTestScene::menuCloseCallback(Ref *pSender) { // Close the cocos2d-x game scene and quit the application Director::getInstance()-&amp;gt;end(); } Але чому цей колбек взагалі викликається?</description>
@@ -32,17 +86,6 @@ void SmokeTestScene::menuCloseCallback(Ref *pSender) { // Close the cocos2d-x ga
       <description>У цьому пості ми спробуємо створити першу власноруч написану програму. Поки що вона не буде нічого робити, ми просто візьмемо кілька зображеннь космічних кораблів з безкоштовного набору та покажемо їх на екрані. Основна мета — навчитись працювати з класом Sprite.
 Координати та опорна точка Cocos2d використовує &amp;ldquo;шкільну&amp;rdquo; систему координат:
  x змінюється по горизонталі зліва направо y змінюється по вертикалі знизу вверх.  Центр системи координат знаходиться в опорній точці (anchor point).</description>
-    </item>
-    
-    <item>
-      <title>Розмір екрану</title>
-      <link>https://beardog-ukr.github.io/cocos2dx-examples/post/screen-resolution-01/</link>
-      <pubDate>Mon, 23 Mar 2020 22:30:25 +0300</pubDate>
-      
-      <guid>https://beardog-ukr.github.io/cocos2dx-examples/post/screen-resolution-01/</guid>
-      <description>У попередніх постах було розказано, як створити дефолтну програму і з чого вона складається. Тепер можна переходити до написання власного проекту, але перед тим залишився ще один маленький нюанс — розмір екрану.
- Наша дефолтна програма працює у вікні розміром 480 на 320 пікселів. Цей розмір було вказано у файлі AppDelegate.cpp ось в такому рядку:
-static cocos2d::Size designResolutionSize = cocos2d::Size(480, 320); Розробники Cococ2d-x щось перемудрили, тому поряд з цією змінною оголошені ще кілька інших розмірів.</description>
     </item>
     
     <item>
@@ -89,24 +132,16 @@ Scene Scene — це тло, контейнер, всередині якого �
     </item>
     
     <item>
-      <title>Рух об&#39;єктів: Action та Animation</title>
-      <link>https://beardog-ukr.github.io/cocos2dx-examples/post/actions-animations/</link>
-      <pubDate>Sat, 21 Mar 2020 17:30:25 +0300</pubDate>
+      <title>Корисні поради по imagemagick</title>
+      <link>https://beardog-ukr.github.io/cocos2dx-examples/post/useful-imagemagick/</link>
+      <pubDate>Sun, 29 Sep 2019 04:25:25 +0300</pubDate>
       
-      <guid>https://beardog-ukr.github.io/cocos2dx-examples/post/actions-animations/</guid>
-      <description>https://github.com/cocos2d/cocos2d-x/blob/v4/cocos/base/ccMacros.h</description>
-    </item>
-    
-    <item>
-      <title>Action: move sprite over screen</title>
-      <link>https://beardog-ukr.github.io/cocos2dx-examples/post/basic-actions/</link>
-      <pubDate>Sat, 21 Sep 2019 15:55:25 +0300</pubDate>
-      
-      <guid>https://beardog-ukr.github.io/cocos2dx-examples/post/basic-actions/</guid>
-      <description>Use actions to move some sprites over the screeen
-Keyboard processing First, initialize keyboard processing with following code
- auto sceneKeyboardListener = EventListenerKeyboard::create(); sceneKeyboardListener-&amp;gt;onKeyPressed = CC_CALLBACK_2(MainGameScene::onKeyPressedScene, this); _eventDispatcher-&amp;gt;addEventListenerWithSceneGraphPriority(sceneKeyboardListener, this); then process it like
-void MainGameScene::onKeyPressedScene(EventKeyboard::KeyCode keyCode, Event *event) { log(&amp;quot;%s: processing key %d pressed&amp;quot;, __func__, (int)keyCode); switch (keyCode) { case EventKeyboard::KeyCode::KEY_UP_ARROW: do_something_for_up_arrow(); break; // more options here default: log(&amp;quot;%s: key %d will be ignored&amp;quot;, __func__, (int)keyCode); } } Action class To be done.</description>
+      <guid>https://beardog-ukr.github.io/cocos2dx-examples/post/useful-imagemagick/</guid>
+      <description>imagemagick — консольна програма для обробки зображень.
+Наприклад, ось так можна розрізати один файл зображення на кілька менших:
+convert ./Skeleton_43x37.png -crop 43x37 skeleton_attack_%02d.png Тут
+ ./Skeleton_43x37.png — вхідний файл -crop 43x37 — розмір результату skeleton_attack_%02d.png маска для імен файлів-результатів  А ось так об&#39;єднати кілька зображень:
+convert +append ./skeleton_attack_00.png ./skeleton_attack_01.png ./jh.png convert -append ./skeleton_attack_00.png ./skeleton_attack_01.png ./jv.png Тут +append з&#39;єднує зображення горизонтально (одне збоку від одного), а -append вертикально (одне над одним).</description>
     </item>
     
     <item>

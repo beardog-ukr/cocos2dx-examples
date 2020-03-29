@@ -126,20 +126,21 @@
   
   <div class="post on-list">
     <h1 class="post-title">
-      <a href="https://beardog-ukr.github.io/cocos2dx-examples/post/basic-actions/">Action: move sprite over screen</a></h1>
+      <a href="https://beardog-ukr.github.io/cocos2dx-examples/post/keyboard-processing/">Обробка клавіатури</a></h1>
     <div class="post-meta">
       <span class="post-date">
-        2019-09-21
+        2020-03-27
       </span>
-      
+      <span class="post-author">::
+        beardog-ukr</span>
     </div>
 
     
     <span class="post-tags">
       
-      #<a href="https://beardog-ukr.github.io/cocos2dx-examples/tags/action/">Action</a>&nbsp;
-      
       #<a href="https://beardog-ukr.github.io/cocos2dx-examples/tags/keyboard-processing/">keyboard processing</a>&nbsp;
+      
+      #<a href="https://beardog-ukr.github.io/cocos2dx-examples/tags/cc_callback/">CC_CALLBACK</a>&nbsp;
       
     </span>
     
@@ -149,10 +150,10 @@
     <div class="post-content">
       
       
-      Use actions to move some sprites over the screeen
-Keyboard processing First, initialize keyboard processing with following code
-auto sceneKeyboardListener = EventListenerKeyboard::create(); sceneKeyboardListener-&gt;onKeyPressed = CC_CALLBACK_2(MainGameScene::onKeyPressedScene, this); _eventDispatcher-&gt;addEventListenerWithSceneGraphPriority(sceneKeyboardListener, this); then process it like
-void MainGameScene::onKeyPressedScene(EventKeyboard::KeyCode keyCode, Event *event) { log(&quot;%s: processing key %d pressed&quot;, <strong>func</strong>, (int)keyCode); switch (keyCode) { case EventKeyboard::KeyCode::KEY_UP_ARROW: do_something_for_up_arrow(); break; // more options here default: log(&quot;%s: key %d will be ignored&quot;, <strong>func</strong>, (int)keyCode); } } Action class To be done.
+      Ще одним прикладом використання макросу CC_CALLBACK може бути робота з клавіатурою.
+Для того, щоб додати у програму можливість обробки клавіатури, в init сцени треба додати такий код:
+// keyboard processing EventListenerKeyboard* sceneKeyboardListener = EventListenerKeyboard::create(); sceneKeyboardListener-&gt;onKeyPressed = CC_CALLBACK_2(ActionsDemoScene::onKeyPressedScene, this); _eventDispatcher-&gt;addEventListenerWithSceneGraphPriority(sceneKeyboardListener, this); при цьому сама обробка натискання може виглядати так:
+void ActionsDemoScene::onKeyPressedScene(EventKeyboard::KeyCode keyCode, Event *event) { printf(&quot;%s: processing key %d pressed\n&quot;, __func__, (int)keyCode); if (EventKeyboard::KeyCode::KEY_A == keyCode) { printf(&quot;%s: key 'a' was pressed\n&quot;, __func__); } else { printf(&quot;%s: failed to process.
       
       
     </div>
@@ -160,7 +161,7 @@ void MainGameScene::onKeyPressedScene(EventKeyboard::KeyCode keyCode, Event *eve
     
     <div>
       <a class="read-more button"
-        href="/cocos2dx-examples/post/basic-actions/">Читати далі →</a>
+        href="/cocos2dx-examples/post/keyboard-processing/">Читати далі →</a>
     </div>
     
   </div>
