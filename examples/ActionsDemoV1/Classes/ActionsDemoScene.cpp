@@ -2,6 +2,12 @@
 
 USING_NS_CC;
 
+#include <string>
+#include <iostream>
+#include <iomanip>
+#include <sstream>
+using namespace std;
+
 // =============================================================================
 
 Scene * ActionsDemoScene::createScene() {
@@ -21,7 +27,7 @@ bool ActionsDemoScene::init() {
   addBackground();
   addBlueShip();
   addGreenUfo();
-  addRightButton();
+  addButtons();
 
   // keyboard processing
   EventListenerKeyboard* sceneKeyboardListener = EventListenerKeyboard::create();
@@ -81,22 +87,22 @@ bool ActionsDemoScene::addGreenUfo() {
 
 // =============================================================================
 
-bool ActionsDemoScene::addRightButton() {
-  MenuItemImage* firstButton = MenuItemImage::create(
+bool ActionsDemoScene::addButtons() {
+  MenuItemImage* greenUfoButton = MenuItemImage::create(
     "ui/rightArrow1.png", "ui/rightArrow2.png",
-    CC_CALLBACK_1(ActionsDemoScene::firstButtonCallback, this));
+    CC_CALLBACK_1(ActionsDemoScene::greenUfoCallback, this));
 
-  firstButton->setAnchorPoint(Vec2(1,1));
-  firstButton->setPosition(Vec2(640, 360));
+  greenUfoButton->setAnchorPoint(Vec2(1,0.5));
+  greenUfoButton->setPosition(Vec2(640, 240));
 
-  MenuItemImage* secondButton = MenuItemImage::create(
+  MenuItemImage* blueShipButton = MenuItemImage::create(
     "ui/rightArrow2.png", "ui/rightArrow1.png",
-    CC_CALLBACK_1(ActionsDemoScene::secondButtonCallback, this));
+    CC_CALLBACK_1(ActionsDemoScene::blueShipCallback, this));
 
-  secondButton->setAnchorPoint(Vec2(1,0.5));
-  secondButton->setPosition(Vec2(640, 120));
+  blueShipButton->setAnchorPoint(Vec2(1,0.5));
+  blueShipButton->setPosition(Vec2(640, 120));
 
-  auto menu = Menu::create(firstButton, secondButton, NULL);
+  auto menu = Menu::create(greenUfoButton, blueShipButton, NULL);
   menu->setPosition(Vec2::ZERO);
   addChild(menu, 1);
 
@@ -105,14 +111,14 @@ bool ActionsDemoScene::addRightButton() {
 
 // =============================================================================
 
-void ActionsDemoScene::firstButtonCallback(Ref *pSender) {
+void ActionsDemoScene::greenUfoCallback(Ref *pSender) {
   MoveTo* moveTo = MoveTo::create(3, Vec2(320,240));
   greenUfo->runAction(moveTo);
 }
 
 // =============================================================================
 
-void ActionsDemoScene::secondButtonCallback(Ref *pSender) {
+void ActionsDemoScene::blueShipCallback(Ref *pSender) {
   RotateBy* rotateBy = RotateBy::create(2, 90);
 
   MoveBy* moveBy = MoveBy::create(4, Vec2(160,0));

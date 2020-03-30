@@ -17,15 +17,16 @@ void onKeyPressedScene(cocos2d::EventKeyboard::KeyCode keyCode,
                        cocos2d::Event                 *event);
 
 bool addBackground();
+
 bool addBlueShip();
 bool addGreenUfo();
-bool addRightButton();
 
-void firstButtonCallback(cocos2d::Ref *pSender);
-void secondButtonCallback(cocos2d::Ref *pSender);
+bool addButtons();
+
+void greenUfoCallback(cocos2d::Ref *pSender);
+void blueShipCallback(cocos2d::Ref *pSender);
 
 cocos2d::Sprite* blueShip;
 cocos2d::Sprite* greenUfo;
-
 
 };
