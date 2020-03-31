@@ -1,0 +1,3 @@
+[submodule "hugo_sources/landing/themes/terminal"]
+	path = hugo_sources/landing/themes/terminal
+	url = https://github.com/panr/hugo-theme-terminal.git
