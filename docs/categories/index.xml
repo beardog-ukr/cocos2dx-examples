@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Categories on Основи Cocos2d-x</title>
+    <title>Categories on Cocos2d-x basics</title>
     <link>https://beardog-ukr.github.io/cocos2dx-examples/categories/</link>
-    <description>Recent content in Categories on Основи Cocos2d-x</description>
+    <description>Recent content in Categories on Cocos2d-x basics</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>uk-UA</language>
+    <language>en-us</language>
     
 	<atom:link href="https://beardog-ukr.github.io/cocos2dx-examples/categories/index.xml" rel="self" type="application/rss+xml" />
     

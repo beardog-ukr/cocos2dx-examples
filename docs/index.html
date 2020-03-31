@@ -1,579 +1,368 @@
 <!DOCTYPE html>
-<html lang="uk">
+<html>
 <head>
 	<meta name="generator" content="Hugo 0.67.1" />
-  
-    <title>Основи Cocos2d-x — Про розробку 2d-ігор на Cocos2d-x</title>
-  
-  <meta http-equiv="content-type" content="text/html; charset=utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
-<meta name="description" content="Про розробку 2d-ігор на Cocos2d-x" />
-<meta name="keywords" content="" />
-<meta name="robots" content="noodp" />
-<link rel="canonical" href="https://beardog-ukr.github.io/cocos2dx-examples/" />
 
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="
+		"> 
+    
+	<meta name="author" content=" map[] ">  
+    <base href="https://beardog-ukr.github.io/cocos2dx-examples/">
+    <title>Cocos2d-x basics</title>
 
+    
+    <link href="css/bootstrap.min.css" rel="stylesheet">
 
+    
+    <link href="css/landing-page.css" rel="stylesheet">
 
-<link rel="stylesheet" href="https://beardog-ukr.github.io/cocos2dx-examples/assets/style.css">
+    
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
-  <link rel="stylesheet" href="https://beardog-ukr.github.io/cocos2dx-examples/assets/green.css">
+    
+    <link href="css/bootstrap-social.css" rel="stylesheet">
 
+    
+    
+    
 
+    <style>
+    .navbar {
+    border-color: #e7e7e7;
+}
 
+.content-section-a,
+footer,
+.navbar {
+  background-color: #f8f8f8;
+  color: #333;
+}
 
+.navbar a:link,
+.navbar-default .navbar-nav>li>a {
+  color: #777;
+}
 
+.navbar a:hover,
+.navbar-default .navbar-nav>li>a:hover {
+  color: rgb(51, 51, 51);
+}
 
-<link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://beardog-ukr.github.io/cocos2dx-examples/img/apple-touch-icon-144-precomposed.png">
+.content-section-b {
+  background-color: white;
+  color: #333;
+}
 
-  <link rel="shortcut icon" href="https://beardog-ukr.github.io/cocos2dx-examples/img/favicon/green.png">
+body {
+  color: rgb(51, 51, 51);
+}
 
-
-
-<meta name="twitter:card" content="summary" />
-
-<meta name="twitter:creator" content="" />
-
-
-<meta property="og:locale" content="uk" />
-<meta property="og:type" content="website" />
-<meta property="og:title" content="Основи Cocos2d-x">
-<meta property="og:description" content="Про розробку 2d-ігор на Cocos2d-x" />
-<meta property="og:url" content="https://beardog-ukr.github.io/cocos2dx-examples/" />
-<meta property="og:site_name" content="Основи Cocos2d-x" />
-<meta property="og:image" content="https://beardog-ukr.github.io/cocos2dx-examples/">
-<meta property="og:image:width" content="2048">
-<meta property="og:image:height" content="1024">
-
-
-
-
-
-  <link href="/cocos2dx-examples/index.xml" rel="alternate" type="application/rss+xml" title="Основи Cocos2d-x" />
-
-
-
-
-
-
-
-
+.header-container h1,
+.header-container h2,
+.header-container h3,
+.header-container h4 {
+  color: rgb(51, 51, 51);
+}
+ 
+  </style>
 
 </head>
-<body class="">
+<body>
 
 
-<div class="container center headings--one-size">
-
-  <header class="header">
-  <div class="header__inner">
-    <div class="header__logo">
-      <a href="/">
-  <div class="logo">
-    Основи Cocos2d-x
-  </div>
-</a>
-
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+        
+        <div class="navbar-header page-scroll" style="margin-left: -15px;">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" style="margin-right: 0px;">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand page-scroll" style="padding-left: 0px;margin-left: 0px;" href="#intro">
+            Cocos2d-x basics</a>
+        </div>
+        
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+				
+				<li>
+				  <a class="page-scroll" href="//github.com/beardog-ukr/cocos2dx-examples">
+                    Github
+                  </a>
+                </li>
+				 
+				
+				<li>
+					<a class="page-scroll" href="">
+                    
+					</a>
+                </li>
+				 
+            </ul>
+        </div>
+        
     </div>
-    <div class="menu-trigger">menu</div>
-  </div>
-  
-    <nav class="menu">
-  <ul class="menu__inner menu__inner--desktop">
     
-      
-        
-          <li><a href="/cocos2dx-examples/about">About</a></li>
-        
-      
-        
-          <li><a href="/cocos2dx-examples/showcase">Showcase (to be removed)</a></li>
-        
-      
-      
-    
-
-    
-  </ul>
-
-  <ul class="menu__inner menu__inner--mobile">
-    
-      
-        <li><a href="/cocos2dx-examples/about">About</a></li>
-      
-    
-      
-        <li><a href="/cocos2dx-examples/showcase">Showcase (to be removed)</a></li>
-      
-    
-    
-  </ul>
 </nav>
 
-  
-</header>
+<section id="intro">
+	
+	<div class="intro-header">
+
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12">
+				
+					<div class="intro-message">
+						<h1>Cocos2d-x basics</h1>
+						<h3></h3>
+						<hr class="intro-divider">
+
+						<ul class="list-inline intro-social-buttons">
+						
 
 
-  <div class="content">
+  <li><a href="//github.com//beardog-ukr/cocos2dx-examples" class="btn btn-default btn-lg" title="GitHub">
+  <i class="fa fa-github"></i>
+  </a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <li><a href="mailto:oleksii.bilianskyi@yahoo.com" title="Email" class="btn btn-default btn-lg">
+  <i class="fa fa-envelope"></i>
+  </a></li>
+
+
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+	</div>
+	
+</section>
+
+<section id="main">
+
+
+
+	 
+    <div class="content-section-a">
     
-<div class="posts">
-  
-  
+   
+        <div class="container">
 
-  
-  
-    
-  
-  
+            <div class="row">
+                <div>
+                    
+                    <h2 class="section-heading">Hello</h2>
+                    <p>This is a landing page for my series of tutorial articles about Cocos2d-x framework. Please read it <a href="https://beardog-ukr.github.io/cocos2dx-examples/en/">here</a></p>
+<p>Це сторінка-посилання на серію навчальних матеріалів по фреймворку Cocos2d-x, україномовна версія яких <a href="https://beardog-ukr.github.io/cocos2dx-examples/uk/">знаходиться тут</a>.</p>
 
-  
-  <div class="post on-list">
-    <h1 class="post-title">
-      <a href="https://beardog-ukr.github.io/cocos2dx-examples/post/basic-sequence/">Послідовності</a></h1>
-    <div class="post-meta">
-      <span class="post-date">
-        2020-03-29
-      </span>
-      <span class="post-author">::
-        beardog-ukr</span>
+                </div>
+            </div>
+
+        </div>
+        
+
     </div>
 
-    
-    <span class="post-tags">
-      
-      #<a href="https://beardog-ukr.github.io/cocos2dx-examples/tags/sequence/">Sequence</a>&nbsp;
-      
-      #<a href="https://beardog-ukr.github.io/cocos2dx-examples/tags/action/">Action</a>&nbsp;
-      
-    </span>
-    
 
-    
+</section>
 
-    <div class="post-content">
-      
-      
-      Якщо вам потрібно виконати кілька акцій одну за одною, на допомогу прийде клас Sequence.
-Наприклад, синій корабель за помовчанням створюється “носом доверху”. Щоб зобразити його “переліт” направо, спочатку треба зробити поворот на 90 градусів, а вже потім переміщувати.
-Для того, щоб це спрацювало, треба створити акції RotateTo та MoveTo, а потім об'єднати їх у послідовність:
-RotateBy* rotateBy = RotateBy::create(2, 90); MoveBy* moveBy = MoveBy::create(4, Vec2(160,0)); Sequence* seq = Sequence::create(rotateBy, moveBy, nullptr); blueShip-&gt;runAction(seq); Фабричний метод, який створює Sequence, може отримувати будь-яке число вказівників на об'єкти-нащадки Action, а останнім обов'язково має бути nullptr.
-      
-      
+
+<section id = "social-share-section">
+
+	<div class="container">
+		<div class="row">
+			<ul class="list-inline" style="margin-bottom: 10px; margin-top: 10px;">
+				
+
+
+
+
+
+
+
+
+
+
+<li>
+  <a href="//plus.google.com/share?url=https%3a%2f%2fbeardog-ukr.github.io%2fcocos2dx-examples%2f" target="_blank" class="btn btn-social-icon btn-google" title="Share on Google+">
+    <i class="fa fa-google-plus"></i>
+  </a>
+</li>
+
+
+
+
+
+<li>
+  <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fbeardog-ukr.github.io%2fcocos2dx-examples%2f" target="_blank" class="btn btn-social-icon btn-facebook" title="Share on Facebook">
+    <i class="fa fa-facebook"></i>
+    </a>
+</li>
+
+
+
+
+<li>
+  <a href="//reddit.com/submit?url=https%3a%2f%2fbeardog-ukr.github.io%2fcocos2dx-examples%2f&amp;title=Cocos2d-x%20basics" target="_blank" class="btn btn-social-icon btn-reddit" title="Share on Reddit">
+    <i class="fa fa-reddit-alien"></i>
+  </a>
+</li>
+
+
+
+
+<li>
+  <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fbeardog-ukr.github.io%2fcocos2dx-examples%2f&amp;title=Cocos2d-x%20basics" target="_blank" class="btn btn-social-icon btn-linkedin" title="Share on LinkedIn">
+      <i class="fa fa-linkedin"></i>
+    </a>
+</li>
+
+
+
+
+<li>
+  <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fbeardog-ukr.github.io%2fcocos2dx-examples%2f&amp;title=Cocos2d-x%20basics" target="_blank" class="btn btn-social-icon btn-google " title="Share on StumbleUpon">
+    <i class="fa fa-stumbleupon"></i>
+  </a>
+</li>
+
+
+
+
+
+
+
+<li>
+  <a href="mailto:?subject=Check out this project &quot;Cocos2d-x%20basics&quot;&amp;body=https%3a%2f%2fbeardog-ukr.github.io%2fcocos2dx-examples%2f" target="_blank" class="btn btn-social-icon btn-github " title="Share on Email">
+    <i class="fa fa-envelope"></i>
+  </a>
+</li>
+
+
+			</ul>
+		</div>
+	</div>
+
+</section>
+
+
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8" style="padding-left: 0px; width:100%">
+				<ul class="list-inline">
+					<li>
+						<a class="page-scroll" href="#intro">Up</a>
+					</li>
+					
+					
+				 </ul>
+				 <p class="copyright text-muted small" style="text-align:left;">
+                    Copyright &copy; Cocos2d-x basics All Rights Reserved 
+                        </br>Built with <a href="http://gohugo.io">Hugo</a> and the <a href="https://github.com/cdeck3r/OneDly-Theme">OneDly project</a> theme.
+                 </p>
+			</div>
+            
+        </div>
     </div>
-
-    
-    <div>
-      <a class="read-more button"
-        href="/cocos2dx-examples/post/basic-sequence/">Читати далі →</a>
-    </div>
-    
-  </div>
-  
-  <div class="post on-list">
-    <h1 class="post-title">
-      <a href="https://beardog-ukr.github.io/cocos2dx-examples/post/basic-animations/">Анімація</a></h1>
-    <div class="post-meta">
-      <span class="post-date">
-        2020-03-29
-      </span>
-      <span class="post-author">::
-        beardog-ukr</span>
-    </div>
-
-    
-    <span class="post-tags">
-      
-      #<a href="https://beardog-ukr.github.io/cocos2dx-examples/tags/animation/">Animation</a>&nbsp;
-      
-      #<a href="https://beardog-ukr.github.io/cocos2dx-examples/tags/action/">Action</a>&nbsp;
-      
-    </span>
-    
-
-    
-
-    <div class="post-content">
-      
-      
-      
-    </div>
-
-    
-    <div>
-      <a class="read-more button"
-        href="/cocos2dx-examples/post/basic-animations/">Читати далі →</a>
-    </div>
-    
-  </div>
-  
-  <div class="post on-list">
-    <h1 class="post-title">
-      <a href="https://beardog-ukr.github.io/cocos2dx-examples/post/basic-actions/">Рух та інші перетворення об'єктів</a></h1>
-    <div class="post-meta">
-      <span class="post-date">
-        2020-03-29
-      </span>
-      
-    </div>
-
-    
-    <span class="post-tags">
-      
-      #<a href="https://beardog-ukr.github.io/cocos2dx-examples/tags/action/">Action</a>&nbsp;
-      
-      #<a href="https://beardog-ukr.github.io/cocos2dx-examples/tags/moveto/">MoveTo</a>&nbsp;
-      
-    </span>
-    
-
-    
-
-    <div class="post-content">
-      
-      
-      Ми вже вміємо обробляти події клавіатури або натискання на кнопки. Тепер треба починати реагувати на ці події та щось зробити з об'єктом.
-Наприклад, ви хочете, щоб після натиснення кнопки спрайт перемістився з одного місця екрану до іншого. Для того, щоб це виглядало саме як пересування, а не телепортація, координати треба змінювати дуже маленькими, але частими порціями, десятки разів на секунду. Вручну це програмувати незручно, тому у Cococ2d зробили клас Action та його нащадки.
-      
-      
-    </div>
-
-    
-    <div>
-      <a class="read-more button"
-        href="/cocos2dx-examples/post/basic-actions/">Читати далі →</a>
-    </div>
-    
-  </div>
-  
-  <div class="post on-list">
-    <h1 class="post-title">
-      <a href="https://beardog-ukr.github.io/cocos2dx-examples/post/keyboard-processing/">Обробка клавіатури</a></h1>
-    <div class="post-meta">
-      <span class="post-date">
-        2020-03-27
-      </span>
-      <span class="post-author">::
-        beardog-ukr</span>
-    </div>
-
-    
-    <span class="post-tags">
-      
-      #<a href="https://beardog-ukr.github.io/cocos2dx-examples/tags/keyboard-processing/">keyboard processing</a>&nbsp;
-      
-      #<a href="https://beardog-ukr.github.io/cocos2dx-examples/tags/cc_callback/">CC_CALLBACK</a>&nbsp;
-      
-    </span>
-    
-
-    
-
-    <div class="post-content">
-      
-      
-      Ще одним прикладом використання макросу CC_CALLBACK може бути робота з клавіатурою.
-Для того, щоб додати у програму можливість обробки клавіатури, в init сцени треба додати такий код:
-// keyboard processing EventListenerKeyboard* sceneKeyboardListener = EventListenerKeyboard::create(); sceneKeyboardListener-&gt;onKeyPressed = CC_CALLBACK_2(ActionsDemoScene::onKeyPressedScene, this); _eventDispatcher-&gt;addEventListenerWithSceneGraphPriority(sceneKeyboardListener, this); при цьому сама обробка натискання може виглядати так:
-void ActionsDemoScene::onKeyPressedScene(EventKeyboard::KeyCode keyCode, Event *event) { printf(&quot;%s: processing key %d pressed\n&quot;, __func__, (int)keyCode); if (EventKeyboard::KeyCode::KEY_A == keyCode) { printf(&quot;%s: key 'a' was pressed\n&quot;, __func__); } else { printf(&quot;%s: failed to process.
-      
-      
-    </div>
-
-    
-    <div>
-      <a class="read-more button"
-        href="/cocos2dx-examples/post/keyboard-processing/">Читати далі →</a>
-    </div>
-    
-  </div>
-  
-  <div class="post on-list">
-    <h1 class="post-title">
-      <a href="https://beardog-ukr.github.io/cocos2dx-examples/post/advanced-callbacks/">Складніша робота з CC_CALBACK</a></h1>
-    <div class="post-meta">
-      <span class="post-date">
-        2020-03-27
-      </span>
-      <span class="post-author">::
-        beardog-ukr</span>
-    </div>
-
-    
-    <span class="post-tags">
-      
-      #<a href="https://beardog-ukr.github.io/cocos2dx-examples/tags/callbacks/">callbacks</a>&nbsp;
-      
-      #<a href="https://beardog-ukr.github.io/cocos2dx-examples/tags/events/">events</a>&nbsp;
-      
-      #<a href="https://beardog-ukr.github.io/cocos2dx-examples/tags/cc_calback/">CC_CALBACK</a>&nbsp;
-      
-    </span>
-    
-
-    
-
-    <div class="post-content">
-      
-      
-      
-    </div>
-
-    
-    <div>
-      <a class="read-more button"
-        href="/cocos2dx-examples/post/advanced-callbacks/">Читати далі →</a>
-    </div>
-    
-  </div>
-  
-  <div class="post on-list">
-    <h1 class="post-title">
-      <a href="https://beardog-ukr.github.io/cocos2dx-examples/post/events-callbacks/">Обробка подій та колбеки</a></h1>
-    <div class="post-meta">
-      <span class="post-date">
-        2020-03-26
-      </span>
-      <span class="post-author">::
-        beardog-ukr</span>
-    </div>
-
-    
-    <span class="post-tags">
-      
-      #<a href="https://beardog-ukr.github.io/cocos2dx-examples/tags/event/">event</a>&nbsp;
-      
-      #<a href="https://beardog-ukr.github.io/cocos2dx-examples/tags/event-processing/">event processing</a>&nbsp;
-      
-      #<a href="https://beardog-ukr.github.io/cocos2dx-examples/tags/stdbind/">std::bind</a>&nbsp;
-      
-      #<a href="https://beardog-ukr.github.io/cocos2dx-examples/tags/cc_callback/">CC_CALLBACK</a>&nbsp;
-      
-    </span>
-    
-
-    
-
-    <div class="post-content">
-      
-      
-      У дефолній програмі, яку було створено у перших постах, залишився без пояснення ще один момент — це кнопка, за допомогою якої ця програма закривалась.
-Використання CC_CALLBACK_1 у MenuItemImage Сама програма, якщо пам'ятаєте, виглядала так:
-Якщо ви мишкою натискали на кнопку в правому нижньому куті, викликався ось такий метод, який припиняв роботу програми:
-void SmokeTestScene::menuCloseCallback(Ref *pSender) { // Close the cocos2d-x game scene and quit the application Director::getInstance()-&gt;end(); } Але чому цей колбек взагалі викликається?
-      
-      
-    </div>
-
-    
-    <div>
-      <a class="read-more button"
-        href="/cocos2dx-examples/post/events-callbacks/">Читати далі →</a>
-    </div>
-    
-  </div>
-  
-  <div class="post on-list">
-    <h1 class="post-title">
-      <a href="https://beardog-ukr.github.io/cocos2dx-examples/post/static-img-practice-app/">Використання Sprite</a></h1>
-    <div class="post-meta">
-      <span class="post-date">
-        2020-03-23
-      </span>
-      <span class="post-author">::
-        beardog-ukr</span>
-    </div>
-
-    
-    <span class="post-tags">
-      
-      #<a href="https://beardog-ukr.github.io/cocos2dx-examples/tags/sprite/">Sprite</a>&nbsp;
-      
-      #<a href="https://beardog-ukr.github.io/cocos2dx-examples/tags/static-images/">Static Images</a>&nbsp;
-      
-    </span>
-    
-
-    
-
-    <div class="post-content">
-      
-      
-      У цьому пості ми спробуємо створити першу власноруч написану програму. Поки що вона не буде нічого робити, ми просто візьмемо кілька зображеннь космічних кораблів з безкоштовного набору та покажемо їх на екрані. Основна мета — навчитись працювати з класом Sprite.
-Координати та опорна точка Cocos2d використовує “шкільну” систему координат:
-x змінюється по горизонталі зліва направо y змінюється по вертикалі знизу вверх.  Центр системи координат знаходиться в опорній точці (anchor point).
-      
-      
-    </div>
-
-    
-    <div>
-      <a class="read-more button"
-        href="/cocos2dx-examples/post/static-img-practice-app/">Читати далі →</a>
-    </div>
-    
-  </div>
-  
-  <div class="post on-list">
-    <h1 class="post-title">
-      <a href="https://beardog-ukr.github.io/cocos2dx-examples/post/basic-things/">Основні терміни Cocos2d-x</a></h1>
-    <div class="post-meta">
-      <span class="post-date">
-        2020-03-23
-      </span>
-      <span class="post-author">::
-        beardog-ukr</span>
-    </div>
-
-    
-    <span class="post-tags">
-      
-      #<a href="https://beardog-ukr.github.io/cocos2dx-examples/tags/initial/">initial</a>&nbsp;
-      
-      #<a href="https://beardog-ukr.github.io/cocos2dx-examples/tags/smoke-test-project/">Smoke Test Project</a>&nbsp;
-      
-    </span>
-    
-
-    
-
-    <div class="post-content">
-      
-      
-      У попередніх постах мова йшла про те, як створити базовий проект програми у Cocos2d-x. Точніше, той проект створювався автоматично скриптом cocos, потрібно було його лише скомпілювати та запустити.
-Цього разу я розкажу про основні терміни, поняття та класи фреймворку, а також поясню, як вони використовуються у тому базовому проекті.
-Scene Scene — це тло, контейнер, всередині якого живуть своїм життям усі інші елементи, які користувач бачить на екрані. В реальній програмі буде мінімум дві сцени: меню та ігрове поле.
-      
-      
-    </div>
-
-    
-    <div>
-      <a class="read-more button"
-        href="/cocos2dx-examples/post/basic-things/">Читати далі →</a>
-    </div>
-    
-  </div>
-  
-  <div class="post on-list">
-    <h1 class="post-title">
-      <a href="https://beardog-ukr.github.io/cocos2dx-examples/post/project-structure/">Структура проекту</a></h1>
-    <div class="post-meta">
-      <span class="post-date">
-        2020-03-22
-      </span>
-      <span class="post-author">::
-        beardog-ukr</span>
-    </div>
-
-    
-    <span class="post-tags">
-      
-      #<a href="https://beardog-ukr.github.io/cocos2dx-examples/tags/project-structure/">project structure</a>&nbsp;
-      
-      #<a href="https://beardog-ukr.github.io/cocos2dx-examples/tags/files/">files</a>&nbsp;
-      
-      #<a href="https://beardog-ukr.github.io/cocos2dx-examples/tags/resources/">resources</a>&nbsp;
-      
-    </span>
-    
-
-    
-
-    <div class="post-content">
-      
-      
-      Не знаю, чи помітили ви, але навіть елементарний тестовий проект (такий, як було створено у початковій статті) займає досить багато місця — триста мегабайт до початку компіляції та більше п'ятисот після. У старіших версіях фреймворку ситуація була ще гірше — невелика гра в процесі розробки займала майже гігабайт. Насправді, воно не так вже й важливо, але коли у вас багато тестових проектів, місце раптом закінчується.
-Проект cocos2d-x має приблизно таку структуру:
-      
-      
-    </div>
-
-    
-    <div>
-      <a class="read-more button"
-        href="/cocos2dx-examples/post/project-structure/">Читати далі →</a>
-    </div>
-    
-  </div>
-  
-  <div class="post on-list">
-    <h1 class="post-title">
-      <a href="https://beardog-ukr.github.io/cocos2dx-examples/post/info_sources/">Інформація</a></h1>
-    <div class="post-meta">
-      <span class="post-date">
-        2020-03-22
-      </span>
-      <span class="post-author">::
-        beardog-ukr</span>
-    </div>
-
-    
-    <span class="post-tags">
-      
-      #<a href="https://beardog-ukr.github.io/cocos2dx-examples/tags/links/">links</a>&nbsp;
-      
-    </span>
-    
-
-    
-
-    <div class="post-content">
-      
-      
-      Документації по Cocos2d-x порівняно небагато, але досить для вивчення. Проблема в тому, що у більшості випадків вона застаріла, тому доведеться співвідносити написане і реальний стан речей.
-Спочатку “офіційні” джерела:
-посібник з основними термінами. Застарілий російськомовний переклад можна знайти на хабрі. документація по коду, згенерована Doxygen форум, там багато навчальних матеріалів, але вони теж сильно застаріли. функціональні тести — розробники розглядають їх як демонстрацію того, як правильно використовувати програмний каркас. На форумі часто можуть порадити “глянути, як зроблено в тестах”  Крім того, у різних блогах є серії постів, присвячених cocos2d-x:
-      
-      
-    </div>
-
-    
-    <div>
-      <a class="read-more button"
-        href="/cocos2dx-examples/post/info_sources/">Читати далі →</a>
-    </div>
-    
-  </div>
-  
-  <div class="pagination">
-  <div class="pagination__buttons">
-    
-    
-      <span class="button next">
-        <a href="/cocos2dx-examples/page/2/">
-          <span class="button__text">Older posts</span>
-          <span class="button__icon">→</span>
-        </a>
-      </span>
-    
-  </div>
-</div>
-
-</div>
-
-  </div>
-
-  
-    <footer class="footer">
-  <div class="footer__inner">
-    
-      <div class="copyright">
-        <span>© 2020 Powered by <a href="http://gohugo.io">Hugo</a></span>
-    
-        <span>:: Theme made by <a href="https://twitter.com/panr">panr</a></span>
-      </div>
-  </div>
 </footer>
 
-<script src="https://beardog-ukr.github.io/cocos2dx-examples/assets/main.js"></script>
-<script src="https://beardog-ukr.github.io/cocos2dx-examples/assets/prism.js"></script>
+<script src="js/jquery-1.11.0.js"></script>
 
 
+<script src="js/jquery.easing.min.js"></script>
 
 
+<script src="js/bootstrap.min.js"></script>
 
-  
-</div>
+
 
 </body>
 </html>
+
