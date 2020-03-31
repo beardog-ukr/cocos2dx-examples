@@ -80,4 +80,4 @@ typedef std::function<void(Ref*)> ccMenuCallback;
 
 Число у макросі `CC_CALBACK_*` означає кількість аргументів, які отримає функція-колбек.
 
-Результатом є `std::function`, сворений [std::bind](https://en.cppreference.com/w/cpp/utility/functional/bind). Об'єкт Cocos2d, який откримав такий колбек, збереже його і викличе, коли буде потрібно.
+Результатом є `std::function`, створений [std::bind](https://en.cppreference.com/w/cpp/utility/functional/bind). Об'єкт Cocos2d, який откримав такий колбек, збереже його і викличе, коли буде потрібно.
