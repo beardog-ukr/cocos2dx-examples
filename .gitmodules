@@ -1,3 +1,6 @@
 [submodule "hugo_sources/landing/themes/onedly"]
 	path = hugo_sources/landing/themes/onedly
 	url = https://github.com/cdeck3r/OneDly-Theme.git
+[submodule "hugo_sources/uk/themes/ezhil"]
+	path = hugo_sources/uk/themes/ezhil
+	url = https://github.com/vividvilla/ezhil.git
