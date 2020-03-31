@@ -4,18 +4,14 @@
 	<meta charset="utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>Використання Sprite - Основи Cocos2d-x</title><meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta property="og:title" content="Використання Sprite" />
-<meta property="og:description" content="У цьому пості ми спробуємо створити першу власноруч написану програму. Поки що вона не буде нічого робити, ми просто візьмемо кілька зображеннь космічних кораблів з безкоштовного набору та покажемо їх на екрані. Основна мета — навчитись працювати з класом Sprite.
-Координати та опорна точка Cocos2d використовує &ldquo;шкільну&rdquo; систему координат:
- x змінюється по горизонталі зліва направо y змінюється по вертикалі знизу вверх.  Центр системи координат знаходиться в опорній точці (anchor point)." />
+<meta property="og:description" content="У цьому пості ми спробуємо створити першу власноруч написану програму. Поки що вона не буде нічого робити, ми просто візьмемо кілька зображеннь космічних кораблів з безкоштовного набору та покажемо їх на екрані. Основна мета — навчитись працювати з класом Sprite." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://beardog-ukr.github.io/cocos2dx-examples/uk/post/static-img-practice-app/" />
 <meta property="article:published_time" content="2020-03-23T22:30:25+03:00" />
 <meta property="article:modified_time" content="2020-03-23T22:30:25+03:00" />
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Використання Sprite"/>
-<meta name="twitter:description" content="У цьому пості ми спробуємо створити першу власноруч написану програму. Поки що вона не буде нічого робити, ми просто візьмемо кілька зображеннь космічних кораблів з безкоштовного набору та покажемо їх на екрані. Основна мета — навчитись працювати з класом Sprite.
-Координати та опорна точка Cocos2d використовує &ldquo;шкільну&rdquo; систему координат:
- x змінюється по горизонталі зліва направо y змінюється по вертикалі знизу вверх.  Центр системи координат знаходиться в опорній точці (anchor point)."/>
+<meta name="twitter:description" content="У цьому пості ми спробуємо створити першу власноруч написану програму. Поки що вона не буде нічого робити, ми просто візьмемо кілька зображеннь космічних кораблів з безкоштовного набору та покажемо їх на екрані. Основна мета — навчитись працювати з класом Sprite."/>
 <link href="https://fonts.googleapis.com/css?family=Ubuntu:300,400,300italic,400italic|Raleway:200,300" rel="stylesheet">
 
 	<link rel="stylesheet" type="text/css" media="screen" href="https://beardog-ukr.github.io/cocos2dx-examples/uk/css/normalize.css" />
@@ -80,7 +76,7 @@
 <h1 id="програма-з-фоном">Програма з фоном</h1>
 <p>Щоб побачити. як це все працює, ми візьмемо малюнок, що складається з клітин розміром 160х120 пікселів і використаємо його, як фонове зображення для програми.</p>
 <figure>
-    <img src="/cocos2dx-examples/post/static-img-practice-app/empty_grid.png"/> <figcaption>
+    <img src="/cocos2dx-examples/uk/post/static-img-practice-app/empty_grid.png"/> <figcaption>
             <h4>Пуста сітка, уявні вісі, розміри</h4>
         </figcaption>
 </figure>
@@ -121,7 +117,7 @@ addChild(sprite, <span style="color:#2aa198">10</span>);
 </code></pre></div><p>Відмінність у тому, що в другому випадку спрайт додатково повертається на 45 градусів.</p>
 <p>В обох спрайтів опорна точка знаходиться в центрі (0.5, 0.5). Відповідно, після встановлення позиції центр спрайту опиниться на перетині квадратів, ось так:</p>
 <figure>
-    <img src="/cocos2dx-examples/post/static-img-practice-app/normal.png"/> <figcaption>
+    <img src="/cocos2dx-examples/uk/post/static-img-practice-app/normal.png"/> <figcaption>
             <h4>Сині кораблі, опорна точка в центрі</h4>
         </figcaption>
 </figure>
@@ -147,7 +143,7 @@ addChild(sprite, <span style="color:#2aa198">10</span>);
 </code></pre></div><p>Тут опорна точка спрайтів встановлюється у нижній лівий кут, також другий спрайт повертається на 45 градусів.</p>
 <p>Результат виглядає таким чином:</p>
 <figure>
-    <img src="/cocos2dx-examples/post/static-img-practice-app/cornered.png"/> <figcaption>
+    <img src="/cocos2dx-examples/uk/post/static-img-practice-app/cornered.png"/> <figcaption>
             <h4>Зелені кораблі, опорна точка збоку внизу</h4>
         </figcaption>
 </figure>
@@ -156,7 +152,7 @@ addChild(sprite, <span style="color:#2aa198">10</span>);
 <h1 id="node">Node</h1>
 <p>Обє'кти класу Node можна використовувати для групування об'єктів. Наприклад, можна зібрати власний корабель, скомбінувавши три зображення:</p>
 <figure>
-    <img src="/cocos2dx-examples/post/static-img-practice-app/mixproj.png"/> <figcaption>
+    <img src="/cocos2dx-examples/uk/post/static-img-practice-app/mixproj.png"/> <figcaption>
             <h4>Збирання корабля з частин</h4>
         </figcaption>
 </figure>
@@ -192,13 +188,12 @@ resultNode<span style="color:#719e07">-&gt;</span>addChild(cockpitSprite);
 <p>В кінці окремі спрайти додаються у якості дітей до вузла-результату. Робота з фінальним об'єктом не відрізняється від роботи з одиноким спрайтом, тому я тут не буду наводити цей код. Як і все інше, його можна знайти у <a href="https://github.com/beardog-ukr/cocos2dx-examples/blob/master/examples/StaticSprites/Classes/StaticSpritesScene.cpp">проекті-прикладі на гітхабі</a>.</p>
 <p>В результаті наша тестова програма стане такою:</p>
 <figure>
-    <img src="/cocos2dx-examples/post/static-img-practice-app/mixed.png"/> <figcaption>
+    <img src="/cocos2dx-examples/uk/post/static-img-practice-app/mixed.png"/> <figcaption>
             <h4>Червоні кораблі є комбінацією елементів, але з ними можна працювати, як з єдиним цілим</h4>
         </figcaption>
 </figure>
 
 <p>На цьому поки що все, дякую за увагу. У наступних постах зображення почнуть рухатись, стане цікавіше :)</p>
-
 		</div>
 
 		<div class="post-tags">

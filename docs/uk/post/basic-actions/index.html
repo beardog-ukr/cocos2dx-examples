@@ -4,16 +4,14 @@
 	<meta charset="utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>Рух та інші перетворення об&#39;єктів - Основи Cocos2d-x</title><meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta property="og:title" content="Рух та інші перетворення об&#39;єктів" />
-<meta property="og:description" content="Ми вже вміємо обробляти події клавіатури або натискання на кнопки. Тепер треба починати реагувати на ці події та щось зробити з об&#39;єктом.
-Наприклад, ви хочете, щоб після натиснення кнопки спрайт перемістився з одного місця екрану до іншого. Для того, щоб це виглядало саме як пересування, а не телепортація, координати треба змінювати дуже маленькими, але частими порціями, десятки разів на секунду. Вручну це програмувати незручно, тому у Cococ2d зробили клас Action та його нащадки." />
+<meta property="og:description" content="Ми вже вміємо обробляти події клавіатури або натискання на кнопки. Тепер треба починати реагувати на ці події та щось зробити з об&#39;єктом." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://beardog-ukr.github.io/cocos2dx-examples/uk/post/basic-actions/" />
 <meta property="article:published_time" content="2020-03-29T15:55:25+03:00" />
 <meta property="article:modified_time" content="2020-03-29T15:55:25+03:00" />
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Рух та інші перетворення об&#39;єктів"/>
-<meta name="twitter:description" content="Ми вже вміємо обробляти події клавіатури або натискання на кнопки. Тепер треба починати реагувати на ці події та щось зробити з об&#39;єктом.
-Наприклад, ви хочете, щоб після натиснення кнопки спрайт перемістився з одного місця екрану до іншого. Для того, щоб це виглядало саме як пересування, а не телепортація, координати треба змінювати дуже маленькими, але частими порціями, десятки разів на секунду. Вручну це програмувати незручно, тому у Cococ2d зробили клас Action та його нащадки."/>
+<meta name="twitter:description" content="Ми вже вміємо обробляти події клавіатури або натискання на кнопки. Тепер треба починати реагувати на ці події та щось зробити з об&#39;єктом."/>
 <link href="https://fonts.googleapis.com/css?family=Ubuntu:300,400,300italic,400italic|Raleway:200,300" rel="stylesheet">
 
 	<link rel="stylesheet" type="text/css" media="screen" href="https://beardog-ukr.github.io/cocos2dx-examples/uk/css/normalize.css" />
@@ -76,7 +74,7 @@
 </ul>
 <p>В результаті після натиснення кнопки зелене НЛО почне рухатись і через дві секунди опиниться у новому положенні. Картинками це зобразити важко, але має бути якось так:</p>
 <figure>
-    <img src="/cocos2dx-examples/post/basic-actions-img/ufo_move_01.gif"/> <figcaption>
+    <img src="/cocos2dx-examples/uk/post/basic-actions-img/ufo_move_01.gif"/> <figcaption>
             <h4>Перехід корабля з одного положення в інше</h4>
         </figcaption>
 </figure>
@@ -89,7 +87,6 @@
 <li><a href="https://docs.cocos2d-x.org/api-ref/cplusplus/v4x/d7/d39/classcocos2d_1_1_skew_to.html">SkewTo</a> та <a href="https://docs.cocos2d-x.org/api-ref/cplusplus/v4x/d2/d6c/classcocos2d_1_1_skew_by.html">SkewBy</a> здійснює перетворення, яке важко описати, краще <a href="https://www.youtube.com/watch?v=X7I-oQYxnnE">побачити</a></li>
 </ul>
 <p>Більшість перетворень має два варіанти: &ldquo;To&rdquo; та &ldquo;By&rdquo;, особливої різниці між ними немає. Просто один отримує чіткі параметри, які описують новий стан об'єкту (координати, кут повороту тощо), а іншому задають величину, на яку треба змінити поточні параметри, щоб отримати новий стан.</p>
-
 		</div>
 
 		<div class="post-tags">

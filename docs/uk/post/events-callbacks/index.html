@@ -4,20 +4,14 @@
 	<meta charset="utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>Обробка подій та колбеки - Основи Cocos2d-x</title><meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta property="og:title" content="Обробка подій та колбеки" />
-<meta property="og:description" content="У дефолній програмі, яку було створено у перших постах, залишився без пояснення ще один момент — це кнопка, за допомогою якої ця програма закривалась.
-Використання CC_CALLBACK_1 у MenuItemImage Сама програма, якщо пам&#39;ятаєте, виглядала так:
-  Тестова програма   Якщо ви мишкою натискали на кнопку в правому нижньому куті, викликався ось такий метод, який припиняв роботу програми:
-void SmokeTestScene::menuCloseCallback(Ref *pSender) { // Close the cocos2d-x game scene and quit the application Director::getInstance()-&gt;end(); } Але чому цей колбек взагалі викликається?" />
+<meta property="og:description" content="У дефолній програмі, яку було створено у перших постах, залишився без пояснення ще один момент — це кнопка, за допомогою якої ця програма закривалась." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://beardog-ukr.github.io/cocos2dx-examples/uk/post/events-callbacks/" />
 <meta property="article:published_time" content="2020-03-26T17:30:25+03:00" />
 <meta property="article:modified_time" content="2020-03-26T17:30:25+03:00" />
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Обробка подій та колбеки"/>
-<meta name="twitter:description" content="У дефолній програмі, яку було створено у перших постах, залишився без пояснення ще один момент — це кнопка, за допомогою якої ця програма закривалась.
-Використання CC_CALLBACK_1 у MenuItemImage Сама програма, якщо пам&#39;ятаєте, виглядала так:
-  Тестова програма   Якщо ви мишкою натискали на кнопку в правому нижньому куті, викликався ось такий метод, який припиняв роботу програми:
-void SmokeTestScene::menuCloseCallback(Ref *pSender) { // Close the cocos2d-x game scene and quit the application Director::getInstance()-&gt;end(); } Але чому цей колбек взагалі викликається?"/>
+<meta name="twitter:description" content="У дефолній програмі, яку було створено у перших постах, залишився без пояснення ще один момент — це кнопка, за допомогою якої ця програма закривалась."/>
 <link href="https://fonts.googleapis.com/css?family=Ubuntu:300,400,300italic,400italic|Raleway:200,300" rel="stylesheet">
 
 	<link rel="stylesheet" type="text/css" media="screen" href="https://beardog-ukr.github.io/cocos2dx-examples/uk/css/normalize.css" />
@@ -70,7 +64,7 @@ void SmokeTestScene::menuCloseCallback(Ref *pSender) { // Close the cocos2d-x ga
 <h1 id="використання-cc_callback_1-у-menuitemimage">Використання CC_CALLBACK_1 у MenuItemImage</h1>
 <p>Сама програма, якщо пам'ятаєте, виглядала так:</p>
 <figure>
-    <img src="/cocos2dx-examples/post/first-steps-img/first_app_screenshot.png"/> <figcaption>
+    <img src="/cocos2dx-examples/uk/post/first-steps-img/first_app_screenshot.png"/> <figcaption>
             <h4>Тестова програма</h4>
         </figcaption>
 </figure>
@@ -125,7 +119,6 @@ menu<span style="color:#719e07">-&gt;</span>setPosition(Vec2<span style="color:#
 </ul>
 <p>Число у макросі <code>CC_CALBACK_*</code> означає кількість аргументів, які отримає функція-колбек.</p>
 <p>Результатом є <code>std::function</code>, сворений <a href="https://en.cppreference.com/w/cpp/utility/functional/bind">std::bind</a>. Об'єкт Cocos2d, який откримав такий колбек, збереже його і викличе, коли буде потрібно.</p>
-
 		</div>
 
 		<div class="post-tags">

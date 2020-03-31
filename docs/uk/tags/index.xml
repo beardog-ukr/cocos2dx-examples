@@ -237,32 +237,5 @@
       <description></description>
     </item>
     
-    <item>
-      <title>Space</title>
-      <link>https://beardog-ukr.github.io/cocos2dx-examples/uk/tags/space/</link>
-      <pubDate>Sun, 18 Mar 2018 12:13:30 +0530</pubDate>
-      
-      <guid>https://beardog-ukr.github.io/cocos2dx-examples/uk/tags/space/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Primer</title>
-      <link>https://beardog-ukr.github.io/cocos2dx-examples/uk/tags/primer/</link>
-      <pubDate>Sun, 18 Mar 2018 02:01:58 +0530</pubDate>
-      
-      <guid>https://beardog-ukr.github.io/cocos2dx-examples/uk/tags/primer/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>todo</title>
-      <link>https://beardog-ukr.github.io/cocos2dx-examples/uk/tags/todo/</link>
-      <pubDate>Sun, 18 Mar 2018 02:01:58 +0530</pubDate>
-      
-      <guid>https://beardog-ukr.github.io/cocos2dx-examples/uk/tags/todo/</guid>
-      <description></description>
-    </item>
-    
   </channel>
 </rss>

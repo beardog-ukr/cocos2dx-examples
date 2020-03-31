@@ -18,10 +18,8 @@
       <pubDate>Sun, 29 Mar 2020 21:30:25 +0300</pubDate>
       
       <guid>https://beardog-ukr.github.io/cocos2dx-examples/uk/post/basic-sequence/</guid>
-      <description>Якщо вам потрібно виконати кілька акцій одну за одною, на допомогу прийде клас Sequence.
-Наприклад, синій корабель за помовчанням створюється &amp;ldquo;носом доверху&amp;rdquo;. Щоб зобразити його &amp;ldquo;переліт&amp;rdquo; направо, спочатку треба зробити поворот на 90 градусів, а вже потім переміщувати.
-Для того, щоб це спрацювало, треба створити акції RotateTo та MoveTo, а потім об&#39;єднати їх у послідовність:
-RotateBy* rotateBy = RotateBy::create(2, 90); MoveBy* moveBy = MoveBy::create(4, Vec2(160,0)); Sequence* seq = Sequence::create(rotateBy, moveBy, nullptr); blueShip-&amp;gt;runAction(seq); Фабричний метод, який створює Sequence, може отримувати будь-яке число вказівників на об&#39;єкти-нащадки Action, а останнім обов&#39;язково має бути nullptr.</description>
+      <description>&lt;p&gt;Якщо вам потрібно виконати кілька акцій одну за одною, на допомогу прийде клас &lt;a href=&#34;https://docs.cocos2d-x.org/cocos2d-x/v4/en/actions/sequences.html&#34;&gt;Sequence&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Наприклад, синій корабель за помовчанням створюється &amp;ldquo;носом доверху&amp;rdquo;. Щоб зобразити його &amp;ldquo;переліт&amp;rdquo; направо, спочатку треба зробити поворот на 90 градусів, а вже потім переміщувати.&lt;/p&gt;</description>
     </item>
     
   </channel>
