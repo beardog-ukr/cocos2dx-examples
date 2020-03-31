@@ -1,6 +1,9 @@
 # Default hugo results
 hugo_src/public/*
 !hugo_src/public/dummy.txt
+hugo_sources/uk/public/*
+hugo_sources/en/public/*
+hugo_sources/landing/public/*
 
 # Prerequisites
 *.d
