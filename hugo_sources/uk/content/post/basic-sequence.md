@@ -24,6 +24,6 @@ blueShip->runAction(seq);
 
 Фабричний метод, який створює `Sequence`, може отримувати будь-яке число вказівників на об'єкти-нащадки `Action`, а останнім обов'язково має бути `nullptr`. `Sequence` виконає акції одна за одною, приблизно так:
 
-{{< figure src="/cocos2dx-examples/post/basic-actions-img/blue_ship_move_01.gif" title="Послідовне виконання акцій" position="center" >}}
+{{< figure src="/cocos2dx-examples/uk/post/basic-actions-img/blue_ship_move_01.gif" title="Послідовне виконання акцій" position="center" >}}
 
 З акціями та їх послідовностями можна ще багато чого цікавого робити: дочасно зупиняти, запускати паралельно, затримувати виконання. Однак про це мова піде уже у наступній статті, а поки що на цьому все, дякую за увагу.
