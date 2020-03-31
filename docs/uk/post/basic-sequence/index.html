@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>Послідовності - Основи Cocos2d-x</title><meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta property="og:title" content="Послідовності" />
+<meta property="og:description" content="Якщо вам потрібно виконати кілька акцій одну за одною, на допомогу прийде клас Sequence.
+Наприклад, синій корабель за помовчанням створюється &ldquo;носом доверху&rdquo;. Щоб зобразити його &ldquo;переліт&rdquo; направо, спочатку треба зробити поворот на 90 градусів, а вже потім переміщувати.
+Для того, щоб це спрацювало, треба створити акції RotateTo та MoveTo, а потім об&#39;єднати їх у послідовність:
+RotateBy* rotateBy = RotateBy::create(2, 90); MoveBy* moveBy = MoveBy::create(4, Vec2(160,0)); Sequence* seq = Sequence::create(rotateBy, moveBy, nullptr); blueShip-&gt;runAction(seq); Фабричний метод, який створює Sequence, може отримувати будь-яке число вказівників на об&#39;єкти-нащадки Action, а останнім обов&#39;язково має бути nullptr." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://beardog-ukr.github.io/cocos2dx-examples/uk/post/basic-sequence/" />
+<meta property="article:published_time" content="2020-03-29T21:30:25+03:00" />
+<meta property="article:modified_time" content="2020-03-29T21:30:25+03:00" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Послідовності"/>
+<meta name="twitter:description" content="Якщо вам потрібно виконати кілька акцій одну за одною, на допомогу прийде клас Sequence.
+Наприклад, синій корабель за помовчанням створюється &ldquo;носом доверху&rdquo;. Щоб зобразити його &ldquo;переліт&rdquo; направо, спочатку треба зробити поворот на 90 градусів, а вже потім переміщувати.
+Для того, щоб це спрацювало, треба створити акції RotateTo та MoveTo, а потім об&#39;єднати їх у послідовність:
+RotateBy* rotateBy = RotateBy::create(2, 90); MoveBy* moveBy = MoveBy::create(4, Vec2(160,0)); Sequence* seq = Sequence::create(rotateBy, moveBy, nullptr); blueShip-&gt;runAction(seq); Фабричний метод, який створює Sequence, може отримувати будь-яке число вказівників на об&#39;єкти-нащадки Action, а останнім обов&#39;язково має бути nullptr."/>
+<link href="https://fonts.googleapis.com/css?family=Ubuntu:300,400,300italic,400italic|Raleway:200,300" rel="stylesheet">
+
+	<link rel="stylesheet" type="text/css" media="screen" href="https://beardog-ukr.github.io/cocos2dx-examples/uk/css/normalize.css" />
+	<link rel="stylesheet" type="text/css" media="screen" href="https://beardog-ukr.github.io/cocos2dx-examples/uk/css/main.css" />
+
+	<script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+	<script src="https://beardog-ukr.github.io/cocos2dx-examples/uk/js/main.js"></script>
+</head>
+
+<body>
+	<div class="container wrapper post">
+		<div class="header">
+	<h1 class="site-title"><a href="https://beardog-ukr.github.io/cocos2dx-examples/uk/">Основи Cocos2d-x</a></h1>
+	<div class="site-description"><h2>Статті про розробку ігор за допомогою Cocos2d-x</h2><nav class="nav social">
+			<ul class="flat"><a href="https://github.com/beardog-ukr/cocos2dx-examples" title="Github"><i data-feather="github"></i></a></ul>
+		</nav>
+	</div>
+
+	<nav class="nav">
+		<ul class="flat">
+			
+			<li>
+				<a href="/cocos2dx-examples/uk/">Нове</a>
+			</li>
+			
+			<li>
+				<a href="/cocos2dx-examples/uk/posts">Усі пости</a>
+			</li>
+			
+			<li>
+				<a href="/cocos2dx-examples/uk/about">Про сайт</a>
+			</li>
+			
+			<li>
+				<a href="/cocos2dx-examples/uk/tags">Теги</a>
+			</li>
+			
+		</ul>
+	</nav>
+</div>
+
+
+		<div class="post-header">
+			<h1 class="title">Послідовності</h1>
+			<div class="meta">Posted at &mdash; Mar 29, 2020</div>
+		</div>
+
+		<div class="markdown">
+			<p>Якщо вам потрібно виконати кілька акцій одну за одною, на допомогу прийде клас <a href="https://docs.cocos2d-x.org/cocos2d-x/v4/en/actions/sequences.html">Sequence</a>.</p>
+<p>Наприклад, синій корабель за помовчанням створюється &ldquo;носом доверху&rdquo;. Щоб зобразити його &ldquo;переліт&rdquo; направо, спочатку треба зробити поворот на 90 градусів, а вже потім переміщувати.</p>
+<p>Для того, щоб це спрацювало, треба створити акції <code>RotateTo</code> та <code>MoveTo</code>, а потім об'єднати їх у послідовність:</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp">RotateBy<span style="color:#719e07">*</span> rotateBy <span style="color:#719e07">=</span> RotateBy<span style="color:#719e07">::</span>create(<span style="color:#2aa198">2</span>, <span style="color:#2aa198">90</span>);
+MoveBy<span style="color:#719e07">*</span> moveBy <span style="color:#719e07">=</span> MoveBy<span style="color:#719e07">::</span>create(<span style="color:#2aa198">4</span>, Vec2(<span style="color:#2aa198">160</span>,<span style="color:#2aa198">0</span>));
+
+Sequence<span style="color:#719e07">*</span> seq <span style="color:#719e07">=</span> Sequence<span style="color:#719e07">::</span>create(rotateBy, moveBy, <span style="color:#719e07">nullptr</span>);
+
+blueShip<span style="color:#719e07">-&gt;</span>runAction(seq);
+</code></pre></div><p>Фабричний метод, який створює <code>Sequence</code>, може отримувати будь-яке число вказівників на об'єкти-нащадки <code>Action</code>, а останнім обов'язково має бути <code>nullptr</code>. <code>Sequence</code> виконає акції одна за одною, приблизно так:</p>
+<figure>
+    <img src="/cocos2dx-examples/post/basic-actions-img/blue_ship_move_01.gif"/> <figcaption>
+            <h4>Послідовне виконання акцій</h4>
+        </figcaption>
+</figure>
+
+<p>З акціями та їх послідовностями можна ще багато чого цікавого робити: дочасно зупиняти, запускати паралельно, затримувати виконання. Однак про це мова піде уже у наступній статті, а поки що на цьому все, дякую за увагу.</p>
+
+		</div>
+
+		<div class="post-tags">
+			
+				
+					<nav class="nav tags">
+							<ul class="flat">
+								
+								<li><a href="/cocos2dx-examples/uk/tags/sequence">Sequence</a></li>
+								
+								<li><a href="/cocos2dx-examples/uk/tags/action">Action</a></li>
+								
+							</ul>
+					</nav>
+				
+			
+		</div>
+		</div>
+	<div class="footer wrapper">
+	<nav class="nav">
+		<div> © суспільне надбання |  <a href="https://github.com/vividvilla/ezhil">Ezhil theme</a> | Built with <a href="https://gohugo.io">Hugo</a></div>
+	</nav>
+</div>
+
+
+
+<script>feather.replace()</script>
+</body>
+</html>

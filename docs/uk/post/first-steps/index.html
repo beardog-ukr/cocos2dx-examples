@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>Знайомство - Основи Cocos2d-x</title><meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta property="og:title" content="Знайомство" />
+<meta property="og:description" content="Cocos2d-x — це фреймворк для створення кросплатформенних 2d-ігор на C&#43;&#43;. З ним можна створювати відносно прості ігри типу Flappy Bird abo Fruit Ninja, а також більш складні сайд-скроллери та навіть стратегії.
+Перебування на карантині можна розглядати як привід вивчити щось нове, тому я спробую зробити серію постів, що описують основи цього програмного каркасу.
+  Гра Battle of Pathogens розроблена за допомогою Cocos Creator   Встановлення Процес встановлення непогано описаний для різних платформ в офіційній документації." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://beardog-ukr.github.io/cocos2dx-examples/uk/post/first-steps/" />
+<meta property="article:published_time" content="2020-03-21T17:30:25+03:00" />
+<meta property="article:modified_time" content="2020-03-21T17:30:25+03:00" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Знайомство"/>
+<meta name="twitter:description" content="Cocos2d-x — це фреймворк для створення кросплатформенних 2d-ігор на C&#43;&#43;. З ним можна створювати відносно прості ігри типу Flappy Bird abo Fruit Ninja, а також більш складні сайд-скроллери та навіть стратегії.
+Перебування на карантині можна розглядати як привід вивчити щось нове, тому я спробую зробити серію постів, що описують основи цього програмного каркасу.
+  Гра Battle of Pathogens розроблена за допомогою Cocos Creator   Встановлення Процес встановлення непогано описаний для різних платформ в офіційній документації."/>
+<link href="https://fonts.googleapis.com/css?family=Ubuntu:300,400,300italic,400italic|Raleway:200,300" rel="stylesheet">
+
+	<link rel="stylesheet" type="text/css" media="screen" href="https://beardog-ukr.github.io/cocos2dx-examples/uk/css/normalize.css" />
+	<link rel="stylesheet" type="text/css" media="screen" href="https://beardog-ukr.github.io/cocos2dx-examples/uk/css/main.css" />
+
+	<script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+	<script src="https://beardog-ukr.github.io/cocos2dx-examples/uk/js/main.js"></script>
+</head>
+
+<body>
+	<div class="container wrapper post">
+		<div class="header">
+	<h1 class="site-title"><a href="https://beardog-ukr.github.io/cocos2dx-examples/uk/">Основи Cocos2d-x</a></h1>
+	<div class="site-description"><h2>Статті про розробку ігор за допомогою Cocos2d-x</h2><nav class="nav social">
+			<ul class="flat"><a href="https://github.com/beardog-ukr/cocos2dx-examples" title="Github"><i data-feather="github"></i></a></ul>
+		</nav>
+	</div>
+
+	<nav class="nav">
+		<ul class="flat">
+			
+			<li>
+				<a href="/cocos2dx-examples/uk/">Нове</a>
+			</li>
+			
+			<li>
+				<a href="/cocos2dx-examples/uk/posts">Усі пости</a>
+			</li>
+			
+			<li>
+				<a href="/cocos2dx-examples/uk/about">Про сайт</a>
+			</li>
+			
+			<li>
+				<a href="/cocos2dx-examples/uk/tags">Теги</a>
+			</li>
+			
+		</ul>
+	</nav>
+</div>
+
+
+		<div class="post-header">
+			<h1 class="title">Знайомство</h1>
+			<div class="meta">Posted at &mdash; Mar 21, 2020</div>
+		</div>
+
+		<div class="markdown">
+			<p>Cocos2d-x — це фреймворк для створення кросплатформенних 2d-ігор на C++. З ним можна створювати відносно прості ігри типу Flappy Bird abo Fruit Ninja, а також більш складні сайд-скроллери та навіть стратегії.</p>
+<p>Перебування на карантині можна розглядати як привід вивчити щось нове, тому я спробую зробити серію постів, що описують основи цього <a href="https://uk.wikipedia.org/wiki/%D0%9F%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BD%D0%B8%D0%B9_%D0%BA%D0%B0%D1%80%D0%BA%D0%B0%D1%81">програмного каркасу</a>.</p>
+<figure>
+    <img src="/cocos2dx-examples/post/first-steps-img/battle_of_pathogens.png"/> <figcaption>
+            <h4>Гра Battle of Pathogens розроблена за допомогою Cocos Creator</h4>
+        </figcaption>
+</figure>
+
+<h1 id="встановлення">Встановлення</h1>
+<p>Процес встановлення непогано описаний для різних платформ в <a href="https://docs.cocos2d-x.org/cocos2d-x/v3/en/installation/Linux.html">офіційній документації</a>. Також відносно свіжі інструкції можна знайти у цьому блозі:<a href="https://rezghob.com/installing-cocos2d-x-linux-mint/">linux</a> або <a href="https://rezghob.com/installing-cocos2d-x-windows/">Windows</a>.</p>
+<p>В принципі, доведеться зробити дві речі:</p>
+<ul>
+<li>встановити необхідні програми: g++ та все інше, що треба для написання програм на C++, також python та cmake. Для компіляції програм під Android знадобиться Android Studio, однак це окрема тема, якій коли-небудь потім буде присвячено окремий пост.</li>
+<li>скачати власне <a href="https://cocos2d-x.org/download">фреймворк</a>, розпакувати його у потрібне місце і встановити змінні оточення.</li>
+</ul>
+<p>В результаті у вас повинна з'явитись можливість виконати команду <code>cocos</code> у командному рядку</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">::&gt;cocos -v
+cocos2d-x-4.0
+Cocos Console 2.3
+
+</code></pre></div><h1 id="перший-проект">Перший проект</h1>
+<p>Для перевірки, що все встановлено правильно, Cocos2d-x може створити проект за помовчанням. Для цього треба виконати команду <code>cocos new</code>:</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go">::&gt;cocos new <span style="color:#719e07">-</span>d .<span style="color:#719e07">/</span> <span style="color:#719e07">-</span>l cpp SmokeTest
+&gt; Copy template into <span style="color:#719e07">/</span>home<span style="color:#719e07">/</span>username<span style="color:#719e07">/</span>proj<span style="color:#719e07">/</span>cocos2d<span style="color:#719e07">/</span>SmokeTest
+&gt; Copying Cocos2d<span style="color:#719e07">-</span>x files<span style="color:#719e07">...</span>
+&gt; Rename project name from &#39;HelloCpp&#39; to &#39;SmokeTest&#39;
+&gt; Replace the project name from &#39;HelloCpp&#39; to &#39;SmokeTest&#39;
+&gt; Replace the project <span style="color:#719e07">package</span> name from &#39;org.cocos2dx.hellocpp&#39; to &#39;org.cocos2dx.SmokeTest&#39;
+&gt; Replace the Mac bundle id from &#39;org.cocos2dx.hellocpp&#39; to &#39;org.cocos2dx.SmokeTest&#39;
+&gt; Replace the iOS bundle id from &#39;org.cocos2dx.hellocpp&#39; to &#39;org.cocos2dx.SmokeTest&#39;
+</code></pre></div><p>Опція <code>-l cpp</code> очевидно показує, що проект буде написано на C++. Повну довідку по команді можна отримати за допомогою <code>cocos new --help</code></p>
+<p>В даному випадку SmokeTest — це назва проекту. Скрипт cocos створить папку з такою назвою та заповнить її початковими файлами. Переходимо у цю  новостворену папку та запускаємо компіляцію командою <code>cocos compile -p linux</code>. Результатом має бути типовий для <em>cmake</em> лог.</p>
+<p>Перша компіляція займає багато часу, тому що збирається весь фреймворк; пізніше буде набагато швидше.</p>
+<p>Нарешті, запустити програму можна за допомогою <code>cocos run</code>, в результаті повинно з'явитись щось таке:</p>
+<figure>
+    <img src="/cocos2dx-examples/post/first-steps-img/first_app_screenshot.png"/> <figcaption>
+            <h4>Тестова програма</h4>
+        </figcaption>
+</figure>
+
+<p>У наступних постах я спробую детальніше розібрати, що тут до чого, а поки що це все, дякую за увагу.</p>
+
+		</div>
+
+		<div class="post-tags">
+			
+				
+					<nav class="nav tags">
+							<ul class="flat">
+								
+								<li><a href="/cocos2dx-examples/uk/tags/initial">initial</a></li>
+								
+								<li><a href="/cocos2dx-examples/uk/tags/installation">installation</a></li>
+								
+							</ul>
+					</nav>
+				
+			
+		</div>
+		</div>
+	<div class="footer wrapper">
+	<nav class="nav">
+		<div> © суспільне надбання |  <a href="https://github.com/vividvilla/ezhil">Ezhil theme</a> | Built with <a href="https://gohugo.io">Hugo</a></div>
+	</nav>
+</div>
+
+
+
+<script>feather.replace()</script>
+</body>
+</html>

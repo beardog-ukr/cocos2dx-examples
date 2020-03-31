@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>Рух та інші перетворення об&#39;єктів - Основи Cocos2d-x</title><meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta property="og:title" content="Рух та інші перетворення об&#39;єктів" />
+<meta property="og:description" content="Ми вже вміємо обробляти події клавіатури або натискання на кнопки. Тепер треба починати реагувати на ці події та щось зробити з об&#39;єктом.
+Наприклад, ви хочете, щоб після натиснення кнопки спрайт перемістився з одного місця екрану до іншого. Для того, щоб це виглядало саме як пересування, а не телепортація, координати треба змінювати дуже маленькими, але частими порціями, десятки разів на секунду. Вручну це програмувати незручно, тому у Cococ2d зробили клас Action та його нащадки." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://beardog-ukr.github.io/cocos2dx-examples/uk/post/basic-actions/" />
+<meta property="article:published_time" content="2020-03-29T15:55:25+03:00" />
+<meta property="article:modified_time" content="2020-03-29T15:55:25+03:00" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Рух та інші перетворення об&#39;єктів"/>
+<meta name="twitter:description" content="Ми вже вміємо обробляти події клавіатури або натискання на кнопки. Тепер треба починати реагувати на ці події та щось зробити з об&#39;єктом.
+Наприклад, ви хочете, щоб після натиснення кнопки спрайт перемістився з одного місця екрану до іншого. Для того, щоб це виглядало саме як пересування, а не телепортація, координати треба змінювати дуже маленькими, але частими порціями, десятки разів на секунду. Вручну це програмувати незручно, тому у Cococ2d зробили клас Action та його нащадки."/>
+<link href="https://fonts.googleapis.com/css?family=Ubuntu:300,400,300italic,400italic|Raleway:200,300" rel="stylesheet">
+
+	<link rel="stylesheet" type="text/css" media="screen" href="https://beardog-ukr.github.io/cocos2dx-examples/uk/css/normalize.css" />
+	<link rel="stylesheet" type="text/css" media="screen" href="https://beardog-ukr.github.io/cocos2dx-examples/uk/css/main.css" />
+
+	<script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+	<script src="https://beardog-ukr.github.io/cocos2dx-examples/uk/js/main.js"></script>
+</head>
+
+<body>
+	<div class="container wrapper post">
+		<div class="header">
+	<h1 class="site-title"><a href="https://beardog-ukr.github.io/cocos2dx-examples/uk/">Основи Cocos2d-x</a></h1>
+	<div class="site-description"><h2>Статті про розробку ігор за допомогою Cocos2d-x</h2><nav class="nav social">
+			<ul class="flat"><a href="https://github.com/beardog-ukr/cocos2dx-examples" title="Github"><i data-feather="github"></i></a></ul>
+		</nav>
+	</div>
+
+	<nav class="nav">
+		<ul class="flat">
+			
+			<li>
+				<a href="/cocos2dx-examples/uk/">Нове</a>
+			</li>
+			
+			<li>
+				<a href="/cocos2dx-examples/uk/posts">Усі пости</a>
+			</li>
+			
+			<li>
+				<a href="/cocos2dx-examples/uk/about">Про сайт</a>
+			</li>
+			
+			<li>
+				<a href="/cocos2dx-examples/uk/tags">Теги</a>
+			</li>
+			
+		</ul>
+	</nav>
+</div>
+
+
+		<div class="post-header">
+			<h1 class="title">Рух та інші перетворення об&#39;єктів</h1>
+			<div class="meta">Posted at &mdash; Mar 29, 2020</div>
+		</div>
+
+		<div class="markdown">
+			<p>Ми вже вміємо обробляти події клавіатури або натискання на кнопки. Тепер треба починати реагувати на ці події та щось зробити з об'єктом.</p>
+<p>Наприклад, ви хочете, щоб після натиснення кнопки спрайт перемістився з одного місця екрану до іншого. Для того, щоб це виглядало саме як пересування, а не телепортація, координати треба змінювати дуже маленькими, але частими порціями, десятки разів на секунду. Вручну це програмувати незручно, тому у Cococ2d зробили клас <a href="https://docs.cocos2d-x.org/api-ref/cplusplus/v4x/db/d61/classcocos2d_1_1_action.html">Action</a> та його нащадки.  Зокрема, для пересування призначений <code>MoveTo</code>, використання якого виглядає так:</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#dc322f">void</span> ActionsDemoScene<span style="color:#719e07">::</span>sideButtonCallback(Ref <span style="color:#719e07">*</span>pSender) {
+  MoveTo<span style="color:#719e07">*</span> moveTo <span style="color:#719e07">=</span> MoveTo<span style="color:#719e07">::</span>create(<span style="color:#2aa198">2</span>, Vec2(<span style="color:#2aa198">320</span>,<span style="color:#2aa198">240</span>));
+  greenUfo<span style="color:#719e07">-&gt;</span>runAction(moveTo);
+}
+</code></pre></div><p>Тут greenUfo — спрайт, розміщений на сцені.</p>
+<p><code>moveBy</code> — це акція, що рухатиме спрайт. <a href="https://uk.wikipedia.org/wiki/%D0%A4%D0%B0%D0%B1%D1%80%D0%B8%D1%87%D0%BD%D0%B8%D0%B9_%D0%BC%D0%B5%D1%82%D0%BE%D0%B4_(%D1%88%D0%B0%D0%B1%D0%BB%D0%BE%D0%BD_%D0%BF%D1%80%D0%BE%D1%94%D0%BA%D1%82%D1%83%D0%B2%D0%B0%D0%BD%D0%BD%D1%8F)">Фабричний метод</a> <code>MoveTo::create</code> отримує два параметри:</p>
+<ul>
+<li>час у секундах, протягом якого буде виконуватись перетворення</li>
+<li>Vec2 — масив з двох чисел, які є координатами нового положення об'єкту</li>
+</ul>
+<p>В результаті після натиснення кнопки зелене НЛО почне рухатись і через дві секунди опиниться у новому положенні. Картинками це зобразити важко, але має бути якось так:</p>
+<figure>
+    <img src="/cocos2dx-examples/post/basic-actions-img/ufo_move_01.gif"/> <figcaption>
+            <h4>Перехід корабля з одного положення в інше</h4>
+        </figcaption>
+</figure>
+
+<p>Cocos2d може виконувати <a href="https://docs.cocos2d-x.org/api-ref/cplusplus/v4x/dd/d0d/group__actions.html">дуже багато</a> різних перетворень:</p>
+<ul>
+<li><a href="https://docs.cocos2d-x.org/api-ref/cplusplus/v4x/de/d42/classcocos2d_1_1_move_to.html">MoveTo</a> та <a href="https://docs.cocos2d-x.org/api-ref/cplusplus/v4x/d6/d7c/classcocos2d_1_1_move_by.html">MoveBy</a> пересувають спрайти</li>
+<li><a href="https://docs.cocos2d-x.org/api-ref/cplusplus/v4x/d0/d71/classcocos2d_1_1_rotate_to.html">RotateTo</a> та <a href="https://docs.cocos2d-x.org/api-ref/cplusplus/v4x/d0/d28/classcocos2d_1_1_rotate_by.html">RotateBy</a> повертають об'єкт на заданий кут</li>
+<li><a href="https://docs.cocos2d-x.org/api-ref/cplusplus/v4x/d9/de6/classcocos2d_1_1_fade_to.html">FadeTo</a>, <a href="https://docs.cocos2d-x.org/api-ref/cplusplus/v4x/d0/d0a/classcocos2d_1_1_fade_in.html">FadeIn</a> та <a href="https://docs.cocos2d-x.org/api-ref/cplusplus/v4x/dd/d49/classcocos2d_1_1_fade_out.html">FadeOut</a> змінюють прозорість (видимість)</li>
+<li><a href="https://docs.cocos2d-x.org/api-ref/cplusplus/v4x/d7/d39/classcocos2d_1_1_skew_to.html">SkewTo</a> та <a href="https://docs.cocos2d-x.org/api-ref/cplusplus/v4x/d2/d6c/classcocos2d_1_1_skew_by.html">SkewBy</a> здійснює перетворення, яке важко описати, краще <a href="https://www.youtube.com/watch?v=X7I-oQYxnnE">побачити</a></li>
+</ul>
+<p>Більшість перетворень має два варіанти: &ldquo;To&rdquo; та &ldquo;By&rdquo;, особливої різниці між ними немає. Просто один отримує чіткі параметри, які описують новий стан об'єкту (координати, кут повороту тощо), а іншому задають величину, на яку треба змінити поточні параметри, щоб отримати новий стан.</p>
+
+		</div>
+
+		<div class="post-tags">
+			
+				
+					<nav class="nav tags">
+							<ul class="flat">
+								
+								<li><a href="/cocos2dx-examples/uk/tags/action">Action</a></li>
+								
+								<li><a href="/cocos2dx-examples/uk/tags/moveto">MoveTo</a></li>
+								
+							</ul>
+					</nav>
+				
+			
+		</div>
+		</div>
+	<div class="footer wrapper">
+	<nav class="nav">
+		<div> © суспільне надбання |  <a href="https://github.com/vividvilla/ezhil">Ezhil theme</a> | Built with <a href="https://gohugo.io">Hugo</a></div>
+	</nav>
+</div>
+
+
+
+<script>feather.replace()</script>
+</body>
+</html>

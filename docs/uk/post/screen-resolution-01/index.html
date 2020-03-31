@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>Розмір екрану - Основи Cocos2d-x</title><meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta property="og:title" content="Розмір екрану" />
+<meta property="og:description" content="У попередніх постах було розказано, як створити дефолтну програму і з чого вона складається. Тепер можна переходити до написання власного проекту, але перед тим залишився ще один маленький нюанс — розмір екрану.
+  Перша програма   Наша дефолтна програма працює у вікні розміром 480 на 320 пікселів. Цей розмір було вказано у файлі AppDelegate.cpp ось в такому рядку:
+static cocos2d::Size designResolutionSize = cocos2d::Size(480, 320); Розробники Cococ2d-x щось перемудрили, тому поряд з цією змінною оголошені ще кілька інших розмірів." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://beardog-ukr.github.io/cocos2dx-examples/uk/post/screen-resolution-01/" />
+<meta property="article:published_time" content="2020-03-30T22:30:25+03:00" />
+<meta property="article:modified_time" content="2020-03-30T22:30:25+03:00" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Розмір екрану"/>
+<meta name="twitter:description" content="У попередніх постах було розказано, як створити дефолтну програму і з чого вона складається. Тепер можна переходити до написання власного проекту, але перед тим залишився ще один маленький нюанс — розмір екрану.
+  Перша програма   Наша дефолтна програма працює у вікні розміром 480 на 320 пікселів. Цей розмір було вказано у файлі AppDelegate.cpp ось в такому рядку:
+static cocos2d::Size designResolutionSize = cocos2d::Size(480, 320); Розробники Cococ2d-x щось перемудрили, тому поряд з цією змінною оголошені ще кілька інших розмірів."/>
+<link href="https://fonts.googleapis.com/css?family=Ubuntu:300,400,300italic,400italic|Raleway:200,300" rel="stylesheet">
+
+	<link rel="stylesheet" type="text/css" media="screen" href="https://beardog-ukr.github.io/cocos2dx-examples/uk/css/normalize.css" />
+	<link rel="stylesheet" type="text/css" media="screen" href="https://beardog-ukr.github.io/cocos2dx-examples/uk/css/main.css" />
+
+	<script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+	<script src="https://beardog-ukr.github.io/cocos2dx-examples/uk/js/main.js"></script>
+</head>
+
+<body>
+	<div class="container wrapper post">
+		<div class="header">
+	<h1 class="site-title"><a href="https://beardog-ukr.github.io/cocos2dx-examples/uk/">Основи Cocos2d-x</a></h1>
+	<div class="site-description"><h2>Статті про розробку ігор за допомогою Cocos2d-x</h2><nav class="nav social">
+			<ul class="flat"><a href="https://github.com/beardog-ukr/cocos2dx-examples" title="Github"><i data-feather="github"></i></a></ul>
+		</nav>
+	</div>
+
+	<nav class="nav">
+		<ul class="flat">
+			
+			<li>
+				<a href="/cocos2dx-examples/uk/">Нове</a>
+			</li>
+			
+			<li>
+				<a href="/cocos2dx-examples/uk/posts">Усі пости</a>
+			</li>
+			
+			<li>
+				<a href="/cocos2dx-examples/uk/about">Про сайт</a>
+			</li>
+			
+			<li>
+				<a href="/cocos2dx-examples/uk/tags">Теги</a>
+			</li>
+			
+		</ul>
+	</nav>
+</div>
+
+
+		<div class="post-header">
+			<h1 class="title">Розмір екрану</h1>
+			<div class="meta">Posted at &mdash; Mar 30, 2020</div>
+		</div>
+
+		<div class="markdown">
+			<p>У попередніх постах було розказано, як створити дефолтну програму і з чого вона складається. Тепер можна переходити до написання власного проекту, але перед тим залишився ще один маленький нюанс — розмір екрану.</p>
+<figure>
+    <img src="/cocos2dx-examples/post/first-steps-img/first_app_screenshot.png"/> <figcaption>
+            <h4>Перша програма</h4>
+        </figcaption>
+</figure>
+
+<p>Наша <a href="https://github.com/beardog-ukr/cocos2dx-examples/tree/master/examples/SmokeTest">дефолтна програма</a> працює у вікні розміром 480 на 320 пікселів. Цей розмір було вказано у файлі <em>AppDelegate.cpp</em> ось в такому рядку:</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">static cocos2d::Size designResolutionSize = cocos2d::Size(480, 320);
+</code></pre></div><p>Розробники Cococ2d-x щось перемудрили, тому поряд з цією змінною оголошені ще кілька інших розмірів. Крім того, далі ці інші розміри нібито використовуються в якихось розрахунках, але насправді це все не важливо.</p>
+<p>Роботі з розміром екрану на мобільних пристроях (або при повноекранному запуску на десктопі) буде присвячено окремий пост пізніше. Поки що просто повірте у дві речі:</p>
+<ul>
+<li>щоб задати розмір вікна тестової програми на Linux чи Windows, досить вказати бажані цифри саме у <code>designResolutionSize</code>.</li>
+<li>в інших місцях цілком нормально вказувати абсолютні (захардкоджені) числа для позиціонування елементів. Ніяких відносних розрахунків робити не варто.</li>
+</ul>
+<p>Якщо вам не подобаються зайві змінні для розмірів екрану, ви можете їх просто видалити, як це зроблено ось у <a href="https://github.com/beardog-ukr/cocos2dx-examples/blob/master/examples/SmokeTest/Classes/AppDelegate.cpp">цьому файлі</a>.</p>
+
+		</div>
+
+		<div class="post-tags">
+			
+				
+					<nav class="nav tags">
+							<ul class="flat">
+								
+								<li><a href="/cocos2dx-examples/uk/tags/design-resolution">design resolution</a></li>
+								
+								<li><a href="/cocos2dx-examples/uk/tags/smoke-test-project">Smoke Test Project</a></li>
+								
+							</ul>
+					</nav>
+				
+			
+		</div>
+		</div>
+	<div class="footer wrapper">
+	<nav class="nav">
+		<div> © суспільне надбання |  <a href="https://github.com/vividvilla/ezhil">Ezhil theme</a> | Built with <a href="https://gohugo.io">Hugo</a></div>
+	</nav>
+</div>
+
+
+
+<script>feather.replace()</script>
+</body>
+</html>

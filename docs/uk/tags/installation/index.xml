@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>installation on Основи Cocos2d-x</title>
+    <link>https://beardog-ukr.github.io/cocos2dx-examples/uk/tags/installation/</link>
+    <description>Recent content in installation on Основи Cocos2d-x</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>© суспільне надбання</copyright>
+    <lastBuildDate>Sat, 21 Mar 2020 17:30:25 +0300</lastBuildDate>
+    
+	<atom:link href="https://beardog-ukr.github.io/cocos2dx-examples/uk/tags/installation/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Знайомство</title>
+      <link>https://beardog-ukr.github.io/cocos2dx-examples/uk/post/first-steps/</link>
+      <pubDate>Sat, 21 Mar 2020 17:30:25 +0300</pubDate>
+      
+      <guid>https://beardog-ukr.github.io/cocos2dx-examples/uk/post/first-steps/</guid>
+      <description>Cocos2d-x — це фреймворк для створення кросплатформенних 2d-ігор на C++. З ним можна створювати відносно прості ігри типу Flappy Bird abo Fruit Ninja, а також більш складні сайд-скроллери та навіть стратегії.
+Перебування на карантині можна розглядати як привід вивчити щось нове, тому я спробую зробити серію постів, що описують основи цього програмного каркасу.
+  Гра Battle of Pathogens розроблена за допомогою Cocos Creator   Встановлення Процес встановлення непогано описаний для різних платформ в офіційній документації.</description>
+    </item>
+    
+  </channel>
+</rss>

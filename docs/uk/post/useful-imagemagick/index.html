@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>Корисні поради по imagemagick - Основи Cocos2d-x</title><meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta property="og:title" content="Корисні поради по imagemagick" />
+<meta property="og:description" content="imagemagick — консольна програма для обробки зображень.
+Наприклад, ось так можна розрізати один файл зображення на кілька менших:
+convert ./Skeleton_43x37.png -crop 43x37 skeleton_attack_%02d.png Тут
+ ./Skeleton_43x37.png — вхідний файл -crop 43x37 — розмір результату skeleton_attack_%02d.png маска для імен файлів-результатів  А ось так об&#39;єднати кілька зображень:
+convert &#43;append ./skeleton_attack_00.png ./skeleton_attack_01.png ./jh.png convert -append ./skeleton_attack_00.png ./skeleton_attack_01.png ./jv.png Тут &#43;append з&#39;єднує зображення горизонтально (одне збоку від одного), а -append вертикально (одне над одним)." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://beardog-ukr.github.io/cocos2dx-examples/uk/post/useful-imagemagick/" />
+<meta property="article:published_time" content="2019-09-29T04:25:25+03:00" />
+<meta property="article:modified_time" content="2019-09-29T04:25:25+03:00" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Корисні поради по imagemagick"/>
+<meta name="twitter:description" content="imagemagick — консольна програма для обробки зображень.
+Наприклад, ось так можна розрізати один файл зображення на кілька менших:
+convert ./Skeleton_43x37.png -crop 43x37 skeleton_attack_%02d.png Тут
+ ./Skeleton_43x37.png — вхідний файл -crop 43x37 — розмір результату skeleton_attack_%02d.png маска для імен файлів-результатів  А ось так об&#39;єднати кілька зображень:
+convert &#43;append ./skeleton_attack_00.png ./skeleton_attack_01.png ./jh.png convert -append ./skeleton_attack_00.png ./skeleton_attack_01.png ./jv.png Тут &#43;append з&#39;єднує зображення горизонтально (одне збоку від одного), а -append вертикально (одне над одним)."/>
+<link href="https://fonts.googleapis.com/css?family=Ubuntu:300,400,300italic,400italic|Raleway:200,300" rel="stylesheet">
+
+	<link rel="stylesheet" type="text/css" media="screen" href="https://beardog-ukr.github.io/cocos2dx-examples/uk/css/normalize.css" />
+	<link rel="stylesheet" type="text/css" media="screen" href="https://beardog-ukr.github.io/cocos2dx-examples/uk/css/main.css" />
+
+	<script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+	<script src="https://beardog-ukr.github.io/cocos2dx-examples/uk/js/main.js"></script>
+</head>
+
+<body>
+	<div class="container wrapper post">
+		<div class="header">
+	<h1 class="site-title"><a href="https://beardog-ukr.github.io/cocos2dx-examples/uk/">Основи Cocos2d-x</a></h1>
+	<div class="site-description"><h2>Статті про розробку ігор за допомогою Cocos2d-x</h2><nav class="nav social">
+			<ul class="flat"><a href="https://github.com/beardog-ukr/cocos2dx-examples" title="Github"><i data-feather="github"></i></a></ul>
+		</nav>
+	</div>
+
+	<nav class="nav">
+		<ul class="flat">
+			
+			<li>
+				<a href="/cocos2dx-examples/uk/">Нове</a>
+			</li>
+			
+			<li>
+				<a href="/cocos2dx-examples/uk/posts">Усі пости</a>
+			</li>
+			
+			<li>
+				<a href="/cocos2dx-examples/uk/about">Про сайт</a>
+			</li>
+			
+			<li>
+				<a href="/cocos2dx-examples/uk/tags">Теги</a>
+			</li>
+			
+		</ul>
+	</nav>
+</div>
+
+
+		<div class="post-header">
+			<h1 class="title">Корисні поради по imagemagick</h1>
+			<div class="meta">Posted at &mdash; Sep 29, 2019</div>
+		</div>
+
+		<div class="markdown">
+			<p><a href="https://imagemagick.org/index.php">imagemagick</a> — консольна програма для обробки зображень.</p>
+<p>Наприклад, ось так можна розрізати один файл зображення на кілька менших:</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">convert ./Skeleton_43x37.png -crop 43x37 skeleton_attack_%02d.png
+</code></pre></div><p>Тут</p>
+<ul>
+<li><code>./Skeleton_43x37.png</code> — вхідний файл</li>
+<li><code>-crop 43x37</code> — розмір результату</li>
+<li><code>skeleton_attack_%02d.png</code> маска для імен файлів-результатів</li>
+</ul>
+<p>А ось так об'єднати кілька зображень:</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">convert +append ./skeleton_attack_00.png ./skeleton_attack_01.png ./jh.png
+convert -append ./skeleton_attack_00.png ./skeleton_attack_01.png ./jv.png
+</code></pre></div><p>Тут <code>+append</code> з'єднує зображення горизонтально (одне збоку від одного), а <code>-append</code> вертикально (одне над одним).</p>
+<p>Теоретично, за допомогою <code>imagemagick</code> можна створювати гіфки, але це вимагає досить складних скриптів. Простіше використати <em>ffmpeg</em>:</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">ffmpeg -framerate 60 -pattern_type glob -i &#39;./skeleton_attack_*.png&#39; c1.gif
+</code></pre></div>
+		</div>
+
+		<div class="post-tags">
+			
+				
+					<nav class="nav tags">
+							<ul class="flat">
+								
+								<li><a href="/cocos2dx-examples/uk/tags/image-processing">image processing</a></li>
+								
+								<li><a href="/cocos2dx-examples/uk/tags/textures">textures</a></li>
+								
+								<li><a href="/cocos2dx-examples/uk/tags/imagemagick">imagemagick</a></li>
+								
+							</ul>
+					</nav>
+				
+			
+		</div>
+		</div>
+	<div class="footer wrapper">
+	<nav class="nav">
+		<div> © суспільне надбання |  <a href="https://github.com/vividvilla/ezhil">Ezhil theme</a> | Built with <a href="https://gohugo.io">Hugo</a></div>
+	</nav>
+</div>
+
+
+
+<script>feather.replace()</script>
+</body>
+</html>

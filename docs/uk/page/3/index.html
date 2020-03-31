@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="generator" content="Hugo 0.67.1" />
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>Основи Cocos2d-x - Статті про розробку ігор за допомогою Cocos2d-x </title><meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="alternate" type="application/rss+xml" href="https://beardog-ukr.github.io/cocos2dx-examples/uk/index.xml" title="Основи Cocos2d-x" />
+	<meta property="og:title" content="Основи Cocos2d-x" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://beardog-ukr.github.io/cocos2dx-examples/uk/" />
+<meta property="og:updated_time" content="2020-03-27T13:30:25+03:00" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Основи Cocos2d-x"/>
+<meta name="twitter:description" content=""/>
+<link href="https://fonts.googleapis.com/css?family=Ubuntu:300,400,300italic,400italic|Raleway:200,300" rel="stylesheet">
+
+	<link rel="stylesheet" type="text/css" media="screen" href="https://beardog-ukr.github.io/cocos2dx-examples/uk/css/normalize.css" />
+	<link rel="stylesheet" type="text/css" media="screen" href="https://beardog-ukr.github.io/cocos2dx-examples/uk/css/main.css" />
+
+	<script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+	<script src="https://beardog-ukr.github.io/cocos2dx-examples/uk/js/main.js"></script>
+</head>
+
+<body>
+	<div class="container wrapper">
+		<div class="header">
+	<h1 class="site-title"><a href="https://beardog-ukr.github.io/cocos2dx-examples/uk/">Основи Cocos2d-x</a></h1>
+	<div class="site-description"><h2>Статті про розробку ігор за допомогою Cocos2d-x</h2><nav class="nav social">
+			<ul class="flat"><a href="https://github.com/beardog-ukr/cocos2dx-examples" title="Github"><i data-feather="github"></i></a></ul>
+		</nav>
+	</div>
+
+	<nav class="nav">
+		<ul class="flat">
+			
+			<li>
+				<a href="/cocos2dx-examples/uk/">Нове</a>
+			</li>
+			
+			<li>
+				<a href="/cocos2dx-examples/uk/posts">Усі пости</a>
+			</li>
+			
+			<li>
+				<a href="/cocos2dx-examples/uk/about">Про сайт</a>
+			</li>
+			
+			<li>
+				<a href="/cocos2dx-examples/uk/tags">Теги</a>
+			</li>
+			
+		</ul>
+	</nav>
+</div>
+
+
+		<div class="recent-posts section">
+			<h2 class="section-header">
+				Recent posts
+			</h2>
+			<div class="posts">
+				
+				
+				
+				<div class="post">
+					<div class="meta">Mar 22, 2020</div>
+					<a class="title" href="/cocos2dx-examples/uk/post/info_sources/">Інформація</a> &mdash;
+					<span class="description">
+						
+						Документації по Cocos2d-x порівняно небагато, але досить для вивчення. Проблема в тому, що у більшості випадків вона застаріла, тому доведеться співвідносити написане і реальний стан речей.
+Спочатку &ldquo;офіційні&rdquo; джерела:
+ посібник з основними термінами. Застарілий російськомовний переклад можна знайти на хабрі. документація по коду, згенерована Doxygen форум, там багато навчальних матеріалів, але вони теж сильно застаріли. функціональні тести — розробники розглядають їх як демонстрацію того, як правильно використовувати програмний каркас. На форумі часто можуть порадити &ldquo;глянути, як зроблено в тестах&rdquo;  Крім того, у різних блогах є серії постів, присвячених cocos2d-x:&hellip;
+						
+					</span>
+				</div>
+				
+				<div class="post">
+					<div class="meta">Mar 21, 2020</div>
+					<a class="title" href="/cocos2dx-examples/uk/post/first-steps/">Знайомство</a> &mdash;
+					<span class="description">
+						
+						Cocos2d-x — це фреймворк для створення кросплатформенних 2d-ігор на C++. З ним можна створювати відносно прості ігри типу Flappy Bird abo Fruit Ninja, а також більш складні сайд-скроллери та навіть стратегії.
+Перебування на карантині можна розглядати як привід вивчити щось нове, тому я спробую зробити серію постів, що описують основи цього програмного каркасу.
+  Гра Battle of Pathogens розроблена за допомогою Cocos Creator   Встановлення Процес встановлення непогано описаний для різних платформ в офіційній документації.&hellip;
+						
+					</span>
+				</div>
+				
+				<div class="post">
+					<div class="meta">Sep 29, 2019</div>
+					<a class="title" href="/cocos2dx-examples/uk/post/useful-imagemagick/">Корисні поради по imagemagick</a> &mdash;
+					<span class="description">
+						
+						imagemagick — консольна програма для обробки зображень.
+Наприклад, ось так можна розрізати один файл зображення на кілька менших:
+convert ./Skeleton_43x37.png -crop 43x37 skeleton_attack_%02d.png Тут
+ ./Skeleton_43x37.png — вхідний файл -crop 43x37 — розмір результату skeleton_attack_%02d.png маска для імен файлів-результатів  А ось так об'єднати кілька зображень:
+convert +append ./skeleton_attack_00.png ./skeleton_attack_01.png ./jh.png convert -append ./skeleton_attack_00.png ./skeleton_attack_01.png ./jv.png Тут +append з'єднує зображення горизонтально (одне збоку від одного), а -append вертикально (одне над одним).&hellip;
+						
+					</span>
+				</div>
+				
+				<div class="post">
+					<div class="meta">Jan 25, 2019</div>
+					<a class="title" href="/cocos2dx-examples/uk/post/hello/">Hello Friend</a> &mdash;
+					<span class="description">
+						
+						Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam nec interdum metus. Aenean rutrum ligula sodales ex auctor, sed tempus dui mollis. Curabitur ipsum dui, aliquet nec commodo at, tristique eget ante.
+						
+					</span>
+				</div>
+				
+				<div class="post">
+					<div class="meta">Mar 18, 2018</div>
+					<a class="title" href="/cocos2dx-examples/uk/post/post-2/">Другий пост</a> &mdash;
+					<span class="description">
+						
+						Юність і Перша світова війна У 1905 році Ліцман навчався в кадетському корпусі, а в 1911 йому було присвоєно звання фанен-юнкера. У листопаді 1913 після закінчення офіцерських курсів перепідготовки у Падерборні підвищений у чині до лейтенанта. У листопаді 1914 року Карл-Зігмунд Ліцман зі своїм з'єднанням, 261-м резервним піхотним полком, потрапив у Лодзинський котел, кільце якого було прорвано під військовим командуванням його батька, генерал-лейтенанта Карла Ліцмана, командира 3-ї гвардійської стрілецької дивізії. Ця подія змінила воєнне становище на користь німецької сторони.&hellip;
+						
+					</span>
+				</div>
+				
+				
+
+<ul class="pagination">
+	<li class="page-item page-prev">
+	
+    <a href="/cocos2dx-examples/uk/page/2/" class="page-link" aria-label="Previous"><span aria-hidden="true">← Prev page</span></a>
+	
+	</li>
+	<li class="page-item page-next">
+	
+    <a href="/cocos2dx-examples/uk/page/4/" class="page-link" aria-label="Next"><span aria-hidden="true">Next page →</span></a>
+	
+	</li>
+</ul>
+
+
+			</div>
+		</div>
+	</div>
+	<div class="footer wrapper">
+	<nav class="nav">
+		<div> © суспільне надбання |  <a href="https://github.com/vividvilla/ezhil">Ezhil theme</a> | Built with <a href="https://gohugo.io">Hugo</a></div>
+	</nav>
+</div>
+
+
+
+<script>feather.replace()</script>
+</body>
+</html>

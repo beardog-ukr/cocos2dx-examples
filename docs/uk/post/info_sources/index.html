@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>Інформація - Основи Cocos2d-x</title><meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta property="og:title" content="Інформація" />
+<meta property="og:description" content="Документації по Cocos2d-x порівняно небагато, але досить для вивчення. Проблема в тому, що у більшості випадків вона застаріла, тому доведеться співвідносити написане і реальний стан речей.
+Спочатку &ldquo;офіційні&rdquo; джерела:
+ посібник з основними термінами. Застарілий російськомовний переклад можна знайти на хабрі. документація по коду, згенерована Doxygen форум, там багато навчальних матеріалів, але вони теж сильно застаріли. функціональні тести — розробники розглядають їх як демонстрацію того, як правильно використовувати програмний каркас. На форумі часто можуть порадити &ldquo;глянути, як зроблено в тестах&rdquo;  Крім того, у різних блогах є серії постів, присвячених cocos2d-x:" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://beardog-ukr.github.io/cocos2dx-examples/uk/post/info_sources/" />
+<meta property="article:published_time" content="2020-03-22T11:30:25+03:00" />
+<meta property="article:modified_time" content="2020-03-22T11:30:25+03:00" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Інформація"/>
+<meta name="twitter:description" content="Документації по Cocos2d-x порівняно небагато, але досить для вивчення. Проблема в тому, що у більшості випадків вона застаріла, тому доведеться співвідносити написане і реальний стан речей.
+Спочатку &ldquo;офіційні&rdquo; джерела:
+ посібник з основними термінами. Застарілий російськомовний переклад можна знайти на хабрі. документація по коду, згенерована Doxygen форум, там багато навчальних матеріалів, але вони теж сильно застаріли. функціональні тести — розробники розглядають їх як демонстрацію того, як правильно використовувати програмний каркас. На форумі часто можуть порадити &ldquo;глянути, як зроблено в тестах&rdquo;  Крім того, у різних блогах є серії постів, присвячених cocos2d-x:"/>
+<link href="https://fonts.googleapis.com/css?family=Ubuntu:300,400,300italic,400italic|Raleway:200,300" rel="stylesheet">
+
+	<link rel="stylesheet" type="text/css" media="screen" href="https://beardog-ukr.github.io/cocos2dx-examples/uk/css/normalize.css" />
+	<link rel="stylesheet" type="text/css" media="screen" href="https://beardog-ukr.github.io/cocos2dx-examples/uk/css/main.css" />
+
+	<script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+	<script src="https://beardog-ukr.github.io/cocos2dx-examples/uk/js/main.js"></script>
+</head>
+
+<body>
+	<div class="container wrapper post">
+		<div class="header">
+	<h1 class="site-title"><a href="https://beardog-ukr.github.io/cocos2dx-examples/uk/">Основи Cocos2d-x</a></h1>
+	<div class="site-description"><h2>Статті про розробку ігор за допомогою Cocos2d-x</h2><nav class="nav social">
+			<ul class="flat"><a href="https://github.com/beardog-ukr/cocos2dx-examples" title="Github"><i data-feather="github"></i></a></ul>
+		</nav>
+	</div>
+
+	<nav class="nav">
+		<ul class="flat">
+			
+			<li>
+				<a href="/cocos2dx-examples/uk/">Нове</a>
+			</li>
+			
+			<li>
+				<a href="/cocos2dx-examples/uk/posts">Усі пости</a>
+			</li>
+			
+			<li>
+				<a href="/cocos2dx-examples/uk/about">Про сайт</a>
+			</li>
+			
+			<li>
+				<a href="/cocos2dx-examples/uk/tags">Теги</a>
+			</li>
+			
+		</ul>
+	</nav>
+</div>
+
+
+		<div class="post-header">
+			<h1 class="title">Інформація</h1>
+			<div class="meta">Posted at &mdash; Mar 22, 2020</div>
+		</div>
+
+		<div class="markdown">
+			<p>Документації по Cocos2d-x порівняно небагато, але досить для вивчення. Проблема в тому, що у більшості випадків вона застаріла, тому доведеться співвідносити написане і реальний стан речей.</p>
+<p>Спочатку &ldquo;офіційні&rdquo; джерела:</p>
+<ul>
+<li><a href="https://docs.cocos2d-x.org/cocos2d-x/v4/en/">посібник</a> з основними термінами. Застарілий російськомовний переклад можна знайти <a href="https://habr.com/ru/post/270133/">на хабрі</a>.</li>
+<li><a href="https://docs.cocos2d-x.org/api-ref/cplusplus/v4x/">документація по коду</a>, згенерована Doxygen</li>
+<li><a href="https://discuss.cocos2d-x.org/">форум</a>, там багато <a href="https://discuss.cocos2d-x.org/t/cocos3-0-tutorial-game-catchme/14258">навчальних</a> <a href="https://discuss.cocos2d-x.org/t/tutorials-collection-from-this-forum/14567">матеріалів</a>, але вони теж сильно застаріли.</li>
+<li><a href="https://github.com/cocos2d/cocos2d-x/tree/v4/tests/cpp-tests/Classes">функціональні тести</a> — розробники розглядають їх як демонстрацію того, як правильно використовувати програмний каркас. На форумі часто можуть порадити &ldquo;глянути, як зроблено в тестах&rdquo;</li>
+</ul>
+<p>Крім того, у різних блогах є серії постів, присвячених cocos2d-x:</p>
+<ul>
+<li><a href="https://rezghob.com/category/rts/">rezghob.com</a> — мабуть, найбільш свіжа серія на сьогоднішній день.</li>
+<li>навчальна серія на  наразі вже сильно застаріла, але там гарно описані багато речей.</li>
+<li>кілька статей на <em>raywenderlich.com</em>: <a href="https://www.raywenderlich.com/1848-cocos2d-x-tutorial-for-beginners">основи</a>, <a href="https://www.raywenderlich.com/2728-cocos2d-x-tutorial-for-ios-and-android-space-game">невеличка гра</a>, велика <a href="https://www.raywenderlich.com/2684-cocos2d-x-tile-map-tutorial-part-1">гра з картою</a></li>
+<li>навчальні відео від <a href="https://www.youtube.com/playlist?list=PLRtjMdoYXLf4od_bOKN3WjAPr7snPXzoe">Sonar Systems</a> (також доступне на <a href="https://sonarlearning.co.uk/coursepage.php?topic=game&amp;course=cocos2d-x-v3">цій сторінці</a>). В цілому те ж саме, що й у текстових постах інших авторів.</li>
+<li>ще трохи блогів різної актуальності: <a href="http://aprogrammersday.blogspot.com/p/cocos2d-x-game-programming.html">раз</a>, <a href="https://hoangthienphuoc.blogspot.com/2017/10/the-topic-of-game-design-idea-is-always.html">два</a>, <a href="https://discuss.cocos2d-x.org/t/tutorial-series-use-the-cocos2d-x-3-0-game-engine-write-a-tile-map-game-part01/12938/11">три</a>, <a href="http://www.pixnbgames.com/blog/category/cocos2d-x/?lang=en_us">чотири</a></li>
+</ul>
+<p>У 2013 році була видана паперова книжка &ldquo;<a href="https://www.packtpub.com/game-development/cocos2d-x-example-beginners-guide">Cocos2d-X by Example Beginner&rsquo;s Guide</a>&quot;, pdf-версію можна знайти десь в інтернеті. Очевидно, на даний момент вона теж застаріла, але все ще варта уваги.</p>
+<p>Крім того, є пара платних курсів Udemy: &ldquo;<a href="https://www.udemy.com/course/cocos2d-x-v3-cpp/">Cocos2d-x v3 C++ - Beginning Game Development</a>&rdquo; та &ldquo;<a href="https://www.udemy.com/course/flappy-bird/">Flappy Bird Clone - The Complete Cocos2d-x C++ Game Course</a>&quot;.</p>
+
+		</div>
+
+		<div class="post-tags">
+			
+				
+					<nav class="nav tags">
+							<ul class="flat">
+								
+								<li><a href="/cocos2dx-examples/uk/tags/links">links</a></li>
+								
+							</ul>
+					</nav>
+				
+			
+		</div>
+		</div>
+	<div class="footer wrapper">
+	<nav class="nav">
+		<div> © суспільне надбання |  <a href="https://github.com/vividvilla/ezhil">Ezhil theme</a> | Built with <a href="https://gohugo.io">Hugo</a></div>
+	</nav>
+</div>
+
+
+
+<script>feather.replace()</script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>files on Основи Cocos2d-x</title>
+    <link>https://beardog-ukr.github.io/cocos2dx-examples/uk/tags/files/</link>
+    <description>Recent content in files on Основи Cocos2d-x</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>© суспільне надбання</copyright>
+    <lastBuildDate>Sun, 22 Mar 2020 21:30:25 +0300</lastBuildDate>
+    
+	<atom:link href="https://beardog-ukr.github.io/cocos2dx-examples/uk/tags/files/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Структура проекту</title>
+      <link>https://beardog-ukr.github.io/cocos2dx-examples/uk/post/project-structure/</link>
+      <pubDate>Sun, 22 Mar 2020 21:30:25 +0300</pubDate>
+      
+      <guid>https://beardog-ukr.github.io/cocos2dx-examples/uk/post/project-structure/</guid>
+      <description>Не знаю, чи помітили ви, але навіть елементарний тестовий проект (такий, як було створено у початковій статті) займає досить багато місця — триста мегабайт до початку компіляції та більше п&#39;ятисот після. У старіших версіях фреймворку ситуація була ще гірше — невелика гра в процесі розробки займала майже гігабайт. Насправді, воно не так вже й важливо, але коли у вас багато тестових проектів, місце раптом закінчується.
+Проект cocos2d-x має приблизно таку структуру:</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="generator" content="Hugo 0.67.1" />
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>Основи Cocos2d-x - Статті про розробку ігор за допомогою Cocos2d-x </title><meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="alternate" type="application/rss+xml" href="https://beardog-ukr.github.io/cocos2dx-examples/uk/index.xml" title="Основи Cocos2d-x" />
+	<meta property="og:title" content="Основи Cocos2d-x" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://beardog-ukr.github.io/cocos2dx-examples/uk/" />
+<meta property="og:updated_time" content="2020-03-27T13:30:25+03:00" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Основи Cocos2d-x"/>
+<meta name="twitter:description" content=""/>
+<link href="https://fonts.googleapis.com/css?family=Ubuntu:300,400,300italic,400italic|Raleway:200,300" rel="stylesheet">
+
+	<link rel="stylesheet" type="text/css" media="screen" href="https://beardog-ukr.github.io/cocos2dx-examples/uk/css/normalize.css" />
+	<link rel="stylesheet" type="text/css" media="screen" href="https://beardog-ukr.github.io/cocos2dx-examples/uk/css/main.css" />
+
+	<script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+	<script src="https://beardog-ukr.github.io/cocos2dx-examples/uk/js/main.js"></script>
+</head>
+
+<body>
+	<div class="container wrapper">
+		<div class="header">
+	<h1 class="site-title"><a href="https://beardog-ukr.github.io/cocos2dx-examples/uk/">Основи Cocos2d-x</a></h1>
+	<div class="site-description"><h2>Статті про розробку ігор за допомогою Cocos2d-x</h2><nav class="nav social">
+			<ul class="flat"><a href="https://github.com/beardog-ukr/cocos2dx-examples" title="Github"><i data-feather="github"></i></a></ul>
+		</nav>
+	</div>
+
+	<nav class="nav">
+		<ul class="flat">
+			
+			<li>
+				<a href="/cocos2dx-examples/uk/">Нове</a>
+			</li>
+			
+			<li>
+				<a href="/cocos2dx-examples/uk/posts">Усі пости</a>
+			</li>
+			
+			<li>
+				<a href="/cocos2dx-examples/uk/about">Про сайт</a>
+			</li>
+			
+			<li>
+				<a href="/cocos2dx-examples/uk/tags">Теги</a>
+			</li>
+			
+		</ul>
+	</nav>
+</div>
+
+
+		<div class="recent-posts section">
+			<h2 class="section-header">
+				Recent posts
+			</h2>
+			<div class="posts">
+				
+				
+				
+				<div class="post">
+					<div class="meta">Mar 27, 2020</div>
+					<a class="title" href="/cocos2dx-examples/uk/post/advanced-callbacks/">Складніша робота з CC_CALBACK</a> &mdash;
+					<span class="description">
+						
+						https://evolutionarygames.itch.io/interface-elements-mobile-metallic&hellip;
+						
+					</span>
+				</div>
+				
+				<div class="post">
+					<div class="meta">Mar 26, 2020</div>
+					<a class="title" href="/cocos2dx-examples/uk/post/events-callbacks/">Обробка подій та колбеки</a> &mdash;
+					<span class="description">
+						
+						У дефолній програмі, яку було створено у перших постах, залишився без пояснення ще один момент — це кнопка, за допомогою якої ця програма закривалась.
+Використання CC_CALLBACK_1 у MenuItemImage Сама програма, якщо пам'ятаєте, виглядала так:
+  Тестова програма   Якщо ви мишкою натискали на кнопку в правому нижньому куті, викликався ось такий метод, який припиняв роботу програми:
+void SmokeTestScene::menuCloseCallback(Ref *pSender) { // Close the cocos2d-x game scene and quit the application Director::getInstance()-&gt;end(); } Але чому цей колбек взагалі викликається?&hellip;
+						
+					</span>
+				</div>
+				
+				<div class="post">
+					<div class="meta">Mar 23, 2020</div>
+					<a class="title" href="/cocos2dx-examples/uk/post/static-img-practice-app/">Використання Sprite</a> &mdash;
+					<span class="description">
+						
+						У цьому пості ми спробуємо створити першу власноруч написану програму. Поки що вона не буде нічого робити, ми просто візьмемо кілька зображеннь космічних кораблів з безкоштовного набору та покажемо їх на екрані. Основна мета — навчитись працювати з класом Sprite.
+Координати та опорна точка Cocos2d використовує &ldquo;шкільну&rdquo; систему координат:
+ x змінюється по горизонталі зліва направо y змінюється по вертикалі знизу вверх.  Центр системи координат знаходиться в опорній точці (anchor point).&hellip;
+						
+					</span>
+				</div>
+				
+				<div class="post">
+					<div class="meta">Mar 23, 2020</div>
+					<a class="title" href="/cocos2dx-examples/uk/post/basic-things/">Основні терміни Cocos2d-x</a> &mdash;
+					<span class="description">
+						
+						У попередніх постах мова йшла про те, як створити базовий проект програми у Cocos2d-x. Точніше, той проект створювався автоматично скриптом cocos, потрібно було його лише скомпілювати та запустити.
+Цього разу я розкажу про основні терміни, поняття та класи фреймворку, а також поясню, як вони використовуються у тому базовому проекті.
+Scene Scene — це тло, контейнер, всередині якого живуть своїм життям усі інші елементи, які користувач бачить на екрані. В реальній програмі буде мінімум дві сцени: меню та ігрове поле.&hellip;
+						
+					</span>
+				</div>
+				
+				<div class="post">
+					<div class="meta">Mar 22, 2020</div>
+					<a class="title" href="/cocos2dx-examples/uk/post/project-structure/">Структура проекту</a> &mdash;
+					<span class="description">
+						
+						Не знаю, чи помітили ви, але навіть елементарний тестовий проект (такий, як було створено у початковій статті) займає досить багато місця — триста мегабайт до початку компіляції та більше п'ятисот після. У старіших версіях фреймворку ситуація була ще гірше — невелика гра в процесі розробки займала майже гігабайт. Насправді, воно не так вже й важливо, але коли у вас багато тестових проектів, місце раптом закінчується.
+Проект cocos2d-x має приблизно таку структуру:&hellip;
+						
+					</span>
+				</div>
+				
+				
+
+<ul class="pagination">
+	<li class="page-item page-prev">
+	
+    <a href="/cocos2dx-examples/uk/" class="page-link" aria-label="Previous"><span aria-hidden="true">← Prev page</span></a>
+	
+	</li>
+	<li class="page-item page-next">
+	
+    <a href="/cocos2dx-examples/uk/page/3/" class="page-link" aria-label="Next"><span aria-hidden="true">Next page →</span></a>
+	
+	</li>
+</ul>
+
+
+			</div>
+		</div>
+	</div>
+	<div class="footer wrapper">
+	<nav class="nav">
+		<div> © суспільне надбання |  <a href="https://github.com/vividvilla/ezhil">Ezhil theme</a> | Built with <a href="https://gohugo.io">Hugo</a></div>
+	</nav>
+</div>
+
+
+
+<script>feather.replace()</script>
+</body>
+</html>
