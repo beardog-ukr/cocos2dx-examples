@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Smoke Test Project on Основи Cocos2d-x</title>
+    <link>https://beardog-ukr.github.io/cocos2dx-examples/tags/smoke-test-project/</link>
+    <description>Recent content in Smoke Test Project on Основи Cocos2d-x</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>uk-UA</language>
+    <lastBuildDate>Mon, 23 Mar 2020 17:30:25 +0300</lastBuildDate>
+    
+	<atom:link href="https://beardog-ukr.github.io/cocos2dx-examples/tags/smoke-test-project/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Основні терміни Cocos2d-x</title>
+      <link>https://beardog-ukr.github.io/cocos2dx-examples/post/basic-things/</link>
+      <pubDate>Mon, 23 Mar 2020 17:30:25 +0300</pubDate>
+      
+      <guid>https://beardog-ukr.github.io/cocos2dx-examples/post/basic-things/</guid>
+      <description>У попередніх постах мова йшла про те, як створити базовий проект програми у Cocos2d-x. Точніше, той проект створювався автоматично скриптом cocos, потрібно було його лише скомпілювати та запустити.
+Цього разу я розкажу про основні терміни, поняття та класи фреймворку, а також поясню, як вони використовуються у тому базовому проекті.
+Scene Scene — це тло, контейнер, всередині якого живуть своїм життям усі інші елементи, які користувач бачить на екрані. В реальній програмі буде мінімум дві сцени: меню та ігрове поле.</description>
+    </item>
+    
+  </channel>
+</rss>

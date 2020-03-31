@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  
+    <title>std::bind :: Основи Cocos2d-x — Про розробку 2d-ігор на Cocos2d-x</title>
+  
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="description" content="" />
+<meta name="keywords" content="" />
+<meta name="robots" content="noodp" />
+<link rel="canonical" href="https://beardog-ukr.github.io/cocos2dx-examples/tags/stdbind/" />
+
+
+
+
+<link rel="stylesheet" href="https://beardog-ukr.github.io/cocos2dx-examples/assets/style.css">
+
+  <link rel="stylesheet" href="https://beardog-ukr.github.io/cocos2dx-examples/assets/green.css">
+
+
+
+
+
+
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://beardog-ukr.github.io/cocos2dx-examples/img/apple-touch-icon-144-precomposed.png">
+
+  <link rel="shortcut icon" href="https://beardog-ukr.github.io/cocos2dx-examples/img/favicon/green.png">
+
+
+
+<meta name="twitter:card" content="summary" />
+
+<meta name="twitter:creator" content="" />
+
+
+<meta property="og:locale" content="uk" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="std::bind :: Основи Cocos2d-x">
+<meta property="og:description" content="" />
+<meta property="og:url" content="https://beardog-ukr.github.io/cocos2dx-examples/tags/stdbind/" />
+<meta property="og:site_name" content="std::bind" />
+<meta property="og:image" content="https://beardog-ukr.github.io/cocos2dx-examples/">
+<meta property="og:image:width" content="2048">
+<meta property="og:image:height" content="1024">
+
+
+
+
+
+  <link href="/cocos2dx-examples/tags/stdbind/index.xml" rel="alternate" type="application/rss+xml" title="Основи Cocos2d-x" />
+
+
+
+
+
+
+
+
+
+</head>
+<body class="">
+
+
+<div class="container center headings--one-size">
+
+  <header class="header">
+  <div class="header__inner">
+    <div class="header__logo">
+      <a href="/">
+  <div class="logo">
+    Основи Cocos2d-x
+  </div>
+</a>
+
+    </div>
+    <div class="menu-trigger">menu</div>
+  </div>
+  
+    <nav class="menu">
+  <ul class="menu__inner menu__inner--desktop">
+    
+      
+        
+          <li><a href="/cocos2dx-examples/about">About</a></li>
+        
+      
+        
+          <li><a href="/cocos2dx-examples/showcase">Showcase (to be removed)</a></li>
+        
+      
+      
+    
+
+    
+  </ul>
+
+  <ul class="menu__inner menu__inner--mobile">
+    
+      
+        <li><a href="/cocos2dx-examples/about">About</a></li>
+      
+    
+      
+        <li><a href="/cocos2dx-examples/showcase">Showcase (to be removed)</a></li>
+      
+    
+    
+  </ul>
+</nav>
+
+  
+</header>
+
+
+  <div class="content">
+    
+<div class="posts">
+  
+  
+
+  
+  
+  
+
+  
+  <div class="post on-list">
+    <h1 class="post-title">
+      <a href="https://beardog-ukr.github.io/cocos2dx-examples/post/events-callbacks/">Обробка подій та колбеки</a></h1>
+    <div class="post-meta">
+      <span class="post-date">
+        2020-03-26
+      </span>
+      <span class="post-author">::
+        beardog-ukr</span>
+    </div>
+
+    
+    <span class="post-tags">
+      
+      #<a href="https://beardog-ukr.github.io/cocos2dx-examples/tags/event/">event</a>&nbsp;
+      
+      #<a href="https://beardog-ukr.github.io/cocos2dx-examples/tags/event-processing/">event processing</a>&nbsp;
+      
+      #<a href="https://beardog-ukr.github.io/cocos2dx-examples/tags/stdbind/">std::bind</a>&nbsp;
+      
+      #<a href="https://beardog-ukr.github.io/cocos2dx-examples/tags/cc_callback/">CC_CALLBACK</a>&nbsp;
+      
+    </span>
+    
+
+    
+
+    <div class="post-content">
+      
+      
+      У дефолній програмі, яку було створено у перших постах, залишився без пояснення ще один момент — це кнопка, за допомогою якої ця програма закривалась.
+Використання CC_CALLBACK_1 у MenuItemImage Сама програма, якщо пам'ятаєте, виглядала так:
+Якщо ви мишкою натискали на кнопку в правому нижньому куті, викликався ось такий метод, який припиняв роботу програми:
+void SmokeTestScene::menuCloseCallback(Ref *pSender) { // Close the cocos2d-x game scene and quit the application Director::getInstance()-&gt;end(); } Але чому цей колбек взагалі викликається?
+      
+      
+    </div>
+
+    
+    <div>
+      <a class="read-more button"
+        href="/cocos2dx-examples/post/events-callbacks/">Читати далі →</a>
+    </div>
+    
+  </div>
+  
+  <div class="pagination">
+  <div class="pagination__buttons">
+    
+    
+  </div>
+</div>
+
+</div>
+
+  </div>
+
+  
+    <footer class="footer">
+  <div class="footer__inner">
+    
+      <div class="copyright">
+        <span>© 2020 Powered by <a href="http://gohugo.io">Hugo</a></span>
+    
+        <span>:: Theme made by <a href="https://twitter.com/panr">panr</a></span>
+      </div>
+  </div>
+</footer>
+
+<script src="https://beardog-ukr.github.io/cocos2dx-examples/assets/main.js"></script>
+<script src="https://beardog-ukr.github.io/cocos2dx-examples/assets/prism.js"></script>
+
+
+
+
+
+  
+</div>
+
+</body>
+</html>

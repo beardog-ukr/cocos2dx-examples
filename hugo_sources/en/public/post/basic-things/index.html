@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  
+    <title>Основні терміни Cocos2d-x :: Основи Cocos2d-x — Про розробку 2d-ігор на Cocos2d-x</title>
+  
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="description" content="У попередніх постах мова йшла про те, як створити базовий проект програми у Cocos2d-x. Точніше, той проект створювався автоматично скриптом cocos, потрібно було його лише скомпілювати та запустити.
+Цього разу я розкажу про основні терміни, поняття та класи фреймворку, а також поясню, як вони використовуються у тому базовому проекті.
+Scene Scene — це тло, контейнер, всередині якого живуть своїм життям усі інші елементи, які користувач бачить на екрані. В реальній програмі буде мінімум дві сцени: меню та ігрове поле." />
+<meta name="keywords" content="" />
+<meta name="robots" content="noodp" />
+<link rel="canonical" href="https://beardog-ukr.github.io/cocos2dx-examples/post/basic-things/" />
+
+
+
+
+<link rel="stylesheet" href="https://beardog-ukr.github.io/cocos2dx-examples/assets/style.css">
+
+  <link rel="stylesheet" href="https://beardog-ukr.github.io/cocos2dx-examples/assets/green.css">
+
+
+
+
+
+
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://beardog-ukr.github.io/cocos2dx-examples/img/apple-touch-icon-144-precomposed.png">
+
+  <link rel="shortcut icon" href="https://beardog-ukr.github.io/cocos2dx-examples/img/favicon/green.png">
+
+
+
+<meta name="twitter:card" content="summary" />
+
+<meta name="twitter:creator" content="beardog-ukr" />
+
+
+<meta property="og:locale" content="uk" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Основні терміни Cocos2d-x :: Основи Cocos2d-x">
+<meta property="og:description" content="У попередніх постах мова йшла про те, як створити базовий проект програми у Cocos2d-x. Точніше, той проект створювався автоматично скриптом cocos, потрібно було його лише скомпілювати та запустити.
+Цього разу я розкажу про основні терміни, поняття та класи фреймворку, а також поясню, як вони використовуються у тому базовому проекті.
+Scene Scene — це тло, контейнер, всередині якого живуть своїм життям усі інші елементи, які користувач бачить на екрані. В реальній програмі буде мінімум дві сцени: меню та ігрове поле." />
+<meta property="og:url" content="https://beardog-ukr.github.io/cocos2dx-examples/post/basic-things/" />
+<meta property="og:site_name" content="Основні терміни Cocos2d-x" />
+<meta property="og:image" content="https://beardog-ukr.github.io/cocos2dx-examples/">
+<meta property="og:image:width" content="2048">
+<meta property="og:image:height" content="1024">
+
+
+  <meta property="article:published_time" content="2020-03-23 17:30:25 &#43;0300 &#43;0300" />
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+<body class="">
+
+
+<div class="container center headings--one-size">
+
+  <header class="header">
+  <div class="header__inner">
+    <div class="header__logo">
+      <a href="/">
+  <div class="logo">
+    Основи Cocos2d-x
+  </div>
+</a>
+
+    </div>
+    <div class="menu-trigger">menu</div>
+  </div>
+  
+    <nav class="menu">
+  <ul class="menu__inner menu__inner--desktop">
+    
+      
+        
+          <li><a href="/cocos2dx-examples/about">About</a></li>
+        
+      
+        
+          <li><a href="/cocos2dx-examples/showcase">Showcase (to be removed)</a></li>
+        
+      
+      
+    
+
+    
+  </ul>
+
+  <ul class="menu__inner menu__inner--mobile">
+    
+      
+        <li><a href="/cocos2dx-examples/about">About</a></li>
+      
+    
+      
+        <li><a href="/cocos2dx-examples/showcase">Showcase (to be removed)</a></li>
+      
+    
+    
+  </ul>
+</nav>
+
+  
+</header>
+
+
+  <div class="content">
+    
+<div class="post">
+  <h1 class="post-title">
+    <a href="https://beardog-ukr.github.io/cocos2dx-examples/post/basic-things/">Основні терміни Cocos2d-x</a></h1>
+  <div class="post-meta">
+      
+    <span class="post-date">
+      2020-03-23
+    </span>
+    
+    
+    <span class="post-author">::
+      beardog-ukr
+    </span>
+    
+  </div>
+
+  
+  <span class="post-tags">
+    
+    #<a href="https://beardog-ukr.github.io/cocos2dx-examples/tags/initial/">initial</a>&nbsp;
+    
+    #<a href="https://beardog-ukr.github.io/cocos2dx-examples/tags/smoke-test-project/">Smoke Test Project</a>&nbsp;
+    
+  </span>
+  
+
+  
+
+  <div class="post-content"><div>
+        <p>У попередніх постах мова йшла про те, як створити базовий проект програми у Cocos2d-x. Точніше, той проект створювався автоматично скриптом <em>cocos</em>, потрібно було його лише скомпілювати та запустити.</p>
+<p>Цього разу я розкажу про основні терміни, поняття та класи фреймворку, а також поясню, як вони використовуються у тому базовому проекті.</p>
+<h1 id="scene">Scene<a href="#scene" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h1>
+<p><a href="https://docs.cocos2d-x.org/api-ref/cplusplus/v4x/d4/d5f/classcocos2d_1_1_scene.html">Scene</a> — це тло, контейнер, всередині якого живуть своїм життям усі інші елементи, які користувач бачить на екрані. В реальній програмі буде мінімум дві сцени: меню та ігрове поле. Перемикання між різними сценами здійснюється за допомогою синглтону класу <a href="https://docs.cocos2d-x.org/api-ref/cplusplus/v4x/d7/df3/classcocos2d_1_1_director.html">Director</a>. Відповідно до задуму розробників, це має нагадувати театральну сцену, декорації на якій змінюються за наказом режисера. Втім, у наших перших тестових програмах сцена буде лише одна, тому ніякого перемикання не буде.</p>
+<p>Найважливіше у сцені — метод <em>init</em>:</p>
+<pre><code>bool SmokeTestScene::init() {
+  // 1. super init first
+  if (!Scene::init()) {
+    return false;
+  }
+
+  //
+  &lt;створення інших об'єктів&gt;
+
+  return true;
+}
+</code></pre><p>Фактично, цей метод є конструктором. Використовувати реальний C++ конструктор для цього класу не дуже зручно, тому зазвичай більшість внутрішніх об'єктів сцени створюються саме під час виконання <em>init</em>.</p>
+<h1 id="node-та-його-нащадки">Node та його нащадки<a href="#node-та-його-нащадки" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h1>
+<p><a href="https://docs.cocos2d-x.org/api-ref/cplusplus/v4x/d3/d82/classcocos2d_1_1_node.html#details">Node</a> — базовий клас, що реалізує спільну для об'єктів сцени функціональність.</p>
+<p>Усі об'єкти <code>Node</code> мають такі властивості:</p>
+<ul>
+<li>позицію</li>
+<li>масштаб</li>
+<li>кут повороту (у градусах за годинниковою стрілкою)</li>
+<li>положення опорної точки</li>
+<li>розмір вмісту (contentSize)</li>
+<li>видимість</li>
+</ul>
+<p>Крім того, <code>Node</code> реалізує відносини <a href="https://docs.cocos2d-x.org/cocos2d-x/v4/en/basic_concepts/parent_child.html">parent-child</a>. Можна призначити один об'єкт дитиною іншого, і тоді при видаленні батьківського об'єкту він видалить всіх своїх дітей. Пізніше буде окремий пост про роботу з пам'яттю та створення-видалення об'єктів, а поки що у тестових програмах це не так важливо.</p>
+<p>У нашій програмі було три нащадки <code>Node</code>:</p>
+<ul>
+<li><a href="https://docs.cocos2d-x.org/api-ref/cplusplus/v4x/d3/d5c/classcocos2d_1_1_sprite.html">Sprite</a> — призначений для виведення зображень</li>
+<li><a href="https://docs.cocos2d-x.org/api-ref/cplusplus/v4x/db/de4/classcocos2d_1_1_label.html">Label</a> — це панель для тексту</li>
+<li><a href="https://docs.cocos2d-x.org/api-ref/cplusplus/v4x/d1/d30/classcocos2d_1_1_menu_item_image.html">MenuItemImage</a> — це один клас для виведення зображень, але на додачу ще має функціональність кнопки.</li>
+</ul>
+<p>Ось всі вони у нашій дефолтній програмі:</p>
+
+  <figure class="center" >
+    <img src="/cocos2dx-examples/post/basic-things-img/basic-app.png"   />
+    
+  </figure>
+
+
+<p>Напис &ldquo;GL Verts / GL calls&rdquo; не є частиною сцени. Це налагоджувальна інформація, яку фреймворк додає до вікна програми. Її можна <a href="https://stackoverflow.com/questions/34708592/how-do-i-hide-cocos2d-x-gl-verts-calls-labels">приховати</a>, але поки що цього робити не варто, воно ще знадобиться.</p>
+<p>В принципі, згаданий вище клас <code>Scene</code> також є нащадком <code>Node</code>. Але він використовується трохи інакше, ніж інші, тому його краще було розглядати окремо.</p>
+
+      </div></div>
+  
+  <div class="pagination">
+    <div class="pagination__title">
+      <span
+        class="pagination__title-h">Інші пости</span>
+      <hr />
+    </div>
+    <div class="pagination__buttons">
+      
+      <span class="button previous">
+        <a href="https://beardog-ukr.github.io/cocos2dx-examples/post/static-img-practice-app/">
+          <span class="button__icon">←</span>
+          <span class="button__text">Використання Sprite</span>
+        </a>
+      </span>
+      
+      
+      <span class="button next">
+        <a href="https://beardog-ukr.github.io/cocos2dx-examples/post/project-structure/">
+          <span class="button__text">Структура проекту</span>
+          <span class="button__icon">→</span>
+        </a>
+      </span>
+      
+    </div>
+  </div>
+  
+
+  
+
+</div>
+
+  </div>
+
+  
+    <footer class="footer">
+  <div class="footer__inner">
+    
+      <div class="copyright">
+        <span>© 2020 Powered by <a href="http://gohugo.io">Hugo</a></span>
+    
+        <span>:: Theme made by <a href="https://twitter.com/panr">panr</a></span>
+      </div>
+  </div>
+</footer>
+
+<script src="https://beardog-ukr.github.io/cocos2dx-examples/assets/main.js"></script>
+<script src="https://beardog-ukr.github.io/cocos2dx-examples/assets/prism.js"></script>
+
+
+
+
+
+  
+</div>
+
+</body>
+</html>

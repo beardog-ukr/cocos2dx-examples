@@ -1,0 +1,53 @@
+baseURL = "https://beardog-ukr.github.io/cocos2dx-examples/en/"
+languageCode = "en-us"
+title = "Cocos2d-x basics"
+theme = "ezhil"
+paginate = 5
+
+copyright = "© public domain"
+
+pygmentsstyle = "solarized-dark"
+pygmentscodefences = true
+pygmentscodefencesguesssyntax = true
+
+googleAnalytics = ""
+disqusShortname = ""
+
+#summaryLength = 20
+
+[params]
+	subtitle = "Some articles about Cocos2d-x framework"
+	disableDisqusTypes = ["page"]
+	featherIconsCDN = true
+	mode = "light" # "dark", "auto", "light"
+	# customCSS = "css/custom.css"  # Custom CSS applied to default styles.
+	# customDarkCSS = "css/custom-dark.css"  # Custom styles applied to dark mode css.
+	# customJS = ["https://code.jquery.com/jquery-3.4.1.js", "js/custom1.js"]  # Custom JS scripts.
+
+[[menu.main]]
+name = "Recent"
+url = "/"
+weight = 1
+
+[[menu.main]]
+name = "All"
+url = "/posts"
+weight = 2
+
+[[menu.main]]
+name = "About"
+url = "/about"
+weight = 3
+
+[[menu.main]]
+name = "Tags"
+url = "/tags"
+weight = 4
+
+[[params.social]]
+name = "Github"
+icon = "github"
+url = "https://github.com/beardog-ukr/cocos2dx-examples"
+
+[taxonomies]
+   tag = "tags"

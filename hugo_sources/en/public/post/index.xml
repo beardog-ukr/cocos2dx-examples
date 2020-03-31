@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on Основи Cocos2d-x</title>
+    <link>https://beardog-ukr.github.io/cocos2dx-examples/post/</link>
+    <description>Recent content in Posts on Основи Cocos2d-x</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>uk-UA</language>
+    <lastBuildDate>Sun, 29 Mar 2020 21:30:25 +0300</lastBuildDate>
+    
+	<atom:link href="https://beardog-ukr.github.io/cocos2dx-examples/post/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Послідовності</title>
+      <link>https://beardog-ukr.github.io/cocos2dx-examples/post/basic-sequence/</link>
+      <pubDate>Sun, 29 Mar 2020 21:30:25 +0300</pubDate>
+      
+      <guid>https://beardog-ukr.github.io/cocos2dx-examples/post/basic-sequence/</guid>
+      <description>Якщо вам потрібно виконати кілька акцій одну за одною, на допомогу прийде клас Sequence.
+Наприклад, синій корабель за помовчанням створюється &amp;ldquo;носом доверху&amp;rdquo;. Щоб зобразити його &amp;ldquo;переліт&amp;rdquo; направо, спочатку треба зробити поворот на 90 градусів, а вже потім переміщувати.
+Для того, щоб це спрацювало, треба створити акції RotateTo та MoveTo, а потім об&#39;єднати їх у послідовність:
+RotateBy* rotateBy = RotateBy::create(2, 90); MoveBy* moveBy = MoveBy::create(4, Vec2(160,0)); Sequence* seq = Sequence::create(rotateBy, moveBy, nullptr); blueShip-&amp;gt;runAction(seq); Фабричний метод, який створює Sequence, може отримувати будь-яке число вказівників на об&#39;єкти-нащадки Action, а останнім обов&#39;язково має бути nullptr.</description>
+    </item>
+    
+    <item>
+      <title>Анімація</title>
+      <link>https://beardog-ukr.github.io/cocos2dx-examples/post/basic-animations/</link>
+      <pubDate>Sun, 29 Mar 2020 17:30:25 +0300</pubDate>
+      
+      <guid>https://beardog-ukr.github.io/cocos2dx-examples/post/basic-animations/</guid>
+      <description>Ще одним способом створення &amp;ldquo;живого&amp;rdquo; об&#39;єкту є анімація. Художники малюють ряд кадрів, а Cocos2d їх послідовно показує, використовуючи клас Animation. Робота з ним схожа на інші акції, хоча сам клас має трошки інше походження.
+Для прикладу візьмемо анімацію атаки скелету з безкоштовного паку. Ось кадри:
+ А так має виглядати результат:  https://github.com/cocos2d/cocos2d-x/blob/v4/cocos/base/ccMacros.h</description>
+    </item>
+    
+    <item>
+      <title>Рух та інші перетворення об&#39;єктів</title>
+      <link>https://beardog-ukr.github.io/cocos2dx-examples/post/basic-actions/</link>
+      <pubDate>Sun, 29 Mar 2020 15:55:25 +0300</pubDate>
+      
+      <guid>https://beardog-ukr.github.io/cocos2dx-examples/post/basic-actions/</guid>
+      <description>Ми вже вміємо обробляти події клавіатури або натискання на кнопки. Тепер треба починати реагувати на ці події та щось зробити з об&#39;єктом.
+Наприклад, ви хочете, щоб після натиснення кнопки спрайт перемістився з одного місця екрану до іншого. Для того, щоб це виглядало саме як пересування, а не телепортація, координати треба змінювати дуже маленькими, але частими порціями, десятки разів на секунду. Вручну це програмувати незручно, тому у Cococ2d зробили клас Action та його нащадки.</description>
+    </item>
+    
+    <item>
+      <title>Обробка клавіатури</title>
+      <link>https://beardog-ukr.github.io/cocos2dx-examples/post/keyboard-processing/</link>
+      <pubDate>Fri, 27 Mar 2020 19:30:25 +0300</pubDate>
+      
+      <guid>https://beardog-ukr.github.io/cocos2dx-examples/post/keyboard-processing/</guid>
+      <description>Ще одним прикладом використання макросу CC_CALLBACK може бути робота з клавіатурою.
+Для того, щоб додати у програму можливість обробки клавіатури, в init сцени треба додати такий код:
+// keyboard processing EventListenerKeyboard* sceneKeyboardListener = EventListenerKeyboard::create(); sceneKeyboardListener-&amp;gt;onKeyPressed = CC_CALLBACK_2(ActionsDemoScene::onKeyPressedScene, this); _eventDispatcher-&amp;gt;addEventListenerWithSceneGraphPriority(sceneKeyboardListener, this); при цьому сама обробка натискання може виглядати так:
+void ActionsDemoScene::onKeyPressedScene(EventKeyboard::KeyCode keyCode, Event *event) { printf(&amp;#34;%s: processing key %d pressed\n&amp;#34;, __func__, (int)keyCode); if (EventKeyboard::KeyCode::KEY_A == keyCode) { printf(&amp;#34;%s: key &amp;#39;a&amp;#39; was pressed\n&amp;#34;, __func__); } else { printf(&amp;#34;%s: failed to process.</description>
+    </item>
+    
+    <item>
+      <title>Складніша робота з CC_CALBACK</title>
+      <link>https://beardog-ukr.github.io/cocos2dx-examples/post/advanced-callbacks/</link>
+      <pubDate>Fri, 27 Mar 2020 13:30:25 +0300</pubDate>
+      
+      <guid>https://beardog-ukr.github.io/cocos2dx-examples/post/advanced-callbacks/</guid>
+      <description>https://evolutionarygames.itch.io/interface-elements-mobile-metallic</description>
+    </item>
+    
+    <item>
+      <title>Обробка подій та колбеки</title>
+      <link>https://beardog-ukr.github.io/cocos2dx-examples/post/events-callbacks/</link>
+      <pubDate>Thu, 26 Mar 2020 17:30:25 +0300</pubDate>
+      
+      <guid>https://beardog-ukr.github.io/cocos2dx-examples/post/events-callbacks/</guid>
+      <description>У дефолній програмі, яку було створено у перших постах, залишився без пояснення ще один момент — це кнопка, за допомогою якої ця програма закривалась.
+Використання CC_CALLBACK_1 у MenuItemImage Сама програма, якщо пам&#39;ятаєте, виглядала так:
+ Якщо ви мишкою натискали на кнопку в правому нижньому куті, викликався ось такий метод, який припиняв роботу програми:
+void SmokeTestScene::menuCloseCallback(Ref *pSender) { // Close the cocos2d-x game scene and quit the application Director::getInstance()-&amp;gt;end(); } Але чому цей колбек взагалі викликається?</description>
+    </item>
+    
+    <item>
+      <title>Використання Sprite</title>
+      <link>https://beardog-ukr.github.io/cocos2dx-examples/post/static-img-practice-app/</link>
+      <pubDate>Mon, 23 Mar 2020 22:30:25 +0300</pubDate>
+      
+      <guid>https://beardog-ukr.github.io/cocos2dx-examples/post/static-img-practice-app/</guid>
+      <description>У цьому пості ми спробуємо створити першу власноруч написану програму. Поки що вона не буде нічого робити, ми просто візьмемо кілька зображеннь космічних кораблів з безкоштовного набору та покажемо їх на екрані. Основна мета — навчитись працювати з класом Sprite.
+Координати та опорна точка Cocos2d використовує &amp;ldquo;шкільну&amp;rdquo; систему координат:
+ x змінюється по горизонталі зліва направо y змінюється по вертикалі знизу вверх.  Центр системи координат знаходиться в опорній точці (anchor point).</description>
+    </item>
+    
+    <item>
+      <title>Основні терміни Cocos2d-x</title>
+      <link>https://beardog-ukr.github.io/cocos2dx-examples/post/basic-things/</link>
+      <pubDate>Mon, 23 Mar 2020 17:30:25 +0300</pubDate>
+      
+      <guid>https://beardog-ukr.github.io/cocos2dx-examples/post/basic-things/</guid>
+      <description>У попередніх постах мова йшла про те, як створити базовий проект програми у Cocos2d-x. Точніше, той проект створювався автоматично скриптом cocos, потрібно було його лише скомпілювати та запустити.
+Цього разу я розкажу про основні терміни, поняття та класи фреймворку, а також поясню, як вони використовуються у тому базовому проекті.
+Scene Scene — це тло, контейнер, всередині якого живуть своїм життям усі інші елементи, які користувач бачить на екрані. В реальній програмі буде мінімум дві сцени: меню та ігрове поле.</description>
+    </item>
+    
+    <item>
+      <title>Структура проекту</title>
+      <link>https://beardog-ukr.github.io/cocos2dx-examples/post/project-structure/</link>
+      <pubDate>Sun, 22 Mar 2020 21:30:25 +0300</pubDate>
+      
+      <guid>https://beardog-ukr.github.io/cocos2dx-examples/post/project-structure/</guid>
+      <description>Не знаю, чи помітили ви, але навіть елементарний тестовий проект (такий, як було створено у початковій статті) займає досить багато місця — триста мегабайт до початку компіляції та більше п&#39;ятисот після. У старіших версіях фреймворку ситуація була ще гірше — невелика гра в процесі розробки займала майже гігабайт. Насправді, воно не так вже й важливо, але коли у вас багато тестових проектів, місце раптом закінчується.
+Проект cocos2d-x має приблизно таку структуру:</description>
+    </item>
+    
+    <item>
+      <title>Інформація</title>
+      <link>https://beardog-ukr.github.io/cocos2dx-examples/post/info_sources/</link>
+      <pubDate>Sun, 22 Mar 2020 11:30:25 +0300</pubDate>
+      
+      <guid>https://beardog-ukr.github.io/cocos2dx-examples/post/info_sources/</guid>
+      <description>Документації по Cocos2d-x порівняно небагато, але досить для вивчення. Проблема в тому, що у більшості випадків вона застаріла, тому доведеться співвідносити написане і реальний стан речей.
+Спочатку &amp;ldquo;офіційні&amp;rdquo; джерела:
+ посібник з основними термінами. Застарілий російськомовний переклад можна знайти на хабрі. документація по коду, згенерована Doxygen форум, там багато навчальних матеріалів, але вони теж сильно застаріли. функціональні тести — розробники розглядають їх як демонстрацію того, як правильно використовувати програмний каркас. На форумі часто можуть порадити &amp;ldquo;глянути, як зроблено в тестах&amp;rdquo;  Крім того, у різних блогах є серії постів, присвячених cocos2d-x:</description>
+    </item>
+    
+    <item>
+      <title>Знайомство</title>
+      <link>https://beardog-ukr.github.io/cocos2dx-examples/post/first-steps/</link>
+      <pubDate>Sat, 21 Mar 2020 17:30:25 +0300</pubDate>
+      
+      <guid>https://beardog-ukr.github.io/cocos2dx-examples/post/first-steps/</guid>
+      <description>Cocos2d-x — це фреймворк для створення кросплатформенних 2d-ігор на C++. З ним можна створювати відносно прості ігри типу Flappy Bird abo Fruit Ninja, а також більш складні сайд-скроллери та навіть стратегії.
+Перебування на карантині можна розглядати як привід вивчити щось нове, тому я спробую зробити серію постів, що описують основи цього програмного каркасу.
+ Встановлення Процес встановлення непогано описаний для різних платформ в офіційній документації. Також відносно свіжі інструкції можна знайти у цьому блозі:linux або Windows.</description>
+    </item>
+    
+    <item>
+      <title>Корисні поради по imagemagick</title>
+      <link>https://beardog-ukr.github.io/cocos2dx-examples/post/useful-imagemagick/</link>
+      <pubDate>Sun, 29 Sep 2019 04:25:25 +0300</pubDate>
+      
+      <guid>https://beardog-ukr.github.io/cocos2dx-examples/post/useful-imagemagick/</guid>
+      <description>imagemagick — консольна програма для обробки зображень.
+Наприклад, ось так можна розрізати один файл зображення на кілька менших:
+convert ./Skeleton_43x37.png -crop 43x37 skeleton_attack_%02d.png Тут
+ ./Skeleton_43x37.png — вхідний файл -crop 43x37 — розмір результату skeleton_attack_%02d.png маска для імен файлів-результатів  А ось так об&#39;єднати кілька зображень:
+convert +append ./skeleton_attack_00.png ./skeleton_attack_01.png ./jh.png convert -append ./skeleton_attack_00.png ./skeleton_attack_01.png ./jv.png Тут +append з&#39;єднує зображення горизонтально (одне збоку від одного), а -append вертикально (одне над одним).</description>
+    </item>
+    
+    <item>
+      <title>Hello Friend</title>
+      <link>https://beardog-ukr.github.io/cocos2dx-examples/post/hello/</link>
+      <pubDate>Fri, 25 Jan 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://beardog-ukr.github.io/cocos2dx-examples/post/hello/</guid>
+      <description>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam nec interdum metus. Aenean rutrum ligula sodales ex auctor, sed tempus dui mollis. Curabitur ipsum dui, aliquet nec commodo at, tristique eget ante. Donec quis dolor nec nunc mollis interdum vel in purus. Sed vitae leo scelerisque, sollicitudin elit sed, congue ante. In augue nisl, vestibulum commodo est a, tristique porttitor est. Proin laoreet iaculis ornare. Nullam ut neque quam.
+ Fusce pharetra suscipit orci nec tempor.</description>
+    </item>
+    
+  </channel>
+</rss>

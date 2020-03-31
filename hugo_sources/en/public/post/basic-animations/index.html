@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  
+    <title>Анімація :: Основи Cocos2d-x — Про розробку 2d-ігор на Cocos2d-x</title>
+  
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="description" content="Ще одним способом створення &amp;ldquo;живого&amp;rdquo; об&#39;єкту є анімація. Художники малюють ряд кадрів, а Cocos2d їх послідовно показує, використовуючи клас Animation. Робота з ним схожа на інші акції, хоча сам клас має трошки інше походження.
+Для прикладу візьмемо анімацію атаки скелету з безкоштовного паку. Ось кадри:
+ А так має виглядати результат:  https://github.com/cocos2d/cocos2d-x/blob/v4/cocos/base/ccMacros.h" />
+<meta name="keywords" content="" />
+<meta name="robots" content="noodp" />
+<link rel="canonical" href="https://beardog-ukr.github.io/cocos2dx-examples/post/basic-animations/" />
+
+
+
+
+<link rel="stylesheet" href="https://beardog-ukr.github.io/cocos2dx-examples/assets/style.css">
+
+  <link rel="stylesheet" href="https://beardog-ukr.github.io/cocos2dx-examples/assets/green.css">
+
+
+
+
+
+
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://beardog-ukr.github.io/cocos2dx-examples/img/apple-touch-icon-144-precomposed.png">
+
+  <link rel="shortcut icon" href="https://beardog-ukr.github.io/cocos2dx-examples/img/favicon/green.png">
+
+
+
+<meta name="twitter:card" content="summary" />
+
+<meta name="twitter:creator" content="beardog-ukr" />
+
+
+<meta property="og:locale" content="uk" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Анімація :: Основи Cocos2d-x">
+<meta property="og:description" content="Ще одним способом створення &amp;ldquo;живого&amp;rdquo; об&#39;єкту є анімація. Художники малюють ряд кадрів, а Cocos2d їх послідовно показує, використовуючи клас Animation. Робота з ним схожа на інші акції, хоча сам клас має трошки інше походження.
+Для прикладу візьмемо анімацію атаки скелету з безкоштовного паку. Ось кадри:
+ А так має виглядати результат:  https://github.com/cocos2d/cocos2d-x/blob/v4/cocos/base/ccMacros.h" />
+<meta property="og:url" content="https://beardog-ukr.github.io/cocos2dx-examples/post/basic-animations/" />
+<meta property="og:site_name" content="Анімація" />
+<meta property="og:image" content="https://beardog-ukr.github.io/cocos2dx-examples/">
+<meta property="og:image:width" content="2048">
+<meta property="og:image:height" content="1024">
+
+
+  <meta property="article:published_time" content="2020-03-29 17:30:25 &#43;0300 EEST" />
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+<body class="">
+
+
+<div class="container center headings--one-size">
+
+  <header class="header">
+  <div class="header__inner">
+    <div class="header__logo">
+      <a href="/">
+  <div class="logo">
+    Основи Cocos2d-x
+  </div>
+</a>
+
+    </div>
+    <div class="menu-trigger">menu</div>
+  </div>
+  
+    <nav class="menu">
+  <ul class="menu__inner menu__inner--desktop">
+    
+      
+        
+          <li><a href="/cocos2dx-examples/about">About</a></li>
+        
+      
+        
+          <li><a href="/cocos2dx-examples/showcase">Showcase (to be removed)</a></li>
+        
+      
+      
+    
+
+    
+  </ul>
+
+  <ul class="menu__inner menu__inner--mobile">
+    
+      
+        <li><a href="/cocos2dx-examples/about">About</a></li>
+      
+    
+      
+        <li><a href="/cocos2dx-examples/showcase">Showcase (to be removed)</a></li>
+      
+    
+    
+  </ul>
+</nav>
+
+  
+</header>
+
+
+  <div class="content">
+    
+<div class="post">
+  <h1 class="post-title">
+    <a href="https://beardog-ukr.github.io/cocos2dx-examples/post/basic-animations/">Анімація</a></h1>
+  <div class="post-meta">
+      
+    <span class="post-date">
+      2020-03-29
+    </span>
+    
+    
+    <span class="post-author">::
+      beardog-ukr
+    </span>
+    
+  </div>
+
+  
+  <span class="post-tags">
+    
+    #<a href="https://beardog-ukr.github.io/cocos2dx-examples/tags/animation/">Animation</a>&nbsp;
+    
+    #<a href="https://beardog-ukr.github.io/cocos2dx-examples/tags/action/">Action</a>&nbsp;
+    
+  </span>
+  
+
+  
+
+  <div class="post-content"><div>
+        <p>Ще одним способом створення &ldquo;живого&rdquo; об'єкту є анімація. Художники малюють ряд кадрів, а Cocos2d їх послідовно показує, використовуючи клас <a href="https://docs.cocos2d-x.org/api-ref/cplusplus/v4x/d3/dc5/classcocos2d_1_1_animation.html">Animation</a>. Робота з ним схожа на інші акції, хоча сам клас має трошки інше походження.</p>
+<p>Для прикладу візьмемо анімацію атаки скелету з <a href="https://jesse-m.itch.io/skeleton-pack">безкоштовного паку</a>. Ось кадри:</p>
+
+  <figure class="center" >
+    <img src="/cocos2dx-examples/post/basic-animations-img/attack_tiles.png"   />
+    
+  </figure>
+
+
+<p>А так має виглядати результат:
+
+  <figure class="center" >
+    <img src="/cocos2dx-examples/post/basic-animations-img/attack_animation.gif"   />
+    
+  </figure>
+
+</p>
+<p><a href="https://github.com/cocos2d/cocos2d-x/blob/v4/cocos/base/ccMacros.h">https://github.com/cocos2d/cocos2d-x/blob/v4/cocos/base/ccMacros.h</a></p>
+
+      </div></div>
+  
+  <div class="pagination">
+    <div class="pagination__title">
+      <span
+        class="pagination__title-h">Інші пости</span>
+      <hr />
+    </div>
+    <div class="pagination__buttons">
+      
+      <span class="button previous">
+        <a href="https://beardog-ukr.github.io/cocos2dx-examples/post/basic-sequence/">
+          <span class="button__icon">←</span>
+          <span class="button__text">Послідовності</span>
+        </a>
+      </span>
+      
+      
+      <span class="button next">
+        <a href="https://beardog-ukr.github.io/cocos2dx-examples/post/basic-actions/">
+          <span class="button__text">Рух та інші перетворення об&#39;єктів</span>
+          <span class="button__icon">→</span>
+        </a>
+      </span>
+      
+    </div>
+  </div>
+  
+
+  
+
+</div>
+
+  </div>
+
+  
+    <footer class="footer">
+  <div class="footer__inner">
+    
+      <div class="copyright">
+        <span>© 2020 Powered by <a href="http://gohugo.io">Hugo</a></span>
+    
+        <span>:: Theme made by <a href="https://twitter.com/panr">panr</a></span>
+      </div>
+  </div>
+</footer>
+
+<script src="https://beardog-ukr.github.io/cocos2dx-examples/assets/main.js"></script>
+<script src="https://beardog-ukr.github.io/cocos2dx-examples/assets/prism.js"></script>
+
+
+
+
+
+  
+</div>
+
+</body>
+</html>

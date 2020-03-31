@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  
+    <title>Знайомство :: Основи Cocos2d-x — Про розробку 2d-ігор на Cocos2d-x</title>
+  
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="description" content="Cocos2d-x — це фреймворк для створення кросплатформенних 2d-ігор на C&#43;&#43;. З ним можна створювати відносно прості ігри типу Flappy Bird abo Fruit Ninja, а також більш складні сайд-скроллери та навіть стратегії.
+Перебування на карантині можна розглядати як привід вивчити щось нове, тому я спробую зробити серію постів, що описують основи цього програмного каркасу.
+ Встановлення Процес встановлення непогано описаний для різних платформ в офіційній документації. Також відносно свіжі інструкції можна знайти у цьому блозі:linux або Windows." />
+<meta name="keywords" content="" />
+<meta name="robots" content="noodp" />
+<link rel="canonical" href="https://beardog-ukr.github.io/cocos2dx-examples/post/first-steps/" />
+
+
+
+
+<link rel="stylesheet" href="https://beardog-ukr.github.io/cocos2dx-examples/assets/style.css">
+
+  <link rel="stylesheet" href="https://beardog-ukr.github.io/cocos2dx-examples/assets/green.css">
+
+
+
+
+
+
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://beardog-ukr.github.io/cocos2dx-examples/img/apple-touch-icon-144-precomposed.png">
+
+  <link rel="shortcut icon" href="https://beardog-ukr.github.io/cocos2dx-examples/img/favicon/green.png">
+
+
+
+<meta name="twitter:card" content="summary" />
+
+<meta name="twitter:creator" content="beardog-ukr" />
+
+
+<meta property="og:locale" content="uk" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Знайомство :: Основи Cocos2d-x">
+<meta property="og:description" content="Cocos2d-x — це фреймворк для створення кросплатформенних 2d-ігор на C&#43;&#43;. З ним можна створювати відносно прості ігри типу Flappy Bird abo Fruit Ninja, а також більш складні сайд-скроллери та навіть стратегії.
+Перебування на карантині можна розглядати як привід вивчити щось нове, тому я спробую зробити серію постів, що описують основи цього програмного каркасу.
+ Встановлення Процес встановлення непогано описаний для різних платформ в офіційній документації. Також відносно свіжі інструкції можна знайти у цьому блозі:linux або Windows." />
+<meta property="og:url" content="https://beardog-ukr.github.io/cocos2dx-examples/post/first-steps/" />
+<meta property="og:site_name" content="Знайомство" />
+<meta property="og:image" content="https://beardog-ukr.github.io/cocos2dx-examples/">
+<meta property="og:image:width" content="2048">
+<meta property="og:image:height" content="1024">
+
+
+  <meta property="article:published_time" content="2020-03-21 17:30:25 &#43;0300 &#43;0300" />
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+<body class="">
+
+
+<div class="container center headings--one-size">
+
+  <header class="header">
+  <div class="header__inner">
+    <div class="header__logo">
+      <a href="/">
+  <div class="logo">
+    Основи Cocos2d-x
+  </div>
+</a>
+
+    </div>
+    <div class="menu-trigger">menu</div>
+  </div>
+  
+    <nav class="menu">
+  <ul class="menu__inner menu__inner--desktop">
+    
+      
+        
+          <li><a href="/cocos2dx-examples/about">About</a></li>
+        
+      
+        
+          <li><a href="/cocos2dx-examples/showcase">Showcase (to be removed)</a></li>
+        
+      
+      
+    
+
+    
+  </ul>
+
+  <ul class="menu__inner menu__inner--mobile">
+    
+      
+        <li><a href="/cocos2dx-examples/about">About</a></li>
+      
+    
+      
+        <li><a href="/cocos2dx-examples/showcase">Showcase (to be removed)</a></li>
+      
+    
+    
+  </ul>
+</nav>
+
+  
+</header>
+
+
+  <div class="content">
+    
+<div class="post">
+  <h1 class="post-title">
+    <a href="https://beardog-ukr.github.io/cocos2dx-examples/post/first-steps/">Знайомство</a></h1>
+  <div class="post-meta">
+      
+    <span class="post-date">
+      2020-03-21
+    </span>
+    
+    
+    <span class="post-author">::
+      beardog-ukr
+    </span>
+    
+  </div>
+
+  
+  <span class="post-tags">
+    
+    #<a href="https://beardog-ukr.github.io/cocos2dx-examples/tags/initial/">initial</a>&nbsp;
+    
+    #<a href="https://beardog-ukr.github.io/cocos2dx-examples/tags/installation/">installation</a>&nbsp;
+    
+  </span>
+  
+
+  
+
+  <div class="post-content"><div>
+        <p>Cocos2d-x — це фреймворк для створення кросплатформенних 2d-ігор на C++. З ним можна створювати відносно прості ігри типу Flappy Bird abo Fruit Ninja, а також більш складні сайд-скроллери та навіть стратегії.</p>
+<p>Перебування на карантині можна розглядати як привід вивчити щось нове, тому я спробую зробити серію постів, що описують основи цього <a href="https://uk.wikipedia.org/wiki/%D0%9F%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BD%D0%B8%D0%B9_%D0%BA%D0%B0%D1%80%D0%BA%D0%B0%D1%81">програмного каркасу</a>.</p>
+
+  <figure class="center" >
+    <img src="/cocos2dx-examples/post/first-steps-img/battle_of_pathogens.png"   />
+    
+  </figure>
+
+
+<h1 id="встановлення">Встановлення<a href="#встановлення" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h1>
+<p>Процес встановлення непогано описаний для різних платформ в <a href="https://docs.cocos2d-x.org/cocos2d-x/v3/en/installation/Linux.html">офіційній документації</a>. Також відносно свіжі інструкції можна знайти у цьому блозі:<a href="https://rezghob.com/installing-cocos2d-x-linux-mint/">linux</a> або <a href="https://rezghob.com/installing-cocos2d-x-windows/">Windows</a>.</p>
+<p>В принципі, доведеться зробити дві речі:</p>
+<ul>
+<li>встановити необхідні програми: g++ та все інше, що треба для написання програм на C++, також python та cmake. Для компіляції програм під Android знадобиться Android Studio, однак це окрема тема, якій коли-небудь потім буде присвячено окремий пост.</li>
+<li>скачати власне <a href="https://cocos2d-x.org/download">фреймворк</a>, розпакувати його у потрібне місце і встановити змінні оточення.</li>
+</ul>
+<p>В результаті у вас повинна з'явитись можливість виконати команду <code>cocos</code> у командному рядку</p>
+<pre><code>::&gt;cocos -v
+cocos2d-x-4.0
+Cocos Console 2.3
+
+</code></pre><h1 id="перший-проект">Перший проект<a href="#перший-проект" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h1>
+<p>Для перевірки, що все встановлено правильно, Cocos2d-x може створити проект за помовчанням. Для цього треба виконати команду <code>cocos new</code>:</p>
+<pre><code>::&gt;cocos new -d ./ -l cpp SmokeTest
+&gt; Copy template into /home/username/proj/cocos2d/SmokeTest
+&gt; Copying Cocos2d-x files...
+&gt; Rename project name from 'HelloCpp' to 'SmokeTest'
+&gt; Replace the project name from 'HelloCpp' to 'SmokeTest'
+&gt; Replace the project package name from 'org.cocos2dx.hellocpp' to 'org.cocos2dx.SmokeTest'
+&gt; Replace the Mac bundle id from 'org.cocos2dx.hellocpp' to 'org.cocos2dx.SmokeTest'
+&gt; Replace the iOS bundle id from 'org.cocos2dx.hellocpp' to 'org.cocos2dx.SmokeTest'
+</code></pre><p>Опція <code>-l cpp</code> очевидно показує, що проект буде написано на C++. Повну довідку по команді можна отримати за допомогою <code>cocos new --help</code></p>
+<p>В даному випадку SmokeTest — це назва проекту. Скрипт cocos створить папку з такою назвою та заповнить її початковими файлами. Переходимо у цю  новостворену папку та запускаємо компіляцію командою <code>cocos compile -p linux</code>. Результатом має бути типовий для <em>cmake</em> лог.</p>
+<p>Перша компіляція займає багато часу, тому що збирається весь фреймворк; пізніше буде набагато швидше.</p>
+<p>Нарешті, запустити програму можна за допомогою <code>cocos run</code>, в результаті повинно з'явитись щось таке:</p>
+
+  <figure class="center" >
+    <img src="/cocos2dx-examples/post/first-steps-img/first_app_screenshot.png"   />
+    
+  </figure>
+
+
+<p>У наступних постах я спробую детальніше розібрати, що тут до чого, а поки що це все, дякую за увагу.</p>
+
+      </div></div>
+  
+  <div class="pagination">
+    <div class="pagination__title">
+      <span
+        class="pagination__title-h">Інші пости</span>
+      <hr />
+    </div>
+    <div class="pagination__buttons">
+      
+      <span class="button previous">
+        <a href="https://beardog-ukr.github.io/cocos2dx-examples/post/info_sources/">
+          <span class="button__icon">←</span>
+          <span class="button__text">Інформація</span>
+        </a>
+      </span>
+      
+      
+      <span class="button next">
+        <a href="https://beardog-ukr.github.io/cocos2dx-examples/post/useful-imagemagick/">
+          <span class="button__text">Корисні поради по imagemagick</span>
+          <span class="button__icon">→</span>
+        </a>
+      </span>
+      
+    </div>
+  </div>
+  
+
+  
+
+</div>
+
+  </div>
+
+  
+    <footer class="footer">
+  <div class="footer__inner">
+    
+      <div class="copyright">
+        <span>© 2020 Powered by <a href="http://gohugo.io">Hugo</a></span>
+    
+        <span>:: Theme made by <a href="https://twitter.com/panr">panr</a></span>
+      </div>
+  </div>
+</footer>
+
+<script src="https://beardog-ukr.github.io/cocos2dx-examples/assets/main.js"></script>
+<script src="https://beardog-ukr.github.io/cocos2dx-examples/assets/prism.js"></script>
+
+
+
+
+
+  
+</div>
+
+</body>
+</html>

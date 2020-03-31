@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  
+    <title>Обробка подій та колбеки :: Основи Cocos2d-x — Про розробку 2d-ігор на Cocos2d-x</title>
+  
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="description" content="У дефолній програмі, яку було створено у перших постах, залишився без пояснення ще один момент — це кнопка, за допомогою якої ця програма закривалась.
+Використання CC_CALLBACK_1 у MenuItemImage Сама програма, якщо пам&#39;ятаєте, виглядала так:
+ Якщо ви мишкою натискали на кнопку в правому нижньому куті, викликався ось такий метод, який припиняв роботу програми:
+void SmokeTestScene::menuCloseCallback(Ref *pSender) { // Close the cocos2d-x game scene and quit the application Director::getInstance()-&amp;gt;end(); } Але чому цей колбек взагалі викликається?" />
+<meta name="keywords" content="" />
+<meta name="robots" content="noodp" />
+<link rel="canonical" href="https://beardog-ukr.github.io/cocos2dx-examples/post/events-callbacks/" />
+
+
+
+
+<link rel="stylesheet" href="https://beardog-ukr.github.io/cocos2dx-examples/assets/style.css">
+
+  <link rel="stylesheet" href="https://beardog-ukr.github.io/cocos2dx-examples/assets/green.css">
+
+
+
+
+
+
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://beardog-ukr.github.io/cocos2dx-examples/img/apple-touch-icon-144-precomposed.png">
+
+  <link rel="shortcut icon" href="https://beardog-ukr.github.io/cocos2dx-examples/img/favicon/green.png">
+
+
+
+<meta name="twitter:card" content="summary" />
+
+<meta name="twitter:creator" content="beardog-ukr" />
+
+
+<meta property="og:locale" content="uk" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Обробка подій та колбеки :: Основи Cocos2d-x">
+<meta property="og:description" content="У дефолній програмі, яку було створено у перших постах, залишився без пояснення ще один момент — це кнопка, за допомогою якої ця програма закривалась.
+Використання CC_CALLBACK_1 у MenuItemImage Сама програма, якщо пам&#39;ятаєте, виглядала так:
+ Якщо ви мишкою натискали на кнопку в правому нижньому куті, викликався ось такий метод, який припиняв роботу програми:
+void SmokeTestScene::menuCloseCallback(Ref *pSender) { // Close the cocos2d-x game scene and quit the application Director::getInstance()-&amp;gt;end(); } Але чому цей колбек взагалі викликається?" />
+<meta property="og:url" content="https://beardog-ukr.github.io/cocos2dx-examples/post/events-callbacks/" />
+<meta property="og:site_name" content="Обробка подій та колбеки" />
+<meta property="og:image" content="https://beardog-ukr.github.io/cocos2dx-examples/">
+<meta property="og:image:width" content="2048">
+<meta property="og:image:height" content="1024">
+
+
+  <meta property="article:published_time" content="2020-03-26 17:30:25 &#43;0300 &#43;0300" />
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+<body class="">
+
+
+<div class="container center headings--one-size">
+
+  <header class="header">
+  <div class="header__inner">
+    <div class="header__logo">
+      <a href="/">
+  <div class="logo">
+    Основи Cocos2d-x
+  </div>
+</a>
+
+    </div>
+    <div class="menu-trigger">menu</div>
+  </div>
+  
+    <nav class="menu">
+  <ul class="menu__inner menu__inner--desktop">
+    
+      
+        
+          <li><a href="/cocos2dx-examples/about">About</a></li>
+        
+      
+        
+          <li><a href="/cocos2dx-examples/showcase">Showcase (to be removed)</a></li>
+        
+      
+      
+    
+
+    
+  </ul>
+
+  <ul class="menu__inner menu__inner--mobile">
+    
+      
+        <li><a href="/cocos2dx-examples/about">About</a></li>
+      
+    
+      
+        <li><a href="/cocos2dx-examples/showcase">Showcase (to be removed)</a></li>
+      
+    
+    
+  </ul>
+</nav>
+
+  
+</header>
+
+
+  <div class="content">
+    
+<div class="post">
+  <h1 class="post-title">
+    <a href="https://beardog-ukr.github.io/cocos2dx-examples/post/events-callbacks/">Обробка подій та колбеки</a></h1>
+  <div class="post-meta">
+      
+    <span class="post-date">
+      2020-03-26
+    </span>
+    
+    
+    <span class="post-author">::
+      beardog-ukr
+    </span>
+    
+  </div>
+
+  
+  <span class="post-tags">
+    
+    #<a href="https://beardog-ukr.github.io/cocos2dx-examples/tags/event/">event</a>&nbsp;
+    
+    #<a href="https://beardog-ukr.github.io/cocos2dx-examples/tags/event-processing/">event processing</a>&nbsp;
+    
+    #<a href="https://beardog-ukr.github.io/cocos2dx-examples/tags/stdbind/">std::bind</a>&nbsp;
+    
+    #<a href="https://beardog-ukr.github.io/cocos2dx-examples/tags/cc_callback/">CC_CALLBACK</a>&nbsp;
+    
+  </span>
+  
+
+  
+
+  <div class="post-content"><div>
+        <p>У дефолній програмі, яку було створено у <a href="/first-steps.md">перших постах</a>, залишився без пояснення ще один момент — це кнопка, за допомогою якої ця програма закривалась.</p>
+<h1 id="використання-cc_callback_1-у-menuitemimage">Використання CC_CALLBACK_1 у MenuItemImage<a href="#використання-cc_callback_1-у-menuitemimage" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h1>
+<p>Сама програма, якщо пам'ятаєте, виглядала так:</p>
+
+  <figure class="center" >
+    <img src="/cocos2dx-examples/post/first-steps-img/first_app_screenshot.png"   />
+    
+  </figure>
+
+
+<p>Якщо ви мишкою натискали на кнопку в правому нижньому куті, викликався ось такий метод, який припиняв роботу програми:</p>
+<pre><code>void SmokeTestScene::menuCloseCallback(Ref *pSender) {
+  // Close the cocos2d-x game scene and quit the application
+  Director::getInstance()-&gt;end();
+}
+</code></pre><p>Але чому цей колбек взагалі викликається? Вся кнопка створюється ось таким чином:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#75715e">/////////////////////////////
+</span><span style="color:#75715e">// 2. add a menu item with &#34;X&#34; image, which is clicked to quit the program
+</span><span style="color:#75715e">//    you may modify it.
+</span><span style="color:#75715e"></span>
+<span style="color:#75715e">// add a &#34;close&#34; icon to exit the progress. it&#39;s an autorelease object
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">auto</span> closeItem <span style="color:#f92672">=</span> MenuItemImage<span style="color:#f92672">::</span>create(
+  <span style="color:#e6db74">&#34;CloseNormal.png&#34;</span>,
+  <span style="color:#e6db74">&#34;CloseSelected.png&#34;</span>,
+  CC_CALLBACK_1(SmokeTestScene<span style="color:#f92672">::</span>menuCloseCallback, <span style="color:#66d9ef">this</span>));
+
+<span style="color:#66d9ef">if</span> ((closeItem <span style="color:#f92672">==</span> <span style="color:#66d9ef">nullptr</span>) <span style="color:#f92672">||</span>
+    (closeItem<span style="color:#f92672">-&gt;</span>getContentSize().width <span style="color:#f92672">&lt;=</span> <span style="color:#ae81ff">0</span>) <span style="color:#f92672">||</span>
+    (closeItem<span style="color:#f92672">-&gt;</span>getContentSize().height <span style="color:#f92672">&lt;=</span> <span style="color:#ae81ff">0</span>)) {
+  problemLoading(<span style="color:#e6db74">&#34;&#39;CloseNormal.png&#39; and &#39;CloseSelected.png&#39;&#34;</span>);
+}
+<span style="color:#66d9ef">else</span> {
+  <span style="color:#66d9ef">float</span> x <span style="color:#f92672">=</span> origin.x <span style="color:#f92672">+</span> visibleSize.width <span style="color:#f92672">-</span> closeItem<span style="color:#f92672">-&gt;</span>getContentSize().width <span style="color:#f92672">/</span> <span style="color:#ae81ff">2</span>;
+  <span style="color:#66d9ef">float</span> y <span style="color:#f92672">=</span> origin.y <span style="color:#f92672">+</span> closeItem<span style="color:#f92672">-&gt;</span>getContentSize().height <span style="color:#f92672">/</span> <span style="color:#ae81ff">2</span>;
+  closeItem<span style="color:#f92672">-&gt;</span>setPosition(Vec2(x, y));
+}
+
+
+<span style="color:#75715e">// create menu, it&#39;s an autorelease object
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">auto</span> menu <span style="color:#f92672">=</span> Menu<span style="color:#f92672">::</span>create(closeItem, NULL);
+menu<span style="color:#f92672">-&gt;</span>setPosition(Vec2<span style="color:#f92672">::</span>ZERO);
+<span style="color:#66d9ef">this</span><span style="color:#f92672">-&gt;</span>addChild(menu, <span style="color:#ae81ff">1</span>);
+</code></pre></div><p>Більшість цього коду нагадує конструювання складного спрайту, яке ми вже розглядали <a href="static-img-practice-app.md">раніше</a>. Але є один новий момент: використання макросу <code>CC_CALLBACK_1</code> для того, щоб прив'язати метод, що буде обробляти колбек, до об'єкту меню.</p>
+<p>Макроси <code>CC_CALLBACK_*</code> у Cocos2d зустрічаються дуже часто, а реалізовані вони за допомогою магії C++11, приблизно <a href="https://github.com/cocos2d/cocos2d-x/blob/v4/cocos/base/ccMacros.h">так</a>:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#75715e">// new callbacks based on C++11
+</span><span style="color:#75715e"></span><span style="color:#75715e">#define CC_CALLBACK_0(__selector__,__target__, ...) std::bind(&amp;__selector__,__target__, ##__VA_ARGS__)
+</span><span style="color:#75715e">#define CC_CALLBACK_1(__selector__,__target__, ...) std::bind(&amp;__selector__,__target__, std::placeholders::_1, ##__VA_ARGS__)
+</span><span style="color:#75715e">#define CC_CALLBACK_2(__selector__,__target__, ...) std::bind(&amp;__selector__,__target__, std::placeholders::_1, std::placeholders::_2, ##__VA_ARGS__)
+</span><span style="color:#75715e">#define CC_CALLBACK_3(__selector__,__target__, ...) std::bind(&amp;__selector__,__target__, std::placeholders::_1, std::placeholders::_2, std::placeholders::_3, ##__VA_ARGS__)
+</span></code></pre></div><p>Функція <code>MenuItemImage::create</code> <a href="https://docs.cocos2d-x.org/api-ref/cplusplus/v4x/d1/d30/classcocos2d_1_1_menu_item_image.html#add8af43748de9b1e9d810875ac8fea16">оголошена</a> таким чином:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#66d9ef">static</span> MenuItemImage <span style="color:#f92672">*</span> 	create (<span style="color:#66d9ef">const</span> std<span style="color:#f92672">::</span>string <span style="color:#f92672">&amp;</span>normalImage, <span style="color:#66d9ef">const</span> std<span style="color:#f92672">::</span>string <span style="color:#f92672">&amp;</span>selectedImage, <span style="color:#66d9ef">const</span> std<span style="color:#f92672">::</span>string <span style="color:#f92672">&amp;</span>disabledImage, <span style="color:#66d9ef">const</span> ccMenuCallback <span style="color:#f92672">&amp;</span>callback)
+</code></pre></div><p>де <code>ccMenuCallback</code> є просто <a href="https://github.com/cocos2d/cocos2d-x/blob/v4/cocos/2d/CCMenuItem.h">короткою формою</a> для <code>std::function</code>:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#66d9ef">typedef</span> std<span style="color:#f92672">::</span>function<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">void</span>(Ref<span style="color:#f92672">*</span>)<span style="color:#f92672">&gt;</span> ccMenuCallback;
+</code></pre></div><p>Таким чином, макрос <code>CC_CALBACK_*</code> отримує два параметри:</p>
+<ul>
+<li>функцію (або метод), який треба буде викликати</li>
+<li>об'єкт, якому належить цей метод.</li>
+</ul>
+<p>Число у макросі <code>CC_CALBACK_*</code> означає кількість аргументів, які отримає функція-колбек.</p>
+<p>Результатом є <code>std::function</code>, сворений <a href="https://en.cppreference.com/w/cpp/utility/functional/bind">std::bind</a>. Об'єкт Cocos2d, який откримав такий колбек, збереже його і викличе, коли буде потрібно.</p>
+
+      </div></div>
+  
+  <div class="pagination">
+    <div class="pagination__title">
+      <span
+        class="pagination__title-h">Інші пости</span>
+      <hr />
+    </div>
+    <div class="pagination__buttons">
+      
+      <span class="button previous">
+        <a href="https://beardog-ukr.github.io/cocos2dx-examples/post/advanced-callbacks/">
+          <span class="button__icon">←</span>
+          <span class="button__text">Складніша робота з CC_CALBACK</span>
+        </a>
+      </span>
+      
+      
+      <span class="button next">
+        <a href="https://beardog-ukr.github.io/cocos2dx-examples/post/static-img-practice-app/">
+          <span class="button__text">Використання Sprite</span>
+          <span class="button__icon">→</span>
+        </a>
+      </span>
+      
+    </div>
+  </div>
+  
+
+  
+
+</div>
+
+  </div>
+
+  
+    <footer class="footer">
+  <div class="footer__inner">
+    
+      <div class="copyright">
+        <span>© 2020 Powered by <a href="http://gohugo.io">Hugo</a></span>
+    
+        <span>:: Theme made by <a href="https://twitter.com/panr">panr</a></span>
+      </div>
+  </div>
+</footer>
+
+<script src="https://beardog-ukr.github.io/cocos2dx-examples/assets/main.js"></script>
+<script src="https://beardog-ukr.github.io/cocos2dx-examples/assets/prism.js"></script>
+
+
+
+
+
+  
+</div>
+
+</body>
+</html>
