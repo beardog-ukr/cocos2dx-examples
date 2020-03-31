@@ -1,0 +1,53 @@
+baseURL = "https://beardog-ukr.github.io/cocos2dx-examples/uk/"
+languageCode = "en-us"
+title = "Основи Cocos2d-x"
+theme = "ezhil"
+paginate = 5
+
+copyright = "© суспільне надбання"
+
+pygmentsstyle = "solarized-dark"
+pygmentscodefences = true
+pygmentscodefencesguesssyntax = true
+
+googleAnalytics = ""
+disqusShortname = ""
+
+#summaryLength = 20
+
+[params]
+	subtitle = "Статті про розробку ігор за допомогою Cocos2d-x"
+	disableDisqusTypes = ["page"]
+	featherIconsCDN = true
+	mode = "light" # "dark", "auto", "light"
+	# customCSS = "css/custom.css"  # Custom CSS applied to default styles.
+	# customDarkCSS = "css/custom-dark.css"  # Custom styles applied to dark mode css.
+	# customJS = ["https://code.jquery.com/jquery-3.4.1.js", "js/custom1.js"]  # Custom JS scripts.
+
+[[menu.main]]
+name = "Нове"
+url = "/"
+weight = 1
+
+[[menu.main]]
+name = "Усі пости"
+url = "/posts"
+weight = 2
+
+[[menu.main]]
+name = "Про сайт"
+url = "/about"
+weight = 3
+
+[[menu.main]]
+name = "Теги"
+url = "/tags"
+weight = 4
+
+[[params.social]]
+name = "Github"
+icon = "github"
+url = "https://github.com/beardog-ukr/cocos2dx-examples"
+
+[taxonomies]
+   tag = "tags"

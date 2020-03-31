@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Primer on Основи Cocos2d-x</title>
+    <link>https://beardog-ukr.github.io/cocos2dx-examples/uk/tags/primer/</link>
+    <description>Recent content in Primer on Основи Cocos2d-x</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>© суспільне надбання</copyright>
+    <lastBuildDate>Sun, 18 Mar 2018 02:01:58 +0530</lastBuildDate>
+    
+	<atom:link href="https://beardog-ukr.github.io/cocos2dx-examples/uk/tags/primer/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Перший пост</title>
+      <link>https://beardog-ukr.github.io/cocos2dx-examples/uk/post/post-1/</link>
+      <pubDate>Sun, 18 Mar 2018 02:01:58 +0530</pubDate>
+      
+      <guid>https://beardog-ukr.github.io/cocos2dx-examples/uk/post/post-1/</guid>
+      <description>Лорем ипсум долор сит амет, ех регионе лаореет вел, малис инани тантас еи сит. Амет либерависсе еа про. Еи нулла риденс вим, вим синт фацилиси делицата ех. Еа регионе легимус делицатиссими еум.
+Пер ид делецтус репудиандае. Чоро сентентиае усу ут. Ет дуо ипсум веритус маиорум, децоре демоцритум репримияуе нец ет, видит иудицабит нецесситатибус еа нец. Ад лаудем малорум еам. Вис ид модо яуидам модератиус, цу симилияуе репримияуе цомплецтитур хис.
+Не мел прима иусто ерудити, еи инцоррупте неглегентур хас.</description>
+    </item>
+    
+  </channel>
+</rss>
