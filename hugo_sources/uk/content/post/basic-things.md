@@ -10,7 +10,7 @@ author: beardog-ukr
 
 Цього разу я розкажу про основні терміни, поняття та класи фреймворку, а також поясню, як вони використовуються у тому базовому проекті.
 
-
+<!--more-->
 
 # Scene
 
@@ -54,7 +54,7 @@ bool SmokeTestScene::init() {
 
 Ось всі вони у нашій дефолтній програмі:
 
-{{< figure src="/cocos2dx-examples/post/basic-things-img/basic-app.png" title="Тестова програма" position="center" >}}
+{{< figure src="/cocos2dx-examples/uk/post/basic-things-img/basic-app.png" title="Тестова програма" position="center" >}}
 
 Напис "GL Verts / GL calls" не є частиною сцени. Це налагоджувальна інформація, яку фреймворк додає до вікна програми. Її можна [приховати](https://stackoverflow.com/questions/34708592/how-do-i-hide-cocos2d-x-gl-verts-calls-labels), але поки що цього робити не варто, воно ще знадобиться.
 

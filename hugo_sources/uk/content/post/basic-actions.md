@@ -7,6 +7,8 @@ tags: ["Action", "MoveTo"]
 
 Ми вже вміємо обробляти події клавіатури або натискання на кнопки. Тепер треба починати реагувати на ці події та щось зробити з об'єктом.
 
+<!--more-->
+
 Наприклад, ви хочете, щоб після натиснення кнопки спрайт перемістився з одного місця екрану до іншого. Для того, щоб це виглядало саме як пересування, а не телепортація, координати треба змінювати дуже маленькими, але частими порціями, десятки разів на секунду. Вручну це програмувати незручно, тому у Cococ2d зробили клас [Action](https://docs.cocos2d-x.org/api-ref/cplusplus/v4x/db/d61/classcocos2d_1_1_action.html) та його нащадки.  Зокрема, для пересування призначений `MoveTo`, використання якого виглядає так:
 ```cpp
 void ActionsDemoScene::sideButtonCallback(Ref *pSender) {
@@ -22,7 +24,7 @@ void ActionsDemoScene::sideButtonCallback(Ref *pSender) {
 
 В результаті після натиснення кнопки зелене НЛО почне рухатись і через дві секунди опиниться у новому положенні. Картинками це зобразити важко, але має бути якось так:
 
-{{< figure src="/cocos2dx-examples/post/basic-actions-img/ufo_move_01.gif" title="Перехід корабля з одного положення в інше" position="center" >}}
+{{< figure src="/cocos2dx-examples/uk/post/basic-actions-img/ufo_move_01.gif" title="Перехід корабля з одного положення в інше" position="center" >}}
 
 Cocos2d може виконувати [дуже багато](https://docs.cocos2d-x.org/api-ref/cplusplus/v4x/dd/d0d/group__actions.html) різних перетворень:
 * [MoveTo](https://docs.cocos2d-x.org/api-ref/cplusplus/v4x/de/d42/classcocos2d_1_1_move_to.html) та [MoveBy](https://docs.cocos2d-x.org/api-ref/cplusplus/v4x/d6/d7c/classcocos2d_1_1_move_by.html) пересувають спрайти

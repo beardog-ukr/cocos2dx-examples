@@ -7,8 +7,8 @@ author: beardog-ukr
 ---
 
 У попередніх постах було розказано, як створити дефолтну програму і з чого вона складається. Тепер можна переходити до написання власного проекту, але перед тим залишився ще один маленький нюанс — розмір екрану.
-
-{{< figure src="/cocos2dx-examples/post/first-steps-img/first_app_screenshot.png" title="Перша програма" position="center" >}}
+<!--more-->
+{{< figure src="/cocos2dx-examples/uk/post/first-steps-img/first_app_screenshot.png" title="Перша програма" position="center" >}}
 
 Наша [дефолтна програма](https://github.com/beardog-ukr/cocos2dx-examples/tree/master/examples/SmokeTest) працює у вікні розміром 480 на 320 пікселів. Цей розмір було вказано у файлі _AppDelegate.cpp_ ось в такому рядку:
 

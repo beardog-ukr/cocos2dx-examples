@@ -8,11 +8,13 @@ author: beardog-ukr
 
 У дефолній програмі, яку було створено у [перших постах](/first-steps.md), залишився без пояснення ще один момент — це кнопка, за допомогою якої ця програма закривалась.
 
+<!--more-->
+
 # Використання CC_CALLBACK_1 у MenuItemImage
 
 Сама програма, якщо пам'ятаєте, виглядала так:
 
-{{< figure src="/cocos2dx-examples/post/first-steps-img/first_app_screenshot.png" title="Тестова програма" position="center" >}}
+{{< figure src="/cocos2dx-examples/uk/post/first-steps-img/first_app_screenshot.png" title="Тестова програма" position="center" >}}
 
 Якщо ви мишкою натискали на кнопку в правому нижньому куті, викликався ось такий метод, який припиняв роботу програми:
 ```

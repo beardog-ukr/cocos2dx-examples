@@ -7,6 +7,8 @@ tags: ["image processing", "textures", "imagemagick"]
 
 [imagemagick](https://imagemagick.org/index.php) — консольна програма для обробки зображень.
 
+<!--more-->
+
 Наприклад, ось так можна розрізати один файл зображення на кілька менших:
 ```
 convert ./Skeleton_43x37.png -crop 43x37 skeleton_attack_%02d.png
