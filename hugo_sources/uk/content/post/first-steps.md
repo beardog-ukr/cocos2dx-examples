@@ -10,6 +10,8 @@ Cocos2d-x — це фреймворк для створення кросплат
 
 Перебування на карантині можна розглядати як привід вивчити щось нове, тому я спробую зробити серію постів, що описують основи цього [програмного каркасу](https://uk.wikipedia.org/wiki/%D0%9F%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BD%D0%B8%D0%B9_%D0%BA%D0%B0%D1%80%D0%BA%D0%B0%D1%81).
 
+<!--more-->
+
 {{< figure src="/cocos2dx-examples/uk/post/first-steps-img/battle_of_pathogens.png" title="Гра Battle of Pathogens розроблена за допомогою Cocos Creator" position="center" >}}
 
 # Встановлення
