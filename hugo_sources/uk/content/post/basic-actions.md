@@ -26,6 +26,8 @@ void ActionsDemoScene::sideButtonCallback(Ref *pSender) {
 
 {{< figure src="/cocos2dx-examples/uk/post/basic-actions-img/ufo_move_01.gif" title="Перехід корабля з одного положення в інше" position="center" >}}
 
+# Види перетворень
+
 Cocos2d може виконувати [дуже багато](https://docs.cocos2d-x.org/api-ref/cplusplus/v4x/dd/d0d/group__actions.html) різних перетворень:
 * [MoveTo](https://docs.cocos2d-x.org/api-ref/cplusplus/v4x/de/d42/classcocos2d_1_1_move_to.html) та [MoveBy](https://docs.cocos2d-x.org/api-ref/cplusplus/v4x/d6/d7c/classcocos2d_1_1_move_by.html) пересувають спрайти
 * [RotateTo](https://docs.cocos2d-x.org/api-ref/cplusplus/v4x/d0/d71/classcocos2d_1_1_rotate_to.html) та [RotateBy](https://docs.cocos2d-x.org/api-ref/cplusplus/v4x/d0/d28/classcocos2d_1_1_rotate_by.html) повертають об'єкт на заданий кут
@@ -33,3 +35,22 @@ Cocos2d може виконувати [дуже багато](https://docs.cocos
 * [SkewTo](https://docs.cocos2d-x.org/api-ref/cplusplus/v4x/d7/d39/classcocos2d_1_1_skew_to.html) та [SkewBy](https://docs.cocos2d-x.org/api-ref/cplusplus/v4x/d2/d6c/classcocos2d_1_1_skew_by.html) здійснює перетворення, яке важко описати, краще [побачити](https://www.youtube.com/watch?v=X7I-oQYxnnE)
 
 Більшість перетворень має два варіанти: "To" та "By", особливої різниці між ними немає. Просто один отримує чіткі параметри, які описують новий стан об'єкту (координати, кут повороту тощо), а іншому задають величину, на яку треба змінити поточні параметри, щоб отримати новий стан.
+
+# Апроксимація
+
+За помовчанням протягом акції параметри змінюються рівномірно, але це можна змінити. Наприклад, можно повільно змінювати значення на початку часового інтервалу і швидко у кінці — результат буде схожим на зрушення масивного тіла.
+
+Реалізується це за допомогою класів [Easing*](https://docs.cocos2d-x.org/cocos2d-x/v4/en/actions/basic.html#easing) — їх багато на будь-який смак.
+
+Використовуються вони так:
+```cpp
+MoveBy* bma = MoveBy::create(6, Vec2(360,0));
+EaseIn* bea = EaseIn::create(bma, 1.5f);
+blueShip->runAction(bea);
+```
+Другий параметр конструктора _EaseIn_ — це множник з яким буде змінюватись параметри. Чим він більший, тим помітнішими будуть зміни.
+
+Результат модифікаторів [EaseIn](https://docs.cocos2d-x.org/api-ref/cplusplus/v4x/dd/dde/classcocos2d_1_1_ease_in.html) та [EaseOut](https://docs.cocos2d-x.org/api-ref/cplusplus/v4x/da/d63/classcocos2d_1_1_ease_out.html):
+{{< figure src="/cocos2dx-examples/uk/post/basic-actions-img/easing_triple.gif" title="Різна апроксимація" position="center" >}}
+
+Зелений корабель рухається стандартно, синій та червоний — з модифікаціями. У підсумку дистанцію вони проходять за один і той самий час, але по-різному.

@@ -26,4 +26,8 @@ blueShip->runAction(seq);
 
 {{< figure src="/cocos2dx-examples/uk/post/basic-actions-img/blue_ship_move_01.gif" title="Послідовне виконання акцій" position="center" >}}
 
-З акціями та їх послідовностями можна ще багато чого цікавого робити: дочасно зупиняти, запускати паралельно, затримувати виконання. Однак про це мова піде уже у наступній статті, а поки що на цьому все, дякую за увагу.
+Також у Cocos2d-x є кілька "службових" акцій, які часто використовуються у побудові послідовностей:
+* [DelayTime](https://docs.cocos2d-x.org/api-ref/cplusplus/V3.12/d5/d58/classcocos2d_1_1_delay_time.html) просто чекає певний час.
+* [Repeat](https://docs.cocos2d-x.org/api-ref/cplusplus/V3.12/df/d05/classcocos2d_1_1_repeat.html) та [RepeatForever](https://docs.cocos2d-x.org/api-ref/cplusplus/V3.12/d9/d37/classcocos2d_1_1_repeat_forever.html) повторюють задану акцію чи послідовність
+* [Spawn](https://docs.cocos2d-x.org/api-ref/cplusplus/V3.12/dc/df1/classcocos2d_1_1_spawn.html) запускає кілька акцій одночасно.
+* [RemoveSelf](https://docs.cocos2d-x.org/api-ref/cplusplus/V3.12/d4/d11/classcocos2d_1_1_remove_self.html#details) видаляє об'єкт, щодо якого виконується.
