@@ -73,12 +73,18 @@ Sequence<span style="color:#719e07">*</span> seq <span style="color:#719e07">=</
 blueShip<span style="color:#719e07">-&gt;</span>runAction(seq);
 </code></pre></div><p>Фабричний метод, який створює <code>Sequence</code>, може отримувати будь-яке число вказівників на об'єкти-нащадки <code>Action</code>, а останнім обов'язково має бути <code>nullptr</code>. <code>Sequence</code> виконає акції одна за одною, приблизно так:</p>
 <figure>
-    <img src="/cocos2dx-examples/post/basic-actions-img/blue_ship_move_01.gif"/> <figcaption>
+    <img src="/cocos2dx-examples/uk/post/basic-actions-img/blue_ship_move_01.gif"/> <figcaption>
             <h4>Послідовне виконання акцій</h4>
         </figcaption>
 </figure>
 
-<p>З акціями та їх послідовностями можна ще багато чого цікавого робити: дочасно зупиняти, запускати паралельно, затримувати виконання. Однак про це мова піде уже у наступній статті, а поки що на цьому все, дякую за увагу.</p>
+<p>Також у Cocos2d-x є кілька &ldquo;службових&rdquo; акцій, які часто використовуються у побудові послідовностей:</p>
+<ul>
+<li><a href="https://docs.cocos2d-x.org/api-ref/cplusplus/V3.12/d5/d58/classcocos2d_1_1_delay_time.html">DelayTime</a> просто чекає певний час.</li>
+<li><a href="https://docs.cocos2d-x.org/api-ref/cplusplus/V3.12/df/d05/classcocos2d_1_1_repeat.html">Repeat</a> та <a href="https://docs.cocos2d-x.org/api-ref/cplusplus/V3.12/d9/d37/classcocos2d_1_1_repeat_forever.html">RepeatForever</a> повторюють задану акцію чи послідовність</li>
+<li><a href="https://docs.cocos2d-x.org/api-ref/cplusplus/V3.12/dc/df1/classcocos2d_1_1_spawn.html">Spawn</a> запускає кілька акцій одночасно.</li>
+<li><a href="https://docs.cocos2d-x.org/api-ref/cplusplus/V3.12/d4/d11/classcocos2d_1_1_remove_self.html#details">RemoveSelf</a> видаляє об'єкт, щодо якого виконується.</li>
+</ul>
 		</div>
 
 		<div class="post-tags">

@@ -61,6 +61,7 @@
 
 		<div class="markdown">
 			<p><a href="https://imagemagick.org/index.php">imagemagick</a> — консольна програма для обробки зображень.</p>
+<h1 id="розділити-зображення">Розділити зображення</h1>
 <p>Наприклад, ось так можна розрізати один файл зображення на кілька менших:</p>
 <div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">convert ./Skeleton_43x37.png -crop 43x37 skeleton_attack_%02d.png
 </code></pre></div><p>Тут</p>
@@ -69,13 +70,17 @@
 <li><code>-crop 43x37</code> — розмір результату</li>
 <li><code>skeleton_attack_%02d.png</code> маска для імен файлів-результатів</li>
 </ul>
-<p>А ось так об'єднати кілька зображень:</p>
+<h1 id="обєднати-кілька-зображень">Об'єднати кілька зображень</h1>
 <div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">convert +append ./skeleton_attack_00.png ./skeleton_attack_01.png ./jh.png
 convert -append ./skeleton_attack_00.png ./skeleton_attack_01.png ./jv.png
 </code></pre></div><p>Тут <code>+append</code> з'єднує зображення горизонтально (одне збоку від одного), а <code>-append</code> вертикально (одне над одним).</p>
+<h1 id="змінити-розмір-анімації">Змінити розмір анімації</h1>
+<p>Зменшення gif-файлу є досить <a href="https://www.imagemagick.org/discourse-server/viewtopic.php?t=29205">складним завданням</a>, з неочікуваними особливостями</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">convert input.gif -coalesce -scale 385x334 -fuzz 2% +dither -layers Optimize scaled.gif
+</code></pre></div><h1 id="створення-анімації">Створення анімації</h1>
 <p>Теоретично, за допомогою <code>imagemagick</code> можна створювати гіфки, але це вимагає досить складних скриптів. Простіше використати <em>ffmpeg</em>:</p>
 <div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">ffmpeg -framerate 60 -pattern_type glob -i &#39;./skeleton_attack_*.png&#39; c1.gif
-</code></pre></div>
+</code></pre></div><p>Анімовані скріншоти у <a href="https://beardog-ukr.github.io/cocos2dx-examples/uk/post/basic-actions/">цих</a> <a href="https://beardog-ukr.github.io/cocos2dx-examples/uk/post/basic-sequence/">постах</a> зроблені за допомогою <a href="https://github.com/phw/peek">Peek</a> в Ubuntu.</p>
 		</div>
 
 		<div class="post-tags">

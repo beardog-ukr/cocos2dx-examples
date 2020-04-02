@@ -79,6 +79,7 @@
         </figcaption>
 </figure>
 
+<h1 id="види-перетворень">Види перетворень</h1>
 <p>Cocos2d може виконувати <a href="https://docs.cocos2d-x.org/api-ref/cplusplus/v4x/dd/d0d/group__actions.html">дуже багато</a> різних перетворень:</p>
 <ul>
 <li><a href="https://docs.cocos2d-x.org/api-ref/cplusplus/v4x/de/d42/classcocos2d_1_1_move_to.html">MoveTo</a> та <a href="https://docs.cocos2d-x.org/api-ref/cplusplus/v4x/d6/d7c/classcocos2d_1_1_move_by.html">MoveBy</a> пересувають спрайти</li>
@@ -87,6 +88,22 @@
 <li><a href="https://docs.cocos2d-x.org/api-ref/cplusplus/v4x/d7/d39/classcocos2d_1_1_skew_to.html">SkewTo</a> та <a href="https://docs.cocos2d-x.org/api-ref/cplusplus/v4x/d2/d6c/classcocos2d_1_1_skew_by.html">SkewBy</a> здійснює перетворення, яке важко описати, краще <a href="https://www.youtube.com/watch?v=X7I-oQYxnnE">побачити</a></li>
 </ul>
 <p>Більшість перетворень має два варіанти: &ldquo;To&rdquo; та &ldquo;By&rdquo;, особливої різниці між ними немає. Просто один отримує чіткі параметри, які описують новий стан об'єкту (координати, кут повороту тощо), а іншому задають величину, на яку треба змінити поточні параметри, щоб отримати новий стан.</p>
+<h1 id="апроксимація">Апроксимація</h1>
+<p>За помовчанням протягом акції параметри змінюються рівномірно, але це можна змінити. Наприклад, можно повільно змінювати значення на початку часового інтервалу і швидко у кінці — результат буде схожим на зрушення масивного тіла.</p>
+<p>Реалізується це за допомогою класів <a href="https://docs.cocos2d-x.org/cocos2d-x/v4/en/actions/basic.html#easing">Easing*</a> — їх багато на будь-який смак.</p>
+<p>Використовуються вони так:</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp">MoveBy<span style="color:#719e07">*</span> bma <span style="color:#719e07">=</span> MoveBy<span style="color:#719e07">::</span>create(<span style="color:#2aa198">6</span>, Vec2(<span style="color:#2aa198">360</span>,<span style="color:#2aa198">0</span>));
+EaseIn<span style="color:#719e07">*</span> bea <span style="color:#719e07">=</span> EaseIn<span style="color:#719e07">::</span>create(bma, <span style="color:#2aa198">1.5f</span>);
+blueShip<span style="color:#719e07">-&gt;</span>runAction(bea);
+</code></pre></div><p>Другий параметр конструктора <em>EaseIn</em> — це множник з яким буде змінюватись параметри. Чим він більший, тим помітнішими будуть зміни.</p>
+<p>Результат модифікаторів <a href="https://docs.cocos2d-x.org/api-ref/cplusplus/v4x/dd/dde/classcocos2d_1_1_ease_in.html">EaseIn</a> та <a href="https://docs.cocos2d-x.org/api-ref/cplusplus/v4x/da/d63/classcocos2d_1_1_ease_out.html">EaseOut</a>:
+<figure>
+    <img src="/cocos2dx-examples/uk/post/basic-actions-img/easing_triple.gif"/> <figcaption>
+            <h4>Різна апроксимація</h4>
+        </figcaption>
+</figure>
+</p>
+<p>Зелений корабель рухається стандартно, синій та червоний — з модифікаціями. У підсумку дистанцію вони проходять за один і той самий час, але по-різному.</p>
 		</div>
 
 		<div class="post-tags">
