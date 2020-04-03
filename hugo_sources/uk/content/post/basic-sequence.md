@@ -31,3 +31,4 @@ blueShip->runAction(seq);
 * [Repeat](https://docs.cocos2d-x.org/api-ref/cplusplus/V3.12/df/d05/classcocos2d_1_1_repeat.html) та [RepeatForever](https://docs.cocos2d-x.org/api-ref/cplusplus/V3.12/d9/d37/classcocos2d_1_1_repeat_forever.html) повторюють задану акцію чи послідовність
 * [Spawn](https://docs.cocos2d-x.org/api-ref/cplusplus/V3.12/dc/df1/classcocos2d_1_1_spawn.html) запускає кілька акцій одночасно.
 * [RemoveSelf](https://docs.cocos2d-x.org/api-ref/cplusplus/V3.12/d4/d11/classcocos2d_1_1_remove_self.html#details) видаляє об'єкт, щодо якого виконується.
+* [CallFunc](https://docs.cocos2d-x.org/api-ref/cplusplus/v4x/d3/d32/classcocos2d_1_1_call_func.html#details) — викликає функцію, вказівник на яку передали у конструкторі. Таким чином можна виконати код у певний момент у послідовності.
