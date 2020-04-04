@@ -3,12 +3,82 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://beardog-ukr.github.io/cocos2dx-examples/uk/tags/design-resolution/</loc>
-    <lastmod>2020-03-30T22:30:25+03:00</lastmod>
+    <loc>https://beardog-ukr.github.io/cocos2dx-examples/uk/tags/callbacks/</loc>
+    <lastmod>2020-04-03T13:30:25+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://beardog-ukr.github.io/cocos2dx-examples/uk/tags/callfunc/</loc>
+    <lastmod>2020-04-03T13:30:25+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://beardog-ukr.github.io/cocos2dx-examples/uk/tags/cc_callback/</loc>
+    <lastmod>2020-04-03T13:30:25+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://beardog-ukr.github.io/cocos2dx-examples/uk/tags/child-parent/</loc>
+    <lastmod>2020-04-03T13:30:25+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://beardog-ukr.github.io/cocos2dx-examples/uk/tags/event/</loc>
+    <lastmod>2020-04-03T13:30:25+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://beardog-ukr.github.io/cocos2dx-examples/uk/tags/events/</loc>
+    <lastmod>2020-04-03T13:30:25+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://beardog-ukr.github.io/cocos2dx-examples/uk/tags/memory-management/</loc>
+    <lastmod>2020-04-03T13:30:25+03:00</lastmod>
   </url>
   
   <url>
     <loc>https://beardog-ukr.github.io/cocos2dx-examples/uk/post/</loc>
+    <lastmod>2020-04-03T13:30:25+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://beardog-ukr.github.io/cocos2dx-examples/uk/tags/removeself/</loc>
+    <lastmod>2020-04-03T13:30:25+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://beardog-ukr.github.io/cocos2dx-examples/uk/tags/</loc>
+    <lastmod>2020-04-03T13:30:25+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://beardog-ukr.github.io/cocos2dx-examples/uk/post/memory-actions/</loc>
+    <lastmod>2020-04-03T13:30:25+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://beardog-ukr.github.io/cocos2dx-examples/uk/post/advanced-callbacks/</loc>
+    <lastmod>2020-04-03T13:30:25+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://beardog-ukr.github.io/cocos2dx-examples/uk/tags/action/</loc>
+    <lastmod>2020-04-02T15:55:25+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://beardog-ukr.github.io/cocos2dx-examples/uk/tags/tag/</loc>
+    <lastmod>2020-04-02T15:55:25+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://beardog-ukr.github.io/cocos2dx-examples/uk/post/advanced-actions/</loc>
+    <lastmod>2020-04-02T15:55:25+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://beardog-ukr.github.io/cocos2dx-examples/uk/tags/design-resolution/</loc>
     <lastmod>2020-03-30T22:30:25+03:00</lastmod>
   </url>
   
@@ -18,18 +88,8 @@
   </url>
   
   <url>
-    <loc>https://beardog-ukr.github.io/cocos2dx-examples/uk/tags/</loc>
-    <lastmod>2020-03-30T22:30:25+03:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://beardog-ukr.github.io/cocos2dx-examples/uk/post/screen-resolution-01/</loc>
     <lastmod>2020-03-30T22:30:25+03:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://beardog-ukr.github.io/cocos2dx-examples/uk/tags/action/</loc>
-    <lastmod>2020-03-29T21:30:25+03:00</lastmod>
   </url>
   
   <url>
@@ -63,11 +123,6 @@
   </url>
   
   <url>
-    <loc>https://beardog-ukr.github.io/cocos2dx-examples/uk/tags/cc_callback/</loc>
-    <lastmod>2020-03-27T19:30:25+03:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://beardog-ukr.github.io/cocos2dx-examples/uk/tags/keyboard-processing/</loc>
     <lastmod>2020-03-27T19:30:25+03:00</lastmod>
   </url>
@@ -75,26 +130,6 @@
   <url>
     <loc>https://beardog-ukr.github.io/cocos2dx-examples/uk/post/keyboard-processing/</loc>
     <lastmod>2020-03-27T19:30:25+03:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://beardog-ukr.github.io/cocos2dx-examples/uk/tags/callbacks/</loc>
-    <lastmod>2020-03-27T13:30:25+03:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://beardog-ukr.github.io/cocos2dx-examples/uk/tags/cc_calback/</loc>
-    <lastmod>2020-03-27T13:30:25+03:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://beardog-ukr.github.io/cocos2dx-examples/uk/tags/event/</loc>
-    <lastmod>2020-03-27T13:30:25+03:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://beardog-ukr.github.io/cocos2dx-examples/uk/tags/events/</loc>
-    <lastmod>2020-03-27T13:30:25+03:00</lastmod>
   </url>
   
   <url>
@@ -109,11 +144,6 @@
   
   <url>
     <loc>https://beardog-ukr.github.io/cocos2dx-examples/uk/about/</loc>
-    <lastmod>2020-03-27T13:30:25+03:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://beardog-ukr.github.io/cocos2dx-examples/uk/post/advanced-callbacks/</loc>
     <lastmod>2020-03-27T13:30:25+03:00</lastmod>
   </url>
   

@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>Видалення об&#39;єктів - Основи Cocos2d-x</title><meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta property="og:title" content="Видалення об&#39;єктів" />
+<meta property="og:description" content="Тепер, після того, як ми ознайомились з Action та іншими базовими термінами, можна розбиратись з проблемою коректного видалення об&#39;єктів, створених Cocos2d.
+Для того, щоб це проілюструвати, напишемо просту сцену, у якій буде один спрайт і одна кнопка. Після натиснення на кнопку спрайт буде переміщуватись за межі екрану і там якось видалятиметься." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://beardog-ukr.github.io/cocos2dx-examples/uk/post/memory-actions/" />
+<meta property="article:published_time" content="2020-04-03T13:30:25+03:00" />
+<meta property="article:modified_time" content="2020-04-03T13:30:25+03:00" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Видалення об&#39;єктів"/>
+<meta name="twitter:description" content="Тепер, після того, як ми ознайомились з Action та іншими базовими термінами, можна розбиратись з проблемою коректного видалення об&#39;єктів, створених Cocos2d.
+Для того, щоб це проілюструвати, напишемо просту сцену, у якій буде один спрайт і одна кнопка. Після натиснення на кнопку спрайт буде переміщуватись за межі екрану і там якось видалятиметься."/>
+<link href="https://fonts.googleapis.com/css?family=Ubuntu:300,400,300italic,400italic|Raleway:200,300" rel="stylesheet">
+
+	<link rel="stylesheet" type="text/css" media="screen" href="https://beardog-ukr.github.io/cocos2dx-examples/uk/css/normalize.css" />
+	<link rel="stylesheet" type="text/css" media="screen" href="https://beardog-ukr.github.io/cocos2dx-examples/uk/css/main.css" />
+
+	<script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+	<script src="https://beardog-ukr.github.io/cocos2dx-examples/uk/js/main.js"></script>
+</head>
+
+<body>
+	<div class="container wrapper post">
+		<div class="header">
+	<h1 class="site-title"><a href="https://beardog-ukr.github.io/cocos2dx-examples/uk/">Основи Cocos2d-x</a></h1>
+	<div class="site-description"><h2>Статті про розробку ігор за допомогою Cocos2d-x</h2><nav class="nav social">
+			<ul class="flat"><a href="https://github.com/beardog-ukr/cocos2dx-examples" title="Github"><i data-feather="github"></i></a></ul>
+		</nav>
+	</div>
+
+	<nav class="nav">
+		<ul class="flat">
+			
+			<li>
+				<a href="/cocos2dx-examples/uk/">Нове</a>
+			</li>
+			
+			<li>
+				<a href="/cocos2dx-examples/uk/posts">Усі пости</a>
+			</li>
+			
+			<li>
+				<a href="/cocos2dx-examples/uk/about">Про сайт</a>
+			</li>
+			
+			<li>
+				<a href="/cocos2dx-examples/uk/tags">Теги</a>
+			</li>
+			
+		</ul>
+	</nav>
+</div>
+
+
+		<div class="post-header">
+			<h1 class="title">Видалення об&#39;єктів</h1>
+			<div class="meta">Posted at &mdash; Apr 3, 2020</div>
+		</div>
+
+		<div class="markdown">
+			<p>Тепер, після того, як ми <a href="https://beardog-ukr.github.io/cocos2dx-examples/uk/post/basic-actions/">ознайомились з Action</a> та <a href="https://beardog-ukr.github.io/cocos2dx-examples/uk/post/basic-actions/">іншими базовими термінами</a>, можна розбиратись з проблемою коректного видалення об'єктів, створених Cocos2d.</p>
+<p>Для того, щоб це проілюструвати, напишемо просту сцену, у якій буде один спрайт і одна кнопка. Після натиснення на кнопку спрайт буде переміщуватись за межі екрану і там якось видалятиметься.</p>
+<p>Насправді, замість кнопки нам доведеться зробити меню з кількома варіантами видалення, і в цілому програма виглядатиме так:</p>
+<p>В меню є такі варіанти</p>
+<ul>
+<li>нічого не робити — просто залишити виведений за межі екрану елемент як є.</li>
+<li>використати <a href="https://docs.cocos2d-x.org/api-ref/cplusplus/v4x/d4/d11/classcocos2d_1_1_remove_self.html">RemoveSelf</a> — найбільш правильний спосіб</li>
+<li>використати метод <a href="https://docs.cocos2d-x.org/api-ref/cplusplus/v4x/d3/d82/classcocos2d_1_1_node.html">Node</a> <code>removeChild()</code> — трохи складніше і може дати <a href="https://discuss.cocos2d-x.org/t/why-removefromparent-removechild-could-be-dangerous/32223">певні проблеми</a></li>
+<li>не видаляти об'єкт, а зберегти для повторного використання.</li>
+</ul>
+<h1 id="налагоджувальний-клас">Налагоджувальний клас</h1>
+<p>Для того, щоб краще було прослідкувати за життям об'єкту, будемо використовувати не простий <a href="https://docs.cocos2d-x.org/api-ref/cplusplus/v4x/d3/d5c/classcocos2d_1_1_sprite.html">Sprite</a>, а його нащадок з додатковими налагоджувальними повідомленнями у конструкторі та деструкторі.</p>
+<p>Реалізуватиметься він ось так:</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#719e07">class</span> <span style="color:#268bd2">EnhancedSprite</span> <span style="color:#719e07">:</span> <span style="color:#719e07">public</span> cocos2d<span style="color:#719e07">::</span>Sprite {
+<span style="color:#719e07">public</span><span style="color:#719e07">:</span>
+  <span style="color:#719e07">static</span> EnhancedSprite<span style="color:#719e07">*</span> create(<span style="color:#719e07">const</span> std<span style="color:#719e07">::</span>string<span style="color:#719e07">&amp;</span> filename);
+<span style="color:#719e07">protected</span><span style="color:#719e07">:</span>
+  EnhancedSprite();
+  <span style="color:#719e07">virtual</span> <span style="color:#719e07">~</span>EnhancedSprite();
+
+  <span style="color:#dc322f">int</span> objectId;
+};
+
+<span style="color:#719e07">static</span> <span style="color:#dc322f">int</span> objectIdGenerator <span style="color:#719e07">=</span> <span style="color:#2aa198">0</span>;
+
+EnhancedSprite<span style="color:#719e07">::</span>EnhancedSprite() {
+  objectId <span style="color:#719e07">=</span> objectIdGenerator<span style="color:#719e07">++</span>;
+  log(<span style="color:#2aa198">&#34;EnchancedSprite constructor here, id %02d&#34;</span>, objectId);
+}
+
+EnhancedSprite<span style="color:#719e07">::~</span>EnhancedSprite() {
+  log(<span style="color:#2aa198">&#34;EnchancedSprite destructor here, id %02d&#34;</span>, objectId);
+}
+
+EnhancedSprite<span style="color:#719e07">*</span> EnhancedSprite<span style="color:#719e07">::</span>create(<span style="color:#719e07">const</span> std<span style="color:#719e07">::</span>string<span style="color:#719e07">&amp;</span> filename) {
+  EnhancedSprite <span style="color:#719e07">*</span>result <span style="color:#719e07">=</span> <span style="color:#719e07">new</span> (std<span style="color:#719e07">::</span>nothrow) EnhancedSprite();
+  <span style="color:#719e07">if</span> (result <span style="color:#719e07">&amp;&amp;</span> result<span style="color:#719e07">-&gt;</span>initWithFile(filename)) {
+    result<span style="color:#719e07">-&gt;</span>autorelease();
+    <span style="color:#719e07">return</span> result;
+  }
+  CC_SAFE_DELETE(result);
+  <span style="color:#719e07">return</span> <span style="color:#719e07">nullptr</span>;
+}
+</code></pre></div><p>Тут у кожного об'єкту є поле <code>objectId</code> з унікальним значенням, яке дозволить відрізняти об'єкти один від одного. Все інше як у звичайного спрайту.</p>
+<h1 id="варіанти-видалення">Варіанти видалення</h1>
+<p>Якщо нічого не робити спрайти залишатимуться у пам'яті. Цікаво, що коли ви спробуєте закрити програму, то побачите, як викликаються деструктори. Тобто, формально це не є втратою пам'яті: невидимі об'єкти все ще залишаються на сцені і вона зберігає посилання на них. Але все одно очевидно, це погано і так робити не можна.</p>
+<p>Найбільш зручним і правильним способом видалення є використання <a href="https://docs.cocos2d-x.org/api-ref/cplusplus/v4x/d4/d11/classcocos2d_1_1_remove_self.html">RemoveSelf</a> в кінці послідовності, ось таке:</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp">MoveTo<span style="color:#719e07">*</span> moveAct <span style="color:#719e07">=</span> MoveTo<span style="color:#719e07">::</span>create(<span style="color:#2aa198">5</span>, Vec2(<span style="color:#2aa198">800</span>, <span style="color:#2aa198">120</span>));
+Sequence<span style="color:#719e07">*</span> seq <span style="color:#719e07">=</span> Sequence<span style="color:#719e07">::</span>create(moveAct, RemoveSelf<span style="color:#719e07">::</span>create(), <span style="color:#719e07">nullptr</span>);
+
+blueShip<span style="color:#719e07">-&gt;</span>runAction(seq);
+</code></pre></div><p>Цей код виведе спрайт за межі екрану і там буде видно, як виконається деструктор.</p>
+<p>Такого ж ефекту можна досягти, якщо використати <a href="https://docs.cocos2d-x.org/api-ref/cplusplus/v4x/d3/d32/classcocos2d_1_1_call_func.html">CallFunc</a>:</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp">MoveTo<span style="color:#719e07">*</span> moveAct <span style="color:#719e07">=</span> MoveTo<span style="color:#719e07">::</span>create(<span style="color:#2aa198">5</span>, Vec2(<span style="color:#2aa198">800</span>, <span style="color:#2aa198">120</span>));
+
+Sprite<span style="color:#719e07">*</span> oldShip <span style="color:#719e07">=</span> blueShip; <span style="color:#586e75">//save blueShip pointer because it may get changed by the time
+</span><span style="color:#586e75"></span>                            <span style="color:#586e75">// the ship reaches &#34;out of range: destination
+</span><span style="color:#586e75"></span>CallFunc<span style="color:#719e07">*</span> finalCf <span style="color:#719e07">=</span> CallFunc<span style="color:#719e07">::</span>create([<span style="color:#719e07">this</span>, oldShip]() {
+  log(<span style="color:#2aa198">&#34;%s: callback implemented in processMenuRemoveChild: move finished&#34;</span>, __func__);
+  <span style="color:#719e07">this</span><span style="color:#719e07">-&gt;</span>removeChild(oldShip);
+});
+
+Sequence<span style="color:#719e07">*</span> seq <span style="color:#719e07">=</span> Sequence<span style="color:#719e07">::</span>create(moveAct, finalCf, <span style="color:#719e07">nullptr</span>);
+
+blueShip<span style="color:#719e07">-&gt;</span>runAction(seq);
+</code></pre></div><p>Такий спосіб складніший, але він може знадобитись, якщо одночасно зі спрайтом треба видалити якісь об'єкти, що не мають відношення до сцени.</p>
+<h1 id="збереження-для-повторного-використання">Збереження для повторного використання</h1>
+<p>Припустимо, що замість видалення ви хочете зберегти об'єкт десь у <a href="https://uk.wikipedia.org/wiki/%D0%9F%D1%83%D0%BB_%D0%BE%D0%B1%27%D1%94%D0%BA%D1%82%D1%96%D0%B2_(%D1%88%D0%B0%D0%B1%D0%BB%D0%BE%D0%BD_%D0%BF%D1%80%D0%BE%D1%94%D0%BA%D1%82%D1%83%D0%B2%D0%B0%D0%BD%D0%BD%D1%8F)">пулі</a>. Це можливо, але доведеться зробити трохи інакше, ніж в описаних вище методах.</p>
+<p>Усі класи cocos2dx є нащадками <a href="">Ref</a> — це така спроба авторів фреймворку зробити щось схоже на Objective-C. Тому у кожного об'єкту є такі методи:</p>
+<ul>
+<li><code>retain()</code> збільшує кількість посилань на 1, &ldquo;захищаючи&rdquo; об'єкт від Видалення</li>
+<li><code>release()</code> зменшує кількість посилань. Якщо вона стала менше 0, об'єкт видаляється</li>
+<li><code>autorelease()</code> зменшує кількість посилань, але перевірка лічильника і видалення об'єкту будуть зроблені коли-небудь потім.</li>
+</ul>
+<p>Таким чином, кожному виклику <code>retain()</code> має відповідати один виклик <code>release()</code> <code>autorelease()</code>.</p>
+<p>Для об'єктів, що створені за допомогою статичних методів <code>create()</code>, завжди викликається <code>autorelease()</code> (так само, як у нашому класі <em>EnhancedSprite</em>). Тому, якщо хочеться, можна взагалі нічого зі створеним об'єктом не робити і він видалиться автоматично.</p>
+<p>Як це працює? Десь глибоко в основі фреймворку знаходиться ігровий цикл, у ході якого виконуються приблизно такі дії:</p>
+<ul>
+<li>програма спить дуже маленький (десятки секунд) проміжок часу, потім прокидається</li>
+<li>оброблює способи вводу</li>
+<li>сцена починає перемальовуватись (в процесі перераховуючи параметри акцій та викликаючи відповідні колбеки).</li>
+<li>після перемалювання сцени ті об'єкти, у яких лічильник посилань став/залишився рівним 0, видаляються.</li>
+</ul>
+<p>Таким чином, якщо десь в коді викликати <code>autorelease()</code> або <code>removeChild()</code>, лічильник посилань на об'єкт зменшиться і він буде видалений по завершенню поточної ітерації ігрового циклу.</p>
+		</div>
+
+		<div class="post-tags">
+			
+				
+					<nav class="nav tags">
+							<ul class="flat">
+								
+								<li><a href="/cocos2dx-examples/uk/tags/child-parent">child-parent</a></li>
+								
+								<li><a href="/cocos2dx-examples/uk/tags/callfunc">CallFunc</a></li>
+								
+								<li><a href="/cocos2dx-examples/uk/tags/removeself">RemoveSelf</a></li>
+								
+								<li><a href="/cocos2dx-examples/uk/tags/memory-management">memory management</a></li>
+								
+							</ul>
+					</nav>
+				
+			
+		</div>
+		</div>
+	<div class="footer wrapper">
+	<nav class="nav">
+		<div> © суспільне надбання |  <a href="https://github.com/vividvilla/ezhil">Ezhil theme</a> | Built with <a href="https://gohugo.io">Hugo</a></div>
+	</nav>
+</div>
+
+
+
+<script>feather.replace()</script>
+</body>
+</html>

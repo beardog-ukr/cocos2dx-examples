@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>Складніша робота з об&#39;єктами - Основи Cocos2d-x</title><meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta property="og:title" content="Складніша робота з об&#39;єктами" />
+<meta property="og:description" content="У попередній статті було показано, як за допомогою Action можна ініціювати рух та інші перетворення об&#39;єктів. Зараз ми продовжимо роботу цьому напрямі, розглядаючи складніші сценарії." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://beardog-ukr.github.io/cocos2dx-examples/uk/post/advanced-actions/" />
+<meta property="article:published_time" content="2020-04-02T15:55:25+03:00" />
+<meta property="article:modified_time" content="2020-04-02T15:55:25+03:00" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Складніша робота з об&#39;єктами"/>
+<meta name="twitter:description" content="У попередній статті було показано, як за допомогою Action можна ініціювати рух та інші перетворення об&#39;єктів. Зараз ми продовжимо роботу цьому напрямі, розглядаючи складніші сценарії."/>
+<link href="https://fonts.googleapis.com/css?family=Ubuntu:300,400,300italic,400italic|Raleway:200,300" rel="stylesheet">
+
+	<link rel="stylesheet" type="text/css" media="screen" href="https://beardog-ukr.github.io/cocos2dx-examples/uk/css/normalize.css" />
+	<link rel="stylesheet" type="text/css" media="screen" href="https://beardog-ukr.github.io/cocos2dx-examples/uk/css/main.css" />
+
+	<script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+	<script src="https://beardog-ukr.github.io/cocos2dx-examples/uk/js/main.js"></script>
+</head>
+
+<body>
+	<div class="container wrapper post">
+		<div class="header">
+	<h1 class="site-title"><a href="https://beardog-ukr.github.io/cocos2dx-examples/uk/">Основи Cocos2d-x</a></h1>
+	<div class="site-description"><h2>Статті про розробку ігор за допомогою Cocos2d-x</h2><nav class="nav social">
+			<ul class="flat"><a href="https://github.com/beardog-ukr/cocos2dx-examples" title="Github"><i data-feather="github"></i></a></ul>
+		</nav>
+	</div>
+
+	<nav class="nav">
+		<ul class="flat">
+			
+			<li>
+				<a href="/cocos2dx-examples/uk/">Нове</a>
+			</li>
+			
+			<li>
+				<a href="/cocos2dx-examples/uk/posts">Усі пости</a>
+			</li>
+			
+			<li>
+				<a href="/cocos2dx-examples/uk/about">Про сайт</a>
+			</li>
+			
+			<li>
+				<a href="/cocos2dx-examples/uk/tags">Теги</a>
+			</li>
+			
+		</ul>
+	</nav>
+</div>
+
+
+		<div class="post-header">
+			<h1 class="title">Складніша робота з об&#39;єктами</h1>
+			<div class="meta">Posted at &mdash; Apr 2, 2020</div>
+		</div>
+
+		<div class="markdown">
+			<p>У <a href="https://beardog-ukr.github.io/cocos2dx-examples/uk/post/basic-actions/">попередній статті</a> було показано, як за допомогою <a href="https://docs.cocos2d-x.org/api-ref/cplusplus/v4x/db/d61/classcocos2d_1_1_action.html">Action</a> можна ініціювати рух та інші перетворення об'єктів. Зараз ми продовжимо роботу цьому напрямі, розглядаючи складніші сценарії.</p>
+<h1 id="завдання">Завдання</h1>
+<p>Для початку сформулюємо завдання, яке має бути реалізоване.</p>
+<p>Нехай потрібно створити форму, на якій буде два спрайти, вже знайомі нам зелене НЛО та синій корабель</p>
+<ol>
+<li>Зелене НЛО має весь час злегка коливатись (обертатись) навколо власного центру</li>
+<li>на сцені на рівні НЛО мають бути дві кнопки: права та ліва стрілка. При натисненні НЛО починає рухатись у відповідному напрямку, поки не дійде до крайньої позиції</li>
+<li>якщо під час руху натиснули іншу кнопку, рух у поточному напрямі припиняється, починається у протилежному.</li>
+<li>Синій корабель з'являється у лівій частині екану носом доверху. У правій знаходиться кнопка-стрілка.</li>
+<li>при натисненні на стрілку корабель повертається і починає рух.</li>
+<li>коли корабель доходить до місця призначення, він повертається носом доверху; після цього кнопка-стрілка змінюється на протилежну.</li>
+<li>якщо знову натиснути на кнопку, корабель почне рухатись у іншому напрямі.</li>
+</ol>
+<p>Нагадаю, що зображення для прикладів взяті безкоштовних наборів: <a href="https://evolutionarygames.itch.io/interface-elements-mobile-metallic">кнопки</a> та <a href="https://www.kenney.nl/assets/space-shooter-redux">космічні кораблі</a></p>
+<p>Перше пункт реалізується за допомогою послідовності та акції <a href="https://docs.cocos2d-x.org/api-ref/cplusplus/V3.12/d9/d37/classcocos2d_1_1_repeat_forever.html">RepeatForever</a> якось так:</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp">Sequence<span style="color:#719e07">*</span> rseq <span style="color:#719e07">=</span> Sequence<span style="color:#719e07">::</span>create(RotateBy<span style="color:#719e07">::</span>create(<span style="color:#2aa198">3</span>, <span style="color:#2aa198">30</span>),
+                                  RotateBy<span style="color:#719e07">::</span>create(<span style="color:#2aa198">3</span>, <span style="color:#719e07">-</span><span style="color:#2aa198">30</span>), <span style="color:#719e07">nullptr</span>);
+
+RepeatForever<span style="color:#719e07">*</span> reps <span style="color:#719e07">=</span> RepeatForever<span style="color:#719e07">::</span>create(rseq);
+reps<span style="color:#719e07">-&gt;</span>setTag(AT_UFO_ROTATION);
+greenUfo<span style="color:#719e07">-&gt;</span>runAction(reps);
+</code></pre></div><p>Для інших особливостей доведеться спершу розглянути трошки теорії.</p>
+<h1 id="теги-для-action">Теги для Action</h1>
+<p>У класу <a href="https://docs.cocos2d-x.org/api-ref/cplusplus/v4x/db/d61/classcocos2d_1_1_action.html">Action</a> є параметр <em>tag</em> це просте число, яке за яким можна відрізнити одну акцію від іншої. Тег встановлюється метод <em>setTag</em> або іноді передається у конструкторі акції.</p>
+<p>Відповідно, у <a href="https://docs.cocos2d-x.org/api-ref/cplusplus/V3.12/d3/d82/classcocos2d_1_1_node.html">Node</a> є ряд методів для роботи з акціями:</p>
+<ul>
+<li><code>void stopActionByTag(int tag)</code> — зупинка акції з відповідним тегом</li>
+<li><code>Action* getActionByTag(int tag)</code> — отримання вказівника на акцію</li>
+<li><code>ssize_t getNumberOfRunningActionsByTag(int tag) const</code> — кількість діючих акцій</li>
+</ul>
+<p>Крім того, існує синглтон <a href="https://docs.cocos2d-x.org/api-ref/cplusplus/v4x/d1/d88/classcocos2d_1_1_action_manager.html#details">ActionManager</a> зі схожими методами, але у документації не рекомендують ним користуватись.</p>
+<p>У нашому прикладі теги знадобляться, щоб відділити обертання НЛО від його горизонтального руху. Запуск виглядає приблизно так:</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp">MoveBy<span style="color:#719e07">*</span> moveTo <span style="color:#719e07">=</span> MoveTo<span style="color:#719e07">::</span>create(time, Vec2(newX,<span style="color:#2aa198">240</span>));
+moveTo<span style="color:#719e07">-&gt;</span>setTag(AT_UFO_MOVING);
+greenUfo<span style="color:#719e07">-&gt;</span>runAction(moveTo);
+</code></pre></div><p>а зупинка ось так</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp">greenUfo<span style="color:#719e07">-&gt;</span>stopAllActionsByTag(AT_UFO_MOVING);
+</code></pre></div><p>У випадку синього корабля доведеться зупиняти послідовність. Це не відрізняється від одної акції, просто тег треба ставити саме на послідовність, а не на окремі акції, приблизно так:</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#586e75">// створюємо ряд акцій для послідовності
+</span><span style="color:#586e75">///....
+</span><span style="color:#586e75"></span>
+Sequence<span style="color:#719e07">*</span> seq <span style="color:#719e07">=</span> Sequence<span style="color:#719e07">::</span>create(rotateAct, moveAct, rotateBackAct, <span style="color:#719e07">nullptr</span>);
+seq<span style="color:#719e07">-&gt;</span>setTag(AT_BS_MOVE);
+
+blueShip<span style="color:#719e07">-&gt;</span>runAction(seq);
+</code></pre></div><h1 id="обробка-завершення-акції">Обробка завершення акції</h1>
+<p>У завданні для синього корабля треба виконати якісь дії (заміну зображення на кнопці) одразу після виконання акції. Для цього призначений клас <a href="https://docs.cocos2d-x.org/api-ref/cplusplus/v4x/d3/d32/classcocos2d_1_1_call_func.html#details">CallFunc</a> — це акція, яка нічого не робить, лише викликає функцію, вказівник на яку задали у конструкторі.</p>
+<p>Можна зробити <a href="https://uk.wikipedia.org/wiki/%D0%9B%D1%8F%D0%BC%D0%B1%D0%B4%D0%B0-%D0%B2%D0%B8%D1%80%D0%B0%D0%B7%D0%B8_%D1%83_%D0%A1%2B%2B">лямбда-вираз</a>, яка виконає необхідні дії при завершенні послідовності:</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp">CallFunc<span style="color:#719e07">*</span> finalCf <span style="color:#719e07">=</span> CallFunc<span style="color:#719e07">::</span>create([<span style="color:#719e07">this</span>]() {
+  <span style="color:#586e75">// запуск акції по зворотньому повороту корабля
+</span><span style="color:#586e75"></span>  RotateTo<span style="color:#719e07">*</span> ra2 <span style="color:#719e07">=</span> RotateTo<span style="color:#719e07">::</span>create(<span style="color:#2aa198">3</span>, <span style="color:#2aa198">0</span>);
+  ra2<span style="color:#719e07">-&gt;</span>setTag(AT_BS_ROTATION_BACK);
+  <span style="color:#719e07">this</span><span style="color:#719e07">-&gt;</span>blueShip<span style="color:#719e07">-&gt;</span>runAction(ra2);
+
+  <span style="color:#586e75">// заміна зображень на правій кнопці
+</span><span style="color:#586e75"></span>  <span style="color:#586e75">// ......
+</span><span style="color:#586e75"></span>});
+
+Sequence<span style="color:#719e07">*</span> seq <span style="color:#719e07">=</span> Sequence<span style="color:#719e07">::</span>create(rotateAct, moveAct, finalCf, <span style="color:#719e07">nullptr</span>);
+seq<span style="color:#719e07">-&gt;</span>setTag(AT_BS_MOVE);
+
+blueShip<span style="color:#719e07">-&gt;</span>runAction(seq);
+</code></pre></div>
+		</div>
+
+		<div class="post-tags">
+			
+				
+					<nav class="nav tags">
+							<ul class="flat">
+								
+								<li><a href="/cocos2dx-examples/uk/tags/action">Action</a></li>
+								
+								<li><a href="/cocos2dx-examples/uk/tags/tag">tag</a></li>
+								
+							</ul>
+					</nav>
+				
+			
+		</div>
+		</div>
+	<div class="footer wrapper">
+	<nav class="nav">
+		<div> © суспільне надбання |  <a href="https://github.com/vividvilla/ezhil">Ezhil theme</a> | Built with <a href="https://gohugo.io">Hugo</a></div>
+	</nav>
+</div>
+
+
+
+<script>feather.replace()</script>
+</body>
+</html>

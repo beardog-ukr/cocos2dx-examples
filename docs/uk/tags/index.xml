@@ -7,10 +7,100 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>© суспільне надбання</copyright>
-    <lastBuildDate>Mon, 30 Mar 2020 22:30:25 +0300</lastBuildDate>
+    <lastBuildDate>Fri, 03 Apr 2020 13:30:25 +0300</lastBuildDate>
     
 	<atom:link href="https://beardog-ukr.github.io/cocos2dx-examples/uk/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>callbacks</title>
+      <link>https://beardog-ukr.github.io/cocos2dx-examples/uk/tags/callbacks/</link>
+      <pubDate>Fri, 03 Apr 2020 13:30:25 +0300</pubDate>
+      
+      <guid>https://beardog-ukr.github.io/cocos2dx-examples/uk/tags/callbacks/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>CallFunc</title>
+      <link>https://beardog-ukr.github.io/cocos2dx-examples/uk/tags/callfunc/</link>
+      <pubDate>Fri, 03 Apr 2020 13:30:25 +0300</pubDate>
+      
+      <guid>https://beardog-ukr.github.io/cocos2dx-examples/uk/tags/callfunc/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>CC_CALLBACK</title>
+      <link>https://beardog-ukr.github.io/cocos2dx-examples/uk/tags/cc_callback/</link>
+      <pubDate>Fri, 03 Apr 2020 13:30:25 +0300</pubDate>
+      
+      <guid>https://beardog-ukr.github.io/cocos2dx-examples/uk/tags/cc_callback/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>child-parent</title>
+      <link>https://beardog-ukr.github.io/cocos2dx-examples/uk/tags/child-parent/</link>
+      <pubDate>Fri, 03 Apr 2020 13:30:25 +0300</pubDate>
+      
+      <guid>https://beardog-ukr.github.io/cocos2dx-examples/uk/tags/child-parent/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>event</title>
+      <link>https://beardog-ukr.github.io/cocos2dx-examples/uk/tags/event/</link>
+      <pubDate>Fri, 03 Apr 2020 13:30:25 +0300</pubDate>
+      
+      <guid>https://beardog-ukr.github.io/cocos2dx-examples/uk/tags/event/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>events</title>
+      <link>https://beardog-ukr.github.io/cocos2dx-examples/uk/tags/events/</link>
+      <pubDate>Fri, 03 Apr 2020 13:30:25 +0300</pubDate>
+      
+      <guid>https://beardog-ukr.github.io/cocos2dx-examples/uk/tags/events/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>memory management</title>
+      <link>https://beardog-ukr.github.io/cocos2dx-examples/uk/tags/memory-management/</link>
+      <pubDate>Fri, 03 Apr 2020 13:30:25 +0300</pubDate>
+      
+      <guid>https://beardog-ukr.github.io/cocos2dx-examples/uk/tags/memory-management/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>RemoveSelf</title>
+      <link>https://beardog-ukr.github.io/cocos2dx-examples/uk/tags/removeself/</link>
+      <pubDate>Fri, 03 Apr 2020 13:30:25 +0300</pubDate>
+      
+      <guid>https://beardog-ukr.github.io/cocos2dx-examples/uk/tags/removeself/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Action</title>
+      <link>https://beardog-ukr.github.io/cocos2dx-examples/uk/tags/action/</link>
+      <pubDate>Thu, 02 Apr 2020 15:55:25 +0300</pubDate>
+      
+      <guid>https://beardog-ukr.github.io/cocos2dx-examples/uk/tags/action/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>tag</title>
+      <link>https://beardog-ukr.github.io/cocos2dx-examples/uk/tags/tag/</link>
+      <pubDate>Thu, 02 Apr 2020 15:55:25 +0300</pubDate>
+      
+      <guid>https://beardog-ukr.github.io/cocos2dx-examples/uk/tags/tag/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>design resolution</title>
@@ -27,15 +117,6 @@
       <pubDate>Mon, 30 Mar 2020 22:30:25 +0300</pubDate>
       
       <guid>https://beardog-ukr.github.io/cocos2dx-examples/uk/tags/smoke-test-project/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Action</title>
-      <link>https://beardog-ukr.github.io/cocos2dx-examples/uk/tags/action/</link>
-      <pubDate>Sun, 29 Mar 2020 21:30:25 +0300</pubDate>
-      
-      <guid>https://beardog-ukr.github.io/cocos2dx-examples/uk/tags/action/</guid>
       <description></description>
     </item>
     
@@ -67,56 +148,11 @@
     </item>
     
     <item>
-      <title>CC_CALLBACK</title>
-      <link>https://beardog-ukr.github.io/cocos2dx-examples/uk/tags/cc_callback/</link>
-      <pubDate>Fri, 27 Mar 2020 19:30:25 +0300</pubDate>
-      
-      <guid>https://beardog-ukr.github.io/cocos2dx-examples/uk/tags/cc_callback/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>keyboard processing</title>
       <link>https://beardog-ukr.github.io/cocos2dx-examples/uk/tags/keyboard-processing/</link>
       <pubDate>Fri, 27 Mar 2020 19:30:25 +0300</pubDate>
       
       <guid>https://beardog-ukr.github.io/cocos2dx-examples/uk/tags/keyboard-processing/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>callbacks</title>
-      <link>https://beardog-ukr.github.io/cocos2dx-examples/uk/tags/callbacks/</link>
-      <pubDate>Fri, 27 Mar 2020 13:30:25 +0300</pubDate>
-      
-      <guid>https://beardog-ukr.github.io/cocos2dx-examples/uk/tags/callbacks/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>CC_CALBACK</title>
-      <link>https://beardog-ukr.github.io/cocos2dx-examples/uk/tags/cc_calback/</link>
-      <pubDate>Fri, 27 Mar 2020 13:30:25 +0300</pubDate>
-      
-      <guid>https://beardog-ukr.github.io/cocos2dx-examples/uk/tags/cc_calback/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>event</title>
-      <link>https://beardog-ukr.github.io/cocos2dx-examples/uk/tags/event/</link>
-      <pubDate>Fri, 27 Mar 2020 13:30:25 +0300</pubDate>
-      
-      <guid>https://beardog-ukr.github.io/cocos2dx-examples/uk/tags/event/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>events</title>
-      <link>https://beardog-ukr.github.io/cocos2dx-examples/uk/tags/events/</link>
-      <pubDate>Fri, 27 Mar 2020 13:30:25 +0300</pubDate>
-      
-      <guid>https://beardog-ukr.github.io/cocos2dx-examples/uk/tags/events/</guid>
       <description></description>
     </item>
     
