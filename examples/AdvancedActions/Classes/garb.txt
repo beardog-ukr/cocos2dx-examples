@@ -1,0 +1,60 @@
+// =============================================================================
+
+bool ActionsDemoScene::addSkeleton() {
+
+  // SpriteFrameCache* sfc = SpriteFrameCache::getInstance();
+  // const vector<string> sfnArr = generateSkeletonFileNames();
+  // for (string sfn: sfnArr) {
+  //   sfc->addSpriteFramesWithFile(sfn);
+  // }
+
+  const char imageFilename[] = "skeleton/skeleton_attack_00.png";
+
+  skeleton = Sprite::create(imageFilename);
+
+  skeleton->setAnchorPoint(Vec2(0.5,0.5));
+  skeleton->setPosition(Vec2(80, 180));
+
+  addChild(skeleton, 10);
+
+  return true;
+}
+
+
+
+// =============================================================================
+
+std::vector<std::string> ActionsDemoScene::generateSkeletonFileNames() const {
+  vector<string> result;
+  const int attackSpritesCount = 18;
+
+  for (int i = 1; i<attackSpritesCount; i++) {
+    ostringstream ss;
+    ss << "skeleton/skeleton_attack_";
+    ss << setw(2) << setfill('0') << i;
+    ss << ".png";
+
+
+    result.push_back(ss.str());
+  }
+
+  return result;
+}
+
+
+// =============================================================================
+
+void ActionsDemoScene::doSkeletonAttack() {
+  const vector<string> sfnArr = generateSkeletonFileNames();
+  SpriteFrameCache *sfc = SpriteFrameCache::getInstance();
+  Animation* animation = Animation::create();
+
+  for (string sfn:sfnArr) {
+    SpriteFrame *sf = sfc->getSpriteFrameByName(sfn);
+    animation->addSpriteFrame(sf);
+  }
+
+  animation->setDelayPerUnit(0.1);
+
+  skeleton->runAction(Animate::create(animation));
+}
