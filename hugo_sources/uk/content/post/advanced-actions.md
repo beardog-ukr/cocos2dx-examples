@@ -24,19 +24,13 @@ tags: ["Action", "tag"]
 1. коли корабель доходить до місця призначення, він повертається носом доверху; після цього кнопка-стрілка змінюється на протилежну.
 1. якщо знову натиснути на кнопку, корабель почне рухатись у іншому напрямі.
 
+Таким чином, зелене НЛО буде поводити себе так:
+{{< figure src="/cocos2dx-examples/uk/post/advanced-actions-img/ufo_move_sides.gif" title="Зелене НЛО рухається в сторони і трохи обертається" position="center" >}}
+
+А синій корабель так:
+{{< figure src="/cocos2dx-examples/uk/post/advanced-actions-img/blue_ship_move.gif" title="Рух та зупинка синього корабля" position="center" >}}
+
 Нагадаю, що зображення для прикладів взяті безкоштовних наборів: [кнопки](https://evolutionarygames.itch.io/interface-elements-mobile-metallic) та [космічні кораблі](https://www.kenney.nl/assets/space-shooter-redux)
-
-Перше пункт реалізується за допомогою послідовності та акції [RepeatForever](https://docs.cocos2d-x.org/api-ref/cplusplus/V3.12/d9/d37/classcocos2d_1_1_repeat_forever.html) якось так:
-```cpp
-Sequence* rseq = Sequence::create(RotateBy::create(3, 30),
-                                  RotateBy::create(3, -30), nullptr);
-
-RepeatForever* reps = RepeatForever::create(rseq);
-reps->setTag(AT_UFO_ROTATION);
-greenUfo->runAction(reps);
-```
-
-Для інших особливостей доведеться спершу розглянути трошки теорії.
 
 # Теги для Action
 
@@ -49,7 +43,18 @@ greenUfo->runAction(reps);
 
 Крім того, існує синглтон [ActionManager](https://docs.cocos2d-x.org/api-ref/cplusplus/v4x/d1/d88/classcocos2d_1_1_action_manager.html#details) зі схожими методами, але у документації не рекомендують ним користуватись.
 
-У нашому прикладі теги знадобляться, щоб відділити обертання НЛО від його горизонтального руху. Запуск виглядає приблизно так:
+У нашому прикладі теги знадобляться, щоб відділити обертання НЛО від його горизонтального руху. Перший пункт для зеленого НЛО реалізується за допомогою послідовності та акції [RepeatForever](https://docs.cocos2d-x.org/api-ref/cplusplus/V3.12/d9/d37/classcocos2d_1_1_repeat_forever.html) якось так:
+```cpp
+Sequence* rseq = Sequence::create(RotateBy::create(3, 30),
+                                  RotateBy::create(3, -30), nullptr);
+
+RepeatForever* reps = RepeatForever::create(rseq);
+reps->setTag(AT_UFO_ROTATION);
+greenUfo->runAction(reps);
+```
+Тут AT_UFO_ROTATION — це числова константа і тег, що позначає акцію обертання.
+
+Запуск руху НЛО в стороно виглядає приблизно так:
 ```cpp
 MoveBy* moveTo = MoveTo::create(time, Vec2(newX,240));
 moveTo->setTag(AT_UFO_MOVING);
@@ -59,6 +64,7 @@ greenUfo->runAction(moveTo);
 ```cpp
 greenUfo->stopAllActionsByTag(AT_UFO_MOVING);
 ```
+Тут `stopAllActionsByTag` зупиняє акцію, позначену константою-тегом `AT_UFO_MOVING`, натомість акція обертання буде продовжуватись.
 
 У випадку синього корабля доведеться зупиняти послідовність. Це не відрізняється від одної акції, просто тег треба ставити саме на послідовність, а не на окремі акції, приблизно так:
 ```cpp
@@ -69,6 +75,27 @@ Sequence* seq = Sequence::create(rotateAct, moveAct, rotateBackAct, nullptr);
 seq->setTag(AT_BS_MOVE);
 
 blueShip->runAction(seq);
+```
+
+# Визначення акції
+
+За логікою завдання для синього корабля виходить, що його рух не можна переривати у той час, коли він обертається назад під час зупинки. Для того, щоб це реалізувати, треба у колбеках перевіряти, чи не відбувається зараз ця акція.
+
+Є два методи, які можуть показати, що певна акція триває у даний час: це методи `getNumberOfRunningActionsByTag()` та `getActionByTag()`.
+
+Застосовуються вони однаково:
+```cpp
+if (blueShip->getNumberOfRunningActionsByTag(AT_BS_ROTATION_BACK)>0 ) {
+  log("%s: rotating back, do not interfere with moving", __func__);
+  return;
+}
+```
+або
+```cpp
+if (blueShip->getActionByTag(AT_BS_ROTATION_BACK) != nullptr) {
+  log("%s: rotating back, do not interfere", __func__);
+  return;
+}
 ```
 
 # Обробка завершення акції
@@ -92,3 +119,4 @@ seq->setTag(AT_BS_MOVE);
 
 blueShip->runAction(seq);
 ```
+Нагадаю, що конструктор `Sequence` отримує акції, які треба об'єднати у послідовність, а також `nullptr` у кінці. В даному випадку ми виконуємо три дії: поворот, рух та обробку завершення.
