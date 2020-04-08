@@ -65,6 +65,10 @@
 			<p>Тепер, після того, як ми <a href="https://beardog-ukr.github.io/cocos2dx-examples/uk/post/basic-actions/">ознайомились з Action</a> та <a href="https://beardog-ukr.github.io/cocos2dx-examples/uk/post/basic-actions/">іншими базовими термінами</a>, можна розбиратись з проблемою коректного видалення об'єктів, створених Cocos2d.</p>
 <p>Для того, щоб це проілюструвати, напишемо просту сцену, у якій буде один спрайт і одна кнопка. Після натиснення на кнопку спрайт буде переміщуватись за межі екрану і там якось видалятиметься.</p>
 <p>Насправді, замість кнопки нам доведеться зробити меню з кількома варіантами видалення, і в цілому програма виглядатиме так:</p>
+<figure>
+    <img src="/cocos2dx-examples/uk/post/advanced-actions-img/memory_remove.gif"/> 
+</figure>
+
 <p>В меню є такі варіанти</p>
 <ul>
 <li>нічого не робити — просто залишити виведений за межі екрану елемент як є.</li>
@@ -107,14 +111,14 @@ EnhancedSprite<span style="color:#719e07">*</span> EnhancedSprite<span style="co
 }
 </code></pre></div><p>Тут у кожного об'єкту є поле <code>objectId</code> з унікальним значенням, яке дозволить відрізняти об'єкти один від одного. Все інше як у звичайного спрайту.</p>
 <h1 id="варіанти-видалення">Варіанти видалення</h1>
-<p>Якщо нічого не робити спрайти залишатимуться у пам'яті. Цікаво, що коли ви спробуєте закрити програму, то побачите, як викликаються деструктори. Тобто, формально це не є втратою пам'яті: невидимі об'єкти все ще залишаються на сцені і вона зберігає посилання на них. Але все одно очевидно, це погано і так робити не можна.</p>
-<p>Найбільш зручним і правильним способом видалення є використання <a href="https://docs.cocos2d-x.org/api-ref/cplusplus/v4x/d4/d11/classcocos2d_1_1_remove_self.html">RemoveSelf</a> в кінці послідовності, ось таке:</p>
+<p>Якщо нічого не робити, спрайти залишатимуться у пам'яті. Цікаво, що коли ви спробуєте закрити програму, то побачите, як викликаються деструктори. Тобто, формально це не є втратою пам'яті: невидимі об'єкти все ще залишаються на сцені і вона зберігає посилання на них. Але все одно очевидно, дана ситуація є поганою і так робити не можна.</p>
+<p>Найбільш зручним і правильним способом видалення є використання в кінці послідовності <a href="https://docs.cocos2d-x.org/api-ref/cplusplus/v4x/d4/d11/classcocos2d_1_1_remove_self.html">RemoveSelf</a> — спеціальної акції, призначеної для видалення об'єкту. Працює ось так:</p>
 <div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp">MoveTo<span style="color:#719e07">*</span> moveAct <span style="color:#719e07">=</span> MoveTo<span style="color:#719e07">::</span>create(<span style="color:#2aa198">5</span>, Vec2(<span style="color:#2aa198">800</span>, <span style="color:#2aa198">120</span>));
 Sequence<span style="color:#719e07">*</span> seq <span style="color:#719e07">=</span> Sequence<span style="color:#719e07">::</span>create(moveAct, RemoveSelf<span style="color:#719e07">::</span>create(), <span style="color:#719e07">nullptr</span>);
 
 blueShip<span style="color:#719e07">-&gt;</span>runAction(seq);
-</code></pre></div><p>Цей код виведе спрайт за межі екрану і там буде видно, як виконається деструктор.</p>
-<p>Такого ж ефекту можна досягти, якщо використати <a href="https://docs.cocos2d-x.org/api-ref/cplusplus/v4x/d3/d32/classcocos2d_1_1_call_func.html">CallFunc</a>:</p>
+</code></pre></div><p>Цей код виведе спрайт за межі екрану і після того буде видно, як виконається деструктор.</p>
+<p>Такого ж ефекту можна досягти, якщо використати <a href="https://docs.cocos2d-x.org/api-ref/cplusplus/v4x/d3/d32/classcocos2d_1_1_call_func.html">CallFunc</a> та <code>removeChild()</code>:</p>
 <div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp">MoveTo<span style="color:#719e07">*</span> moveAct <span style="color:#719e07">=</span> MoveTo<span style="color:#719e07">::</span>create(<span style="color:#2aa198">5</span>, Vec2(<span style="color:#2aa198">800</span>, <span style="color:#2aa198">120</span>));
 
 Sprite<span style="color:#719e07">*</span> oldShip <span style="color:#719e07">=</span> blueShip; <span style="color:#586e75">//save blueShip pointer because it may get changed by the time
@@ -130,7 +134,7 @@ blueShip<span style="color:#719e07">-&gt;</span>runAction(seq);
 </code></pre></div><p>Такий спосіб складніший, але він може знадобитись, якщо одночасно зі спрайтом треба видалити якісь об'єкти, що не мають відношення до сцени.</p>
 <h1 id="збереження-для-повторного-використання">Збереження для повторного використання</h1>
 <p>Припустимо, що замість видалення ви хочете зберегти об'єкт десь у <a href="https://uk.wikipedia.org/wiki/%D0%9F%D1%83%D0%BB_%D0%BE%D0%B1%27%D1%94%D0%BA%D1%82%D1%96%D0%B2_(%D1%88%D0%B0%D0%B1%D0%BB%D0%BE%D0%BD_%D0%BF%D1%80%D0%BE%D1%94%D0%BA%D1%82%D1%83%D0%B2%D0%B0%D0%BD%D0%BD%D1%8F)">пулі</a>. Це можливо, але доведеться зробити трохи інакше, ніж в описаних вище методах.</p>
-<p>Усі класи cocos2dx є нащадками <a href="">Ref</a> — це така спроба авторів фреймворку зробити щось схоже на Objective-C. Тому у кожного об'єкту є такі методи:</p>
+<p>Усі класи cocos2dx є нащадками <a href="https://docs.cocos2d-x.org/api-ref/cplusplus/v4x/df/d28/classcocos2d_1_1_ref.html">Ref</a> — це така спроба авторів фреймворку зробити щось схоже на Objective-C. Тому у кожного об'єкту є такі методи:</p>
 <ul>
 <li><code>retain()</code> збільшує кількість посилань на 1, &ldquo;захищаючи&rdquo; об'єкт від Видалення</li>
 <li><code>release()</code> зменшує кількість посилань. Якщо вона стала менше 0, об'єкт видаляється</li>
@@ -143,7 +147,7 @@ blueShip<span style="color:#719e07">-&gt;</span>runAction(seq);
 <li>програма спить дуже маленький (десятки секунд) проміжок часу, потім прокидається</li>
 <li>оброблює способи вводу</li>
 <li>сцена починає перемальовуватись (в процесі перераховуючи параметри акцій та викликаючи відповідні колбеки).</li>
-<li>після перемалювання сцени ті об'єкти, у яких лічильник посилань став/залишився рівним 0, видаляються.</li>
+<li>після перемалювання сцени ті об'єкти, у яких лічильник посилань рівний 0, видаляються.</li>
 </ul>
 <p>Таким чином, якщо десь в коді викликати <code>autorelease()</code> або <code>removeChild()</code>, лічильник посилань на об'єкт зменшиться і він буде видалений по завершенню поточної ітерації ігрового циклу.</p>
 		</div>
