@@ -4,18 +4,15 @@
 USING_NS_CC;
 using namespace std;
 
-// =============================================================================
+// . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
 
 Scene * MemoryDemoScene::createScene() {
   return MemoryDemoScene::create();
 }
 
-// =============================================================================
+// . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
 
-// on "init" you need to initialize your instance
 bool MemoryDemoScene::init() {
-  //////////////////////////////
-  // 1. super init first
   if (!Scene::init()) {
     return false;
   }
@@ -28,6 +25,12 @@ bool MemoryDemoScene::init() {
   addPoolControlButtons();
   shipInPool = nullptr;
 
+  Label* label = Label::createWithTTF("Press 'Backspace' to get back",
+                                      "fonts/Marker Felt.ttf", 16);
+  label->setAnchorPoint(Vec2(0,0));
+  label->setPosition(Vec2(10,10));
+  addChild(label);
+
   // keyboard processing
   EventListenerKeyboard* sceneKeyboardListener = EventListenerKeyboard::create();
   sceneKeyboardListener->onKeyPressed = CC_CALLBACK_2(MemoryDemoScene::onKeyPressedScene, this);
@@ -36,7 +39,7 @@ bool MemoryDemoScene::init() {
   return true;
 }
 
-// =============================================================================
+// . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
 
 bool MemoryDemoScene::addBackground() {
   const char backFilename[] = "backgrounds/background_1.png";
@@ -55,7 +58,7 @@ bool MemoryDemoScene::addBackground() {
   return true;
 }
 
-// =============================================================================
+// . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
 
 bool MemoryDemoScene::addInitialShip() {
   const char shipFilename[] = "ships/playerShip3_blue.png";
@@ -71,7 +74,7 @@ bool MemoryDemoScene::addInitialShip() {
   return true;
 }
 
-// =============================================================================
+// . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
 
 bool MemoryDemoScene::addControlButtons() {
   Menu* menu = Menu::create();
@@ -101,7 +104,7 @@ bool MemoryDemoScene::addControlButtons() {
   return true;
 }
 
-// =============================================================================
+// . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
 
 bool MemoryDemoScene::addPoolControlButtons() {
   Menu* menu = Menu::create();
@@ -132,7 +135,7 @@ bool MemoryDemoScene::addPoolControlButtons() {
   return true;
 }
 
-// =============================================================================
+// . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
 
 bool MemoryDemoScene::addNewShip() {
   const char shipFilename[] = "ships/playerShip3_blue.png";
@@ -158,7 +161,7 @@ bool MemoryDemoScene::addNewShip() {
   return true;
 }
 
-// ================================================================================
+// . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
 
 void MemoryDemoScene::processMenuNoDelete(Ref *) {
   log("%s: is here", __func__);
@@ -170,7 +173,7 @@ void MemoryDemoScene::processMenuNoDelete(Ref *) {
 }
 
 
-// ================================================================================
+// . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
 
 void MemoryDemoScene::processMenuRemoveChild(Ref *) {
   log("%s: is here", __func__);
@@ -192,7 +195,7 @@ void MemoryDemoScene::processMenuRemoveChild(Ref *) {
   addNewShip();
 }
 
-// ================================================================================
+// . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
 
 void MemoryDemoScene::processMenuRemoveSelf(Ref *) {
   log("%s: is here", __func__);
@@ -206,15 +209,15 @@ void MemoryDemoScene::processMenuRemoveSelf(Ref *) {
   addNewShip();
 }
 
-
-// =============================================================================
+// . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
 
 void MemoryDemoScene::onKeyPressedScene(EventKeyboard::KeyCode keyCode,
                                         Event                 *event) {
   printf("%s: processing key %d pressed\n", __func__, (int)keyCode);
 
-  if (EventKeyboard::KeyCode::KEY_SPACE == keyCode) {
-    printf("%s: Space was pressed (but nothing to do)\n", __func__);
+  if (EventKeyboard::KeyCode::KEY_BACKSPACE == keyCode) {
+    printf("%s: Backspace was pressed, get back from this scene\n", __func__);
+    Director::getInstance()->popScene();
   }
   else if (EventKeyboard::KeyCode::KEY_X == keyCode) {
     printf("%s: Need to get out.\n", __func__);
@@ -224,7 +227,7 @@ void MemoryDemoScene::onKeyPressedScene(EventKeyboard::KeyCode keyCode,
   }
 }
 
-// =============================================================================
+// . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
 
 void MemoryDemoScene::processMenuRemoveToPool(cocos2d::Ref *) {
   log("%s: here", __func__);
@@ -258,7 +261,7 @@ void MemoryDemoScene::processMenuRemoveToPool(cocos2d::Ref *) {
   addNewShip();
 }
 
-// =============================================================================
+// . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
 
 void MemoryDemoScene::processMenuAddFromPool(cocos2d::Ref *) {
   log("%s: here", __func__);
@@ -290,7 +293,7 @@ void MemoryDemoScene::processMenuAddFromPool(cocos2d::Ref *) {
   shipInPool->runAction(seq);
 }
 
-// =============================================================================
+// . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
 
 void MemoryDemoScene::processMenuCreateWithoutAdd(cocos2d::Ref *) {
   log("%s: here", __func__);

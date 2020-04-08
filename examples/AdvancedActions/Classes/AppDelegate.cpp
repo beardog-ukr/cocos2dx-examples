@@ -74,10 +74,10 @@ bool AppDelegate::applicationDidFinishLaunching() {
   register_all_packages();
 
   // create a scene. it's an autorelease object
-  // Scene* scene = MenuScene::createScene();
+  Scene* scene = MenuScene::createScene();
   // Scene* scene = EasingDemoScene::createScene();
   // Scene* scene = ActionsDemoScene::createScene();
-  Scene* scene = MemoryDemoScene::createScene();
+  // Scene* scene = MemoryDemoScene::createScene();
 
   // run
   director->runWithScene(scene);

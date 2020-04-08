@@ -16,9 +16,7 @@ bool initMenuButtons();
 
 cocos2d::Node* prepareMixedShip();
 
-void firstMenuCallback(cocos2d::Ref *pSender);
-void secondMenuCallback(cocos2d::Ref *pSender);
-void thirdMenuCallback(cocos2d::Ref *pSender);
+void switchToNewScene(cocos2d::Ref *pSender, const int sceneCode);
 
 // implement the "static create()" method manually
 CREATE_FUNC(MenuScene);

@@ -1,22 +1,31 @@
 #include "MenuScene.h"
+#include "ActionsDemoScene.h"
+#include "EasingDemoScene.h"
+#include "MemoryDemoScene.h"
 
 USING_NS_CC;
 using namespace std;
 
-// =============================================================================
+// . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+
+enum SceneCode {
+  SC_Easing = 10,
+  SC_ActionsDemo,
+  SC_MemoryDemo
+};
 
 enum z_orders {
   ZO_BACKGROUND = 0,
   ZO_MENU = 10
 };
 
-// =============================================================================
+// . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
 
 Scene * MenuScene::createScene() {
   return MenuScene::create();
 }
 
-// =============================================================================
+// . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
 // on "init" you need to initialize your instance
 bool MenuScene::init() {
   //////////////////////////////
@@ -31,7 +40,7 @@ bool MenuScene::init() {
   return true;
 }
 
-// =============================================================================
+// . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
 
 bool MenuScene::initBackground() {
   const char backFilename[] = "backgrounds/paper_background.png";
@@ -49,17 +58,18 @@ bool MenuScene::initBackground() {
   return true;
 }
 
-// =============================================================================
+// . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
 
 bool MenuScene::initMenuButtons() {
   Menu* menu = Menu::create();
   menu->setPosition(320,180);
 
   const int itemsCount = 3;
-  string captions[itemsCount] = {"Demo #1", "Demo #2", "Demo #3"};
-  ccMenuCallback mcbs[itemsCount] = {CC_CALLBACK_1(MenuScene::firstMenuCallback, this),
-                                     CC_CALLBACK_1(MenuScene::secondMenuCallback, this),
-                                     CC_CALLBACK_1(MenuScene::thirdMenuCallback, this)
+  string captions[itemsCount] = {"Easing Demo", "Actions Demo", "Memory Management"};
+  ccMenuCallback mcbs[itemsCount] = {CC_CALLBACK_1(MenuScene::switchToNewScene, this, SC_Easing),
+                                     CC_CALLBACK_1(MenuScene::switchToNewScene, this,
+                                                   SC_ActionsDemo),
+                                     CC_CALLBACK_1(MenuScene::switchToNewScene, this, SC_MemoryDemo)
   };
 
   for (int i = 0; i< itemsCount; i++) {
@@ -81,24 +91,27 @@ bool MenuScene::initMenuButtons() {
 
 }
 
-// =============================================================================
+// . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
 
-void MenuScene::firstMenuCallback(Ref *pSender) {
-  printf("menu callback for first menu\n");
+void MenuScene::switchToNewScene(cocos2d::Ref *pSender, const int sceneCode) {
+  Scene* newScene = nullptr;
+  switch (sceneCode) {
+  case SC_Easing:
+    newScene = EasingDemoScene::create();
+    break;
+  case SC_ActionsDemo:
+    newScene = ActionsDemoScene::create();
+    break;
+  case SC_MemoryDemo:
+    newScene = MemoryDemoScene::create();
+    break;
+  default:
+    printf("bad scene code value\n");
+    return;
+  }
+
+  Director::getInstance()->pushScene(newScene);
 }
 
-// =============================================================================
-
-void MenuScene::secondMenuCallback(Ref *pSender) {
-  printf("menu callback for second menu\n");
-}
-
-// =============================================================================
-
-void MenuScene::thirdMenuCallback(Ref *pSender) {
-  printf("menu callback for third menu\n");
-}
-
-// =============================================================================
-
+// . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
 
