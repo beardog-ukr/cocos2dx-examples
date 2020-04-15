@@ -7,10 +7,23 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>© суспільне надбання</copyright>
-    <lastBuildDate>Fri, 03 Apr 2020 13:30:25 +0300</lastBuildDate>
+    <lastBuildDate>Tue, 14 Apr 2020 17:30:25 +0300</lastBuildDate>
     
 	<atom:link href="https://beardog-ukr.github.io/cocos2dx-examples/uk/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Анімація</title>
+      <link>https://beardog-ukr.github.io/cocos2dx-examples/uk/post/basic-animations/</link>
+      <pubDate>Tue, 14 Apr 2020 17:30:25 +0300</pubDate>
+      
+      <guid>https://beardog-ukr.github.io/cocos2dx-examples/uk/post/basic-animations/</guid>
+      <description>&lt;p&gt;Виділяють &lt;a href=&#34;https://hub.packtpub.com/animations-cocos2d-x/&#34;&gt;два способи&lt;/a&gt; створення анімації:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;покадрова: художники малюють ряд кадрів, а Cocos2d їх послідовно показує, використовуючи клас &lt;a href=&#34;https://docs.cocos2d-x.org/api-ref/cplusplus/v4x/d3/dc5/classcocos2d_1_1_animation.html&#34;&gt;Animation&lt;/a&gt;. Робота з ним схожа на інші акції, хоча сам клас має трошки інше походження.&lt;/li&gt;
+&lt;li&gt;скелетна: у спеціальних програмах формується модель персонажу, а потім завантажується у cocos2dx.&lt;/li&gt;
+&lt;/ul&gt;</description>
+    </item>
     
     <item>
       <title>Видалення об&#39;єктів</title>
@@ -57,15 +70,6 @@
       <guid>https://beardog-ukr.github.io/cocos2dx-examples/uk/post/basic-sequence/</guid>
       <description>&lt;p&gt;Якщо вам потрібно виконати кілька акцій одну за одною, на допомогу прийде клас &lt;a href=&#34;https://docs.cocos2d-x.org/cocos2d-x/v4/en/actions/sequences.html&#34;&gt;Sequence&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;Наприклад, синій корабель за помовчанням створюється &amp;ldquo;носом доверху&amp;rdquo;. Щоб зобразити його &amp;ldquo;переліт&amp;rdquo; направо, спочатку треба зробити поворот на 90 градусів, а вже потім переміщувати.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Анімація</title>
-      <link>https://beardog-ukr.github.io/cocos2dx-examples/uk/post/basic-animations/</link>
-      <pubDate>Sun, 29 Mar 2020 17:30:25 +0300</pubDate>
-      
-      <guid>https://beardog-ukr.github.io/cocos2dx-examples/uk/post/basic-animations/</guid>
-      <description>&lt;p&gt;Ще одним способом створення &amp;ldquo;живого&amp;rdquo; об&#39;єкту є анімація. Художники малюють ряд кадрів, а Cocos2d їх послідовно показує, використовуючи клас &lt;a href=&#34;https://docs.cocos2d-x.org/api-ref/cplusplus/v4x/d3/dc5/classcocos2d_1_1_animation.html&#34;&gt;Animation&lt;/a&gt;. Робота з ним схожа на інші акції, хоча сам клас має трошки інше походження.&lt;/p&gt;</description>
     </item>
     
     <item>

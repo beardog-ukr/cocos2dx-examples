@@ -4,14 +4,22 @@
 	<meta charset="utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>Анімація - Основи Cocos2d-x</title><meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta property="og:title" content="Анімація" />
-<meta property="og:description" content="Ще одним способом створення &ldquo;живого&rdquo; об&#39;єкту є анімація. Художники малюють ряд кадрів, а Cocos2d їх послідовно показує, використовуючи клас Animation. Робота з ним схожа на інші акції, хоча сам клас має трошки інше походження." />
+<meta property="og:description" content="Виділяють два способи створення анімації:
+
+покадрова: художники малюють ряд кадрів, а Cocos2d їх послідовно показує, використовуючи клас Animation. Робота з ним схожа на інші акції, хоча сам клас має трошки інше походження.
+скелетна: у спеціальних програмах формується модель персонажу, а потім завантажується у cocos2dx.
+" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://beardog-ukr.github.io/cocos2dx-examples/uk/post/basic-animations/" />
-<meta property="article:published_time" content="2020-03-29T17:30:25+03:00" />
-<meta property="article:modified_time" content="2020-03-29T17:30:25+03:00" />
+<meta property="article:published_time" content="2020-04-14T17:30:25+03:00" />
+<meta property="article:modified_time" content="2020-04-14T17:30:25+03:00" />
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Анімація"/>
-<meta name="twitter:description" content="Ще одним способом створення &ldquo;живого&rdquo; об&#39;єкту є анімація. Художники малюють ряд кадрів, а Cocos2d їх послідовно показує, використовуючи клас Animation. Робота з ним схожа на інші акції, хоча сам клас має трошки інше походження."/>
+<meta name="twitter:description" content="Виділяють два способи створення анімації:
+
+покадрова: художники малюють ряд кадрів, а Cocos2d їх послідовно показує, використовуючи клас Animation. Робота з ним схожа на інші акції, хоча сам клас має трошки інше походження.
+скелетна: у спеціальних програмах формується модель персонажу, а потім завантажується у cocos2dx.
+"/>
 <link href="https://fonts.googleapis.com/css?family=Ubuntu:300,400,300italic,400italic|Raleway:200,300" rel="stylesheet">
 
 	<link rel="stylesheet" type="text/css" media="screen" href="https://beardog-ukr.github.io/cocos2dx-examples/uk/css/normalize.css" />
@@ -56,26 +64,71 @@
 
 		<div class="post-header">
 			<h1 class="title">Анімація</h1>
-			<div class="meta">Posted at &mdash; Mar 29, 2020</div>
+			<div class="meta">Posted at &mdash; Apr 14, 2020</div>
 		</div>
 
 		<div class="markdown">
-			<p>Ще одним способом створення &ldquo;живого&rdquo; об'єкту є анімація. Художники малюють ряд кадрів, а Cocos2d їх послідовно показує, використовуючи клас <a href="https://docs.cocos2d-x.org/api-ref/cplusplus/v4x/d3/dc5/classcocos2d_1_1_animation.html">Animation</a>. Робота з ним схожа на інші акції, хоча сам клас має трошки інше походження.</p>
-<p>Для прикладу візьмемо анімацію атаки скелету з <a href="https://jesse-m.itch.io/skeleton-pack">безкоштовного паку</a>. Ось кадри:</p>
-<figure>
-    <img src="/cocos2dx-examples/uk/post/basic-animations-img/attack_tiles.png"/> <figcaption>
-            <h4>Атака скелету</h4>
-        </figcaption>
-</figure>
+			<p>Виділяють <a href="https://hub.packtpub.com/animations-cocos2d-x/">два способи</a> створення анімації:</p>
+<ul>
+<li>покадрова: художники малюють ряд кадрів, а Cocos2d їх послідовно показує, використовуючи клас <a href="https://docs.cocos2d-x.org/api-ref/cplusplus/v4x/d3/dc5/classcocos2d_1_1_animation.html">Animation</a>. Робота з ним схожа на інші акції, хоча сам клас має трошки інше походження.</li>
+<li>скелетна: у спеціальних програмах формується модель персонажу, а потім завантажується у cocos2dx.</li>
+</ul>
+<h1 id="ручний-перелік-файлів">Ручний перелік файлів</h1>
+<p>Для прикладу візьмемо анімацію свічки з <a href="https://kvsr.itch.io/candle">безкоштовного паку</a>. Там всього лише три кадри, їх дуже просто завантажити і використати ось таким чином:</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp">Vector<span style="color:#719e07">&lt;</span>SpriteFrame<span style="color:#719e07">*&gt;</span> animFrames;
+animFrames.reserve(<span style="color:#2aa198">3</span>);
+animFrames.pushBack(SpriteFrame<span style="color:#719e07">::</span>create(<span style="color:#2aa198">&#34;candle/SC300-1.png&#34;</span>, Rect(<span style="color:#2aa198">0</span>,<span style="color:#2aa198">0</span>,<span style="color:#2aa198">64</span>,<span style="color:#2aa198">64</span>)));
+animFrames.pushBack(SpriteFrame<span style="color:#719e07">::</span>create(<span style="color:#2aa198">&#34;candle/SC300-2.png&#34;</span>, Rect(<span style="color:#2aa198">0</span>,<span style="color:#2aa198">0</span>,<span style="color:#2aa198">64</span>,<span style="color:#2aa198">64</span>)));
+animFrames.pushBack(SpriteFrame<span style="color:#719e07">::</span>create(<span style="color:#2aa198">&#34;candle/SC300-3.png&#34;</span>, Rect(<span style="color:#2aa198">0</span>,<span style="color:#2aa198">0</span>,<span style="color:#2aa198">64</span>,<span style="color:#2aa198">64</span>)));
 
-<p>А так має виглядати результат:
+<span style="color:#586e75">// create the animation out of the frames
+</span><span style="color:#586e75"></span>Animation<span style="color:#719e07">*</span> animation <span style="color:#719e07">=</span> Animation<span style="color:#719e07">::</span>createWithSpriteFrames(animFrames, <span style="color:#2aa198">0.4f</span>);
+Animate<span style="color:#719e07">*</span> animate <span style="color:#719e07">=</span> Animate<span style="color:#719e07">::</span>create(animation);
+
+<span style="color:#586e75">// run it and repeat it forever
+</span><span style="color:#586e75"></span>Sprite<span style="color:#719e07">*</span> candleSprite <span style="color:#719e07">=</span> Sprite<span style="color:#719e07">::</span>create();
+candleSprite<span style="color:#719e07">-&gt;</span>runAction(RepeatForever<span style="color:#719e07">::</span>create(animate));
+</code></pre></div><p>Тут цифри у <code>Rect(0,0,64,64)</code> такі, тому що файли розміром 64х64 пікселі.</p>
+<p>Проблема в тому, що практика прямого завантаження файлів, яку ми досі використовували у всіх прикладах, насправді є досить поганою. Вона підходить для навчання, але краще буде використовувати <a href="https://www.codeandweb.com/what-is-a-sprite-sheet">списки файлів</a> (<em>sprite sheet</em>).</p>
+<h1 id="файли-зі-списком-файлів">Файли зі списком файлів</h1>
+<p>У цьому місці я б дуже радив прочитати ось цю довгу, але дуже корисну <a href="https://www.codeandweb.com/texturepacker/tutorials/animations-and-spritesheets-in-cocos2d-x">статтю про анімацію</a>. Якщо коротко, то є такий клас <a href="https://docs.cocos2d-x.org/api-ref/cplusplus/v4x/d7/d76/classcocos2d_1_1_sprite_frame_cache.html">SpriteFrameCache</a> може завантажувати зображення, описані у файлах <em>*.plist</em>. Такі файли можуть створюватись у різних допоміжних програмах, зокрема у безкоштовних <a href="https://www.codeandweb.com/texturepacker">TexturePacker</a> та <a href="http://renderhjs.net/shoebox/">Shoebox</a>. Результатом роботи таких програм є два файли:</p>
+<ul>
+<li>одне велике зображення, що об'єднує усі передані ресурси. Завдяки тому, що це один файл, він займає менше місця та швидше завантажується</li>
+<li>файл <em>*.plist</em>, який описує упаковані ресурси.</li>
+</ul>
+<p>Наприклад, можна взяти чотири зображення <a href="https://opengameart.org/content/little-candle-monsters">створіння у капюшоні</a>, створити на його основі plist та ресурс і використати ось так:</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp">SpriteFrameCache<span style="color:#719e07">*</span> sfc <span style="color:#719e07">=</span> SpriteFrameCache<span style="color:#719e07">::</span>getInstance();
+
+<span style="color:#719e07">const</span> string violetMonsterFN <span style="color:#719e07">=</span> <span style="color:#2aa198">&#34;littleCandleMonster/littleCandleMonster_violet.plist&#34;</span>;
+sfc<span style="color:#719e07">-&gt;</span>addSpriteFramesWithFile(violetMonsterFN);
+
+Vector<span style="color:#719e07">&lt;</span>SpriteFrame<span style="color:#719e07">*&gt;</span> animFrames;
+Animation <span style="color:#719e07">*</span>monsterAnimation <span style="color:#719e07">=</span> Animation<span style="color:#719e07">::</span>create();
+<span style="color:#dc322f">char</span> tmps[<span style="color:#2aa198">256</span>];
+<span style="color:#719e07">for</span> (<span style="color:#dc322f">int</span> i <span style="color:#719e07">=</span> <span style="color:#2aa198">1</span>; i<span style="color:#719e07">&lt;=</span><span style="color:#2aa198">4</span>; i<span style="color:#719e07">++</span>) {
+  sprintf(tmps, <span style="color:#2aa198">&#34;lm-1-%i.png&#34;</span>, i);
+  SpriteFrame <span style="color:#719e07">*</span> sf <span style="color:#719e07">=</span> sfc<span style="color:#719e07">-&gt;</span>getSpriteFrameByName(tmps);
+  monsterAnimation<span style="color:#719e07">-&gt;</span>addSpriteFrame(sf);
+}
+
+monsterAnimation<span style="color:#719e07">-&gt;</span>setDelayPerUnit(<span style="color:#2aa198">0.1</span>);
+
+Animate<span style="color:#719e07">*</span> animate <span style="color:#719e07">=</span> Animate<span style="color:#719e07">::</span>create(monsterAnimation);
+</code></pre></div><p>Можна позбавитись від переліку імен файлів у коді, якщо використати метод <code>addAnimationsWithFile</code> класу <a href="https://docs.cocos2d-x.org/api-ref/cplusplus/v4x/d6/dc7/classcocos2d_1_1_animation_cache.html">AnimationCache</a>. Тоді завантаження анімацій виглядатиме так:</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#719e07">const</span> string plistFilename <span style="color:#719e07">=</span> <span style="color:#2aa198">&#34;skeleton/skeleton_images.plist&#34;</span>;
+SpriteFrameCache<span style="color:#719e07">::</span>getInstance()<span style="color:#719e07">-&gt;</span>addSpriteFramesWithFile(plistFilename);
+
+<span style="color:#719e07">const</span> string animationsPlistFN <span style="color:#719e07">=</span> <span style="color:#2aa198">&#34;skeleton/skeleton_animations.plist&#34;</span>;
+AnimationCache<span style="color:#719e07">::</span>getInstance()<span style="color:#719e07">-&gt;</span>addAnimationsWithFile(animationsPlistFN);
+</code></pre></div><p>А використання так:</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp">Animation<span style="color:#719e07">*</span> animation <span style="color:#719e07">=</span> AnimationCache<span style="color:#719e07">::</span>getInstance()<span style="color:#719e07">-&gt;</span>getAnimation(idleAnimationName);
+Animate<span style="color:#719e07">*</span> animate <span style="color:#719e07">=</span> Animate<span style="color:#719e07">::</span>create(animation);
+skeletonSprite<span style="color:#719e07">-&gt;</span>runAction(animate);
+</code></pre></div><p>Недоліком такого способу є те, що він вимагає якогось особливого plist-файлу. Цей файл відрізняється від тих, що створює <em>Texture Packer</em> (не зважаючи на однакове розширення) і його доводиться виписувати вручну. Для даного прикладу цей файл виглядатиме так.</p>
+<p>У будь-якому разі, отримана в результаті акція <code>animate</code> може використовуватись так само, як і будь-яка інша акція. Ось, наприклад, фіолетове створіння пересувається так само, як і зелене НЛО з <a href="https://beardog-ukr.github.io/cocos2dx-examples/uk/post/advanced-actions/">попередньої статті</a></p>
 <figure>
-    <img src="/cocos2dx-examples/uk/post/basic-animations-img/attack_animation.gif"/> <figcaption>
-            <h4>Анімація атаки</h4>
-        </figcaption>
+    <img src="/cocos2dx-examples/uk/post/basic-animations-img/violet_monster.gif"/> 
 </figure>
-</p>
-<p><a href="https://github.com/cocos2d/cocos2d-x/blob/v4/cocos/base/ccMacros.h">https://github.com/cocos2d/cocos2d-x/blob/v4/cocos/base/ccMacros.h</a></p>
 		</div>
 
 		<div class="post-tags">
@@ -86,7 +139,13 @@
 								
 								<li><a href="/cocos2dx-examples/uk/tags/animation">Animation</a></li>
 								
-								<li><a href="/cocos2dx-examples/uk/tags/action">Action</a></li>
+								<li><a href="/cocos2dx-examples/uk/tags/animationcache">AnimationCache</a></li>
+								
+								<li><a href="/cocos2dx-examples/uk/tags/plist">plist</a></li>
+								
+								<li><a href="/cocos2dx-examples/uk/tags/texturepacker">TexturePacker</a></li>
+								
+								<li><a href="/cocos2dx-examples/uk/tags/spriteframecache">SpriteFrameCache</a></li>
 								
 							</ul>
 					</nav>
