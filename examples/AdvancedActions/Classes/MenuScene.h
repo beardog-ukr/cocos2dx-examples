@@ -14,8 +14,6 @@ protected:
 bool initBackground();
 bool initMenuButtons();
 
-cocos2d::Node* prepareMixedShip();
-
 void switchToNewScene(cocos2d::Ref *pSender, const int sceneCode);
 
 // implement the "static create()" method manually
