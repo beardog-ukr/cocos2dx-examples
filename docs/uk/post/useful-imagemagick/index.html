@@ -81,6 +81,14 @@ convert -append ./skeleton_attack_00.png ./skeleton_attack_01.png ./jv.png
 <p>Теоретично, за допомогою <code>imagemagick</code> можна створювати гіфки, але це вимагає досить складних скриптів. Простіше використати <em>ffmpeg</em>:</p>
 <div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">ffmpeg -framerate 60 -pattern_type glob -i &#39;./skeleton_attack_*.png&#39; c1.gif
 </code></pre></div><p>Анімовані скріншоти у <a href="https://beardog-ukr.github.io/cocos2dx-examples/uk/post/basic-actions/">цих</a> <a href="https://beardog-ukr.github.io/cocos2dx-examples/uk/post/basic-sequence/">постах</a> зроблені за допомогою <a href="https://github.com/phw/peek">Peek</a> в Ubuntu.</p>
+<h1 id="вирізати-певну-послідовність-з-анімації">Вирізати певну послідовність з анімації</h1>
+<p>Теоретично, щоб вирізати певну послідовність кадрів з гіфки, можна перетворити її на ряд кадрів, видалити непотрібні та склеїти назад.</p>
+<p>Проте є <a href="https://askubuntu.com/questions/870855/cut-duration-of-animated-gif">простіші способи</a>, напкриклад, зі спеціальною утилітою <code>gifsicle</code>.</p>
+<p>Така команда зберігає кадри з 25-го по 78-й у іншу гіфку:</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">gifsicle ./dragon_bones_mecha_03.gif &#39;#25-78&#39; &gt; zz.gif
+</code></pre></div><p>А ось така просто видаляє вказаний діапазон кадрів:</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">gifsicle ./dragon_bones_mecha_03.gif --delete &#39;#01-25&#39; &gt; zz01.gif
+</code></pre></div><p>Також різні перетворення гіфок можна виконати <a href="https://ezgif.com/effects">цим онлайновим інструментом</a>.</p>
 		</div>
 
 		<div class="post-tags">
@@ -94,6 +102,10 @@ convert -append ./skeleton_attack_00.png ./skeleton_attack_01.png ./jv.png
 								<li><a href="/cocos2dx-examples/uk/tags/textures">textures</a></li>
 								
 								<li><a href="/cocos2dx-examples/uk/tags/imagemagick">imagemagick</a></li>
+								
+								<li><a href="/cocos2dx-examples/uk/tags/ffmpeg">ffmpeg</a></li>
+								
+								<li><a href="/cocos2dx-examples/uk/tags/gifsicle">gifsicle</a></li>
 								
 							</ul>
 					</nav>

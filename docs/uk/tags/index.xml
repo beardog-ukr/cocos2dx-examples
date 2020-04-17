@@ -7,7 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>© суспільне надбання</copyright>
-    <lastBuildDate>Tue, 14 Apr 2020 17:30:25 +0300</lastBuildDate>
+    <lastBuildDate>Wed, 15 Apr 2020 17:30:25 +0300</lastBuildDate>
     
 	<atom:link href="https://beardog-ukr.github.io/cocos2dx-examples/uk/tags/index.xml" rel="self" type="application/rss+xml" />
     
@@ -15,9 +15,18 @@
     <item>
       <title>Animation</title>
       <link>https://beardog-ukr.github.io/cocos2dx-examples/uk/tags/animation/</link>
-      <pubDate>Tue, 14 Apr 2020 17:30:25 +0300</pubDate>
+      <pubDate>Wed, 15 Apr 2020 17:30:25 +0300</pubDate>
       
       <guid>https://beardog-ukr.github.io/cocos2dx-examples/uk/tags/animation/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Dragon Bones</title>
+      <link>https://beardog-ukr.github.io/cocos2dx-examples/uk/tags/dragon-bones/</link>
+      <pubDate>Wed, 15 Apr 2020 17:30:25 +0300</pubDate>
+      
+      <guid>https://beardog-ukr.github.io/cocos2dx-examples/uk/tags/dragon-bones/</guid>
       <description></description>
     </item>
     
@@ -279,6 +288,24 @@
       <pubDate>Sat, 21 Mar 2020 17:30:25 +0300</pubDate>
       
       <guid>https://beardog-ukr.github.io/cocos2dx-examples/uk/tags/installation/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ffmpeg</title>
+      <link>https://beardog-ukr.github.io/cocos2dx-examples/uk/tags/ffmpeg/</link>
+      <pubDate>Sun, 29 Sep 2019 04:25:25 +0300</pubDate>
+      
+      <guid>https://beardog-ukr.github.io/cocos2dx-examples/uk/tags/ffmpeg/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>gifsicle</title>
+      <link>https://beardog-ukr.github.io/cocos2dx-examples/uk/tags/gifsicle/</link>
+      <pubDate>Sun, 29 Sep 2019 04:25:25 +0300</pubDate>
+      
+      <guid>https://beardog-ukr.github.io/cocos2dx-examples/uk/tags/gifsicle/</guid>
       <description></description>
     </item>
     
