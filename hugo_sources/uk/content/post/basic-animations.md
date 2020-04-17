@@ -37,7 +37,7 @@ candleSprite->runAction(RepeatForever::create(animate));
 
 # Файли зі списком файлів
 
-У цьому місці я б дуже радив прочитати ось цю довгу, але дуже корисну [статтю про анімацію](https://www.codeandweb.com/texturepacker/tutorials/animations-and-spritesheets-in-cocos2d-x). Якщо коротко, то є такий клас [SpriteFrameCache](https://docs.cocos2d-x.org/api-ref/cplusplus/v4x/d7/d76/classcocos2d_1_1_sprite_frame_cache.html) може завантажувати зображення, описані у файлах _*.plist_. Такі файли можуть створюватись у різних допоміжних програмах, зокрема у безкоштовних [TexturePacker](https://www.codeandweb.com/texturepacker) та [Shoebox](http://renderhjs.net/shoebox/). Результатом роботи таких програм є два файли:
+У цьому місці я б дуже радив прочитати ось цю довгу, але дуже корисну [статтю про анімацію](https://www.codeandweb.com/texturepacker/tutorials/animations-and-spritesheets-in-cocos2d-x). Якщо коротко, то є такий клас [SpriteFrameCache](https://docs.cocos2d-x.org/api-ref/cplusplus/v4x/d7/d76/classcocos2d_1_1_sprite_frame_cache.html) може завантажувати зображення, описані у файлах _*.plist_. Такі файли можна створювати у різних програмах: непоганим варіантом є [TexturePacker](https://www.codeandweb.com/texturepacker), також можна використовувати [Shoebox](http://renderhjs.net/shoebox/), [SpriteSheet Packer](https://github.com/amakaseev/sprite-sheet-packer) та [Zwoptex](https://zwopple.com/zwoptex/). Результатом пакування є два файли:
 * одне велике зображення, що об'єднує усі передані ресурси. Завдяки тому, що це один файл, він займає менше місця та швидше завантажується
 * файл _*.plist_, який описує упаковані ресурси.
 
