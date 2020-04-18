@@ -16,6 +16,9 @@ CREATE_FUNC(StaticInterruptScene);
 protected:
 bool initBackground();
 bool initCandle();
+bool initKeyboardProcessing();
+bool initUfo();
 
+void onKeyPressedScene(cocos2d::EventKeyboard::KeyCode keyCode, cocos2d::Event  *event);
 
 };

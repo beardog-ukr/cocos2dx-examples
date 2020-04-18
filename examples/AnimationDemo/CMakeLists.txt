@@ -33,6 +33,7 @@ endif()
 list(APPEND GAME_SOURCE
      Classes/AppDelegate.cpp
      Classes/scenes/CandleMonsterScene.cpp
+     Classes/scenes/InstantMenuScene.cpp
      Classes/scenes/MenuScene.cpp
      Classes/scenes/SkeletonScene.cpp
      Classes/scenes/StaticInterruptScene.cpp
@@ -40,6 +41,7 @@ list(APPEND GAME_SOURCE
 list(APPEND GAME_HEADER
      Classes/AppDelegate.h
      Classes/scenes/CandleMonsterScene.h
+     Classes/scenes/InstantMenuScene.h
      Classes/scenes/MenuScene.h
      Classes/scenes/SkeletonScene.h
      Classes/scenes/StaticInterruptScene.h

@@ -1,5 +1,7 @@
 #include "StaticInterruptScene.h"
 
+#include "InstantMenuScene.h"
+
 USING_NS_CC;
 using namespace std;
 
@@ -34,13 +36,21 @@ bool StaticInterruptScene::init() {
     return false;
   }
 
+  if (!initUfo()) {
+    return false;
+  }
+
+  if (!initKeyboardProcessing()) {
+    return false;
+  }
+
   return true;
 }
 
 // . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
 
 bool StaticInterruptScene::initBackground() {
-  const char backFilename[] = "backgrounds/paper_background.png";
+  const char backFilename[] = "backgrounds/background_1.png";
 
   Sprite* sprite = Sprite::create(backFilename);
   if (sprite == nullptr) {
@@ -67,7 +77,7 @@ bool StaticInterruptScene::initCandle() {
   }
 
   backSprite->setAnchorPoint(Vec2(0.5,0.5));
-  backSprite->setPosition(140,100);
+  backSprite->setPosition(160,240);
   addChild(backSprite, ZO_ITEMS);
 
   Vector<SpriteFrame*> animFrames;
@@ -90,18 +100,73 @@ bool StaticInterruptScene::initCandle() {
 
   backSprite->addChild(candleSprite);
 
+  return true;
+}
 
+// . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
 
+bool StaticInterruptScene::initKeyboardProcessing() {
+  // keyboard processing
+  EventListenerKeyboard* sceneKeyboardListener = EventListenerKeyboard::create();
+  sceneKeyboardListener->onKeyPressed =
+    CC_CALLBACK_2(StaticInterruptScene::onKeyPressedScene, this);
+  _eventDispatcher->addEventListenerWithSceneGraphPriority(sceneKeyboardListener, this);
+
+  Label* label = Label::createWithTTF("Press 'space' to see dialog scene",
+                                      "fonts/Marker Felt.ttf", 16);
+  label->setAnchorPoint(Vec2(0,0));
+  label->setPosition(Vec2(10,10));
+  addChild(label);
 
   return true;
 }
 
+// . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
 
+bool StaticInterruptScene::initUfo() {
+  const char shipFilename[] = "candle/ufoRed.png";
+
+  Sprite* ufo = Sprite::create(shipFilename);
+
+  ufo->setAnchorPoint(Vec2(0.5,0.5));
+  ufo->setPosition(Vec2(160*2, 240));
+
+  addChild(ufo, 10);
+
+  Sequence* rseq = Sequence::create(RotateBy::create(3, 45),
+                                    RotateBy::create(3, -45), nullptr);
+
+  ufo->runAction(RepeatForever::create(rseq));
+
+  return true;
+}
+
+// . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+
+void StaticInterruptScene::onKeyPressedScene(EventKeyboard::KeyCode keyCode,
+                                             Event                 *event) {
+  printf("%s: processing key %d pressed\n", __func__, (int)keyCode);
+
+  if (keyCode == EventKeyboard::KeyCode::KEY_SPACE) {
+    log("%s: Showing interrupt menu.", __func__);
+
+    const Size visibleSize = Director::getInstance()->getVisibleSize();
+    RenderTexture *rt      = RenderTexture::create(visibleSize.width,
+                                                   visibleSize.height);
+
+    rt->begin();
+    this->visit();
+    rt->end();
+    rt->getSprite()->setAnchorPoint(Vec2(0, 0));
+
+    Scene *ims = InstantMenuScene::create(this, rt);
+
+    Director::getInstance()->pushScene(ims);
+  }
+}
 
 
 // . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
 
 
-
-// . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
 
