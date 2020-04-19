@@ -10,15 +10,12 @@ public:
  *
  * Creates the InstantMenuScene object;
  *
- * @param interruptedScene scene to be interrupted,
+ * @param sceneBackground image to be used as background
  */
-static InstantMenuScene* create(cocos2d::Scene          *interruptedScene,
-                                cocos2d::RenderTexture *sceneBackground);
+static InstantMenuScene* create(cocos2d::RenderTexture *sceneBackground);
 
 CC_CONSTRUCTOR_ACCESS:
 InstantMenuScene();
-// InstantMenuScene(cocos2d::RenderTexture *sceneBackground);
-
 virtual ~InstantMenuScene();
 
 protected:
@@ -31,8 +28,4 @@ bool initMenuNode();
 
 void goToPrevious(Ref *pSender);
 void exitApp(Ref *pSender);
-
-// MainGameScene *interruptedScene;
-
-// cocos2d::Node* prepareMenuNode();
 };

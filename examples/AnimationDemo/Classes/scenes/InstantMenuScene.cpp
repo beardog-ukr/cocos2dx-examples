@@ -49,17 +49,6 @@ bool InstantMenuScene::initWithBackground(cocos2d::RenderTexture *sceneBackgroun
     return false;
   }
 
-  // Node *menuNode = InstantMenuScene::prepareMenuNode();
-
-  // const Vec2 positionActive = Vec2(2 * (visibleSize.width / 3) + origin.x,
-  //                                  visibleSize.height / 2 + origin.y);
-
-  // menuNode->setPosition(positionActive);
-  // addChild(menuNode);
-
-  // setAnchorPoint(Vec2(0, 0));
-  // setPosition(Vec2(0, 0));
-
   return true;
 }
 
@@ -96,8 +85,7 @@ bool InstantMenuScene::initMenuBackground() {
 
 // . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
 
-InstantMenuScene * InstantMenuScene::create(cocos2d::Scene *inInterruptedScene,
-                                            cocos2d::RenderTexture *sceneBackground) {
+InstantMenuScene * InstantMenuScene::create(cocos2d::RenderTexture *sceneBackground) {
   InstantMenuScene *ret = new (std::nothrow) InstantMenuScene();
 
   if (ret && ret->initWithBackground(sceneBackground)) {

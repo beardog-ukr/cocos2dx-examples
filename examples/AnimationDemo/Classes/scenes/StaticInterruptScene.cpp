@@ -159,7 +159,7 @@ void StaticInterruptScene::onKeyPressedScene(EventKeyboard::KeyCode keyCode,
     rt->end();
     rt->getSprite()->setAnchorPoint(Vec2(0, 0));
 
-    Scene *ims = InstantMenuScene::create(this, rt);
+    Scene *ims = InstantMenuScene::create(rt);
 
     Director::getInstance()->pushScene(ims);
   }
