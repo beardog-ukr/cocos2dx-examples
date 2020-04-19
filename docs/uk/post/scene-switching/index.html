@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>Перехід між сценами - Основи Cocos2d-x</title><meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta property="og:title" content="Перехід між сценами" />
+<meta property="og:description" content="Розробники Cocos2d хотіли, щоб гра зсередини нагадувала театральну виставу: ряд сцен, що змінюються за командою режисера(Director)" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://beardog-ukr.github.io/cocos2dx-examples/uk/post/scene-switching/" />
+<meta property="article:published_time" content="2020-04-18T17:30:25+03:00" />
+<meta property="article:modified_time" content="2020-04-18T17:30:25+03:00" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Перехід між сценами"/>
+<meta name="twitter:description" content="Розробники Cocos2d хотіли, щоб гра зсередини нагадувала театральну виставу: ряд сцен, що змінюються за командою режисера(Director)"/>
+<link href="https://fonts.googleapis.com/css?family=Ubuntu:300,400,300italic,400italic|Raleway:200,300" rel="stylesheet">
+
+	<link rel="stylesheet" type="text/css" media="screen" href="https://beardog-ukr.github.io/cocos2dx-examples/uk/css/normalize.css" />
+	<link rel="stylesheet" type="text/css" media="screen" href="https://beardog-ukr.github.io/cocos2dx-examples/uk/css/main.css" />
+
+	<script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+	<script src="https://beardog-ukr.github.io/cocos2dx-examples/uk/js/main.js"></script>
+</head>
+
+<body>
+	<div class="container wrapper post">
+		<div class="header">
+	<h1 class="site-title"><a href="https://beardog-ukr.github.io/cocos2dx-examples/uk/">Основи Cocos2d-x</a></h1>
+	<div class="site-description"><h2>Статті про розробку ігор за допомогою Cocos2d-x</h2><nav class="nav social">
+			<ul class="flat"><a href="https://github.com/beardog-ukr/cocos2dx-examples" title="Github"><i data-feather="github"></i></a></ul>
+		</nav>
+	</div>
+
+	<nav class="nav">
+		<ul class="flat">
+			
+			<li>
+				<a href="/cocos2dx-examples/uk/">Нове</a>
+			</li>
+			
+			<li>
+				<a href="/cocos2dx-examples/uk/posts">Усі пости</a>
+			</li>
+			
+			<li>
+				<a href="/cocos2dx-examples/uk/about">Про сайт</a>
+			</li>
+			
+			<li>
+				<a href="/cocos2dx-examples/uk/tags">Теги</a>
+			</li>
+			
+		</ul>
+	</nav>
+</div>
+
+
+		<div class="post-header">
+			<h1 class="title">Перехід між сценами</h1>
+			<div class="meta">Posted at &mdash; Apr 18, 2020</div>
+		</div>
+
+		<div class="markdown">
+			<p>Розробники Cocos2d хотіли, щоб гра зсередини нагадувала театральну виставу: ряд сцен, що змінюються за командою режисера(<a href="https://docs.cocos2d-x.org/api-ref/cplusplus/v4x/d7/df3/classcocos2d_1_1_director.html">Director</a>)</p>
+<p>Власне, для зміни сцен у Director є такі методи:</p>
+<ul>
+<li><code>replaceScene()</code> замінює поточну сцену на нову</li>
+<li><code>popScene()</code>/<code>pushScene()</code> працюють зі стеком сцен. <em>push</em> ставить поточну сцену на паузу та зберігає на стеку, потім запускає нову. Відповідно, <em>pop</em> видаляє поточну сцену та забирає зі стеку старішу.</li>
+<li><code>popToRootScene()</code> та <code>popToSceneStackLevel(int level)</code> реалізують особливі випадки</li>
+</ul>
+<p>У будь-якому випадку, нова сцена повністю закриває те, що було відображено до її запуску. Зазвичай така поведінка є нормальною, але можливі винятки. Припустимо, ви хочете відобразити якесь повідомлення, або просто поставити гру на паузу. Щоб затримка була більш очевидною для гравця, буде краще, якщо події нової сцени відбуватимуться на фоні старої.</p>
+<p>Наприклад, ось такий перехід:</p>
+<figure>
+    <img src="/cocos2dx-examples/uk/post/scene-switching/gray_to_bases.png"/> 
+</figure>
+
+<p>Спочатку тут була якась сцена з <a href="https://beardog-ukr.github.io/cocos2dx-examples/uk/post/basic-animations/">анімацією-свічкою</a> та об'єктом, що рухається. Потім це змінюється на сцену з повідомленням та меню, але ця нова сцена має містити старі елементи.</p>
+<p>У <em>Cocos2d</em> немає прямого засобу, який би дозволяв досягти такого ефекту. Проте, можна зробити два кроки: зберегти зображення, згенероване для старої сцени, і використати його як фон у новій.</p>
+<p>Приблизно так:</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#dc322f">void</span> StaticInterruptScene<span style="color:#719e07">::</span>switchToInstantScene() {
+    <span style="color:#719e07">const</span> Size visibleSize <span style="color:#719e07">=</span> Director<span style="color:#719e07">::</span>getInstance()<span style="color:#719e07">-&gt;</span>getVisibleSize();
+    RenderTexture<span style="color:#719e07">*</span> rt      <span style="color:#719e07">=</span> RenderTexture<span style="color:#719e07">::</span>create(visibleSize.width,
+                                                   visibleSize.height);
+
+    rt<span style="color:#719e07">-&gt;</span>begin();
+    <span style="color:#719e07">this</span><span style="color:#719e07">-&gt;</span>visit();
+    rt<span style="color:#719e07">-&gt;</span>end();
+    rt<span style="color:#719e07">-&gt;</span>getSprite()<span style="color:#719e07">-&gt;</span>setAnchorPoint(Vec2(<span style="color:#2aa198">0</span>, <span style="color:#2aa198">0</span>));
+
+    Scene<span style="color:#719e07">*</span> ims <span style="color:#719e07">=</span> InstantMenuScene<span style="color:#719e07">::</span>create(rt);
+
+    Director<span style="color:#719e07">::</span>getInstance()<span style="color:#719e07">-&gt;</span>pushScene(ims);
+  }
+}
+</code></pre></div><p>Тут об'єкт <a href="https://docs.cocos2d-x.org/api-ref/cplusplus/v4x/d9/ddc/classcocos2d_1_1_render_texture.html">RenderTexture</a> зберігає зображення, згенероване для старої сцени. <a href="https://github.com/beardog-ukr/cocos2dx-examples/blob/master/examples/AnimationDemo/Classes/scenes/InstantMenuScene.cpp">InstantMenuScene</a> — це нова сцена, використання переданого зображення там майже не відрізняється від будь-якого іншого, тому я тут його не привожу.</p>
+		</div>
+
+		<div class="post-tags">
+			
+				
+					<nav class="nav tags">
+							<ul class="flat">
+								
+								<li><a href="/cocos2dx-examples/uk/tags/scene">Scene</a></li>
+								
+								<li><a href="/cocos2dx-examples/uk/tags/director">Director</a></li>
+								
+							</ul>
+					</nav>
+				
+			
+		</div>
+		</div>
+	<div class="footer wrapper">
+	<nav class="nav">
+		<div> © суспільне надбання |  <a href="https://github.com/vividvilla/ezhil">Ezhil theme</a> | Built with <a href="https://gohugo.io">Hugo</a></div>
+	</nav>
+</div>
+
+
+
+<script>feather.replace()</script>
+</body>
+</html>

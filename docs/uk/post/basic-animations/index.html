@@ -71,7 +71,7 @@
 			<p>Виділяють <a href="https://hub.packtpub.com/animations-cocos2d-x/">два способи</a> створення анімації:</p>
 <ul>
 <li>покадрова: художники малюють ряд кадрів, а Cocos2d їх послідовно показує, використовуючи клас <a href="https://docs.cocos2d-x.org/api-ref/cplusplus/v4x/d3/dc5/classcocos2d_1_1_animation.html">Animation</a>. Робота з ним схожа на інші акції, хоча сам клас має трошки інше походження.</li>
-<li>скелетна: у спеціальних програмах формується модель персонажу, а потім завантажується у cocos2dx.</li>
+<li><a href="https://uk.wikipedia.org/wiki/%D0%A1%D0%BA%D0%B5%D0%BB%D0%B5%D1%82%D0%BD%D0%B0_%D0%B0%D0%BD%D1%96%D0%BC%D0%B0%D1%86%D1%96%D1%8F">скелетна</a>: у спеціальних програмах формується модель персонажу, а потім завантажується у cocos2dx.</li>
 </ul>
 <h1 id="ручний-перелік-файлів">Ручний перелік файлів</h1>
 <p>Для прикладу візьмемо анімацію свічки з <a href="https://kvsr.itch.io/candle">безкоштовного паку</a>. Там всього лише три кадри, їх дуже просто завантажити і використати ось таким чином:</p>
@@ -91,7 +91,7 @@ candleSprite<span style="color:#719e07">-&gt;</span>runAction(RepeatForever<span
 </code></pre></div><p>Тут цифри у <code>Rect(0,0,64,64)</code> такі, тому що файли розміром 64х64 пікселі.</p>
 <p>Проблема в тому, що практика прямого завантаження файлів, яку ми досі використовували у всіх прикладах, насправді є досить поганою. Вона підходить для навчання, але краще буде використовувати <a href="https://www.codeandweb.com/what-is-a-sprite-sheet">списки файлів</a> (<em>sprite sheet</em>).</p>
 <h1 id="файли-зі-списком-файлів">Файли зі списком файлів</h1>
-<p>У цьому місці я б дуже радив прочитати ось цю довгу, але дуже корисну <a href="https://www.codeandweb.com/texturepacker/tutorials/animations-and-spritesheets-in-cocos2d-x">статтю про анімацію</a>. Якщо коротко, то є такий клас <a href="https://docs.cocos2d-x.org/api-ref/cplusplus/v4x/d7/d76/classcocos2d_1_1_sprite_frame_cache.html">SpriteFrameCache</a> може завантажувати зображення, описані у файлах <em>*.plist</em>. Такі файли можна створювати у різних програмах: непоганим варіантом є <a href="https://www.codeandweb.com/texturepacker">TexturePacker</a>, також можна використовувати <a href="http://renderhjs.net/shoebox/">Shoebox</a>, <a href="https://github.com/amakaseev/sprite-sheet-packer">SpriteSheet Packer</a> та <a href="https://zwopple.com/zwoptex/">Zwoptex</a>. Результатом пакування є два файли:</p>
+<p>У цьому місці я б дуже радив прочитати ось цю довгу, але дуже корисну <a href="https://www.codeandweb.com/texturepacker/tutorials/animations-and-spritesheets-in-cocos2d-x">статтю про анімацію</a>. Якщо коротко, то є такий собі клас <a href="https://docs.cocos2d-x.org/api-ref/cplusplus/v4x/d7/d76/classcocos2d_1_1_sprite_frame_cache.html">SpriteFrameCache</a>, що може завантажувати зображення, описані у файлах <em>*.plist</em>. Такі файли можна створювати у різних програмах: непоганим варіантом є <a href="https://www.codeandweb.com/texturepacker">TexturePacker</a>, також можна використовувати <a href="http://renderhjs.net/shoebox/">Shoebox</a>, <a href="https://github.com/amakaseev/sprite-sheet-packer">SpriteSheet Packer</a> та <a href="https://zwopple.com/zwoptex/">Zwoptex</a>. Результатом пакування є два файли:</p>
 <ul>
 <li>одне велике зображення, що об'єднує усі передані ресурси. Завдяки тому, що це один файл, він займає менше місця та швидше завантажується</li>
 <li>файл <em>*.plist</em>, який описує упаковані ресурси.</li>
@@ -124,8 +124,8 @@ AnimationCache<span style="color:#719e07">::</span>getInstance()<span style="col
 <div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp">Animation<span style="color:#719e07">*</span> animation <span style="color:#719e07">=</span> AnimationCache<span style="color:#719e07">::</span>getInstance()<span style="color:#719e07">-&gt;</span>getAnimation(idleAnimationName);
 Animate<span style="color:#719e07">*</span> animate <span style="color:#719e07">=</span> Animate<span style="color:#719e07">::</span>create(animation);
 skeletonSprite<span style="color:#719e07">-&gt;</span>runAction(animate);
-</code></pre></div><p>Недоліком такого способу є те, що він вимагає якогось особливого plist-файлу. Цей файл відрізняється від тих, що створює <em>Texture Packer</em> (не зважаючи на однакове розширення) і його доводиться виписувати вручну. Для даного прикладу цей файл виглядатиме так.</p>
-<p>У будь-якому разі, отримана в результаті акція <code>animate</code> може використовуватись так само, як і будь-яка інша акція. Ось, наприклад, фіолетове створіння пересувається так само, як і зелене НЛО з <a href="https://beardog-ukr.github.io/cocos2dx-examples/uk/post/advanced-actions/">попередньої статті</a></p>
+</code></pre></div><p>Недоліком такого способу є те, що він вимагає якогось особливого plist-файлу. Цей файл відрізняється від тих, що створює <em>Texture Packer</em> (не зважаючи на однакове розширення) і його доводиться виписувати вручну. Для даного прикладу цей файл виглядатиме <a href="https://github.com/beardog-ukr/cocos2dx-examples/blob/master/examples/AnimationDemo/Resources/skeleton/skeleton_animations.plist">так</a>.</p>
+<p>У будь-якому разі, отримана в результаті акція <code>animate</code> може використовуватись так само, як і будь-яка інша акція. Ось, наприклад, фіолетове створіння пересувається подібно до зеленого НЛО з <a href="https://beardog-ukr.github.io/cocos2dx-examples/uk/post/advanced-actions/">попередньої статті</a></p>
 <figure>
     <img src="/cocos2dx-examples/uk/post/basic-animations-img/violet_monster.gif"/> 
 </figure>

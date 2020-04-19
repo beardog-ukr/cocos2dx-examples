@@ -13,6 +13,15 @@
     
     
     <item>
+      <title>Перехід між сценами</title>
+      <link>https://beardog-ukr.github.io/cocos2dx-examples/uk/post/scene-switching/</link>
+      <pubDate>Sat, 18 Apr 2020 17:30:25 +0300</pubDate>
+      
+      <guid>https://beardog-ukr.github.io/cocos2dx-examples/uk/post/scene-switching/</guid>
+      <description>&lt;p&gt;Розробники Cocos2d хотіли, щоб гра зсередини нагадувала театральну виставу: ряд сцен, що змінюються за командою режисера(&lt;a href=&#34;https://docs.cocos2d-x.org/api-ref/cplusplus/v4x/d7/df3/classcocos2d_1_1_director.html&#34;&gt;Director&lt;/a&gt;)&lt;/p&gt;</description>
+    </item>
+    
+    <item>
       <title>Анімація з Dragon Bones</title>
       <link>https://beardog-ukr.github.io/cocos2dx-examples/uk/post/dragonbones-animation/</link>
       <pubDate>Wed, 15 Apr 2020 17:30:25 +0300</pubDate>
@@ -31,7 +40,7 @@
       <description>&lt;p&gt;Виділяють &lt;a href=&#34;https://hub.packtpub.com/animations-cocos2d-x/&#34;&gt;два способи&lt;/a&gt; створення анімації:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;покадрова: художники малюють ряд кадрів, а Cocos2d їх послідовно показує, використовуючи клас &lt;a href=&#34;https://docs.cocos2d-x.org/api-ref/cplusplus/v4x/d3/dc5/classcocos2d_1_1_animation.html&#34;&gt;Animation&lt;/a&gt;. Робота з ним схожа на інші акції, хоча сам клас має трошки інше походження.&lt;/li&gt;
-&lt;li&gt;скелетна: у спеціальних програмах формується модель персонажу, а потім завантажується у cocos2dx.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://uk.wikipedia.org/wiki/%D0%A1%D0%BA%D0%B5%D0%BB%D0%B5%D1%82%D0%BD%D0%B0_%D0%B0%D0%BD%D1%96%D0%BC%D0%B0%D1%86%D1%96%D1%8F&#34;&gt;скелетна&lt;/a&gt;: у спеціальних програмах формується модель персонажу, а потім завантажується у cocos2dx.&lt;/li&gt;
 &lt;/ul&gt;</description>
     </item>
     

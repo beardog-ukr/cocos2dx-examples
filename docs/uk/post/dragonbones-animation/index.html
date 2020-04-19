@@ -76,7 +76,7 @@
 <p>Для прикладу у цій статті ми візьмемо персонажів з <a href="https://jordan97.itch.io/cartoon-character-kit">безкоштовного набору</a> і дамо їм в руки <a href="https://krukowski.itch.io/free-weapons">мечі</a> та <a href="https://kaylousberg.itch.io/gun-assets">вогнепальну зброю</a>.</p>
 <p>Процес створення моделі та анімації я не буду описувати, тому що це скоріше справа художників, там є окремі нюанси. Можна порадити такі навчальні матеріали: <a href="http://getting-started-dragonbones.blogspot.com/2017/01/dragonbones-tutorial-part-i.html">перший</a>, <a href="https://habr.com/ru/post/350254/">другий</a>, <a href="https://topic.alibabacloud.com/a/a-tutorial-on-using-the-dragonbones-of-the-skeleton-animation-tool_8_8_31057239.html">третій</a>. Натомість краще сфокусуватись на особливостях, важливих для програмування.</p>
 <p>Результатом експорту з <em>Dragon Bones</em> до <em>Cocos2d</em> є <a href="https://github.com/beardog-ukr/cocos2dx-examples/tree/master/examples/DragonBonesImport/Resources/db_export">три файли</a>: два json, що описують модель, та одне зображення-ресурс.</p>
-<p>Імпорт моделі у програму виглядає схоже на завантаження plist-файлів:</p>
+<p>Імпорт моделі до програми виглядає схожим на завантаження plist-файлів:</p>
 <div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#719e07">#include</span> <span style="color:#719e07">&#34;dragonBones/cocos2dx/CCDragonBonesHeaders.h&#34;</span><span style="color:#719e07">
 </span><span style="color:#719e07"></span>
 dragonBones<span style="color:#719e07">::</span>CCFactory<span style="color:#719e07">*</span> factory <span style="color:#719e07">=</span> dragonBones<span style="color:#719e07">::</span>CCFactory<span style="color:#719e07">::</span>getFactory();
@@ -96,7 +96,7 @@ addChild(wizard, <span style="color:#2aa198">10</span>);
     <img src="/cocos2dx-examples/uk/post/dragon-bones-img/db_screen_01a.png"/> 
 </figure>
 
-<p>Анімація викликається ось так:</p>
+<p>Програвання анімації викликається ось так:</p>
 <div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp">wizard<span style="color:#719e07">-&gt;</span>getAnimation()<span style="color:#719e07">-&gt;</span>play(<span style="color:#2aa198">&#34;idle01&#34;</span>, <span style="color:#2aa198">1</span>);<span style="color:#586e75">//1 to play animation once
 </span></code></pre></div><p>Виглядатиме це так:
 <figure>
