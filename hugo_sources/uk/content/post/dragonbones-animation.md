@@ -25,7 +25,7 @@ author: beardog-ukr
 
 Результатом експорту з _Dragon Bones_ до _Cocos2d_ є [три файли](https://github.com/beardog-ukr/cocos2dx-examples/tree/master/examples/DragonBonesImport/Resources/db_export): два json, що описують модель, та одне зображення-ресурс.
 
-Імпорт моделі у програму виглядає схоже на завантаження plist-файлів:
+Імпорт моделі до програми виглядає схожим на завантаження plist-файлів:
 ```cpp
 #include "dragonBones/cocos2dx/CCDragonBonesHeaders.h"
 
@@ -48,7 +48,7 @@ addChild(wizard, 10);
 
 {{< figure src="/cocos2dx-examples/uk/post/dragon-bones-img/db_screen_01a.png" title="" position="center" >}}
 
-Анімація викликається ось так:
+Програвання анімації викликається ось так:
 ```cpp
 wizard->getAnimation()->play("idle01", 1);//1 to play animation once
 ```
