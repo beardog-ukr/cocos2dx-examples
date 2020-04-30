@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>animations</key>
+	<dict>
+		<key>knight_idle</key>
+		<dict>
+			<key>delay</key>
+			<real>0.2</real>
+			<key>frames</key>
+			<array>
+				<string>knight_m_idle_anim_f0.png</string>
+				<string>knight_m_idle_anim_f1.png</string>
+				<string>knight_m_idle_anim_f2.png</string>
+				<string>knight_m_idle_anim_f3.png</string>
+			</array>
+		</dict>
+		<key>knight_walk</key>
+		<dict>
+			<key>delay</key>
+			<real>0.2</real>
+			<key>frames</key>
+			<array>
+				<string>knight_m_run_anim_f0.png</string>
+				<string>knight_m_run_anim_f1.png</string>
+				<string>knight_m_run_anim_f2.png</string>
+				<string>knight_m_run_anim_f3.png</string>
+			</array>
+		</dict>
+	</dict>
+</dict>
+</plist>

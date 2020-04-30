@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>animations</key>
+	<dict>
+		<key>mage_idle</key>
+		<dict>
+			<key>delay</key>
+			<real>0.2</real>
+			<key>frames</key>
+			<array>
+				<string>mage_idle_00.png</string>
+				<string>mage_idle_01.png</string>
+				<string>mage_idle_02.png</string>
+				<string>mage_idle_03.png</string>
+				<string>mage_idle_04.png</string>
+				<string>mage_idle_05.png</string>
+				<string>mage_idle_06.png</string>
+				<string>mage_idle_07.png</string>
+				<string>mage_idle_08.png</string>
+				<string>mage_idle_09.png</string>
+				<string>mage_idle_10.png</string>
+				<string>mage_idle_11.png</string>
+			</array>
+		</dict>
+	</dict>
+</dict>
+</plist>

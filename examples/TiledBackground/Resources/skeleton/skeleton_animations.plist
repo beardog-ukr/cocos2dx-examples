@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>animations</key>
+	<dict>
+		<key>skeleton_attack</key>
+		<dict>
+			<key>delay</key>
+			<real>0.2</real>
+			<key>frames</key>
+			<array>
+				<string>skeleton_attack_00.png</string>
+				<string>skeleton_attack_01.png</string>
+				<string>skeleton_attack_02.png</string>
+				<string>skeleton_attack_03.png</string>
+				<string>skeleton_attack_04.png</string>
+				<string>skeleton_attack_05.png</string>
+				<string>skeleton_attack_06.png</string>
+				<string>skeleton_attack_07.png</string>
+				<string>skeleton_attack_08.png</string>
+				<string>skeleton_attack_09.png</string>
+				<string>skeleton_attack_10.png</string>
+				<string>skeleton_attack_11.png</string>
+				<string>skeleton_attack_12.png</string>
+				<string>skeleton_attack_13.png</string>
+				<string>skeleton_attack_14.png</string>
+				<string>skeleton_attack_15.png</string>
+				<string>skeleton_attack_16.png</string>
+				<string>skeleton_attack_17.png</string>
+			</array>
+		</dict>
+		<key>skeleton_idle</key>
+		<dict>
+			<key>delay</key>
+			<real>0.2</real>
+			<key>frames</key>
+			<array>
+				<string>skeleton_idle_00.png</string>
+				<string>skeleton_idle_01.png</string>
+				<string>skeleton_idle_02.png</string>
+				<string>skeleton_idle_03.png</string>
+				<string>skeleton_idle_04.png</string>
+				<string>skeleton_idle_05.png</string>
+				<string>skeleton_idle_06.png</string>
+				<string>skeleton_idle_07.png</string>
+				<string>skeleton_idle_08.png</string>
+				<string>skeleton_idle_09.png</string>
+				<string>skeleton_idle_10.png</string>
+			</array>
+		</dict>
+	</dict>
+</dict>
+</plist>
