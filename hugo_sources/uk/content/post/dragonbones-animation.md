@@ -2,7 +2,7 @@
 title: "Анімація з Dragon Bones"
 date: 2020-04-15T17:30:25+03:00
 draft: false
-tags: ["Animation", "Dragon Bones"]
+tags: ["Animation", "Dragon Bones", "third-party tools"]
 author: beardog-ukr
 ---
 
@@ -67,7 +67,7 @@ int currentWeaponIndex;
 wizard->getArmature()->getSlot("Gun")->setDisplayIndex(currentWeaponIndex);
 ```
 
-По-друге, можна створити окрему модель. у якій будуть лише змінювані зображення. Тоді завантаження і використання виглядатиме складніше:
+По-друге, можна створити [окрему модель](https://github.com/beardog-ukr/cocos2dx-examples/tree/master/examples/DragonBonesProjects/WeaponPack), у якій будуть лише змінювані зображення. Тоді завантаження і використання виглядатиме складніше:
 ```cpp
 dragonBones::CCFactory* factory = dragonBones::CCFactory::getFactory();
 factory->loadDragonBonesData("db_export/MagentaKnight_ske.json", "MagentaKnight");
