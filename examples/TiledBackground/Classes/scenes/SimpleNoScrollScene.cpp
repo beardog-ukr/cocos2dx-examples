@@ -218,20 +218,9 @@ bool SimpleNoScrollScene::loadMetaInfo(TMXTiledMap* const mapNode) {
         obstaclesMap[obstaclesMapWidth*(obstaclesMapHeight - tileY - 1) + tileX] = true;
         break;
 
-      //     log("%s: additional farmer pos found at %d:%d", __func__, tileX, tileY);
-      //   }
-
-      //   farmerPosFound = true;
-      //   farmerStartX   = tileX;
-      //   farmerStartY   = mapSize.height - tileY - 1;
-      //   break;
-
       case MMC_MAGE_START:
         mageStartX   = tileX;
         mageStartY   = mapSize.height - tileY - 1;
-
-        // printf("%s: mage pos at %d:%d\n", __func__, tileX, tileY);
-        // printf("%s: mage recalc at %d:%d\n", __func__, mageStartX, mageStartY);
         break;
 
       case MMC_KNIGHT_START:

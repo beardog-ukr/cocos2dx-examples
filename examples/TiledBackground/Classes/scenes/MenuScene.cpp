@@ -1,7 +1,7 @@
 #include "MenuScene.h"
+#include "HorizontalScrollScene.h"
+#include "Large2dScene.h"
 #include "SimpleNoScrollScene.h"
-// #include "SkeletonScene.h"
-// #include "StaticInterruptScene.h"
 
 USING_NS_CC;
 using namespace std;
@@ -10,8 +10,8 @@ using namespace std;
 
 enum SceneCode {
   SC_Simple = 10,
-  SC_NIA,
-  SC_NIB
+  SC_ScrollHorizontal,
+  SC_Large2d
 };
 
 enum z_orders {
@@ -75,8 +75,9 @@ bool MenuScene::initMenuButtons() {
   menu->setPosition(320,180);
 
   const int itemsCount = 3;
-  string captions[itemsCount] = {"Simple, no scroll", "not implemented", "not implemented"};
-  int callbackCodes[itemsCount] = {SC_Simple, SC_NIA, SC_NIB};
+  string captions[itemsCount] = {"Simple, no scroll", "Horizontal Scroll",
+                                 "Full 2d Camera Move"};
+  int callbackCodes[itemsCount] = {SC_Simple, SC_ScrollHorizontal, SC_Large2d};
 
   for (int i = 0; i< itemsCount; i++) {
     MenuItemImage* item = MenuItemImage::create();
@@ -109,16 +110,18 @@ void MenuScene::switchToNewScene(cocos2d::Ref *pSender, const int sceneCode) {
   case SC_Simple:
     newScene = SimpleNoScrollScene::create();
     break;
-  // case SC_CandleMonster:
-  // newScene = CandleMonsterScene::create();
-  // break;
-  // case SC_Skeleton:
-  // newScene = SkeletonScene::create();
-  // break;
+  case SC_ScrollHorizontal:
+    newScene = HorizontalScrollScene::create();
+    break;
+  case SC_Large2d:
+    newScene = Large2dScene::create();
+    break;
   default:
     printf("bad scene code value\n");
     return;
   }
+
+  //..
 
   Director::getInstance()->pushScene(newScene);
 }

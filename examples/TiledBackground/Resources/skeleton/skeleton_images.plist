@@ -4,276 +4,6 @@
     <dict>
         <key>frames</key>
         <dict>
-            <key>skeleton_attack_00.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{43,37}</string>
-                <key>spriteSourceSize</key>
-                <string>{43,37}</string>
-                <key>textureRect</key>
-                <string>{{0,0},{43,37}}</string>
-                <key>textureRotated</key>
-                <false/>
-            </dict>
-            <key>skeleton_attack_01.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{43,37}</string>
-                <key>spriteSourceSize</key>
-                <string>{43,37}</string>
-                <key>textureRect</key>
-                <string>{{0,37},{43,37}}</string>
-                <key>textureRotated</key>
-                <false/>
-            </dict>
-            <key>skeleton_attack_02.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{43,37}</string>
-                <key>spriteSourceSize</key>
-                <string>{43,37}</string>
-                <key>textureRect</key>
-                <string>{{0,74},{43,37}}</string>
-                <key>textureRotated</key>
-                <false/>
-            </dict>
-            <key>skeleton_attack_03.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{43,37}</string>
-                <key>spriteSourceSize</key>
-                <string>{43,37}</string>
-                <key>textureRect</key>
-                <string>{{0,111},{43,37}}</string>
-                <key>textureRotated</key>
-                <false/>
-            </dict>
-            <key>skeleton_attack_04.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{43,37}</string>
-                <key>spriteSourceSize</key>
-                <string>{43,37}</string>
-                <key>textureRect</key>
-                <string>{{0,148},{43,37}}</string>
-                <key>textureRotated</key>
-                <false/>
-            </dict>
-            <key>skeleton_attack_05.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{43,37}</string>
-                <key>spriteSourceSize</key>
-                <string>{43,37}</string>
-                <key>textureRect</key>
-                <string>{{0,185},{43,37}}</string>
-                <key>textureRotated</key>
-                <false/>
-            </dict>
-            <key>skeleton_attack_06.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{43,37}</string>
-                <key>spriteSourceSize</key>
-                <string>{43,37}</string>
-                <key>textureRect</key>
-                <string>{{0,222},{43,37}}</string>
-                <key>textureRotated</key>
-                <false/>
-            </dict>
-            <key>skeleton_attack_07.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{43,37}</string>
-                <key>spriteSourceSize</key>
-                <string>{43,37}</string>
-                <key>textureRect</key>
-                <string>{{0,259},{43,37}}</string>
-                <key>textureRotated</key>
-                <false/>
-            </dict>
-            <key>skeleton_attack_08.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{43,37}</string>
-                <key>spriteSourceSize</key>
-                <string>{43,37}</string>
-                <key>textureRect</key>
-                <string>{{0,296},{43,37}}</string>
-                <key>textureRotated</key>
-                <false/>
-            </dict>
-            <key>skeleton_attack_09.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{43,37}</string>
-                <key>spriteSourceSize</key>
-                <string>{43,37}</string>
-                <key>textureRect</key>
-                <string>{{0,333},{43,37}}</string>
-                <key>textureRotated</key>
-                <false/>
-            </dict>
-            <key>skeleton_attack_10.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{43,37}</string>
-                <key>spriteSourceSize</key>
-                <string>{43,37}</string>
-                <key>textureRect</key>
-                <string>{{0,370},{43,37}}</string>
-                <key>textureRotated</key>
-                <false/>
-            </dict>
-            <key>skeleton_attack_11.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{43,37}</string>
-                <key>spriteSourceSize</key>
-                <string>{43,37}</string>
-                <key>textureRect</key>
-                <string>{{0,407},{43,37}}</string>
-                <key>textureRotated</key>
-                <false/>
-            </dict>
-            <key>skeleton_attack_12.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{43,37}</string>
-                <key>spriteSourceSize</key>
-                <string>{43,37}</string>
-                <key>textureRect</key>
-                <string>{{0,444},{43,37}}</string>
-                <key>textureRotated</key>
-                <false/>
-            </dict>
-            <key>skeleton_attack_13.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{43,37}</string>
-                <key>spriteSourceSize</key>
-                <string>{43,37}</string>
-                <key>textureRect</key>
-                <string>{{0,481},{43,37}}</string>
-                <key>textureRotated</key>
-                <false/>
-            </dict>
-            <key>skeleton_attack_14.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{43,37}</string>
-                <key>spriteSourceSize</key>
-                <string>{43,37}</string>
-                <key>textureRect</key>
-                <string>{{0,518},{43,37}}</string>
-                <key>textureRotated</key>
-                <false/>
-            </dict>
-            <key>skeleton_attack_15.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{43,37}</string>
-                <key>spriteSourceSize</key>
-                <string>{43,37}</string>
-                <key>textureRect</key>
-                <string>{{0,555},{43,37}}</string>
-                <key>textureRotated</key>
-                <false/>
-            </dict>
-            <key>skeleton_attack_16.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{43,37}</string>
-                <key>spriteSourceSize</key>
-                <string>{43,37}</string>
-                <key>textureRect</key>
-                <string>{{0,592},{43,37}}</string>
-                <key>textureRotated</key>
-                <false/>
-            </dict>
-            <key>skeleton_attack_17.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{43,37}</string>
-                <key>spriteSourceSize</key>
-                <string>{43,37}</string>
-                <key>textureRect</key>
-                <string>{{0,629},{43,37}}</string>
-                <key>textureRotated</key>
-                <false/>
-            </dict>
             <key>skeleton_idle_00.png</key>
             <dict>
                 <key>aliases</key>
@@ -285,7 +15,7 @@
                 <key>spriteSourceSize</key>
                 <string>{24,32}</string>
                 <key>textureRect</key>
-                <string>{{0,666},{24,32}}</string>
+                <string>{{0,0},{24,32}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
@@ -300,7 +30,7 @@
                 <key>spriteSourceSize</key>
                 <string>{24,32}</string>
                 <key>textureRect</key>
-                <string>{{24,666},{24,32}}</string>
+                <string>{{0,32},{24,32}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
@@ -315,7 +45,7 @@
                 <key>spriteSourceSize</key>
                 <string>{24,32}</string>
                 <key>textureRect</key>
-                <string>{{0,698},{24,32}}</string>
+                <string>{{0,64},{24,32}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
@@ -330,7 +60,7 @@
                 <key>spriteSourceSize</key>
                 <string>{24,32}</string>
                 <key>textureRect</key>
-                <string>{{24,698},{24,32}}</string>
+                <string>{{0,96},{24,32}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
@@ -345,7 +75,7 @@
                 <key>spriteSourceSize</key>
                 <string>{24,32}</string>
                 <key>textureRect</key>
-                <string>{{0,730},{24,32}}</string>
+                <string>{{0,128},{24,32}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
@@ -360,7 +90,7 @@
                 <key>spriteSourceSize</key>
                 <string>{24,32}</string>
                 <key>textureRect</key>
-                <string>{{24,730},{24,32}}</string>
+                <string>{{0,160},{24,32}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
@@ -375,7 +105,7 @@
                 <key>spriteSourceSize</key>
                 <string>{24,32}</string>
                 <key>textureRect</key>
-                <string>{{0,762},{24,32}}</string>
+                <string>{{0,192},{24,32}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
@@ -390,7 +120,7 @@
                 <key>spriteSourceSize</key>
                 <string>{24,32}</string>
                 <key>textureRect</key>
-                <string>{{24,762},{24,32}}</string>
+                <string>{{0,224},{24,32}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
@@ -405,7 +135,7 @@
                 <key>spriteSourceSize</key>
                 <string>{24,32}</string>
                 <key>textureRect</key>
-                <string>{{0,794},{24,32}}</string>
+                <string>{{0,256},{24,32}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
@@ -420,7 +150,7 @@
                 <key>spriteSourceSize</key>
                 <string>{24,32}</string>
                 <key>textureRect</key>
-                <string>{{24,794},{24,32}}</string>
+                <string>{{0,288},{24,32}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
@@ -435,7 +165,202 @@
                 <key>spriteSourceSize</key>
                 <string>{24,32}</string>
                 <key>textureRect</key>
-                <string>{{0,826},{24,32}}</string>
+                <string>{{0,320},{24,32}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>skeleton_walk_00.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{22,33}</string>
+                <key>spriteSourceSize</key>
+                <string>{22,33}</string>
+                <key>textureRect</key>
+                <string>{{0,352},{22,33}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>skeleton_walk_01.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{22,33}</string>
+                <key>spriteSourceSize</key>
+                <string>{22,33}</string>
+                <key>textureRect</key>
+                <string>{{0,385},{22,33}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>skeleton_walk_02.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{22,33}</string>
+                <key>spriteSourceSize</key>
+                <string>{22,33}</string>
+                <key>textureRect</key>
+                <string>{{0,418},{22,33}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>skeleton_walk_03.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{22,33}</string>
+                <key>spriteSourceSize</key>
+                <string>{22,33}</string>
+                <key>textureRect</key>
+                <string>{{0,451},{22,33}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>skeleton_walk_04.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{22,33}</string>
+                <key>spriteSourceSize</key>
+                <string>{22,33}</string>
+                <key>textureRect</key>
+                <string>{{0,484},{22,33}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>skeleton_walk_05.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{22,33}</string>
+                <key>spriteSourceSize</key>
+                <string>{22,33}</string>
+                <key>textureRect</key>
+                <string>{{0,517},{22,33}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>skeleton_walk_06.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{22,33}</string>
+                <key>spriteSourceSize</key>
+                <string>{22,33}</string>
+                <key>textureRect</key>
+                <string>{{0,550},{22,33}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>skeleton_walk_07.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{22,33}</string>
+                <key>spriteSourceSize</key>
+                <string>{22,33}</string>
+                <key>textureRect</key>
+                <string>{{0,583},{22,33}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>skeleton_walk_08.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{22,33}</string>
+                <key>spriteSourceSize</key>
+                <string>{22,33}</string>
+                <key>textureRect</key>
+                <string>{{0,616},{22,33}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>skeleton_walk_09.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{22,33}</string>
+                <key>spriteSourceSize</key>
+                <string>{22,33}</string>
+                <key>textureRect</key>
+                <string>{{0,649},{22,33}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>skeleton_walk_10.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{22,33}</string>
+                <key>spriteSourceSize</key>
+                <string>{22,33}</string>
+                <key>textureRect</key>
+                <string>{{0,682},{22,33}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>skeleton_walk_11.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{22,33}</string>
+                <key>spriteSourceSize</key>
+                <string>{22,33}</string>
+                <key>textureRect</key>
+                <string>{{0,715},{22,33}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>skeleton_walk_12.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{22,33}</string>
+                <key>spriteSourceSize</key>
+                <string>{22,33}</string>
+                <key>textureRect</key>
+                <string>{{0,748},{22,33}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
@@ -451,9 +376,9 @@
             <key>realTextureFileName</key>
             <string>skeleton_images.png</string>
             <key>size</key>
-            <string>{48,858}</string>
+            <string>{24,781}</string>
             <key>smartupdate</key>
-            <string>$TexturePacker:SmartUpdate:f925d743c696a9a85cec490ae46b8e86:7373a2376fc71502b072c7c3d17bf315:26a2d151b8849388df87be6b581d5162$</string>
+            <string>$TexturePacker:SmartUpdate:f7ff7043d8d61e472297ab3a38579d91:7fc5e5873ea23292a1f562da6c6d0cdf:26a2d151b8849388df87be6b581d5162$</string>
             <key>textureFileName</key>
             <string>skeleton_images.png</string>
         </dict>

@@ -32,13 +32,19 @@ endif()
 # add cross-platforms source files and header files 
 list(APPEND GAME_SOURCE
      Classes/AppDelegate.cpp
+     Classes/scenes/HorizontalScrollScene.cpp
+     Classes/scenes/Large2dScene.cpp
      Classes/scenes/MenuScene.cpp
      Classes/scenes/SimpleNoScrollScene.cpp
+     Classes/scenes/SkeletonPerson.cpp
      )
 list(APPEND GAME_HEADER
      Classes/AppDelegate.h     
-     Classes/scenes/MenuScene.h
+     Classes/scenes/HorizontalScrollScene.h
+     Classes/scenes/Large2dScene.h
+     Classes/scenes/MenuScene.h     
      Classes/scenes/SimpleNoScrollScene.h
+     Classes/scenes/SkeletonPerson.h
      )
 
 if(ANDROID)
