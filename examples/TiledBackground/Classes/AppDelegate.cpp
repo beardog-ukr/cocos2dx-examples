@@ -43,7 +43,7 @@ bool AppDelegate::applicationDidFinishLaunching() {
   auto director = Director::getInstance();
   auto glview = director->getOpenGLView();
 
-  const string windowCaption = "Animation Demo";
+  const string windowCaption = "Tiled Backgrounds and Scrolling Demo";
 
   if(!glview) {
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_WIN32) || (CC_TARGET_PLATFORM == CC_PLATFORM_MAC) || \
