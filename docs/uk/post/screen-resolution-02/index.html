@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>Робота з екранами різних розмірів - Основи Cocos2d-x</title><meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta property="og:title" content="Робота з екранами різних розмірів" />
+<meta property="og:description" content="В одній з перших статей я рекомендував видалити з створеного cocos дефолтного коду майже все, що стосується роботи з різними роздільними здатностями. Цій проблемі присвячений окремий баг в офіційному репозиторії, але у нього низький приорітет." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://beardog-ukr.github.io/cocos2dx-examples/uk/post/screen-resolution-02/" />
+<meta property="article:published_time" content="2020-05-04T15:55:25+03:00" />
+<meta property="article:modified_time" content="2020-05-04T15:55:25+03:00" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Робота з екранами різних розмірів"/>
+<meta name="twitter:description" content="В одній з перших статей я рекомендував видалити з створеного cocos дефолтного коду майже все, що стосується роботи з різними роздільними здатностями. Цій проблемі присвячений окремий баг в офіційному репозиторії, але у нього низький приорітет."/>
+<link href="https://fonts.googleapis.com/css?family=Ubuntu:300,400,300italic,400italic|Raleway:200,300" rel="stylesheet">
+
+	<link rel="stylesheet" type="text/css" media="screen" href="https://beardog-ukr.github.io/cocos2dx-examples/uk/css/normalize.css" />
+	<link rel="stylesheet" type="text/css" media="screen" href="https://beardog-ukr.github.io/cocos2dx-examples/uk/css/main.css" />
+
+	<script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+	<script src="https://beardog-ukr.github.io/cocos2dx-examples/uk/js/main.js"></script>
+</head>
+
+<body>
+	<div class="container wrapper post">
+		<div class="header">
+	<h1 class="site-title"><a href="https://beardog-ukr.github.io/cocos2dx-examples/uk/">Основи Cocos2d-x</a></h1>
+	<div class="site-description"><h2>Статті про розробку ігор за допомогою Cocos2d-x</h2><nav class="nav social">
+			<ul class="flat"><a href="https://github.com/beardog-ukr/cocos2dx-examples" title="Github"><i data-feather="github"></i></a></ul>
+		</nav>
+	</div>
+
+	<nav class="nav">
+		<ul class="flat">
+			
+			<li>
+				<a href="/cocos2dx-examples/uk/">Нове</a>
+			</li>
+			
+			<li>
+				<a href="/cocos2dx-examples/uk/posts">Усі пости</a>
+			</li>
+			
+			<li>
+				<a href="/cocos2dx-examples/uk/about">Про сайт</a>
+			</li>
+			
+			<li>
+				<a href="/cocos2dx-examples/uk/tags">Теги</a>
+			</li>
+			
+		</ul>
+	</nav>
+</div>
+
+
+		<div class="post-header">
+			<h1 class="title">Робота з екранами різних розмірів</h1>
+			<div class="meta">Posted at &mdash; May 4, 2020</div>
+		</div>
+
+		<div class="markdown">
+			<p>В одній з <a href="https://beardog-ukr.github.io/cocos2dx-examples/uk/post/screen-resolution-01/">перших статей</a> я рекомендував видалити з створеного <em>cocos</em> дефолтного коду майже все, що стосується роботи з різними роздільними здатностями. Цій проблемі присвячений <a href="https://github.com/cocos2d/cocos2d-x/issues/18492">окремий баг</a> в офіційному репозиторії, але у нього низький приорітет.</p>
+<p>Розробка <em>Cocos2d</em> починалась у далекі-далекі часи, коли різновидів форматів екрану було небагато. Потім розмаїття сильно збільшилось, а на сьогоднішній день виглядає так, що всі користувачі знову ходять з більш-менш однаковими екранами. У певний момент була актуальною проблема роздільної здатності: програма мала використовувати різні набори зображень для пристроїв різних поколінь. На мій погляд, зараз такої необхідності уже немає, проте у вас може бути інша думка з цього приводу.</p>
+<p>Теоретично, процес розробки має виглядати приблизно так:</p>
+<ul>
+<li>розробники обирають базовий формат екрану, під який розробляється програма. Це так званий <em>design resolution</em>.</li>
+<li>якщо при запуску на пристрої виявляється, що його екран відрізняється від  <em>design resolution</em>, згенероване програмою зображення <a href="https://docs.cocos.com/creator/manual/en/ui/multi-resolution.html">буде певним чином приводитись</a> до цього самого <em>design resolution</em></li>
+<li>всередині програми не можна використовувати фіксовані числа для позначення позиції. У навчальних статтях я використовував числа, але тільки тому, що так код виглядає простіше. Насправді позиції всіх елементів потрібно обчислювати, враховуючи реальний стан справ з екраном пристрою.</li>
+</ul>
+<p>У першій програмі ви могли бачити такий код:</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#719e07">auto</span> visibleSize <span style="color:#719e07">=</span> Director<span style="color:#719e07">::</span>getInstance()<span style="color:#719e07">-&gt;</span>getVisibleSize();
+Vec2 origin      <span style="color:#719e07">=</span> Director<span style="color:#719e07">::</span>getInstance()<span style="color:#719e07">-&gt;</span>getVisibleOrigin();
+</code></pre></div><p><code>visibleSize</code> — це розмір тієї частини екрану, яку бачить користувач. <code>origin</code> — положення нижнього лівого кута <em>частини екрану, яку бачить користувач</em> відносто того зображення, яке згенерувала б програма в ідеальному випадку.</p>
+<p>Уявіть собі ось таку ситуацію (цифри на сьогоднішній день виглядають нереальними, але най буде)</p>
+<figure>
+    <img src="/cocos2dx-examples/uk/post/screen-resolution-img/def_ex_01.jpeg"/> 
+</figure>
+
+<p>В даному випадку:</p>
+<ul>
+<li>розробка велась під 800x480, це той самий <em>design resolution</em></li>
+<li>під час запуску виявляється, що у пристрою екран 1024x768. Після адаптації поле збільшується, але пропорції лишаються тими самими, тому з обох боків зображення обрізається.</li>
+<li>після адаптації <code>visibleSize</code> буде 1024x768, а <code>origin</code> стане (128:0) — позиція нижнього лівого кута червоного прямокутника на прикаді.</li>
+</ul>
+<p><em>Cocos2d</em> пропонує кілька варіантів приведення (<a href="https://docs.cocos2d-x.org/api-ref/creator/v1.0/classes/ResolutionPolicy.html">ResolutionPolicy</a>):</p>
+<ul>
+<li><code>EXACT_FIT</code> — зображення повністю заповнює екран, пропорції ігноруются. Результат може бути розтягнено по горизонталі або вертикалі.</li>
+<li><code>FIXED_HEIGHT</code> та <code>FIXED_WIDTH</code> — співвідношення сторін зберігається, зображення може обрізатись так, щоб зберегти відповідно висоту або ширину.</li>
+<li><code>NO_BORDER</code> — схоже на автоматичне обирання <code>FIXED_HEIGHT</code> або <code>FIXED_WIDTH</code></li>
+<li><code>SHOW_ALL</code> — пропорції зберігаються, зображення повністю показується, але можуть бути чорні полоси по боках або зверху екрану.</li>
+</ul>
+<p>Також можна реалізувати свою власну політику, як зроблено у <a href="https://coderwall.com/p/svldvw/configuration-of-multiple-resolution-in-cocos2d-x-3-0">цій статті</a>.</p>
+<p>Крім того, можна не вказувати <em>design resolution</em> а запуститись з реальним розміром екрану. Для цього в <code>AppDelegate.cpp</code> треба зробити так:</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp">Size realScreenSize <span style="color:#719e07">=</span> glview<span style="color:#719e07">-&gt;</span>getFrameSize();
+glview<span style="color:#719e07">-&gt;</span>setDesignResolutionSize(realScreenSize.width, realScreenSize.height,
+                                ResolutionPolicy<span style="color:#719e07">::</span>NO_BORDER);
+</code></pre></div><p>Тут байдуже, яку <em>ResolutionPolicy</em> вказувати, все одно запуск виконується з розміром екрану поточного пристрою.</p>
+<p>Якщо ви захочете використовувати різні набори зображень для різних пристроїв, доведеться змінювати дефолтні шляхи, за якими завантажуються файли. Детальніше про це написано <a href="https://github.com/cocos2d/cocos2d-x/issues/18492">тут</a>, <a href="http://becomingindiedev.blogspot.com/2014/05/multi-resolution-support-in-ios-with.html">тут</a> або у <a href="https://www.codeandweb.com/texturepacker/tutorials/animations-and-spritesheets-in-cocos2d-x">цій статті</a>.</p>
+		</div>
+
+		<div class="post-tags">
+			
+				
+					<nav class="nav tags">
+							<ul class="flat">
+								
+								<li><a href="/cocos2dx-examples/uk/tags/design-resolution">design resolution</a></li>
+								
+								<li><a href="/cocos2dx-examples/uk/tags/resolutionpolicy">ResolutionPolicy</a></li>
+								
+							</ul>
+					</nav>
+				
+			
+		</div>
+		</div>
+	<div class="footer wrapper">
+	<nav class="nav">
+		<div> © суспільне надбання |  <a href="https://github.com/vividvilla/ezhil">Ezhil theme</a> | Built with <a href="https://gohugo.io">Hugo</a></div>
+	</nav>
+</div>
+
+
+
+<script>feather.replace()</script>
+</body>
+</html>

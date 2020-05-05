@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>scrolling on Основи Cocos2d-x</title>
+    <link>https://beardog-ukr.github.io/cocos2dx-examples/uk/tags/scrolling/</link>
+    <description>Recent content in scrolling on Основи Cocos2d-x</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>© суспільне надбання</copyright>
+    <lastBuildDate>Mon, 04 May 2020 20:55:25 +0300</lastBuildDate>
+    
+	<atom:link href="https://beardog-ukr.github.io/cocos2dx-examples/uk/tags/scrolling/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Скроллінг, переміщення карти</title>
+      <link>https://beardog-ukr.github.io/cocos2dx-examples/uk/post/scrolling/</link>
+      <pubDate>Mon, 04 May 2020 20:55:25 +0300</pubDate>
+      
+      <guid>https://beardog-ukr.github.io/cocos2dx-examples/uk/post/scrolling/</guid>
+      <description>&lt;p&gt;Під час розробки ігор у вас може виникнути необхідність якось переміщувати карту відповідно до дій персонажу. Особливо важливо правильно реалізувати скролінг у платформерах — я б дуже рекомендував прочитати ось &lt;a href=&#34;https://www.gamasutra.com/blogs/ItayKeren/20150511/243083/Scroll_Back_The_Theory_and_Practice_of_Cameras_in_SideScrollers.php&#34;&gt;цю статтю&lt;/a&gt;, просто для того, щоб зрозуміти всю глибину проблеми.&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

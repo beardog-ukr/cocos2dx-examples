@@ -7,10 +7,73 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>© суспільне надбання</copyright>
-    <lastBuildDate>Sat, 18 Apr 2020 17:30:25 +0300</lastBuildDate>
+    <lastBuildDate>Mon, 04 May 2020 20:55:25 +0300</lastBuildDate>
     
 	<atom:link href="https://beardog-ukr.github.io/cocos2dx-examples/uk/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>design resolution</title>
+      <link>https://beardog-ukr.github.io/cocos2dx-examples/uk/tags/design-resolution/</link>
+      <pubDate>Mon, 04 May 2020 20:55:25 +0300</pubDate>
+      
+      <guid>https://beardog-ukr.github.io/cocos2dx-examples/uk/tags/design-resolution/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>scrolling</title>
+      <link>https://beardog-ukr.github.io/cocos2dx-examples/uk/tags/scrolling/</link>
+      <pubDate>Mon, 04 May 2020 20:55:25 +0300</pubDate>
+      
+      <guid>https://beardog-ukr.github.io/cocos2dx-examples/uk/tags/scrolling/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ResolutionPolicy</title>
+      <link>https://beardog-ukr.github.io/cocos2dx-examples/uk/tags/resolutionpolicy/</link>
+      <pubDate>Mon, 04 May 2020 15:55:25 +0300</pubDate>
+      
+      <guid>https://beardog-ukr.github.io/cocos2dx-examples/uk/tags/resolutionpolicy/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>third-party tools</title>
+      <link>https://beardog-ukr.github.io/cocos2dx-examples/uk/tags/third-party-tools/</link>
+      <pubDate>Mon, 04 May 2020 13:30:25 +0300</pubDate>
+      
+      <guid>https://beardog-ukr.github.io/cocos2dx-examples/uk/tags/third-party-tools/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Tiled</title>
+      <link>https://beardog-ukr.github.io/cocos2dx-examples/uk/tags/tiled/</link>
+      <pubDate>Mon, 04 May 2020 13:30:25 +0300</pubDate>
+      
+      <guid>https://beardog-ukr.github.io/cocos2dx-examples/uk/tags/tiled/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Tileset</title>
+      <link>https://beardog-ukr.github.io/cocos2dx-examples/uk/tags/tileset/</link>
+      <pubDate>Mon, 04 May 2020 13:30:25 +0300</pubDate>
+      
+      <guid>https://beardog-ukr.github.io/cocos2dx-examples/uk/tags/tileset/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>TMXMap</title>
+      <link>https://beardog-ukr.github.io/cocos2dx-examples/uk/tags/tmxmap/</link>
+      <pubDate>Mon, 04 May 2020 13:30:25 +0300</pubDate>
+      
+      <guid>https://beardog-ukr.github.io/cocos2dx-examples/uk/tags/tmxmap/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Director</title>
@@ -180,15 +243,6 @@
       <pubDate>Thu, 02 Apr 2020 15:55:25 +0300</pubDate>
       
       <guid>https://beardog-ukr.github.io/cocos2dx-examples/uk/tags/tag/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>design resolution</title>
-      <link>https://beardog-ukr.github.io/cocos2dx-examples/uk/tags/design-resolution/</link>
-      <pubDate>Mon, 30 Mar 2020 22:30:25 +0300</pubDate>
-      
-      <guid>https://beardog-ukr.github.io/cocos2dx-examples/uk/tags/design-resolution/</guid>
       <description></description>
     </item>
     

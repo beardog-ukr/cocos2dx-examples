@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>Скроллінг, переміщення карти - Основи Cocos2d-x</title><meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta property="og:title" content="Скроллінг, переміщення карти" />
+<meta property="og:description" content="Під час розробки ігор у вас може виникнути необхідність якось переміщувати карту відповідно до дій персонажу. Особливо важливо правильно реалізувати скролінг у платформерах — я б дуже рекомендував прочитати ось цю статтю, просто для того, щоб зрозуміти всю глибину проблеми." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://beardog-ukr.github.io/cocos2dx-examples/uk/post/scrolling/" />
+<meta property="article:published_time" content="2020-05-04T20:55:25+03:00" />
+<meta property="article:modified_time" content="2020-05-04T20:55:25+03:00" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Скроллінг, переміщення карти"/>
+<meta name="twitter:description" content="Під час розробки ігор у вас може виникнути необхідність якось переміщувати карту відповідно до дій персонажу. Особливо важливо правильно реалізувати скролінг у платформерах — я б дуже рекомендував прочитати ось цю статтю, просто для того, щоб зрозуміти всю глибину проблеми."/>
+<link href="https://fonts.googleapis.com/css?family=Ubuntu:300,400,300italic,400italic|Raleway:200,300" rel="stylesheet">
+
+	<link rel="stylesheet" type="text/css" media="screen" href="https://beardog-ukr.github.io/cocos2dx-examples/uk/css/normalize.css" />
+	<link rel="stylesheet" type="text/css" media="screen" href="https://beardog-ukr.github.io/cocos2dx-examples/uk/css/main.css" />
+
+	<script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+	<script src="https://beardog-ukr.github.io/cocos2dx-examples/uk/js/main.js"></script>
+</head>
+
+<body>
+	<div class="container wrapper post">
+		<div class="header">
+	<h1 class="site-title"><a href="https://beardog-ukr.github.io/cocos2dx-examples/uk/">Основи Cocos2d-x</a></h1>
+	<div class="site-description"><h2>Статті про розробку ігор за допомогою Cocos2d-x</h2><nav class="nav social">
+			<ul class="flat"><a href="https://github.com/beardog-ukr/cocos2dx-examples" title="Github"><i data-feather="github"></i></a></ul>
+		</nav>
+	</div>
+
+	<nav class="nav">
+		<ul class="flat">
+			
+			<li>
+				<a href="/cocos2dx-examples/uk/">Нове</a>
+			</li>
+			
+			<li>
+				<a href="/cocos2dx-examples/uk/posts">Усі пости</a>
+			</li>
+			
+			<li>
+				<a href="/cocos2dx-examples/uk/about">Про сайт</a>
+			</li>
+			
+			<li>
+				<a href="/cocos2dx-examples/uk/tags">Теги</a>
+			</li>
+			
+		</ul>
+	</nav>
+</div>
+
+
+		<div class="post-header">
+			<h1 class="title">Скроллінг, переміщення карти</h1>
+			<div class="meta">Posted at &mdash; May 4, 2020</div>
+		</div>
+
+		<div class="markdown">
+			<p>Під час розробки ігор у вас може виникнути необхідність якось переміщувати карту відповідно до дій персонажу. Особливо важливо правильно реалізувати скролінг у платформерах — я б дуже рекомендував прочитати ось <a href="https://www.gamasutra.com/blogs/ItayKeren/20150511/243083/Scroll_Back_The_Theory_and_Practice_of_Cameras_in_SideScrollers.php">цю статтю</a>, просто для того, щоб зрозуміти всю глибину проблеми.</p>
+<p>Для прикладу візьмемо <a href="https://luizmelo.itch.io/evil-wizard">анімацію чарівника</a> та проведемо його по довгому-довгому рівню, <a href="https://szadiart.itch.io/rogue-fantasy-castle">схожому на замок</a>.</p>
+<figure>
+    <img src="/cocos2dx-examples/uk/post/scrolling-img/dungeon02.png"/> <figcaption>
+            <h4>Карта рівню в кілька разів довша за ширину екрану</h4>
+        </figcaption>
+</figure>
+
+<p>У <em>Cocos2d</em> переміщення карти (точніше, переміщення <em>по карті</em>) легко реалізувати за допомогою класу <a href="https://docs.cocos2d-x.org/api-ref/cplusplus/v4x/d6/d2b/classcocos2d_1_1_camera.html">Camera</a>.</p>
+<p><a href="https://docs.cocos2d-x.org/api-ref/cplusplus/v4x/d6/d2b/classcocos2d_1_1_camera.html">Camera</a>, є нащадком <a href="https://docs.cocos2d-x.org/api-ref/cplusplus/v4x/d3/d82/classcocos2d_1_1_node.html">Node</a> тому для того, щоб змінити її позицию, можна використовувати звичайні акції (в даному випадку <a href="https://docs.cocos2d-x.org/api-ref/cplusplus/v4x/de/d42/classcocos2d_1_1_move_to.html">MoveTo</a>). Але, на відміну від об'єктів, які ми використовували раніше, камера живе у тривимірному просторі, тому координати вказуються трохи інакше.</p>
+<p>Ось так виглядає приведення камери до точки, на якій знаходиться маг:</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp">cocos2d<span style="color:#719e07">::</span>Vec2 expectedMagePos; <span style="color:#586e75">// поточна позиція мага
+</span><span style="color:#586e75"></span><span style="color:#719e07">&lt;</span>....<span style="color:#719e07">&gt;</span>
+Camera<span style="color:#719e07">*</span> camera <span style="color:#719e07">=</span> getDefaultCamera();
+<span style="color:#719e07">const</span> Vec3 currentCameraPos <span style="color:#719e07">=</span> camera<span style="color:#719e07">-&gt;</span>getPosition3D();
+Vec3 newCameraPos <span style="color:#719e07">=</span> Vec3(expectedMagePos.x, expectedMagePos.y, currentCameraPos.z);
+MoveTo<span style="color:#719e07">*</span> cameraMoveAction <span style="color:#719e07">=</span> MoveTo<span style="color:#719e07">::</span>create(<span style="color:#2aa198">1</span>, newCameraPos);
+camera<span style="color:#719e07">-&gt;</span>runAction(cameraMoveAction);
+</code></pre></div><p>Просто задаєте нову позицію камери (висота така сама, як у старої, а координати на площині змінюються), створюєте акцію і все, скроллінг готовий. У <a href="https://github.com/beardog-ukr/cocos2dx-examples/blob/master/examples/TiledBackground/Classes/scenes/HorizontalScrollScene.cpp">демонстраційній програмі</a> камера пересувається кожного разу, як маг завершує перехід у точку, що знаходиться занадто близько до краю вікна.</p>
+<p>Результат виглядає так:
+<figure>
+    <img src="/cocos2dx-examples/uk/post/scrolling-img/mage_walks.gif"/> <figcaption>
+            <h4>Маг іде вправо по карті</h4>
+        </figcaption>
+</figure>
+</p>
+<p>Зі скелетами у цій програмі пов'язана пара цікавих речей. По-перше, деякі з них ходять за межами екрану, тому ресурси на обчислення їх положення витрачаються даремно. Може виникнути бажання якось вимкнути виконання акцій для об'єктів, що знаходяться далеко від гравця. Проте така дія є <a href="https://gamedev.stackexchange.com/questions/141399/why-is-it-so-bad-to-optimize-too-early">передчасною оптимізацією</a>, її <a href="https://love2d.org/wiki/Optimising">краще уникати</a>.</p>
+<p>По-друге, об'єктів-скелетів багато, тому для управління ними краще створити окремий клас. В принципі, для мага теж треба було б зробити свій клас, але це ускладнило б код, тому у <a href="https://github.com/beardog-ukr/cocos2dx-examples/blob/master/examples/TiledBackground/Classes/scenes/HorizontalScrollScene.h">прикладі</a> його координати зберігаються у класі сцени.</p>
+<p>Можливі два варіанти:</p>
+<ul>
+<li>зробити клас скелету нащадком <a href="https://docs.cocos2d-x.org/api-ref/cplusplus/v4x/d3/d5c/classcocos2d_1_1_sprite.html">cocos2d::Sprite</a></li>
+<li>створити клас, що буде управляти об'єктом <a href="https://docs.cocos2d-x.org/api-ref/cplusplus/v4x/d3/d5c/classcocos2d_1_1_sprite.html">cocos2d::Sprite</a></li>
+</ul>
+<p>Це <a href="https://discuss.cocos2d-x.org/t/cocos2d-x-general-question-about-class-design-and-inheritance/24893">дискусійне</a> питання &ldquo;<a href="https://en.wikipedia.org/wiki/Composition_over_inheritance">наслідування проти композиції</a>&quot;, у кожного вибору є свої переваги та недоліки. У своєму прикладі я використав <a href="https://github.com/beardog-ukr/cocos2dx-examples/blob/master/examples/TiledBackground/Classes/scenes/SkeletonPerson.h">наслідування</a>, а поради щодо створення композиції можна знайти у <a href="http://becomingindiedev.blogspot.com/2015/06/correct-composition-design-in-cocos2d-x.html">цій статті</a>.</p>
+		</div>
+
+		<div class="post-tags">
+			
+				
+					<nav class="nav tags">
+							<ul class="flat">
+								
+								<li><a href="/cocos2dx-examples/uk/tags/design-resolution">design resolution</a></li>
+								
+								<li><a href="/cocos2dx-examples/uk/tags/scrolling">scrolling</a></li>
+								
+							</ul>
+					</nav>
+				
+			
+		</div>
+		</div>
+	<div class="footer wrapper">
+	<nav class="nav">
+		<div> © суспільне надбання |  <a href="https://github.com/vividvilla/ezhil">Ezhil theme</a> | Built with <a href="https://gohugo.io">Hugo</a></div>
+	</nav>
+</div>
+
+
+
+<script>feather.replace()</script>
+</body>
+</html>

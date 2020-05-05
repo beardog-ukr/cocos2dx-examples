@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>Створення карт рівнів - Основи Cocos2d-x</title><meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta property="og:title" content="Створення карт рівнів" />
+<meta property="og:description" content="Для більш-менш великих ігрових проектів, таких як стратегії або платформери, вам знадобиться окремий засіб для проектування карт рівнів. Таким засобом є Tiled — універсальний редактор рівнів з відкритим кодом." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://beardog-ukr.github.io/cocos2dx-examples/uk/post/tiled-maps/" />
+<meta property="article:published_time" content="2020-05-04T13:30:25+03:00" />
+<meta property="article:modified_time" content="2020-05-04T13:30:25+03:00" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Створення карт рівнів"/>
+<meta name="twitter:description" content="Для більш-менш великих ігрових проектів, таких як стратегії або платформери, вам знадобиться окремий засіб для проектування карт рівнів. Таким засобом є Tiled — універсальний редактор рівнів з відкритим кодом."/>
+<link href="https://fonts.googleapis.com/css?family=Ubuntu:300,400,300italic,400italic|Raleway:200,300" rel="stylesheet">
+
+	<link rel="stylesheet" type="text/css" media="screen" href="https://beardog-ukr.github.io/cocos2dx-examples/uk/css/normalize.css" />
+	<link rel="stylesheet" type="text/css" media="screen" href="https://beardog-ukr.github.io/cocos2dx-examples/uk/css/main.css" />
+
+	<script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+	<script src="https://beardog-ukr.github.io/cocos2dx-examples/uk/js/main.js"></script>
+</head>
+
+<body>
+	<div class="container wrapper post">
+		<div class="header">
+	<h1 class="site-title"><a href="https://beardog-ukr.github.io/cocos2dx-examples/uk/">Основи Cocos2d-x</a></h1>
+	<div class="site-description"><h2>Статті про розробку ігор за допомогою Cocos2d-x</h2><nav class="nav social">
+			<ul class="flat"><a href="https://github.com/beardog-ukr/cocos2dx-examples" title="Github"><i data-feather="github"></i></a></ul>
+		</nav>
+	</div>
+
+	<nav class="nav">
+		<ul class="flat">
+			
+			<li>
+				<a href="/cocos2dx-examples/uk/">Нове</a>
+			</li>
+			
+			<li>
+				<a href="/cocos2dx-examples/uk/posts">Усі пости</a>
+			</li>
+			
+			<li>
+				<a href="/cocos2dx-examples/uk/about">Про сайт</a>
+			</li>
+			
+			<li>
+				<a href="/cocos2dx-examples/uk/tags">Теги</a>
+			</li>
+			
+		</ul>
+	</nav>
+</div>
+
+
+		<div class="post-header">
+			<h1 class="title">Створення карт рівнів</h1>
+			<div class="meta">Posted at &mdash; May 4, 2020</div>
+		</div>
+
+		<div class="markdown">
+			<p>Для більш-менш великих ігрових проектів, таких як стратегії або платформери, вам знадобиться окремий засіб для проектування карт рівнів. Таким засобом є <a href="https://www.mapeditor.org/">Tiled</a> — універсальний редактор рівнів з відкритим кодом.</p>
+<h1 id="основи">Основи</h1>
+<p>Інтерфейс Tiled в цілому схожий на інші редактори, тому я не буду тут його детально описувати (але, якщо треба, варто <a href="https://www.raywenderlich.com/2684-cocos2d-x-tile-map-tutorial-part-1">глянути сюди</a>). Суть в тому, що ви берете створений художником набір елементів (tileset) і використовуєте його для побудови карти.</p>
+<p>Для нашого першого прикладу візьмемо <a href="http://finalbossblues.com/timefantasy/freebies/free-beach-tileset/">цей тайлсет</a>, а також анімацію <a href="https://fooch.itch.io/mage">чарівника</a> та <a href="https://0x72.itch.io/dungeontileset-ii">лицаря</a>.</p>
+<figure>
+    <img src="/cocos2dx-examples/uk/post/tiled-maps/beach-tiled.png"/> <figcaption>
+            <h4>Робота з Tiled</h4>
+        </figcaption>
+</figure>
+
+<p>Є деякі особливості, специфічні для Cocos2dx:</p>
+<ul>
+<li>один шар (layer) у редакторі має використовувати елементи <a href="https://gamedev.stackexchange.com/questions/152458/assets-from-tiled-background-layer-not-appearing-in-cocos2d-x">одного і того самого тайлсету</a>. Якщо ви хочете використати інший тайлсет, обов'язково треба створити новий шар.</li>
+<li>бажано, щоб файл тайлсету(<code>*.tsx</code>) був в одній папці з файлом карти (*.tmx), інакше можуть виникнути проблеми під час завантаження</li>
+<li>старі версії Cocos2dx (3.17.2 і менше) могли працювати лише з дуже-дуже старою версією редактора. У Cocos2dx 4.0 цієї проблеми вже немає.</li>
+</ul>
+<p>Карта завантажується дуже просто, фактично одним рядком:</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#719e07">const</span> <span style="color:#dc322f">char</span> mapFilename[] <span style="color:#719e07">=</span> <span style="color:#2aa198">&#34;beach/beach_map.tmx&#34;</span>;
+
+TMXTiledMap<span style="color:#719e07">*</span> mapNode <span style="color:#719e07">=</span> TMXTiledMap<span style="color:#719e07">::</span>create(mapFilename);
+<span style="color:#719e07">if</span> (mapNode <span style="color:#719e07">==</span> <span style="color:#719e07">nullptr</span>) {
+<span style="color:#586e75">// обробка помилки  
+</span><span style="color:#586e75"></span>}
+addChild(mapNode, ZO_BACKGROUND);
+</code></pre></div><p><code>TMXTiledMap::create</code> створює звичайний об'єкт-нащадок <a href="https://docs.cocos2d-x.org/api-ref/cplusplus/v4x/d3/d82/classcocos2d_1_1_node.html">Node</a> і далі з ним можна робити все те ж саме, що з іншими, зокрема, використовувати у якості фону.</p>
+<h1 id="додаткова-інформація-на-карті">Додаткова інформація на карті</h1>
+<p>Скоріш за все, під час створення рівня вам треба буде зберегти на карті якусь додаткову інформацію. Наприклад, вказати місце появи головного героя, а по позначити квадрати, на які герой не може заходити.</p>
+<p>Для того, щоб це зробити, використовується такий прийом:</p>
+<ul>
+<li>на карту додають спеціальний &ldquo;службовий&rdquo; шар, на якому використовуються елементи зі спеціального тайлсету.</li>
+<li>під час завантаження інформація зі службового шару обробляється окремо, а потім його приховують від гравця.</li>
+</ul>
+<p>Службовий тайлсет може виглядати так:</p>
+<figure>
+    <img src="/cocos2dx-examples/uk/post/tiled-maps/meta-code-tile.png"/> <figcaption>
+            <h4>Робота з Tiled</h4>
+        </figcaption>
+</figure>
+
+<p>Немає значення, що саме зображено на квадратах; в даному випадку це просто цифри і позначки.</p>
+<p>До кожного елементу тайлсету треба додати спеціальну властивість — числовий код, за допомогою яких програма відрізнятиме тайли один від одного. На малюнку вище така властивість названа &lsquo;MetaCode&rsquo;, додається вона після натиснення на синій &ldquo;+&rdquo; внизу панелі.</p>
+<p>Завантаження службового шару виглядає так:</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#dc322f">bool</span> SimpleNoScrollScene<span style="color:#719e07">::</span>loadMetaInfo(TMXTiledMap<span style="color:#719e07">*</span> <span style="color:#719e07">const</span> mapNode) {
+
+  <span style="color:#719e07">const</span> string metaLayerName <span style="color:#719e07">=</span> <span style="color:#2aa198">&#34;meta&#34;</span>;
+  TMXLayer<span style="color:#719e07">*</span> <span style="color:#719e07">const</span> metaLayer <span style="color:#719e07">=</span> mapNode<span style="color:#719e07">-&gt;</span>getLayer(metaLayerName);
+  <span style="color:#719e07">if</span> (metaLayer <span style="color:#719e07">==</span> <span style="color:#719e07">nullptr</span>) {
+    printf(<span style="color:#2aa198">&#34;Failed to find %s layer</span><span style="color:#cb4b16">\n</span><span style="color:#2aa198">&#34;</span>, metaLayerName.c_str());
+    <span style="color:#719e07">return</span> <span style="color:#b58900">false</span>;
+  }
+
+  <span style="color:#719e07">const</span> Size mapSize <span style="color:#719e07">=</span> mapNode<span style="color:#719e07">-&gt;</span>getMapSize();
+  obstaclesMapWidth <span style="color:#719e07">=</span> mapSize.width;
+  obstaclesMapHeight <span style="color:#719e07">=</span> mapSize.height;
+  obstaclesMap <span style="color:#719e07">=</span> <span style="color:#719e07">new</span> <span style="color:#dc322f">bool</span>[obstaclesMapWidth<span style="color:#719e07">*</span>obstaclesMapHeight];
+  memset(obstaclesMap, <span style="color:#2aa198">0</span>, (obstaclesMapWidth<span style="color:#719e07">*</span>obstaclesMapHeight));
+
+  <span style="color:#719e07">for</span> (<span style="color:#dc322f">int</span> tileX <span style="color:#719e07">=</span> <span style="color:#2aa198">0</span>; tileX <span style="color:#719e07">&lt;</span> mapSize.width; tileX<span style="color:#719e07">++</span>) {
+    <span style="color:#719e07">for</span> (<span style="color:#dc322f">int</span> tileY <span style="color:#719e07">=</span> <span style="color:#2aa198">0</span>; tileY <span style="color:#719e07">&lt;</span> mapSize.height; tileY<span style="color:#719e07">++</span>) {
+      <span style="color:#719e07">const</span> <span style="color:#dc322f">int</span> tileGid <span style="color:#719e07">=</span> metaLayer<span style="color:#719e07">-&gt;</span>getTileGIDAt(Vec2(tileX, tileY));
+      <span style="color:#719e07">const</span> Value prop    <span style="color:#719e07">=</span> mapNode<span style="color:#719e07">-&gt;</span>getPropertiesForGID(tileGid);
+
+      <span style="color:#719e07">if</span> (prop.isNull()) {
+        <span style="color:#719e07">continue</span>;
+      }
+
+      <span style="color:#719e07">const</span> ValueMap vm   <span style="color:#719e07">=</span> prop.asValueMap();
+      <span style="color:#719e07">const</span> <span style="color:#719e07">auto</span> frez <span style="color:#719e07">=</span> vm.find(<span style="color:#2aa198">&#34;MetaCode&#34;</span>);
+
+      <span style="color:#719e07">if</span> (frez <span style="color:#719e07">==</span> vm.end()) {
+        <span style="color:#719e07">continue</span>;
+      }
+
+      <span style="color:#719e07">const</span> <span style="color:#dc322f">int</span> metaCode <span style="color:#719e07">=</span> frez<span style="color:#719e07">-&gt;</span>second.asInt();
+
+      <span style="color:#719e07">switch</span> (metaCode) {
+      <span style="color:#719e07">case</span> MMC_OBSTACLE:
+        obstaclesMap[obstaclesMapWidth<span style="color:#719e07">*</span>(obstaclesMapHeight <span style="color:#719e07">-</span> tileY <span style="color:#719e07">-</span> <span style="color:#2aa198">1</span>) <span style="color:#719e07">+</span> tileX] <span style="color:#719e07">=</span> <span style="color:#b58900">true</span>;
+        <span style="color:#719e07">break</span>;
+
+      <span style="color:#719e07">case</span> MMC_MAGE_START:
+        mageStartX   <span style="color:#719e07">=</span> tileX;
+        mageStartY   <span style="color:#719e07">=</span> mapSize.height <span style="color:#719e07">-</span> tileY <span style="color:#719e07">-</span> <span style="color:#2aa198">1</span>;
+        <span style="color:#719e07">break</span>;
+
+      <span style="color:#719e07">case</span> MMC_KNIGHT_START:
+        knightStartX   <span style="color:#719e07">=</span> tileX;
+        knightStartY   <span style="color:#719e07">=</span> mapSize.height <span style="color:#719e07">-</span> tileY <span style="color:#719e07">-</span> <span style="color:#2aa198">1</span>;
+
+        currentKnightX <span style="color:#719e07">=</span> knightStartX;
+        currentKnightY <span style="color:#719e07">=</span> knightStartY;
+        <span style="color:#719e07">break</span>;
+
+        <span style="color:#586e75">// Note there is no suitable default action here
+</span><span style="color:#586e75"></span>        <span style="color:#586e75">// default:
+</span><span style="color:#586e75"></span>      }
+    }
+  }
+
+  metaLayer<span style="color:#719e07">-&gt;</span>setVisible(<span style="color:#b58900">false</span>);
+
+  <span style="color:#719e07">return</span> <span style="color:#b58900">true</span>;
+}
+</code></pre></div><p>Тут ми отримуємо шар методом <code>getLayer</code> і обходимо всі його квадрати. Для кожного квадрату намагаємось отримати значення параметру &ldquo;MetaCode&rdquo;, якщо таке є. В залежності від значення, це може бути або стартове місце, або позначка квадрату, на який не можна заходити.</p>
+<p>У Tiled квадрат з координатами &ldquo;0:0&rdquo; знаходиться у верхньому лівому куті карти, а вісь Y зростає зверху до низу. Це суперечить підходу Cocos2dx, у якому точка &ldquo;0:0&rdquo; знаходиться зліва внизу, а Y збільшується вверх. Тому при завантаженні координати Y доводиться перераховувати, використовуючи вираз типу <code>knightStartY = mapSize.height - tileY - 1;</code>.</p>
+<p>Таким чином, можна взяти таку карту:
+<figure>
+    <img src="/cocos2dx-examples/uk/post/tiled-maps/beach-meta.png"/> <figcaption>
+            <h4>Робота з Tiled</h4>
+        </figcaption>
+</figure>
+</p>
+<p>В програмі вона буде виглядати так:
+<figure>
+    <img src="/cocos2dx-examples/uk/post/tiled-maps/beach_k.gif"/> <figcaption>
+            <h4>Лицар рухається до берега</h4>
+        </figcaption>
+</figure>
+</p>
+<p>Цифри тайлсету позначають стартові позиції мага та лицаря, хрестики — місця, де не можна ходити. Лицар запрограмований так, щоб пересуватись на один квадрат вправо, доки у наступному квадраті не буде позначки-заборони. Повний прилад можна <a href="https://github.com/beardog-ukr/cocos2dx-examples/tree/master/examples/TiledBackground">переглянути тут</a>.</p>
+		</div>
+
+		<div class="post-tags">
+			
+				
+					<nav class="nav tags">
+							<ul class="flat">
+								
+								<li><a href="/cocos2dx-examples/uk/tags/tiled">Tiled</a></li>
+								
+								<li><a href="/cocos2dx-examples/uk/tags/tileset">Tileset</a></li>
+								
+								<li><a href="/cocos2dx-examples/uk/tags/tmxmap">TMXMap</a></li>
+								
+								<li><a href="/cocos2dx-examples/uk/tags/third-party-tools">third-party tools</a></li>
+								
+							</ul>
+					</nav>
+				
+			
+		</div>
+		</div>
+	<div class="footer wrapper">
+	<nav class="nav">
+		<div> © суспільне надбання |  <a href="https://github.com/vividvilla/ezhil">Ezhil theme</a> | Built with <a href="https://gohugo.io">Hugo</a></div>
+	</nav>
+</div>
+
+
+
+<script>feather.replace()</script>
+</body>
+</html>

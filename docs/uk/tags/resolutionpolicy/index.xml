@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ResolutionPolicy on Основи Cocos2d-x</title>
+    <link>https://beardog-ukr.github.io/cocos2dx-examples/uk/tags/resolutionpolicy/</link>
+    <description>Recent content in ResolutionPolicy on Основи Cocos2d-x</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>© суспільне надбання</copyright>
+    <lastBuildDate>Mon, 04 May 2020 15:55:25 +0300</lastBuildDate>
+    
+	<atom:link href="https://beardog-ukr.github.io/cocos2dx-examples/uk/tags/resolutionpolicy/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Робота з екранами різних розмірів</title>
+      <link>https://beardog-ukr.github.io/cocos2dx-examples/uk/post/screen-resolution-02/</link>
+      <pubDate>Mon, 04 May 2020 15:55:25 +0300</pubDate>
+      
+      <guid>https://beardog-ukr.github.io/cocos2dx-examples/uk/post/screen-resolution-02/</guid>
+      <description>&lt;p&gt;В одній з &lt;a href=&#34;https://beardog-ukr.github.io/cocos2dx-examples/uk/post/screen-resolution-01/&#34;&gt;перших статей&lt;/a&gt; я рекомендував видалити з створеного &lt;em&gt;cocos&lt;/em&gt; дефолтного коду майже все, що стосується роботи з різними роздільними здатностями. Цій проблемі присвячений &lt;a href=&#34;https://github.com/cocos2d/cocos2d-x/issues/18492&#34;&gt;окремий баг&lt;/a&gt; в офіційному репозиторії, але у нього низький приорітет.&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>
