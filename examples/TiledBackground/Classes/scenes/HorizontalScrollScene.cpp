@@ -29,7 +29,7 @@ void HorizontalScrollScene::doMageWalk() {
   Vec2 newPos = expectedMagePos;
   newPos.x = newPos.x + 50;
 
-  MoveTo* mt = MoveTo::create(3, newPos);
+  MoveTo* mt = MoveTo::create(2, newPos);
   expectedMagePos = newPos;
 
   CallFunc* cf = CallFunc::create([this]() {
@@ -69,10 +69,6 @@ bool HorizontalScrollScene::init() {
   }
 
   if (!initBackground()) {
-    return false;
-  }
-
-  if (!initCamera()) {
     return false;
   }
 
@@ -203,14 +199,6 @@ void HorizontalScrollScene::onKeyPressedScene(EventKeyboard::KeyCode keyCode,
     // Close the cocos2d-x game scene and quit the application
     Director::getInstance()->end();
   }
-}
-// . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
-
-bool HorizontalScrollScene::initCamera() {
-  Size winsize = Director::getInstance()->getWinSize();
-  Camera* camera = Camera::createOrthographic(winsize.width, winsize.height, 1, 1000);
-
-  return true;
 }
 
 // . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .

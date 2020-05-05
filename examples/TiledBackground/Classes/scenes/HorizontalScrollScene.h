@@ -15,7 +15,7 @@ CREATE_FUNC(HorizontalScrollScene);
 protected:
 
 bool initBackground();
-bool initCamera();
+bool initSkeletons();
 
 bool initMage();
 bool loadMageAnimation();
@@ -24,8 +24,6 @@ cocos2d::Vec2 expectedMagePos;
 
 void ensureCameraFollowsMage();
 void doMageWalk();
-
-bool initSkeletons();
 
 bool initKeyboardProcessing();
 void onKeyPressedScene(cocos2d::EventKeyboard::KeyCode keyCode, cocos2d::Event *event);
