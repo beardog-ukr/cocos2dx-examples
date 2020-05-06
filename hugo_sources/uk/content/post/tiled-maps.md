@@ -127,3 +127,7 @@ bool SimpleNoScrollScene::loadMetaInfo(TMXTiledMap* const mapNode) {
 {{< figure src="/cocos2dx-examples/uk/post/tiled-maps/beach_k.gif" title="Лицар рухається до берега" position="center" >}}
 
 Цифри тайлсету позначають стартові позиції мага та лицаря, хрестики — місця, де не можна ходити. Лицар запрограмований так, щоб пересуватись на один квадрат вправо, доки у наступному квадраті не буде позначки-заборони. Повний прилад можна [переглянути тут](https://github.com/beardog-ukr/cocos2dx-examples/tree/master/examples/TiledBackground).
+
+# Інші редактори
+
+_Tiled_ — не єдиний редактор рівнів, при бажанні можна [знайти](https://gamedev.stackexchange.com/questions/1886/tile-based-2d-level-editor) [посилання](https://gamedev.stackexchange.com/questions/225/tools-for-creating-2d-tile-based-maps). Крім того, теоретично можна спробувати написати свій [власний редактор](https://gamedevelopment.tutsplus.com/articles/make-your-life-easier-build-a-level-editor--gamedev-356).
