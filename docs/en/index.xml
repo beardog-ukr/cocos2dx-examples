@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Cocos2d-x basics</title>
+    <link>https://beardog-ukr.github.io/cocos2dx-examples/en/</link>
+    <description>Recent content on Cocos2d-x basics</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>© public domain</copyright>
+    <lastBuildDate>Fri, 27 Mar 2020 13:30:25 +0300</lastBuildDate>
+    
+	<atom:link href="https://beardog-ukr.github.io/cocos2dx-examples/en/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Information sources</title>
+      <link>https://beardog-ukr.github.io/cocos2dx-examples/en/post/info_sources/</link>
+      <pubDate>Mon, 21 Sep 2020 11:30:25 +0300</pubDate>
+      
+      <guid>https://beardog-ukr.github.io/cocos2dx-examples/en/post/info_sources/</guid>
+      <description>&lt;p&gt;There isn&amp;rsquo;t much info on Cocos2d-x but that&amp;rsquo;s enough to understand main ideas. The problem is the framework is old so some things rendered obsolete. You&amp;rsquo;ll have to constantly compare the articles and the real life implementation.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>First steps</title>
+      <link>https://beardog-ukr.github.io/cocos2dx-examples/en/post/first-steps/</link>
+      <pubDate>Sun, 20 Sep 2020 17:30:25 +0300</pubDate>
+      
+      <guid>https://beardog-ukr.github.io/cocos2dx-examples/en/post/first-steps/</guid>
+      <description>&lt;p&gt;Cocos2d is an open source software framework. It can be used to build games, apps and other cross platform GUI based interactive programs. It has a lot of branches, but this tutorial series will focus on C++ and Cocos2d-x.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>All Posts</title>
+      <link>https://beardog-ukr.github.io/cocos2dx-examples/en/posts/</link>
+      <pubDate>Fri, 27 Mar 2020 13:30:25 +0300</pubDate>
+      
+      <guid>https://beardog-ukr.github.io/cocos2dx-examples/en/posts/</guid>
+      <description>This page should contain links to all posts on this site.
+But it&amp;rsquo;s not implemented yet :(</description>
+    </item>
+    
+    <item>
+      <title>Hello</title>
+      <link>https://beardog-ukr.github.io/cocos2dx-examples/en/about/</link>
+      <pubDate>Fri, 27 Mar 2020 13:30:25 +0300</pubDate>
+      
+      <guid>https://beardog-ukr.github.io/cocos2dx-examples/en/about/</guid>
+      <description>This is some series of tutorial articles about Cocos2d-x framework.</description>
+    </item>
+    
+    <item>
+      <title>Fearlessness: How to Stop Running from Space</title>
+      <link>https://beardog-ukr.github.io/cocos2dx-examples/en/post/post-2/</link>
+      <pubDate>Sun, 18 Mar 2018 12:13:30 +0530</pubDate>
+      
+      <guid>https://beardog-ukr.github.io/cocos2dx-examples/en/post/post-2/</guid>
+      <description>We spend our days filling in every available space, cramming in more tasks, responding to messages, checking social media and online sites, watching videos.
+We are afraid of empty space in our lives.
+The result is often a continual busyness, constant distraction and avoidance, lack of focus, lack of satisfaction with our lives.
+We run from silence. We run from the spaces between tasks and appointments. We run from solitude and stillness.</description>
+    </item>
+    
+    <item>
+      <title>Primer: When You Have Too Much to Do</title>
+      <link>https://beardog-ukr.github.io/cocos2dx-examples/en/post/post-1/</link>
+      <pubDate>Sun, 18 Mar 2018 02:01:58 +0530</pubDate>
+      
+      <guid>https://beardog-ukr.github.io/cocos2dx-examples/en/post/post-1/</guid>
+      <description>You have a to-do list that scrolls on for days. You are managing multiple projects, getting lots of email and messages on different messaging systems, managing finances and personal health habits and so much more.
+It all keeps piling up, and it can feel overwhelming.
+How do you keep up with it all? How do you find focus and peace and get stuff accomplished when you have too much on your plate?</description>
+    </item>
+    
+  </channel>
+</rss>

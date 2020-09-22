@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tags on Cocos2d-x basics</title>
+    <link>https://beardog-ukr.github.io/cocos2dx-examples/en/tags/</link>
+    <description>Recent content in Tags on Cocos2d-x basics</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>© public domain</copyright>
+    <lastBuildDate>Mon, 21 Sep 2020 11:30:25 +0300</lastBuildDate>
+    
+	<atom:link href="https://beardog-ukr.github.io/cocos2dx-examples/en/tags/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>links</title>
+      <link>https://beardog-ukr.github.io/cocos2dx-examples/en/tags/links/</link>
+      <pubDate>Mon, 21 Sep 2020 11:30:25 +0300</pubDate>
+      
+      <guid>https://beardog-ukr.github.io/cocos2dx-examples/en/tags/links/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>initial</title>
+      <link>https://beardog-ukr.github.io/cocos2dx-examples/en/tags/initial/</link>
+      <pubDate>Sun, 20 Sep 2020 17:30:25 +0300</pubDate>
+      
+      <guid>https://beardog-ukr.github.io/cocos2dx-examples/en/tags/initial/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>installation</title>
+      <link>https://beardog-ukr.github.io/cocos2dx-examples/en/tags/installation/</link>
+      <pubDate>Sun, 20 Sep 2020 17:30:25 +0300</pubDate>
+      
+      <guid>https://beardog-ukr.github.io/cocos2dx-examples/en/tags/installation/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Space</title>
+      <link>https://beardog-ukr.github.io/cocos2dx-examples/en/tags/space/</link>
+      <pubDate>Sun, 18 Mar 2018 12:13:30 +0530</pubDate>
+      
+      <guid>https://beardog-ukr.github.io/cocos2dx-examples/en/tags/space/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Primer</title>
+      <link>https://beardog-ukr.github.io/cocos2dx-examples/en/tags/primer/</link>
+      <pubDate>Sun, 18 Mar 2018 02:01:58 +0530</pubDate>
+      
+      <guid>https://beardog-ukr.github.io/cocos2dx-examples/en/tags/primer/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>todo</title>
+      <link>https://beardog-ukr.github.io/cocos2dx-examples/en/tags/todo/</link>
+      <pubDate>Sun, 18 Mar 2018 02:01:58 +0530</pubDate>
+      
+      <guid>https://beardog-ukr.github.io/cocos2dx-examples/en/tags/todo/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

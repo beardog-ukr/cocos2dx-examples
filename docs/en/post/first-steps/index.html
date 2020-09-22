@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>First steps - Cocos2d-x basics</title><meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta property="og:title" content="First steps" />
+<meta property="og:description" content="Cocos2d is an open source software framework. It can be used to build games, apps and other cross platform GUI based interactive programs. It has a lot of branches, but this tutorial series will focus on C&#43;&#43; and Cocos2d-x." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://beardog-ukr.github.io/cocos2dx-examples/en/post/first-steps/" />
+<meta property="article:published_time" content="2020-09-20T17:30:25+03:00" />
+<meta property="article:modified_time" content="2020-09-20T17:30:25+03:00" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="First steps"/>
+<meta name="twitter:description" content="Cocos2d is an open source software framework. It can be used to build games, apps and other cross platform GUI based interactive programs. It has a lot of branches, but this tutorial series will focus on C&#43;&#43; and Cocos2d-x."/>
+<link href="https://fonts.googleapis.com/css?family=Ubuntu:300,400,300italic,400italic|Raleway:200,300" rel="stylesheet">
+
+	<link rel="stylesheet" type="text/css" media="screen" href="https://beardog-ukr.github.io/cocos2dx-examples/en/css/normalize.css" />
+	<link rel="stylesheet" type="text/css" media="screen" href="https://beardog-ukr.github.io/cocos2dx-examples/en/css/main.css" />
+
+	<script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+	<script src="https://beardog-ukr.github.io/cocos2dx-examples/en/js/main.js"></script>
+</head>
+
+<body>
+	<div class="container wrapper post">
+		<div class="header">
+	<h1 class="site-title"><a href="https://beardog-ukr.github.io/cocos2dx-examples/en/">Cocos2d-x basics</a></h1>
+	<div class="site-description"><h2>Some articles about Cocos2d-x framework</h2><nav class="nav social">
+			<ul class="flat"><a href="https://github.com/beardog-ukr/cocos2dx-examples" title="Github"><i data-feather="github"></i></a></ul>
+		</nav>
+	</div>
+
+	<nav class="nav">
+		<ul class="flat">
+			
+			<li>
+				<a href="/cocos2dx-examples/en/">Recent</a>
+			</li>
+			
+			<li>
+				<a href="/cocos2dx-examples/en/posts">All</a>
+			</li>
+			
+			<li>
+				<a href="/cocos2dx-examples/en/about">About</a>
+			</li>
+			
+			<li>
+				<a href="/cocos2dx-examples/en/tags">Tags</a>
+			</li>
+			
+		</ul>
+	</nav>
+</div>
+
+
+		<div class="post-header">
+			<h1 class="title">First steps</h1>
+			<div class="meta">Posted at &mdash; Sep 20, 2020</div>
+		</div>
+
+		<div class="markdown">
+			<p>Cocos2d is an open source software framework. It can be used to build games, apps and other cross platform GUI based interactive programs. It has a lot of branches, but this tutorial series will focus on C++ and Cocos2d-x.</p>
+<figure>
+    <img src="/cocos2dx-examples/en/post/first-steps-img/battle_of_pathogens.png"/> <figcaption>
+            <h4>A game Battle of Pathogens developed with Cocos Creator</h4>
+        </figcaption>
+</figure>
+
+<h1 id="installation">Installation</h1>
+<p>Installation process is more or less described in the <a href="https://docs.cocos2d-x.org/cocos2d-x/v3/en/installation/Linux.html">official documentation</a> so there should not be any problems. Also there are good instructions <a href="https://rezghob.com/installing-cocos2d-x-linux-mint/">in this blog for Linux</a> or <a href="https://rezghob.com/installing-cocos2d-x-windows/">here for Windows</a>.</p>
+<p>Now there are two versions of framework: 3.17 and 4.0. Both are good, and differences are not so significant.</p>
+<p>On Linux you&rsquo;ll have to perform two steps:</p>
+<ul>
+<li>install all the stuff needed for C++ development (g++), also cmake and python. You&rsquo;ll also need Android Studio if you want to create Android apps.</li>
+<li>dowload <a href="https://cocos2d-x.org/download">the framework</a>, unpack it wherever you want and set sum environment variables.</li>
+</ul>
+<p>Finally you should be able to enter <code>cocos</code> command in command line</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">::&gt;cocos -v
+cocos2d-x-4.0
+Cocos Console 2.3
+</code></pre></div><p>On Windows it&rsquo;s more or less the same. First you install cmake and python and then <a href="https://visualstudio.microsoft.com/vs/community/">Visual Studio Community</a>.</p>
+<h1 id="first-project">First project</h1>
+<p>In order to check that everynting was installed properly you&rsquo;ll have to create and build the first project.</p>
+<p>Projects are created with <code>cocos new</code> command:</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go">::&gt;cocos new <span style="color:#719e07">-</span>d .<span style="color:#719e07">/</span> <span style="color:#719e07">-</span>l cpp SmokeTest
+&gt; Copy template into <span style="color:#719e07">/</span>home<span style="color:#719e07">/</span>username<span style="color:#719e07">/</span>proj<span style="color:#719e07">/</span>cocos2d<span style="color:#719e07">/</span>SmokeTest
+&gt; Copying Cocos2d<span style="color:#719e07">-</span>x files<span style="color:#719e07">...</span>
+&gt; Rename project name from &#39;HelloCpp&#39; to &#39;SmokeTest&#39;
+&gt; Replace the project name from &#39;HelloCpp&#39; to &#39;SmokeTest&#39;
+&gt; Replace the project <span style="color:#719e07">package</span> name from &#39;org.cocos2dx.hellocpp&#39; to &#39;org.cocos2dx.SmokeTest&#39;
+&gt; Replace the Mac bundle id from &#39;org.cocos2dx.hellocpp&#39; to &#39;org.cocos2dx.SmokeTest&#39;
+&gt; Replace the iOS bundle id from &#39;org.cocos2dx.hellocpp&#39; to &#39;org.cocos2dx.SmokeTest&#39;
+</code></pre></div><p>Obviously <code>-l cpp</code> specifies that we&rsquo;ll use C++. The <code>cocos new --help</code> will print help on all available options.</p>
+<p>Here &ldquo;SmokeTest&rdquo; is the name of the project. The cocos script will create a folder with this name and will generate all initial files there.</p>
+<h2 id="linux-compilation">Linux compilation</h2>
+<p>Things ill be a way simpler on Linux. To compile you&rsquo;ll have to enter command  <code>cocos compile -p linux</code> and it will show you a typical <em>cmake</em> output</p>
+<h2 id="windows-compilation">Windows compilation</h2>
+<p>Windows compilation depends on framework version. For 3.17.2 it will create a <code>SmokeTest\proj.win32\SmokeTest.sln</code> file and you&rsquo;ll just open it with Visual Studio.</p>
+<p>However it&rsquo;s more complicated with 4.0 framework. First you&rsquo;ll have to create build directory and get there like</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">mkdir build_win &amp;&amp; cd build_win
+</code></pre></div><p>Now perform following</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">cmake .. -G&#34;Visual Studio 16 2019&#34; -A Win32
+</code></pre></div><p>This command asks <em>cmake</em> to use Visual Studio to generate it&rsquo;s project file. This particula command tries to call VS 2019. There are <a href="https://cmake.org/cmake/help/git-stage/manual/cmake-generators.7.html#visual-studio-generators">other strings</a> for older VS versions. &ldquo;Win32 is the architecture and as for not it&rsquo;s the only option <a href="https://discuss.cocos2d-x.org/t/error-when-building-cpp-test-on-cocos2d-x-4-0/48640/8">available</a> for cocos.</p>
+<h2 id="result">Result</h2>
+<p>Anyway you can launch your progma with <code>cocos run</code> command:</p>
+<figure>
+    <img src="/cocos2dx-examples/en/post/first-steps-img/first_app_screenshot.png"/> <figcaption>
+            <h4>Default application</h4>
+        </figcaption>
+</figure>
+		</div>
+
+		<div class="post-tags">
+			
+				
+					<nav class="nav tags">
+							<ul class="flat">
+								
+								<li><a href="/cocos2dx-examples/en/tags/initial">initial</a></li>
+								
+								<li><a href="/cocos2dx-examples/en/tags/installation">installation</a></li>
+								
+							</ul>
+					</nav>
+				
+			
+		</div>
+		</div>
+	<div class="footer wrapper">
+	<nav class="nav">
+		<div> © public domain |  <a href="https://github.com/vividvilla/ezhil">Ezhil theme</a> | Built with <a href="https://gohugo.io">Hugo</a></div>
+	</nav>
+</div>
+
+
+
+<script>feather.replace()</script>
+</body>
+</html>

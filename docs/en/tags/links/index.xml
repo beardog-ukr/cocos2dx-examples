@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>links on Cocos2d-x basics</title>
+    <link>https://beardog-ukr.github.io/cocos2dx-examples/en/tags/links/</link>
+    <description>Recent content in links on Cocos2d-x basics</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>© public domain</copyright>
+    <lastBuildDate>Mon, 21 Sep 2020 11:30:25 +0300</lastBuildDate>
+    
+	<atom:link href="https://beardog-ukr.github.io/cocos2dx-examples/en/tags/links/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Information sources</title>
+      <link>https://beardog-ukr.github.io/cocos2dx-examples/en/post/info_sources/</link>
+      <pubDate>Mon, 21 Sep 2020 11:30:25 +0300</pubDate>
+      
+      <guid>https://beardog-ukr.github.io/cocos2dx-examples/en/post/info_sources/</guid>
+      <description>&lt;p&gt;There isn&amp;rsquo;t much info on Cocos2d-x but that&amp;rsquo;s enough to understand main ideas. The problem is the framework is old so some things rendered obsolete. You&amp;rsquo;ll have to constantly compare the articles and the real life implementation.&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>
