@@ -18,7 +18,7 @@ Official documentation:
 Also there are some series of posts:
 
 * [rezghob.com](https://rezghob.com/category/rts/) — probably the most recent.
-* SOme articles at _raywenderlich.com_: [basics](https://www.raywenderlich.com/1848-cocos2d-x-tutorial-for-beginners), [small game](https://www.raywenderlich.com/2728-cocos2d-x-tutorial-for-ios-and-android-space-game), a game [with map](https://www.raywenderlich.com/2684-cocos2d-x-tile-map-tutorial-part-1)
+* Some articles at _raywenderlich.com_: [basics](https://www.raywenderlich.com/1848-cocos2d-x-tutorial-for-beginners), [small game](https://www.raywenderlich.com/2728-cocos2d-x-tutorial-for-ios-and-android-space-game), a game [with map](https://www.raywenderlich.com/2684-cocos2d-x-tile-map-tutorial-part-1)
 * tutorial videos made by [Sonar Systems](https://www.youtube.com/playlist?list=PLRtjMdoYXLf4od_bOKN3WjAPr7snPXzoe) (also available [here](https://sonarlearning.co.uk/coursepage.php?topic=game&course=cocos2d-x-v3)).
 * Some other blogs: [one](http://aprogrammersday.blogspot.com/p/cocos2d-x-game-programming.html), [two](https://hoangthienphuoc.blogspot.com/2017/10/the-topic-of-game-design-idea-is-always.html), [three](https://discuss.cocos2d-x.org/t/tutorial-series-use-the-cocos2d-x-3-0-game-engine-write-a-tile-map-game-part01/12938/11), [four](http://www.pixnbgames.com/blog/category/cocos2d-x/?lang=en_us), [five](http://www.heyalda.com/category/cocos2d-x/index.html), [six](https://catplusplus.ru/tag/cocos2d-x/), [seven](https://www.mets-blog.com/category/cocos2d-x/), [eight](https://www.babaei.net/tags/cocos2d-x/), [nine](https://devkoboso.com/entry/Cocos2dx-Camera)
 
