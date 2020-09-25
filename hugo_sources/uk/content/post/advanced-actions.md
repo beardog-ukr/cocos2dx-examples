@@ -54,7 +54,7 @@ greenUfo->runAction(reps);
 ```
 Тут AT_UFO_ROTATION — це числова константа і тег, що позначає акцію обертання.
 
-Запуск руху НЛО в стороно виглядає приблизно так:
+Запуск руху НЛО в сторону виглядає приблизно так:
 ```cpp
 MoveBy* moveTo = MoveTo::create(time, Vec2(newX,240));
 moveTo->setTag(AT_UFO_MOVING);
