@@ -14,7 +14,7 @@ Cocos2d is an open source software framework. It can be used to build games, app
 
 # Installation
 
-Installation process is more or less described in the [official documentation](https://docs.cocos2d-x.org/cocos2d-x/v3/en/installation/Linux.html) so there should not be any problems. Also there are good instructions [in this blog for Linux](https://rezghob.com/installing-cocos2d-x-linux-mint/) or [here for Windows](https://rezghob.com/installing-cocos2d-x-windows/).
+Installation process is more or less described in the [official documentation](https://docs.cocos2d-x.org/cocos2d-x/v3/en/installation/Linux.html) so there should not be any problems. Also there are good instructions [in this blog for Linux](https://rezghob.com/installing-cocos2d-x-linux-mint/) or [here for Windows](https://rezghob.com/installing-cocos2d-x-windows/), or [here for iOS](http://indiegamecodingconfessions.blogspot.com/2019/12/cocos2d-x-bootstrapping.html).
 
 Now there are two versions of framework: 3.17 and 4.0. Both are good, and differences are not so significant.
 
@@ -62,7 +62,7 @@ Things ill be a way simpler on Linux. To compile you'll have to enter command  `
 
 Windows compilation depends on framework version. For 3.17.2 it will create a `SmokeTest\proj.win32\SmokeTest.sln` file and you'll just open it with Visual Studio.
 
-However it's more complicated with 4.0 framework. First you'll have to create build directory and get there like 
+However it's more complicated with 4.0 framework. First you'll have to create build directory and get there like
 ```
 mkdir build_win && cd build_win
 ```
@@ -80,5 +80,3 @@ This command asks _cmake_ to use Visual Studio to generate it's project file. Th
 Anyway you can launch your progma with `cocos run` command:
 
 {{< figure src="/cocos2dx-examples/en/post/first-steps-img/first_app_screenshot.png" title="Default application" position="center" >}}
-
-
