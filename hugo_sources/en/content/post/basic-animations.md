@@ -8,7 +8,7 @@ author: beardog-ukr
 
 There are two [kinds of animation](https://hub.packtpub.com/animations-cocos2d-x/):
 * frame (spreadsheet) animation: the graphical designers create a series of frames and _Cocos2d_ draws them one by one using [Animation](https://docs.cocos2d-x.org/api-ref/cplusplus/v4x/d3/dc5/classcocos2d_1_1_animation.html) and [Animate](https://docs.cocos2d-x.org/api-ref/cplusplus/v4x/d9/db4/classcocos2d_1_1_animate.html) classes. The _Animate_ is a subclass of Action, so it  will be easy to use.
-* [Skeletal animation](https://en.wikipedia.org/wiki/Skeletal_animation): a model of the character is created with some special programs and then gets imported to _Cocos2d_.
+* [Skeletal animation](https://en.wikipedia.org/wiki/Skeletal_animation): a model of the character is created with some special programs and then gets imported to _Cocos2d_. There is [another post]({{< ref "dragonbones-animation.md" >}}) about it.
 
 <!--more-->
 
