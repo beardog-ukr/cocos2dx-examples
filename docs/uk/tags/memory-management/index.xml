@@ -18,7 +18,7 @@
       <pubDate>Fri, 03 Apr 2020 13:30:25 +0300</pubDate>
       
       <guid>https://beardog-ukr.github.io/cocos2dx-examples/uk/post/memory-actions/</guid>
-      <description>&lt;p&gt;Тепер, після того, як ми &lt;a href=&#34;https://beardog-ukr.github.io/cocos2dx-examples/uk/post/basic-actions/&#34;&gt;ознайомились з Action&lt;/a&gt; та &lt;a href=&#34;https://beardog-ukr.github.io/cocos2dx-examples/uk/post/basic-actions/&#34;&gt;іншими базовими термінами&lt;/a&gt;, можна розбиратись з проблемою коректного видалення об&#39;єктів, створених Cocos2d.&lt;/p&gt;
+      <description>&lt;p&gt;Тепер, після того, як ми &lt;a href=&#34;https://beardog-ukr.github.io/cocos2dx-examples/uk/post/basic-actions/&#34;&gt;ознайомились з Action&lt;/a&gt; та &lt;a href=&#34;https://beardog-ukr.github.io/cocos2dx-examples/uk/post/basic-things/&#34;&gt;іншими базовими термінами&lt;/a&gt;, можна розбиратись з проблемою коректного видалення об&#39;єктів, створених Cocos2d.&lt;/p&gt;
 &lt;p&gt;Для того, щоб це проілюструвати, напишемо просту сцену, у якій буде один спрайт і одна кнопка. Після натиснення на кнопку спрайт буде переміщуватись за межі екрану і там якось видалятиметься.&lt;/p&gt;</description>
     </item>
     

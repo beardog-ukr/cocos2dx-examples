@@ -105,7 +105,7 @@ RepeatForever<span style="color:#719e07">*</span> reps <span style="color:#719e0
 reps<span style="color:#719e07">-&gt;</span>setTag(AT_UFO_ROTATION);
 greenUfo<span style="color:#719e07">-&gt;</span>runAction(reps);
 </code></pre></div><p>Тут AT_UFO_ROTATION — це числова константа і тег, що позначає акцію обертання.</p>
-<p>Запуск руху НЛО в стороно виглядає приблизно так:</p>
+<p>Запуск руху НЛО в сторону виглядає приблизно так:</p>
 <div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp">MoveBy<span style="color:#719e07">*</span> moveTo <span style="color:#719e07">=</span> MoveTo<span style="color:#719e07">::</span>create(time, Vec2(newX,<span style="color:#2aa198">240</span>));
 moveTo<span style="color:#719e07">-&gt;</span>setTag(AT_UFO_MOVING);
 greenUfo<span style="color:#719e07">-&gt;</span>runAction(moveTo);
