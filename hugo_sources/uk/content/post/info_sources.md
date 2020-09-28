@@ -32,6 +32,8 @@ author: beardog-ukr
 
 [Cocos2d Cross-Platform Game Development Cookbook](https://www.packtpub.com/game-development/cocos2d-cross-platform-game-development-cookbook-second-edition) — відносно нова книга (2016), але по Object-C, тому звідти можна взяти лише якісь загальні поняття.
 
-https://books.google.com.ua/books?id=MThECgAAQBAJ&printsec=frontcover#v=onepage&q&f=false
+[Cocos2d-x Game Development Blueprints](https://www.packtpub.com/product/cocos2d-x-game-development-blueprints/9781783985265) ще одна, 2015 рік видання.
+
+[Mastering Cocos2d Game Development](https://www.packtpub.com/product/mastering-cocos2d-game-development/9781784396718) ще одна відносно свіжа книга.
 
 Крім того, є пара платних курсів Udemy: "[Cocos2d-x v3 C++ - Beginning Game Development](https://www.udemy.com/course/cocos2d-x-v3-cpp/)" та "[Flappy Bird Clone - The Complete Cocos2d-x C++ Game Course](https://www.udemy.com/course/flappy-bird/)".
