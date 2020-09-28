@@ -49,7 +49,7 @@ ffmpeg -framerate 60 -pattern_type glob -i './skeleton_attack_*.png' c1.gif
 
 Теоретично, щоб вирізати певну послідовність кадрів з гіфки, можна перетворити її на ряд кадрів, видалити непотрібні та склеїти назад.
 
-Проте є [простіші способи](https://askubuntu.com/questions/870855/cut-duration-of-animated-gif), напкриклад, зі спеціальною утилітою `gifsicle`.
+Проте є [простіші способи](https://askubuntu.com/questions/870855/cut-duration-of-animated-gif), наприклад, зі спеціальною утилітою `gifsicle`.
 
 Така команда зберігає кадри з 25-го по 78-й у іншу гіфку:
 ```
