@@ -7,10 +7,195 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>© public domain</copyright>
-    <lastBuildDate>Fri, 27 Mar 2020 13:30:25 +0300</lastBuildDate>
+    <lastBuildDate>Thu, 24 Sep 2020 13:30:25 +0300</lastBuildDate>
     
 	<atom:link href="https://beardog-ukr.github.io/cocos2dx-examples/en/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>imagemagick tricks</title>
+      <link>https://beardog-ukr.github.io/cocos2dx-examples/en/post/useful-imagemagick/</link>
+      <pubDate>Mon, 28 Sep 2020 04:25:25 +0300</pubDate>
+      
+      <guid>https://beardog-ukr.github.io/cocos2dx-examples/en/post/useful-imagemagick/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://imagemagick.org/index.php&#34;&gt;imagemagick&lt;/a&gt; is a free console software to create, edit, compose, or convert bitmap images.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Scrolling the map</title>
+      <link>https://beardog-ukr.github.io/cocos2dx-examples/en/post/scrolling/</link>
+      <pubDate>Mon, 28 Sep 2020 02:55:25 +0300</pubDate>
+      
+      <guid>https://beardog-ukr.github.io/cocos2dx-examples/en/post/scrolling/</guid>
+      <description>&lt;p&gt;Sometimes in your game you&amp;rsquo;ll have to scroll the map when your character moves to some new position. For some games the scrolling creates a really significant part of user experience; I&amp;rsquo;d recommend to read &lt;a href=&#34;https://www.gamasutra.com/blogs/ItayKeren/20150511/243083/Scroll_Back_The_Theory_and_Practice_of_Cameras_in_SideScrollers.php&#34;&gt;this article&lt;/a&gt; just to understand how important it is.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Working with different screen sizes</title>
+      <link>https://beardog-ukr.github.io/cocos2dx-examples/en/post/screen-resolution-02/</link>
+      <pubDate>Sun, 27 Sep 2020 10:55:25 +0300</pubDate>
+      
+      <guid>https://beardog-ukr.github.io/cocos2dx-examples/en/post/screen-resolution-02/</guid>
+      <description>&lt;p&gt;In &lt;a href=&#34;https://beardog-ukr.github.io/cocos2dx-examples/en/post/screen-resolution-01/&#34;&gt;one&lt;/a&gt; of the first articles, I&amp;rsquo;ve recommended to remove from the default &lt;code&gt;AppDelegate.cpp&lt;/code&gt; file everything related to work with multiple screen resolutions.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Tiled maps</title>
+      <link>https://beardog-ukr.github.io/cocos2dx-examples/en/post/tiled-maps/</link>
+      <pubDate>Sat, 26 Sep 2020 20:30:25 +0300</pubDate>
+      
+      <guid>https://beardog-ukr.github.io/cocos2dx-examples/en/post/tiled-maps/</guid>
+      <description>&lt;p&gt;If you are creating some really large project like a strategy game or a platformer you&amp;rsquo;ll need some tool to design levels. And this tool is probably &lt;a href=&#34;https://www.mapeditor.org/&#34;&gt;Tiled&lt;/a&gt; - a universal open source level editor.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Switching between scenes</title>
+      <link>https://beardog-ukr.github.io/cocos2dx-examples/en/post/scene-switching/</link>
+      <pubDate>Sat, 26 Sep 2020 17:30:25 +0300</pubDate>
+      
+      <guid>https://beardog-ukr.github.io/cocos2dx-examples/en/post/scene-switching/</guid>
+      <description>&lt;p&gt;The &lt;em&gt;Cocos2d&lt;/em&gt; developers wanted the internal part of the game look like theater or movie: there is [the director(https://docs.cocos2d-x.org/api-ref/cplusplus/v4x/d7/df3/classcocos2d_1_1_director.html)] and some scenes. The director orders scenes to change one another.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Animation with Dragon Bones</title>
+      <link>https://beardog-ukr.github.io/cocos2dx-examples/en/post/dragonbones-animation/</link>
+      <pubDate>Sat, 26 Sep 2020 07:30:25 +0300</pubDate>
+      
+      <guid>https://beardog-ukr.github.io/cocos2dx-examples/en/post/dragonbones-animation/</guid>
+      <description>&lt;p&gt;There are &lt;a href=&#34;https://www.slant.co/options/15725/alternatives/~dragonbones-pro-alternatives&#34;&gt;many variants&lt;/a&gt; to create a &lt;a href=&#34;https://en.wikipedia.org/wiki/Skeletal_animation&#34;&gt;skeletal animation&lt;/a&gt; but almost all of them are paid and so not available for educational purposes. In this article we&amp;rsquo;ll work with &lt;a href=&#34;https://dragonbones.github.io/en/index.html&#34;&gt;Dragon Bones&lt;/a&gt;, that&amp;rsquo;s a free, but a bit weird tool.&lt;/p&gt;
+&lt;p&gt;The &lt;em&gt;Dragon Bones&lt;/em&gt; has decent functionality and it&amp;rsquo;s free. To be presise the editor itself is free as in beer (closed sources) but the code for integrating models into &lt;em&gt;cocos2d-x&lt;/em&gt; is distributed under MIT license.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Animation</title>
+      <link>https://beardog-ukr.github.io/cocos2dx-examples/en/post/basic-animations/</link>
+      <pubDate>Fri, 25 Sep 2020 19:30:25 +0300</pubDate>
+      
+      <guid>https://beardog-ukr.github.io/cocos2dx-examples/en/post/basic-animations/</guid>
+      <description>&lt;p&gt;There are two &lt;a href=&#34;https://hub.packtpub.com/animations-cocos2d-x/&#34;&gt;kinds of animation&lt;/a&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;frame (spreadsheet) animation: the graphical designers create a series of frames and &lt;em&gt;Cocos2d&lt;/em&gt; draws them one by one using &lt;a href=&#34;https://docs.cocos2d-x.org/api-ref/cplusplus/v4x/d3/dc5/classcocos2d_1_1_animation.html&#34;&gt;Animation&lt;/a&gt; and &lt;a href=&#34;https://docs.cocos2d-x.org/api-ref/cplusplus/v4x/d9/db4/classcocos2d_1_1_animate.html&#34;&gt;Animate&lt;/a&gt; classes. The &lt;em&gt;Animate&lt;/em&gt; is a subclass of Action, so it  will be easy to use.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://en.wikipedia.org/wiki/Skeletal_animation&#34;&gt;Skeletal animation&lt;/a&gt;: a model of the character is created with some special programs and then gets imported to &lt;em&gt;Cocos2d&lt;/em&gt;. There is &lt;a href=&#34;https://beardog-ukr.github.io/cocos2dx-examples/en/post/dragonbones-animation/&#34;&gt;another post&lt;/a&gt; about it.&lt;/li&gt;
+&lt;/ul&gt;</description>
+    </item>
+    
+    <item>
+      <title>How to remove objects</title>
+      <link>https://beardog-ukr.github.io/cocos2dx-examples/en/post/memory-actions/</link>
+      <pubDate>Fri, 25 Sep 2020 18:30:25 +0300</pubDate>
+      
+      <guid>https://beardog-ukr.github.io/cocos2dx-examples/en/post/memory-actions/</guid>
+      <description>&lt;p&gt;Since we already know about &lt;a href=&#34;https://beardog-ukr.github.io/cocos2dx-examples/en/post/basic-actions/&#34;&gt;actions&lt;/a&gt; and other &lt;a href=&#34;https://beardog-ukr.github.io/cocos2dx-examples/en/post/basic-actions/&#34;&gt;basic things&lt;/a&gt;, now we can think about correct memory usage.&lt;/p&gt;
+&lt;p&gt;To illustrate it we&amp;rsquo;ll create a &lt;a href=&#34;https://github.com/beardog-ukr/cocos2dx-examples/blob/master/examples/AdvancedActions/Classes/MemoryDemoScene.cpp&#34;&gt;simple scene&lt;/a&gt; with one sprite and one button. After pressing the button the sprite will out of the scene and then it should be removed somehow.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Advanced usage of CC_CALLBACK</title>
+      <link>https://beardog-ukr.github.io/cocos2dx-examples/en/post/advanced-callbacks/</link>
+      <pubDate>Fri, 25 Sep 2020 16:30:25 +0300</pubDate>
+      
+      <guid>https://beardog-ukr.github.io/cocos2dx-examples/en/post/advanced-callbacks/</guid>
+      <description>&lt;p&gt;In the previous &lt;a href=&#34;https://beardog-ukr.github.io/cocos2dx-examples/en/post/events-callbacks/&#34;&gt;article about callbacks&lt;/a&gt; I&amp;rsquo;ve said that the number in the &lt;code&gt;CC_CALLBACK_*&lt;/code&gt; macro means the amount of parameters need for called function. That wasn&amp;rsquo;t exactly true because the C++ magic allows to do a one more trick here.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Advanced actions</title>
+      <link>https://beardog-ukr.github.io/cocos2dx-examples/en/post/advanced-actions/</link>
+      <pubDate>Fri, 25 Sep 2020 10:55:25 +0300</pubDate>
+      
+      <guid>https://beardog-ukr.github.io/cocos2dx-examples/en/post/advanced-actions/</guid>
+      <description>&lt;p&gt;The &lt;a href=&#34;https://beardog-ukr.github.io/cocos2dx-examples/en/post/basic-actions/&#34;&gt;previous article&lt;/a&gt; described how to use &lt;a href=&#34;https://docs.cocos2d-x.org/api-ref/cplusplus/v4x/db/d61/classcocos2d_1_1_action.html&#34;&gt;Action&lt;/a&gt; to move the objects. Now we&amp;rsquo;ll learn how to do more complicated stuff.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Screen size</title>
+      <link>https://beardog-ukr.github.io/cocos2dx-examples/en/post/screen-resolution-01/</link>
+      <pubDate>Fri, 25 Sep 2020 02:30:25 +0300</pubDate>
+      
+      <guid>https://beardog-ukr.github.io/cocos2dx-examples/en/post/screen-resolution-01/</guid>
+      <description>&lt;p&gt;We have already learned now to add objects to the screen and how to do some things with them; that&amp;rsquo;s enough for a simple games. But there is one more thing left unexplained about &lt;a href=&#34;https://beardog-ukr.github.io/cocos2dx-examples/en/post/first-steps/&#34;&gt;our default program&lt;/a&gt; and this is the screen size.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Sequence</title>
+      <link>https://beardog-ukr.github.io/cocos2dx-examples/en/post/basic-sequence/</link>
+      <pubDate>Thu, 24 Sep 2020 15:05:25 +0300</pubDate>
+      
+      <guid>https://beardog-ukr.github.io/cocos2dx-examples/en/post/basic-sequence/</guid>
+      <description>&lt;p&gt;If you need to perform few actions one by one over the same object you can use the &lt;a href=&#34;https://docs.cocos2d-x.org/cocos2d-x/v4/en/actions/sequences.html&#34;&gt;Sequence&lt;/a&gt; class.&lt;/p&gt;
+&lt;p&gt;For example the blue ship in our &lt;a href=&#34;https://beardog-ukr.github.io/cocos2dx-examples/en/post/basic-actions/&#34;&gt;previous demo&lt;/a&gt; appears to be facing north. If we want it to fly to the right we should first rotate it by 90 degrees and then perform the move.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>About</title>
+      <link>https://beardog-ukr.github.io/cocos2dx-examples/en/about/</link>
+      <pubDate>Thu, 24 Sep 2020 13:30:25 +0300</pubDate>
+      
+      <guid>https://beardog-ukr.github.io/cocos2dx-examples/en/about/</guid>
+      <description>This is some series of tutorial articles about Cocos2d-x framework.
+All articles are public domain. You can copy, modify, distribute all these without permission and without limitations.
+However the graphical resources used in software examples come at various licenses (mostly free), so it may be worth to check out.
+Animations:
+ Mage Knight Candle Evil mage hooded something Skeleton  Tilesets:
+ Beach Castle  UI:
+ RPG GUI contstruction kit Interface Elements: Mobile Metallic Neon Menu Buttons  Other things:</description>
+    </item>
+    
+    <item>
+      <title>Movement and other object transformations</title>
+      <link>https://beardog-ukr.github.io/cocos2dx-examples/en/post/basic-actions/</link>
+      <pubDate>Thu, 24 Sep 2020 10:55:25 +0300</pubDate>
+      
+      <guid>https://beardog-ukr.github.io/cocos2dx-examples/en/post/basic-actions/</guid>
+      <description>&lt;p&gt;In previous articles we learned how to show images and process keyboard event. Now it&amp;rsquo;s time to do something interesting with objects on the screen.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Keyboard processing</title>
+      <link>https://beardog-ukr.github.io/cocos2dx-examples/en/post/keyboard-processing/</link>
+      <pubDate>Wed, 23 Sep 2020 18:30:25 +0300</pubDate>
+      
+      <guid>https://beardog-ukr.github.io/cocos2dx-examples/en/post/keyboard-processing/</guid>
+      <description>&lt;p&gt;Keyboard processing can be another example of &lt;code&gt;CC_CALLBACK&lt;/code&gt; usage.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Events and callbacks</title>
+      <link>https://beardog-ukr.github.io/cocos2dx-examples/en/post/events-callbacks/</link>
+      <pubDate>Wed, 23 Sep 2020 17:30:25 +0300</pubDate>
+      
+      <guid>https://beardog-ukr.github.io/cocos2dx-examples/en/post/events-callbacks/</guid>
+      <description>&lt;p&gt;There was one moment in &lt;a href=&#34;https://beardog-ukr.github.io/cocos2dx-examples/en/first-steps.md&#34;&gt;the default program&lt;/a&gt; that still remains unexplained. That&amp;rsquo;s the button that closed the application.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>The Sprite class</title>
+      <link>https://beardog-ukr.github.io/cocos2dx-examples/en/post/static-img-practice-app/</link>
+      <pubDate>Wed, 23 Sep 2020 02:30:25 +0300</pubDate>
+      
+      <guid>https://beardog-ukr.github.io/cocos2dx-examples/en/post/static-img-practice-app/</guid>
+      <description>&lt;p&gt;In this post we&amp;rsquo;ll try to create our really own program. It will not do much, only show a few spaceships images from a &lt;a href=&#34;https://www.kenney.nl/assets/space-shooter-redux&#34;&gt;free pack&lt;/a&gt;. Our goal is to learn about &lt;a href=&#34;https://docs.cocos2d-x.org/api-ref/cplusplus/v4x/d3/d5c/classcocos2d_1_1_sprite.html&#34;&gt;Sprite&lt;/a&gt; class and its common properties.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Cocos2d-x basic ideas</title>
+      <link>https://beardog-ukr.github.io/cocos2dx-examples/en/post/basic-things/</link>
+      <pubDate>Tue, 22 Sep 2020 17:30:25 +0300</pubDate>
+      
+      <guid>https://beardog-ukr.github.io/cocos2dx-examples/en/post/basic-things/</guid>
+      <description>&lt;p&gt;Earlier we learned how to create a basic &lt;em&gt;cocos2d-x&lt;/em&gt; project. Actually, the project was created by &lt;code&gt;cocos&lt;/code&gt; script and all we had to do was to launch it.&lt;/p&gt;
+&lt;p&gt;Now I&amp;rsquo;m going to describe some basic &lt;em&gt;cocos2d-x&lt;/em&gt; terms and then we&amp;rsquo;ll be able to look closely at the sources the &lt;code&gt;cocos&lt;/code&gt; generated for us.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Project structure</title>
+      <link>https://beardog-ukr.github.io/cocos2dx-examples/en/post/project-structure/</link>
+      <pubDate>Tue, 22 Sep 2020 01:30:25 +0300</pubDate>
+      
+      <guid>https://beardog-ukr.github.io/cocos2dx-examples/en/post/project-structure/</guid>
+      <description>&lt;p&gt;You may have already noticed that even the &lt;a href=&#34;https://beardog-ukr.github.io/cocos2dx-examples/en/post/first-steps/&#34;&gt;basic&lt;/a&gt; &lt;em&gt;cocos2d-x&lt;/em&gt; project takes a lot of space on hard drive. The situation was even worse with older versions of framework; it could use almost 1GB for small project. Some people think it&amp;rsquo;s not that significant, but just weird when you have a lot of projects and suddenly run out of space.&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Information sources</title>
@@ -36,40 +221,10 @@
       <pubDate>Fri, 27 Mar 2020 13:30:25 +0300</pubDate>
       
       <guid>https://beardog-ukr.github.io/cocos2dx-examples/en/posts/</guid>
-      <description>This page should contain links to all posts on this site.
-But it&amp;rsquo;s not implemented yet :(</description>
-    </item>
-    
-    <item>
-      <title>Hello</title>
-      <link>https://beardog-ukr.github.io/cocos2dx-examples/en/about/</link>
-      <pubDate>Fri, 27 Mar 2020 13:30:25 +0300</pubDate>
-      
-      <guid>https://beardog-ukr.github.io/cocos2dx-examples/en/about/</guid>
-      <description>This is some series of tutorial articles about Cocos2d-x framework.</description>
-    </item>
-    
-    <item>
-      <title>Fearlessness: How to Stop Running from Space</title>
-      <link>https://beardog-ukr.github.io/cocos2dx-examples/en/post/post-2/</link>
-      <pubDate>Sun, 18 Mar 2018 12:13:30 +0530</pubDate>
-      
-      <guid>https://beardog-ukr.github.io/cocos2dx-examples/en/post/post-2/</guid>
-      <description>We spend our days filling in every available space, cramming in more tasks, responding to messages, checking social media and online sites, watching videos.
-We are afraid of empty space in our lives.
-The result is often a continual busyness, constant distraction and avoidance, lack of focus, lack of satisfaction with our lives.
-We run from silence. We run from the spaces between tasks and appointments. We run from solitude and stillness.</description>
-    </item>
-    
-    <item>
-      <title>Primer: When You Have Too Much to Do</title>
-      <link>https://beardog-ukr.github.io/cocos2dx-examples/en/post/post-1/</link>
-      <pubDate>Sun, 18 Mar 2018 02:01:58 +0530</pubDate>
-      
-      <guid>https://beardog-ukr.github.io/cocos2dx-examples/en/post/post-1/</guid>
-      <description>You have a to-do list that scrolls on for days. You are managing multiple projects, getting lots of email and messages on different messaging systems, managing finances and personal health habits and so much more.
-It all keeps piling up, and it can feel overwhelming.
-How do you keep up with it all? How do you find focus and peace and get stuff accomplished when you have too much on your plate?</description>
+      <description>Here are all the posts from this series.
+The beginning:
+ Information sources: tutorials, books and other useful links First steps: install cocos2d-x and compile the test project The project structure The real first program that shows some images  Intermediate topics:
+ Basic things: the Scene and Node classes Simple actions: time to move something Action sequences: more sophisticated movement The simple animation Events and callbacks: processing use input Advanced actions More about callbacks  More advanced stuff:</description>
     </item>
     
   </channel>

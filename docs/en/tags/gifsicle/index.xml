@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>gifsicle on Cocos2d-x basics</title>
+    <link>https://beardog-ukr.github.io/cocos2dx-examples/en/tags/gifsicle/</link>
+    <description>Recent content in gifsicle on Cocos2d-x basics</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>© public domain</copyright>
+    <lastBuildDate>Mon, 28 Sep 2020 04:25:25 +0300</lastBuildDate>
+    
+	<atom:link href="https://beardog-ukr.github.io/cocos2dx-examples/en/tags/gifsicle/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>imagemagick tricks</title>
+      <link>https://beardog-ukr.github.io/cocos2dx-examples/en/post/useful-imagemagick/</link>
+      <pubDate>Mon, 28 Sep 2020 04:25:25 +0300</pubDate>
+      
+      <guid>https://beardog-ukr.github.io/cocos2dx-examples/en/post/useful-imagemagick/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://imagemagick.org/index.php&#34;&gt;imagemagick&lt;/a&gt; is a free console software to create, edit, compose, or convert bitmap images.&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

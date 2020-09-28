@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Static Images on Cocos2d-x basics</title>
+    <link>https://beardog-ukr.github.io/cocos2dx-examples/en/tags/static-images/</link>
+    <description>Recent content in Static Images on Cocos2d-x basics</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>© public domain</copyright>
+    <lastBuildDate>Wed, 23 Sep 2020 02:30:25 +0300</lastBuildDate>
+    
+	<atom:link href="https://beardog-ukr.github.io/cocos2dx-examples/en/tags/static-images/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>The Sprite class</title>
+      <link>https://beardog-ukr.github.io/cocos2dx-examples/en/post/static-img-practice-app/</link>
+      <pubDate>Wed, 23 Sep 2020 02:30:25 +0300</pubDate>
+      
+      <guid>https://beardog-ukr.github.io/cocos2dx-examples/en/post/static-img-practice-app/</guid>
+      <description>&lt;p&gt;In this post we&amp;rsquo;ll try to create our really own program. It will not do much, only show a few spaceships images from a &lt;a href=&#34;https://www.kenney.nl/assets/space-shooter-redux&#34;&gt;free pack&lt;/a&gt;. Our goal is to learn about &lt;a href=&#34;https://docs.cocos2d-x.org/api-ref/cplusplus/v4x/d3/d5c/classcocos2d_1_1_sprite.html&#34;&gt;Sprite&lt;/a&gt; class and its common properties.&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

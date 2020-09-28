@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>TMXMap on Cocos2d-x basics</title>
+    <link>https://beardog-ukr.github.io/cocos2dx-examples/en/tags/tmxmap/</link>
+    <description>Recent content in TMXMap on Cocos2d-x basics</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>© public domain</copyright>
+    <lastBuildDate>Sat, 26 Sep 2020 20:30:25 +0300</lastBuildDate>
+    
+	<atom:link href="https://beardog-ukr.github.io/cocos2dx-examples/en/tags/tmxmap/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Tiled maps</title>
+      <link>https://beardog-ukr.github.io/cocos2dx-examples/en/post/tiled-maps/</link>
+      <pubDate>Sat, 26 Sep 2020 20:30:25 +0300</pubDate>
+      
+      <guid>https://beardog-ukr.github.io/cocos2dx-examples/en/post/tiled-maps/</guid>
+      <description>&lt;p&gt;If you are creating some really large project like a strategy game or a platformer you&amp;rsquo;ll need some tool to design levels. And this tool is probably &lt;a href=&#34;https://www.mapeditor.org/&#34;&gt;Tiled&lt;/a&gt; - a universal open source level editor.&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

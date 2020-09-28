@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="generator" content="Hugo 0.67.1" />
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>Cocos2d-x basics - Some articles about Cocos2d-x framework </title><meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="alternate" type="application/rss+xml" href="https://beardog-ukr.github.io/cocos2dx-examples/en/index.xml" title="Cocos2d-x basics" />
+	<meta property="og:title" content="Cocos2d-x basics" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://beardog-ukr.github.io/cocos2dx-examples/en/" />
+<meta property="og:updated_time" content="2020-09-24T13:30:25+03:00" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Cocos2d-x basics"/>
+<meta name="twitter:description" content=""/>
+<link href="https://fonts.googleapis.com/css?family=Ubuntu:300,400,300italic,400italic|Raleway:200,300" rel="stylesheet">
+
+	<link rel="stylesheet" type="text/css" media="screen" href="https://beardog-ukr.github.io/cocos2dx-examples/en/css/normalize.css" />
+	<link rel="stylesheet" type="text/css" media="screen" href="https://beardog-ukr.github.io/cocos2dx-examples/en/css/main.css" />
+
+	<script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+	<script src="https://beardog-ukr.github.io/cocos2dx-examples/en/js/main.js"></script>
+</head>
+
+<body>
+	<div class="container wrapper">
+		<div class="header">
+	<h1 class="site-title"><a href="https://beardog-ukr.github.io/cocos2dx-examples/en/">Cocos2d-x basics</a></h1>
+	<div class="site-description"><h2>Some articles about Cocos2d-x framework</h2><nav class="nav social">
+			<ul class="flat"><a href="https://github.com/beardog-ukr/cocos2dx-examples" title="Github"><i data-feather="github"></i></a></ul>
+		</nav>
+	</div>
+
+	<nav class="nav">
+		<ul class="flat">
+			
+			<li>
+				<a href="/cocos2dx-examples/en/">Recent</a>
+			</li>
+			
+			<li>
+				<a href="/cocos2dx-examples/en/posts">All</a>
+			</li>
+			
+			<li>
+				<a href="/cocos2dx-examples/en/about">About</a>
+			</li>
+			
+			<li>
+				<a href="/cocos2dx-examples/en/tags">Tags</a>
+			</li>
+			
+		</ul>
+	</nav>
+</div>
+
+
+		<div class="recent-posts section">
+			<h2 class="section-header">
+				Recent posts
+			</h2>
+			<div class="posts">
+				
+				
+				
+				<div class="post">
+					<div class="meta">Sep 26, 2020</div>
+					<a class="title" href="/cocos2dx-examples/en/post/dragonbones-animation/">Animation with Dragon Bones</a> &mdash;
+					<span class="description">
+						
+						<p>There are <a href="https://www.slant.co/options/15725/alternatives/~dragonbones-pro-alternatives">many variants</a> to create a <a href="https://en.wikipedia.org/wiki/Skeletal_animation">skeletal animation</a> but almost all of them are paid and so not available for educational purposes. In this article we&rsquo;ll work with <a href="https://dragonbones.github.io/en/index.html">Dragon Bones</a>, that&rsquo;s a free, but a bit weird tool.</p>
+<p>The <em>Dragon Bones</em> has decent functionality and it&rsquo;s free. To be presise the editor itself is free as in beer (closed sources) but the code for integrating models into <em>cocos2d-x</em> is distributed under MIT license.</p>&hellip;
+						
+					</span>
+				</div>
+				
+				<div class="post">
+					<div class="meta">Sep 25, 2020</div>
+					<a class="title" href="/cocos2dx-examples/en/post/basic-animations/">Animation</a> &mdash;
+					<span class="description">
+						
+						<p>There are two <a href="https://hub.packtpub.com/animations-cocos2d-x/">kinds of animation</a>:</p>
+<ul>
+<li>frame (spreadsheet) animation: the graphical designers create a series of frames and <em>Cocos2d</em> draws them one by one using <a href="https://docs.cocos2d-x.org/api-ref/cplusplus/v4x/d3/dc5/classcocos2d_1_1_animation.html">Animation</a> and <a href="https://docs.cocos2d-x.org/api-ref/cplusplus/v4x/d9/db4/classcocos2d_1_1_animate.html">Animate</a> classes. The <em>Animate</em> is a subclass of Action, so it  will be easy to use.</li>
+<li><a href="https://en.wikipedia.org/wiki/Skeletal_animation">Skeletal animation</a>: a model of the character is created with some special programs and then gets imported to <em>Cocos2d</em>. There is <a href="https://beardog-ukr.github.io/cocos2dx-examples/en/post/dragonbones-animation/">another post</a> about it.</li>
+</ul>&hellip;
+						
+					</span>
+				</div>
+				
+				<div class="post">
+					<div class="meta">Sep 25, 2020</div>
+					<a class="title" href="/cocos2dx-examples/en/post/memory-actions/">How to remove objects</a> &mdash;
+					<span class="description">
+						
+						<p>Since we already know about <a href="https://beardog-ukr.github.io/cocos2dx-examples/en/post/basic-actions/">actions</a> and other <a href="https://beardog-ukr.github.io/cocos2dx-examples/en/post/basic-actions/">basic things</a>, now we can think about correct memory usage.</p>
+<p>To illustrate it we&rsquo;ll create a <a href="https://github.com/beardog-ukr/cocos2dx-examples/blob/master/examples/AdvancedActions/Classes/MemoryDemoScene.cpp">simple scene</a> with one sprite and one button. After pressing the button the sprite will out of the scene and then it should be removed somehow.</p>&hellip;
+						
+					</span>
+				</div>
+				
+				<div class="post">
+					<div class="meta">Sep 25, 2020</div>
+					<a class="title" href="/cocos2dx-examples/en/post/advanced-callbacks/">Advanced usage of CC_CALLBACK</a> &mdash;
+					<span class="description">
+						
+						<p>In the previous <a href="https://beardog-ukr.github.io/cocos2dx-examples/en/post/events-callbacks/">article about callbacks</a> I&rsquo;ve said that the number in the <code>CC_CALLBACK_*</code> macro means the amount of parameters need for called function. That wasn&rsquo;t exactly true because the C++ magic allows to do a one more trick here.</p>&hellip;
+						
+					</span>
+				</div>
+				
+				<div class="post">
+					<div class="meta">Sep 25, 2020</div>
+					<a class="title" href="/cocos2dx-examples/en/post/advanced-actions/">Advanced actions</a> &mdash;
+					<span class="description">
+						
+						<p>The <a href="https://beardog-ukr.github.io/cocos2dx-examples/en/post/basic-actions/">previous article</a> described how to use <a href="https://docs.cocos2d-x.org/api-ref/cplusplus/v4x/db/d61/classcocos2d_1_1_action.html">Action</a> to move the objects. Now we&rsquo;ll learn how to do more complicated stuff.</p>&hellip;
+						
+					</span>
+				</div>
+				
+				
+
+<ul class="pagination">
+	<li class="page-item page-prev">
+	
+    <a href="/cocos2dx-examples/en/" class="page-link" aria-label="Previous"><span aria-hidden="true">← Prev page</span></a>
+	
+	</li>
+	<li class="page-item page-next">
+	
+    <a href="/cocos2dx-examples/en/page/3/" class="page-link" aria-label="Next"><span aria-hidden="true">Next page →</span></a>
+	
+	</li>
+</ul>
+
+
+			</div>
+		</div>
+	</div>
+	<div class="footer wrapper">
+	<nav class="nav">
+		<div> © public domain |  <a href="https://github.com/vividvilla/ezhil">Ezhil theme</a> | Built with <a href="https://gohugo.io">Hugo</a></div>
+	</nav>
+</div>
+
+
+
+<script>feather.replace()</script>
+</body>
+</html>

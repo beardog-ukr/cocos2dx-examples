@@ -7,10 +7,20 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>© public domain</copyright>
-    <lastBuildDate>Sun, 20 Sep 2020 17:30:25 +0300</lastBuildDate>
+    <lastBuildDate>Tue, 22 Sep 2020 17:30:25 +0300</lastBuildDate>
     
 	<atom:link href="https://beardog-ukr.github.io/cocos2dx-examples/en/tags/initial/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Cocos2d-x basic ideas</title>
+      <link>https://beardog-ukr.github.io/cocos2dx-examples/en/post/basic-things/</link>
+      <pubDate>Tue, 22 Sep 2020 17:30:25 +0300</pubDate>
+      
+      <guid>https://beardog-ukr.github.io/cocos2dx-examples/en/post/basic-things/</guid>
+      <description>&lt;p&gt;Earlier we learned how to create a basic &lt;em&gt;cocos2d-x&lt;/em&gt; project. Actually, the project was created by &lt;code&gt;cocos&lt;/code&gt; script and all we had to do was to launch it.&lt;/p&gt;
+&lt;p&gt;Now I&amp;rsquo;m going to describe some basic &lt;em&gt;cocos2d-x&lt;/em&gt; terms and then we&amp;rsquo;ll be able to look closely at the sources the &lt;code&gt;cocos&lt;/code&gt; generated for us.&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>First steps</title>

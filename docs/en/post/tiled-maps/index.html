@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>Tiled maps - Cocos2d-x basics</title><meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta property="og:title" content="Tiled maps" />
+<meta property="og:description" content="If you are creating some really large project like a strategy game or a platformer you&rsquo;ll need some tool to design levels. And this tool is probably Tiled - a universal open source level editor." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://beardog-ukr.github.io/cocos2dx-examples/en/post/tiled-maps/" />
+<meta property="article:published_time" content="2020-09-26T20:30:25+03:00" />
+<meta property="article:modified_time" content="2020-09-26T20:30:25+03:00" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Tiled maps"/>
+<meta name="twitter:description" content="If you are creating some really large project like a strategy game or a platformer you&rsquo;ll need some tool to design levels. And this tool is probably Tiled - a universal open source level editor."/>
+<link href="https://fonts.googleapis.com/css?family=Ubuntu:300,400,300italic,400italic|Raleway:200,300" rel="stylesheet">
+
+	<link rel="stylesheet" type="text/css" media="screen" href="https://beardog-ukr.github.io/cocos2dx-examples/en/css/normalize.css" />
+	<link rel="stylesheet" type="text/css" media="screen" href="https://beardog-ukr.github.io/cocos2dx-examples/en/css/main.css" />
+
+	<script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+	<script src="https://beardog-ukr.github.io/cocos2dx-examples/en/js/main.js"></script>
+</head>
+
+<body>
+	<div class="container wrapper post">
+		<div class="header">
+	<h1 class="site-title"><a href="https://beardog-ukr.github.io/cocos2dx-examples/en/">Cocos2d-x basics</a></h1>
+	<div class="site-description"><h2>Some articles about Cocos2d-x framework</h2><nav class="nav social">
+			<ul class="flat"><a href="https://github.com/beardog-ukr/cocos2dx-examples" title="Github"><i data-feather="github"></i></a></ul>
+		</nav>
+	</div>
+
+	<nav class="nav">
+		<ul class="flat">
+			
+			<li>
+				<a href="/cocos2dx-examples/en/">Recent</a>
+			</li>
+			
+			<li>
+				<a href="/cocos2dx-examples/en/posts">All</a>
+			</li>
+			
+			<li>
+				<a href="/cocos2dx-examples/en/about">About</a>
+			</li>
+			
+			<li>
+				<a href="/cocos2dx-examples/en/tags">Tags</a>
+			</li>
+			
+		</ul>
+	</nav>
+</div>
+
+
+		<div class="post-header">
+			<h1 class="title">Tiled maps</h1>
+			<div class="meta">Posted at &mdash; Sep 26, 2020</div>
+		</div>
+
+		<div class="markdown">
+			<p>If you are creating some really large project like a strategy game or a platformer you&rsquo;ll need some tool to design levels. And this tool is probably <a href="https://www.mapeditor.org/">Tiled</a> - a universal open source level editor.</p>
+<h1 id="basics">Basics</h1>
+<p>The <em>Tiled</em> interface is similar to other editors so I don&rsquo;t think there is any need to describe it (but you can check <a href="https://www.raywenderlich.com/2684-cocos2d-x-tile-map-tutorial-part-1">this article</a> if you want). The thing is, you take some tileset created by graphics designer and use this tileset to create a map.</p>
+<p>We&rsquo;ll take <a href="http://finalbossblues.com/timefantasy/freebies/free-beach-tileset/">this tileset</a> with <a href="https://fooch.itch.io/mage">wizard</a> and <a href="https://0x72.itch.io/dungeontileset-ii">knight</a> animations for out first example.</p>
+<figure>
+    <img src="/cocos2dx-examples/en/post/tiled-maps/beach-tiled.png"/> <figcaption>
+            <h4>Working with Tiled</h4>
+        </figcaption>
+</figure>
+
+<p>The map design has some things special for Cocos2dx:</p>
+<ul>
+<li>one layer in the editor can utilize elements from <a href="https://gamedev.stackexchange.com/questions/152458/assets-from-tiled-background-layer-not-appearing-in-cocos2d-x">only one tileset</a>. If you want to use another tileset you have to create one more layer.</li>
+<li>it will be better to keep tileset file (<code>*.tsx</code>) in the same folder with map file(<code>*.tmx</code>); otherwise you can get some problems during loading</li>
+<li>older <em>cocos2d-x</em> versions (like 3.17.2 and lower) were incompatible with newer versions of <em>Tiled</em> editor. However, there is no such problem in Cocos2dx 4.0.</li>
+</ul>
+<p>Map loading is easy, it&rsquo;s only one line of code:</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#719e07">const</span> <span style="color:#dc322f">char</span> mapFilename[] <span style="color:#719e07">=</span> <span style="color:#2aa198">&#34;beach/beach_map.tmx&#34;</span>;
+
+TMXTiledMap<span style="color:#719e07">*</span> mapNode <span style="color:#719e07">=</span> TMXTiledMap<span style="color:#719e07">::</span>create(mapFilename);
+<span style="color:#719e07">if</span> (mapNode <span style="color:#719e07">==</span> <span style="color:#719e07">nullptr</span>) {
+<span style="color:#586e75">// error processing  
+</span><span style="color:#586e75"></span>}
+addChild(mapNode, ZO_BACKGROUND);
+</code></pre></div><p>The <code>TMXTiledMap</code> is a subclass of <a href="https://docs.cocos2d-x.org/api-ref/cplusplus/v4x/d3/d82/classcocos2d_1_1_node.html">Node</a> so you should already know how to work with it :)</p>
+<h1 id="meta-information-on-the-map">Meta information on the map</h1>
+<p>There is always some additional information you may want to add to the map. For example, it can be a starting point for the hero or some tiles where moving is prohibited.</p>
+<p>In order to create such markings you can do following:</p>
+<ul>
+<li>add some special &ldquo;meta&rdquo; layer to the map. This layer should use elements from special &ldquo;meta&rdquo; tileset</li>
+<li>during loading your program should process all the information from the &ldquo;meta&rdquo; layer and then hide it from the player.</li>
+</ul>
+<p>The &ldquo;meta&rdquo; tileset can look like this:</p>
+<figure>
+    <img src="/cocos2dx-examples/en/post/tiled-maps/meta-code-tile.png"/> <figcaption>
+            <h4>Special tiles and custom property</h4>
+        </figcaption>
+</figure>
+
+<p>Since players will never see this tiles, it doesn&rsquo;t matter what pictures are used there. Here it&rsquo;s just some numbers and letters.</p>
+<p>You should add  a special integer value (tag) to each meta tile; later the program will use this values to distinguish one tile from another. On the picture below this tag&rsquo;s field is called &ldquo;MetaCode&rdquo;. You can add it by pressing the blue &ldquo;+&rdquo; sign at the bottom of the panel.</p>
+<p>The meta infirmation loading looks like:</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#dc322f">bool</span> SimpleNoScrollScene<span style="color:#719e07">::</span>loadMetaInfo(TMXTiledMap<span style="color:#719e07">*</span> <span style="color:#719e07">const</span> mapNode) {
+
+  <span style="color:#719e07">const</span> string metaLayerName <span style="color:#719e07">=</span> <span style="color:#2aa198">&#34;meta&#34;</span>;
+  TMXLayer<span style="color:#719e07">*</span> <span style="color:#719e07">const</span> metaLayer <span style="color:#719e07">=</span> mapNode<span style="color:#719e07">-&gt;</span>getLayer(metaLayerName);
+  <span style="color:#719e07">if</span> (metaLayer <span style="color:#719e07">==</span> <span style="color:#719e07">nullptr</span>) {
+    printf(<span style="color:#2aa198">&#34;Failed to find %s layer</span><span style="color:#cb4b16">\n</span><span style="color:#2aa198">&#34;</span>, metaLayerName.c_str());
+    <span style="color:#719e07">return</span> <span style="color:#b58900">false</span>;
+  }
+
+  <span style="color:#719e07">const</span> Size mapSize <span style="color:#719e07">=</span> mapNode<span style="color:#719e07">-&gt;</span>getMapSize();
+  obstaclesMapWidth <span style="color:#719e07">=</span> mapSize.width;
+  obstaclesMapHeight <span style="color:#719e07">=</span> mapSize.height;
+  obstaclesMap <span style="color:#719e07">=</span> <span style="color:#719e07">new</span> <span style="color:#dc322f">bool</span>[obstaclesMapWidth<span style="color:#719e07">*</span>obstaclesMapHeight];
+  memset(obstaclesMap, <span style="color:#2aa198">0</span>, (obstaclesMapWidth<span style="color:#719e07">*</span>obstaclesMapHeight));
+
+  <span style="color:#719e07">for</span> (<span style="color:#dc322f">int</span> tileX <span style="color:#719e07">=</span> <span style="color:#2aa198">0</span>; tileX <span style="color:#719e07">&lt;</span> mapSize.width; tileX<span style="color:#719e07">++</span>) {
+    <span style="color:#719e07">for</span> (<span style="color:#dc322f">int</span> tileY <span style="color:#719e07">=</span> <span style="color:#2aa198">0</span>; tileY <span style="color:#719e07">&lt;</span> mapSize.height; tileY<span style="color:#719e07">++</span>) {
+      <span style="color:#719e07">const</span> <span style="color:#dc322f">int</span> tileGid <span style="color:#719e07">=</span> metaLayer<span style="color:#719e07">-&gt;</span>getTileGIDAt(Vec2(tileX, tileY));
+      <span style="color:#719e07">const</span> Value prop    <span style="color:#719e07">=</span> mapNode<span style="color:#719e07">-&gt;</span>getPropertiesForGID(tileGid);
+
+      <span style="color:#719e07">if</span> (prop.isNull()) {
+        <span style="color:#719e07">continue</span>;
+      }
+
+      <span style="color:#719e07">const</span> ValueMap vm   <span style="color:#719e07">=</span> prop.asValueMap();
+      <span style="color:#719e07">const</span> <span style="color:#719e07">auto</span> frez <span style="color:#719e07">=</span> vm.find(<span style="color:#2aa198">&#34;MetaCode&#34;</span>);
+
+      <span style="color:#719e07">if</span> (frez <span style="color:#719e07">==</span> vm.end()) {
+        <span style="color:#719e07">continue</span>;
+      }
+
+      <span style="color:#719e07">const</span> <span style="color:#dc322f">int</span> metaCode <span style="color:#719e07">=</span> frez<span style="color:#719e07">-&gt;</span>second.asInt();
+
+      <span style="color:#719e07">switch</span> (metaCode) {
+      <span style="color:#719e07">case</span> MMC_OBSTACLE:
+        obstaclesMap[obstaclesMapWidth<span style="color:#719e07">*</span>(obstaclesMapHeight <span style="color:#719e07">-</span> tileY <span style="color:#719e07">-</span> <span style="color:#2aa198">1</span>) <span style="color:#719e07">+</span> tileX] <span style="color:#719e07">=</span> <span style="color:#b58900">true</span>;
+        <span style="color:#719e07">break</span>;
+
+      <span style="color:#719e07">case</span> MMC_MAGE_START:
+        mageStartX   <span style="color:#719e07">=</span> tileX;
+        mageStartY   <span style="color:#719e07">=</span> mapSize.height <span style="color:#719e07">-</span> tileY <span style="color:#719e07">-</span> <span style="color:#2aa198">1</span>;
+        <span style="color:#719e07">break</span>;
+
+      <span style="color:#719e07">case</span> MMC_KNIGHT_START:
+        knightStartX   <span style="color:#719e07">=</span> tileX;
+        knightStartY   <span style="color:#719e07">=</span> mapSize.height <span style="color:#719e07">-</span> tileY <span style="color:#719e07">-</span> <span style="color:#2aa198">1</span>;
+
+        currentKnightX <span style="color:#719e07">=</span> knightStartX;
+        currentKnightY <span style="color:#719e07">=</span> knightStartY;
+        <span style="color:#719e07">break</span>;
+
+        <span style="color:#586e75">// Note there is no suitable default action here
+</span><span style="color:#586e75"></span>        <span style="color:#586e75">// default:
+</span><span style="color:#586e75"></span>      }
+    }
+  }
+
+  metaLayer<span style="color:#719e07">-&gt;</span>setVisible(<span style="color:#b58900">false</span>);
+
+  <span style="color:#719e07">return</span> <span style="color:#b58900">true</span>;
+}
+</code></pre></div><p>Here we use <code>getLayer</code> to get the layer and then loop over its tiles. For each tile we try to get the &ldquo;MetaCode&rdquo; value (if there is any). Depending on the code value it can be either starting point (for mage or knight) or an obstacle.</p>
+<p><em>Tiled</em> uses coordinate system different from <em>Cocos2d-x</em>. The (0,0) appears in the top left corner of the map, and Y grows from top to bottom. That&rsquo;s why we should convert Y coordinate values with something like <code>knightStartY = mapSize.height - tileY - 1;</code>.</p>
+<p>So, we can create a map like this:
+<figure>
+    <img src="/cocos2dx-examples/en/post/tiled-maps/beach-meta.png"/> <figcaption>
+            <h4>A map with markings</h4>
+        </figcaption>
+</figure>
+</p>
+<p>And that&rsquo;s how it will appear in the game:
+<figure>
+    <img src="/cocos2dx-examples/en/post/tiled-maps/beach_k.gif"/> <figcaption>
+            <h4>Knight moves towards water</h4>
+        </figcaption>
+</figure>
+</p>
+<p>Here meta tileset numbers are used to mark starting points for mage and knight and crosses mark tiles prohibited for walking. Knight moves one tile right, then checks if next move possible. You can see the whole code of the scene <a href="https://github.com/beardog-ukr/cocos2dx-examples/tree/master/examples/TiledBackground">in the repo</a>.</p>
+<h1 id="another-editors">Another editors</h1>
+<p>I should mention the <em>Tiled</em> is not the only possible level editor. There are <a href="https://gamedev.stackexchange.com/questions/225/tools-for-creating-2d-tile-based-maps">some</a> <a href="https://gamedev.stackexchange.com/questions/1886/tile-based-2d-level-editor">more</a>.
+Also, you can always try to <a href="https://gamedevelopment.tutsplus.com/articles/make-your-life-easier-build-a-level-editor--gamedev-356">create one</a> by yourself (or at least try).</p>
+		</div>
+
+		<div class="post-tags">
+			
+				
+					<nav class="nav tags">
+							<ul class="flat">
+								
+								<li><a href="/cocos2dx-examples/en/tags/tiled">Tiled</a></li>
+								
+								<li><a href="/cocos2dx-examples/en/tags/tileset">Tileset</a></li>
+								
+								<li><a href="/cocos2dx-examples/en/tags/tmxmap">TMXMap</a></li>
+								
+								<li><a href="/cocos2dx-examples/en/tags/third-party-tools">third-party tools</a></li>
+								
+							</ul>
+					</nav>
+				
+			
+		</div>
+		</div>
+	<div class="footer wrapper">
+	<nav class="nav">
+		<div> © public domain |  <a href="https://github.com/vividvilla/ezhil">Ezhil theme</a> | Built with <a href="https://gohugo.io">Hugo</a></div>
+	</nav>
+</div>
+
+
+
+<script>feather.replace()</script>
+</body>
+</html>

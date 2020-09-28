@@ -3,6 +3,341 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://beardog-ukr.github.io/cocos2dx-examples/en/tags/ffmpeg/</loc>
+    <lastmod>2020-09-28T04:25:25+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://beardog-ukr.github.io/cocos2dx-examples/en/tags/gifsicle/</loc>
+    <lastmod>2020-09-28T04:25:25+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://beardog-ukr.github.io/cocos2dx-examples/en/tags/image-processing/</loc>
+    <lastmod>2020-09-28T04:25:25+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://beardog-ukr.github.io/cocos2dx-examples/en/tags/imagemagick/</loc>
+    <lastmod>2020-09-28T04:25:25+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://beardog-ukr.github.io/cocos2dx-examples/en/post/useful-imagemagick/</loc>
+    <lastmod>2020-09-28T04:25:25+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://beardog-ukr.github.io/cocos2dx-examples/en/post/</loc>
+    <lastmod>2020-09-28T04:25:25+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://beardog-ukr.github.io/cocos2dx-examples/en/tags/</loc>
+    <lastmod>2020-09-28T04:25:25+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://beardog-ukr.github.io/cocos2dx-examples/en/tags/textures/</loc>
+    <lastmod>2020-09-28T04:25:25+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://beardog-ukr.github.io/cocos2dx-examples/en/tags/design-resolution/</loc>
+    <lastmod>2020-09-28T02:55:25+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://beardog-ukr.github.io/cocos2dx-examples/en/tags/scrolling/</loc>
+    <lastmod>2020-09-28T02:55:25+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://beardog-ukr.github.io/cocos2dx-examples/en/post/scrolling/</loc>
+    <lastmod>2020-09-28T02:55:25+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://beardog-ukr.github.io/cocos2dx-examples/en/tags/appdelegate.cpp/</loc>
+    <lastmod>2020-09-27T10:55:25+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://beardog-ukr.github.io/cocos2dx-examples/en/tags/origin/</loc>
+    <lastmod>2020-09-27T10:55:25+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://beardog-ukr.github.io/cocos2dx-examples/en/tags/resolutionpolicy/</loc>
+    <lastmod>2020-09-27T10:55:25+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://beardog-ukr.github.io/cocos2dx-examples/en/post/screen-resolution-02/</loc>
+    <lastmod>2020-09-27T10:55:25+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://beardog-ukr.github.io/cocos2dx-examples/en/tags/third-party-tools/</loc>
+    <lastmod>2020-09-26T20:30:25+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://beardog-ukr.github.io/cocos2dx-examples/en/tags/tiled/</loc>
+    <lastmod>2020-09-26T20:30:25+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://beardog-ukr.github.io/cocos2dx-examples/en/post/tiled-maps/</loc>
+    <lastmod>2020-09-26T20:30:25+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://beardog-ukr.github.io/cocos2dx-examples/en/tags/tileset/</loc>
+    <lastmod>2020-09-26T20:30:25+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://beardog-ukr.github.io/cocos2dx-examples/en/tags/tmxmap/</loc>
+    <lastmod>2020-09-26T20:30:25+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://beardog-ukr.github.io/cocos2dx-examples/en/tags/director/</loc>
+    <lastmod>2020-09-26T17:30:25+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://beardog-ukr.github.io/cocos2dx-examples/en/tags/scene/</loc>
+    <lastmod>2020-09-26T17:30:25+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://beardog-ukr.github.io/cocos2dx-examples/en/post/scene-switching/</loc>
+    <lastmod>2020-09-26T17:30:25+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://beardog-ukr.github.io/cocos2dx-examples/en/tags/animation/</loc>
+    <lastmod>2020-09-26T07:30:25+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://beardog-ukr.github.io/cocos2dx-examples/en/post/dragonbones-animation/</loc>
+    <lastmod>2020-09-26T07:30:25+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://beardog-ukr.github.io/cocos2dx-examples/en/tags/dragon-bones/</loc>
+    <lastmod>2020-09-26T07:30:25+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://beardog-ukr.github.io/cocos2dx-examples/en/tags/skeletal-animation/</loc>
+    <lastmod>2020-09-26T07:30:25+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://beardog-ukr.github.io/cocos2dx-examples/en/post/basic-animations/</loc>
+    <lastmod>2020-09-25T19:30:25+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://beardog-ukr.github.io/cocos2dx-examples/en/tags/animationcache/</loc>
+    <lastmod>2020-09-25T19:30:25+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://beardog-ukr.github.io/cocos2dx-examples/en/tags/plist/</loc>
+    <lastmod>2020-09-25T19:30:25+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://beardog-ukr.github.io/cocos2dx-examples/en/tags/sprite/</loc>
+    <lastmod>2020-09-25T19:30:25+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://beardog-ukr.github.io/cocos2dx-examples/en/tags/spriteframecache/</loc>
+    <lastmod>2020-09-25T19:30:25+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://beardog-ukr.github.io/cocos2dx-examples/en/tags/texturepacker/</loc>
+    <lastmod>2020-09-25T19:30:25+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://beardog-ukr.github.io/cocos2dx-examples/en/tags/callfunc/</loc>
+    <lastmod>2020-09-25T18:30:25+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://beardog-ukr.github.io/cocos2dx-examples/en/tags/child-parent/</loc>
+    <lastmod>2020-09-25T18:30:25+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://beardog-ukr.github.io/cocos2dx-examples/en/post/memory-actions/</loc>
+    <lastmod>2020-09-25T18:30:25+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://beardog-ukr.github.io/cocos2dx-examples/en/tags/memory-management/</loc>
+    <lastmod>2020-09-25T18:30:25+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://beardog-ukr.github.io/cocos2dx-examples/en/tags/removeself/</loc>
+    <lastmod>2020-09-25T18:30:25+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://beardog-ukr.github.io/cocos2dx-examples/en/post/advanced-callbacks/</loc>
+    <lastmod>2020-09-25T16:30:25+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://beardog-ukr.github.io/cocos2dx-examples/en/tags/callbacks/</loc>
+    <lastmod>2020-09-25T16:30:25+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://beardog-ukr.github.io/cocos2dx-examples/en/tags/cc_callback/</loc>
+    <lastmod>2020-09-25T16:30:25+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://beardog-ukr.github.io/cocos2dx-examples/en/tags/event/</loc>
+    <lastmod>2020-09-25T16:30:25+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://beardog-ukr.github.io/cocos2dx-examples/en/tags/events/</loc>
+    <lastmod>2020-09-25T16:30:25+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://beardog-ukr.github.io/cocos2dx-examples/en/tags/action/</loc>
+    <lastmod>2020-09-25T10:55:25+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://beardog-ukr.github.io/cocos2dx-examples/en/post/advanced-actions/</loc>
+    <lastmod>2020-09-25T10:55:25+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://beardog-ukr.github.io/cocos2dx-examples/en/tags/sequence/</loc>
+    <lastmod>2020-09-25T10:55:25+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://beardog-ukr.github.io/cocos2dx-examples/en/tags/tag/</loc>
+    <lastmod>2020-09-25T10:55:25+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://beardog-ukr.github.io/cocos2dx-examples/en/post/screen-resolution-01/</loc>
+    <lastmod>2020-09-25T02:30:25+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://beardog-ukr.github.io/cocos2dx-examples/en/tags/smoke-test-project/</loc>
+    <lastmod>2020-09-25T02:30:25+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://beardog-ukr.github.io/cocos2dx-examples/en/post/basic-sequence/</loc>
+    <lastmod>2020-09-24T15:05:25+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://beardog-ukr.github.io/cocos2dx-examples/en/about/</loc>
+    <lastmod>2020-09-24T13:30:25+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://beardog-ukr.github.io/cocos2dx-examples/en/</loc>
+    <lastmod>2020-09-24T13:30:25+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://beardog-ukr.github.io/cocos2dx-examples/en/post/basic-actions/</loc>
+    <lastmod>2020-09-24T10:55:25+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://beardog-ukr.github.io/cocos2dx-examples/en/tags/moveto/</loc>
+    <lastmod>2020-09-24T10:55:25+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://beardog-ukr.github.io/cocos2dx-examples/en/post/keyboard-processing/</loc>
+    <lastmod>2020-09-23T18:30:25+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://beardog-ukr.github.io/cocos2dx-examples/en/tags/keyboard-processing/</loc>
+    <lastmod>2020-09-23T18:30:25+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://beardog-ukr.github.io/cocos2dx-examples/en/tags/event-processing/</loc>
+    <lastmod>2020-09-23T17:30:25+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://beardog-ukr.github.io/cocos2dx-examples/en/post/events-callbacks/</loc>
+    <lastmod>2020-09-23T17:30:25+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://beardog-ukr.github.io/cocos2dx-examples/en/tags/stdbind/</loc>
+    <lastmod>2020-09-23T17:30:25+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://beardog-ukr.github.io/cocos2dx-examples/en/tags/static-images/</loc>
+    <lastmod>2020-09-23T02:30:25+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://beardog-ukr.github.io/cocos2dx-examples/en/post/static-img-practice-app/</loc>
+    <lastmod>2020-09-23T02:30:25+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://beardog-ukr.github.io/cocos2dx-examples/en/post/basic-things/</loc>
+    <lastmod>2020-09-22T17:30:25+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://beardog-ukr.github.io/cocos2dx-examples/en/tags/initial/</loc>
+    <lastmod>2020-09-22T17:30:25+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://beardog-ukr.github.io/cocos2dx-examples/en/tags/files/</loc>
+    <lastmod>2020-09-22T01:30:25+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://beardog-ukr.github.io/cocos2dx-examples/en/post/project-structure/</loc>
+    <lastmod>2020-09-22T01:30:25+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://beardog-ukr.github.io/cocos2dx-examples/en/tags/project-structure/</loc>
+    <lastmod>2020-09-22T01:30:25+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://beardog-ukr.github.io/cocos2dx-examples/en/tags/resources/</loc>
+    <lastmod>2020-09-22T01:30:25+03:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://beardog-ukr.github.io/cocos2dx-examples/en/post/info_sources/</loc>
     <lastmod>2020-09-21T11:30:25+03:00</lastmod>
   </url>
@@ -13,22 +348,7 @@
   </url>
   
   <url>
-    <loc>https://beardog-ukr.github.io/cocos2dx-examples/en/post/</loc>
-    <lastmod>2020-09-21T11:30:25+03:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://beardog-ukr.github.io/cocos2dx-examples/en/tags/</loc>
-    <lastmod>2020-09-21T11:30:25+03:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://beardog-ukr.github.io/cocos2dx-examples/en/post/first-steps/</loc>
-    <lastmod>2020-09-20T17:30:25+03:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://beardog-ukr.github.io/cocos2dx-examples/en/tags/initial/</loc>
     <lastmod>2020-09-20T17:30:25+03:00</lastmod>
   </url>
   
@@ -40,41 +360,6 @@
   <url>
     <loc>https://beardog-ukr.github.io/cocos2dx-examples/en/posts/</loc>
     <lastmod>2020-03-27T13:30:25+03:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://beardog-ukr.github.io/cocos2dx-examples/en/</loc>
-    <lastmod>2020-03-27T13:30:25+03:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://beardog-ukr.github.io/cocos2dx-examples/en/about/</loc>
-    <lastmod>2020-03-27T13:30:25+03:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://beardog-ukr.github.io/cocos2dx-examples/en/post/post-2/</loc>
-    <lastmod>2018-03-18T12:13:30+05:30</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://beardog-ukr.github.io/cocos2dx-examples/en/tags/space/</loc>
-    <lastmod>2018-03-18T12:13:30+05:30</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://beardog-ukr.github.io/cocos2dx-examples/en/tags/primer/</loc>
-    <lastmod>2018-03-18T02:01:58+05:30</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://beardog-ukr.github.io/cocos2dx-examples/en/post/post-1/</loc>
-    <lastmod>2018-03-18T02:01:58+05:30</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://beardog-ukr.github.io/cocos2dx-examples/en/tags/todo/</loc>
-    <lastmod>2018-03-18T02:01:58+05:30</lastmod>
   </url>
   
 </urlset>

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>Cocos2d-x basic ideas - Cocos2d-x basics</title><meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta property="og:title" content="Cocos2d-x basic ideas" />
+<meta property="og:description" content="Earlier we learned how to create a basic cocos2d-x project. Actually, the project was created by cocos script and all we had to do was to launch it.
+Now I&rsquo;m going to describe some basic cocos2d-x terms and then we&rsquo;ll be able to look closely at the sources the cocos generated for us." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://beardog-ukr.github.io/cocos2dx-examples/en/post/basic-things/" />
+<meta property="article:published_time" content="2020-09-22T17:30:25+03:00" />
+<meta property="article:modified_time" content="2020-09-22T17:30:25+03:00" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Cocos2d-x basic ideas"/>
+<meta name="twitter:description" content="Earlier we learned how to create a basic cocos2d-x project. Actually, the project was created by cocos script and all we had to do was to launch it.
+Now I&rsquo;m going to describe some basic cocos2d-x terms and then we&rsquo;ll be able to look closely at the sources the cocos generated for us."/>
+<link href="https://fonts.googleapis.com/css?family=Ubuntu:300,400,300italic,400italic|Raleway:200,300" rel="stylesheet">
+
+	<link rel="stylesheet" type="text/css" media="screen" href="https://beardog-ukr.github.io/cocos2dx-examples/en/css/normalize.css" />
+	<link rel="stylesheet" type="text/css" media="screen" href="https://beardog-ukr.github.io/cocos2dx-examples/en/css/main.css" />
+
+	<script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+	<script src="https://beardog-ukr.github.io/cocos2dx-examples/en/js/main.js"></script>
+</head>
+
+<body>
+	<div class="container wrapper post">
+		<div class="header">
+	<h1 class="site-title"><a href="https://beardog-ukr.github.io/cocos2dx-examples/en/">Cocos2d-x basics</a></h1>
+	<div class="site-description"><h2>Some articles about Cocos2d-x framework</h2><nav class="nav social">
+			<ul class="flat"><a href="https://github.com/beardog-ukr/cocos2dx-examples" title="Github"><i data-feather="github"></i></a></ul>
+		</nav>
+	</div>
+
+	<nav class="nav">
+		<ul class="flat">
+			
+			<li>
+				<a href="/cocos2dx-examples/en/">Recent</a>
+			</li>
+			
+			<li>
+				<a href="/cocos2dx-examples/en/posts">All</a>
+			</li>
+			
+			<li>
+				<a href="/cocos2dx-examples/en/about">About</a>
+			</li>
+			
+			<li>
+				<a href="/cocos2dx-examples/en/tags">Tags</a>
+			</li>
+			
+		</ul>
+	</nav>
+</div>
+
+
+		<div class="post-header">
+			<h1 class="title">Cocos2d-x basic ideas</h1>
+			<div class="meta">Posted at &mdash; Sep 22, 2020</div>
+		</div>
+
+		<div class="markdown">
+			<p>Earlier we learned how to create a basic <em>cocos2d-x</em> project. Actually, the project was created by <code>cocos</code> script and all we had to do was to launch it.</p>
+<p>Now I&rsquo;m going to describe some basic <em>cocos2d-x</em> terms and then we&rsquo;ll be able to look closely at the sources the <code>cocos</code> generated for us.</p>
+<h1 id="scene">Scene</h1>
+<p><a href="https://docs.cocos2d-x.org/api-ref/cplusplus/v4x/d4/d5f/classcocos2d_1_1_scene.html">Scene</a> is a background or a container for all other elements the player sees. A real program should contain at least two scenes: one for main menu and another one for actual game. You can switch between scenes using the <a href="https://docs.cocos2d-x.org/api-ref/cplusplus/v4x/d7/df3/classcocos2d_1_1_director.html">Director</a> class. The idea here is that it should look like a theater: there is a scene, and some decorations and actors on it. And the Director commands them to change when time comes. However, our first programs will contain only one scene so there will be no switching between scenes.</p>
+<p>the most important method of the scene is <em>init</em>:</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">bool SmokeTestScene::init() {
+  // 1. super init first
+  if (!Scene::init()) {
+    return false;
+  }
+
+  //
+  &lt;створення інших об&#39;єктів&gt;
+
+  return true;
+}
+</code></pre></div><p>This method is used as a constructor. For some (mostly historical) reasons <em>cocos2d-x</em> projects don&rsquo;t use real C++ constructors, so most of the scene objects get created during <em>init</em>.</p>
+<h1 id="node-and-its-subclasses">Node and it&rsquo;s subclasses</h1>
+<p><a href="https://docs.cocos2d-x.org/api-ref/cplusplus/v4x/d3/d82/classcocos2d_1_1_node.html#details">Node</a> is a basic class for all the elements you can see on the scene.</p>
+<p>All <em>Node</em> objects have following properties:</p>
+<ul>
+<li>position</li>
+<li>scale</li>
+<li>rotation (degrees, clockwise)</li>
+<li>anchor point position</li>
+<li>content size</li>
+<li>opacity</li>
+</ul>
+<p>Also <em>Node</em> implements <a href="https://docs.cocos2d-x.org/cocos2d-x/v4/en/basic_concepts/parent_child.html">parent-child</a> relationships between objects. One object may be assigned as parent to another one, and when parent gets destroyed all its children get destroyed too. Later there will be another post about memory usage in cocos programs, but for now that&rsquo; not so important.</p>
+<p>Three <em>node</em> subclasses appear in default program:</p>
+<ul>
+<li><a href="https://docs.cocos2d-x.org/api-ref/cplusplus/v4x/d3/d5c/classcocos2d_1_1_sprite.html">Sprite</a> shows images. Probably the most frequently used class.</li>
+<li><a href="https://docs.cocos2d-x.org/api-ref/cplusplus/v4x/db/de4/classcocos2d_1_1_label.html">Label</a> shows text</li>
+<li><a href="https://docs.cocos2d-x.org/api-ref/cplusplus/v4x/d1/d30/classcocos2d_1_1_menu_item_image.html">MenuItemImage</a> can show images and is used as button.</li>
+</ul>
+<p>Here are all of them:</p>
+<figure>
+    <img src="/cocos2dx-examples/uk/post/basic-things-img/basic-app.png"/> <figcaption>
+            <h4>Default program</h4>
+        </figcaption>
+</figure>
+
+<p>The &ldquo;GL Verts / GL calls&rdquo; does not belong to a scene. That&rsquo;s a debug information the framework generates for every window. There is a way to <a href="https://stackoverflow.com/questions/34708592/how-do-i-hide-cocos2d-x-gl-verts-calls-labels">hide it</a>, but for now better to let it be.</p>
+<p>Technically the <em>Scene</em> class also is a subclass of <em>Node</em> but it&rsquo;s used differently so it&rsquo;s better to think they are not related.</p>
+		</div>
+
+		<div class="post-tags">
+			
+				
+					<nav class="nav tags">
+							<ul class="flat">
+								
+								<li><a href="/cocos2dx-examples/en/tags/initial">initial</a></li>
+								
+								<li><a href="/cocos2dx-examples/en/tags/smoke-test-project">Smoke Test Project</a></li>
+								
+							</ul>
+					</nav>
+				
+			
+		</div>
+		</div>
+	<div class="footer wrapper">
+	<nav class="nav">
+		<div> © public domain |  <a href="https://github.com/vividvilla/ezhil">Ezhil theme</a> | Built with <a href="https://gohugo.io">Hugo</a></div>
+	</nav>
+</div>
+
+
+
+<script>feather.replace()</script>
+</body>
+</html>

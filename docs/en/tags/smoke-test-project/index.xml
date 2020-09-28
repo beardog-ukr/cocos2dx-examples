@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Smoke Test Project on Cocos2d-x basics</title>
+    <link>https://beardog-ukr.github.io/cocos2dx-examples/en/tags/smoke-test-project/</link>
+    <description>Recent content in Smoke Test Project on Cocos2d-x basics</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>© public domain</copyright>
+    <lastBuildDate>Fri, 25 Sep 2020 02:30:25 +0300</lastBuildDate>
+    
+	<atom:link href="https://beardog-ukr.github.io/cocos2dx-examples/en/tags/smoke-test-project/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Screen size</title>
+      <link>https://beardog-ukr.github.io/cocos2dx-examples/en/post/screen-resolution-01/</link>
+      <pubDate>Fri, 25 Sep 2020 02:30:25 +0300</pubDate>
+      
+      <guid>https://beardog-ukr.github.io/cocos2dx-examples/en/post/screen-resolution-01/</guid>
+      <description>&lt;p&gt;We have already learned now to add objects to the screen and how to do some things with them; that&amp;rsquo;s enough for a simple games. But there is one more thing left unexplained about &lt;a href=&#34;https://beardog-ukr.github.io/cocos2dx-examples/en/post/first-steps/&#34;&gt;our default program&lt;/a&gt; and this is the screen size.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Cocos2d-x basic ideas</title>
+      <link>https://beardog-ukr.github.io/cocos2dx-examples/en/post/basic-things/</link>
+      <pubDate>Tue, 22 Sep 2020 17:30:25 +0300</pubDate>
+      
+      <guid>https://beardog-ukr.github.io/cocos2dx-examples/en/post/basic-things/</guid>
+      <description>&lt;p&gt;Earlier we learned how to create a basic &lt;em&gt;cocos2d-x&lt;/em&gt; project. Actually, the project was created by &lt;code&gt;cocos&lt;/code&gt; script and all we had to do was to launch it.&lt;/p&gt;
+&lt;p&gt;Now I&amp;rsquo;m going to describe some basic &lt;em&gt;cocos2d-x&lt;/em&gt; terms and then we&amp;rsquo;ll be able to look closely at the sources the &lt;code&gt;cocos&lt;/code&gt; generated for us.&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

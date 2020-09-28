@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>std::bind on Cocos2d-x basics</title>
+    <link>https://beardog-ukr.github.io/cocos2dx-examples/en/tags/stdbind/</link>
+    <description>Recent content in std::bind on Cocos2d-x basics</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>© public domain</copyright>
+    <lastBuildDate>Wed, 23 Sep 2020 17:30:25 +0300</lastBuildDate>
+    
+	<atom:link href="https://beardog-ukr.github.io/cocos2dx-examples/en/tags/stdbind/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Events and callbacks</title>
+      <link>https://beardog-ukr.github.io/cocos2dx-examples/en/post/events-callbacks/</link>
+      <pubDate>Wed, 23 Sep 2020 17:30:25 +0300</pubDate>
+      
+      <guid>https://beardog-ukr.github.io/cocos2dx-examples/en/post/events-callbacks/</guid>
+      <description>&lt;p&gt;There was one moment in &lt;a href=&#34;https://beardog-ukr.github.io/cocos2dx-examples/en/first-steps.md&#34;&gt;the default program&lt;/a&gt; that still remains unexplained. That&amp;rsquo;s the button that closed the application.&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

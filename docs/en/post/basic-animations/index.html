@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>Animation - Cocos2d-x basics</title><meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta property="og:title" content="Animation" />
+<meta property="og:description" content="There are two kinds of animation:
+
+frame (spreadsheet) animation: the graphical designers create a series of frames and Cocos2d draws them one by one using Animation and Animate classes. The Animate is a subclass of Action, so it  will be easy to use.
+Skeletal animation: a model of the character is created with some special programs and then gets imported to Cocos2d. There is another post about it.
+" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://beardog-ukr.github.io/cocos2dx-examples/en/post/basic-animations/" />
+<meta property="article:published_time" content="2020-09-25T19:30:25+03:00" />
+<meta property="article:modified_time" content="2020-09-25T19:30:25+03:00" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Animation"/>
+<meta name="twitter:description" content="There are two kinds of animation:
+
+frame (spreadsheet) animation: the graphical designers create a series of frames and Cocos2d draws them one by one using Animation and Animate classes. The Animate is a subclass of Action, so it  will be easy to use.
+Skeletal animation: a model of the character is created with some special programs and then gets imported to Cocos2d. There is another post about it.
+"/>
+<link href="https://fonts.googleapis.com/css?family=Ubuntu:300,400,300italic,400italic|Raleway:200,300" rel="stylesheet">
+
+	<link rel="stylesheet" type="text/css" media="screen" href="https://beardog-ukr.github.io/cocos2dx-examples/en/css/normalize.css" />
+	<link rel="stylesheet" type="text/css" media="screen" href="https://beardog-ukr.github.io/cocos2dx-examples/en/css/main.css" />
+
+	<script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+	<script src="https://beardog-ukr.github.io/cocos2dx-examples/en/js/main.js"></script>
+</head>
+
+<body>
+	<div class="container wrapper post">
+		<div class="header">
+	<h1 class="site-title"><a href="https://beardog-ukr.github.io/cocos2dx-examples/en/">Cocos2d-x basics</a></h1>
+	<div class="site-description"><h2>Some articles about Cocos2d-x framework</h2><nav class="nav social">
+			<ul class="flat"><a href="https://github.com/beardog-ukr/cocos2dx-examples" title="Github"><i data-feather="github"></i></a></ul>
+		</nav>
+	</div>
+
+	<nav class="nav">
+		<ul class="flat">
+			
+			<li>
+				<a href="/cocos2dx-examples/en/">Recent</a>
+			</li>
+			
+			<li>
+				<a href="/cocos2dx-examples/en/posts">All</a>
+			</li>
+			
+			<li>
+				<a href="/cocos2dx-examples/en/about">About</a>
+			</li>
+			
+			<li>
+				<a href="/cocos2dx-examples/en/tags">Tags</a>
+			</li>
+			
+		</ul>
+	</nav>
+</div>
+
+
+		<div class="post-header">
+			<h1 class="title">Animation</h1>
+			<div class="meta">Posted at &mdash; Sep 25, 2020</div>
+		</div>
+
+		<div class="markdown">
+			<p>There are two <a href="https://hub.packtpub.com/animations-cocos2d-x/">kinds of animation</a>:</p>
+<ul>
+<li>frame (spreadsheet) animation: the graphical designers create a series of frames and <em>Cocos2d</em> draws them one by one using <a href="https://docs.cocos2d-x.org/api-ref/cplusplus/v4x/d3/dc5/classcocos2d_1_1_animation.html">Animation</a> and <a href="https://docs.cocos2d-x.org/api-ref/cplusplus/v4x/d9/db4/classcocos2d_1_1_animate.html">Animate</a> classes. The <em>Animate</em> is a subclass of Action, so it  will be easy to use.</li>
+<li><a href="https://en.wikipedia.org/wiki/Skeletal_animation">Skeletal animation</a>: a model of the character is created with some special programs and then gets imported to <em>Cocos2d</em>. There is <a href="https://beardog-ukr.github.io/cocos2dx-examples/en/post/dragonbones-animation/">another post</a> about it.</li>
+</ul>
+<h1 id="adding-files-manually">Adding files manually</h1>
+<p>We&rsquo;ll use a free <a href="https://kvsr.itch.io/candle">candle animation</a> for  our first example. There are only three frames there so it&rsquo;s easy to load them like this:</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp">Vector<span style="color:#719e07">&lt;</span>SpriteFrame<span style="color:#719e07">*&gt;</span> animFrames;
+animFrames.reserve(<span style="color:#2aa198">3</span>);
+animFrames.pushBack(SpriteFrame<span style="color:#719e07">::</span>create(<span style="color:#2aa198">&#34;candle/SC300-1.png&#34;</span>, Rect(<span style="color:#2aa198">0</span>,<span style="color:#2aa198">0</span>,<span style="color:#2aa198">64</span>,<span style="color:#2aa198">64</span>)));
+animFrames.pushBack(SpriteFrame<span style="color:#719e07">::</span>create(<span style="color:#2aa198">&#34;candle/SC300-2.png&#34;</span>, Rect(<span style="color:#2aa198">0</span>,<span style="color:#2aa198">0</span>,<span style="color:#2aa198">64</span>,<span style="color:#2aa198">64</span>)));
+animFrames.pushBack(SpriteFrame<span style="color:#719e07">::</span>create(<span style="color:#2aa198">&#34;candle/SC300-3.png&#34;</span>, Rect(<span style="color:#2aa198">0</span>,<span style="color:#2aa198">0</span>,<span style="color:#2aa198">64</span>,<span style="color:#2aa198">64</span>)));
+
+<span style="color:#586e75">// create the animation out of the frames
+</span><span style="color:#586e75"></span>Animation<span style="color:#719e07">*</span> animation <span style="color:#719e07">=</span> Animation<span style="color:#719e07">::</span>createWithSpriteFrames(animFrames, <span style="color:#2aa198">0.4f</span>);
+Animate<span style="color:#719e07">*</span> animate <span style="color:#719e07">=</span> Animate<span style="color:#719e07">::</span>create(animation);
+
+<span style="color:#586e75">// run it and repeat it forever
+</span><span style="color:#586e75"></span>Sprite<span style="color:#719e07">*</span> candleSprite <span style="color:#719e07">=</span> Sprite<span style="color:#719e07">::</span>create();
+candleSprite<span style="color:#719e07">-&gt;</span>runAction(RepeatForever<span style="color:#719e07">::</span>create(animate));
+</code></pre></div><p>Here we use <code>Rect(0,0,64,64)</code> because the frames are 64х64 pixels size.</p>
+<p>The problem is the direct file loading is a bad practice (yet we still used it in our examples because it&rsquo;s easy and intuitive). That&rsquo;s good enough for small educational examples, but real programs should use <a href="https://www.codeandweb.com/what-is-a-sprite-sheet">spritesheets</a>.</p>
+<h1 id="spritesheets">Spritesheets</h1>
+<p>Here I should recommend you to read this long but very important <a href="https://www.codeandweb.com/texturepacker/tutorials/animations-and-spritesheets-in-cocos2d-x">article about animation</a>. Briefly, there is a <a href="https://docs.cocos2d-x.org/api-ref/cplusplus/v4x/d7/d76/classcocos2d_1_1_sprite_frame_cache.html">SpriteFrameCache</a> class and a singleton instance of this class can load the <em>sprite sheet files</em>. A <em>sprite sheet</em> is actually a pair of files: one single <em>*.png</em> that combines multiple images and one <em>*.plist</em> which is a XML describing those images.</p>
+<p>There are various programs that can be used to create sprite sheets:</p>
+<ul>
+<li><a href="https://www.codeandweb.com/texturepacker">TexturePacker</a> is good for starting</li>
+<li><a href="https://github.com/amakaseev/sprite-sheet-packer">SpriteSheet Packer</a> is a bit unfinished, but it has a useful &ldquo;smart folder&rdquo; feature</li>
+<li><a href="http://renderhjs.net/shoebox/">Shoebox</a></li>
+<li><a href="https://zwopple.com/zwoptex/">Zwoptex</a>.</li>
+</ul>
+<p>For our second example we can take four images of <a href="https://opengameart.org/content/little-candle-monsters">a creature in the hood</a>, create a <a href="https://github.com/beardog-ukr/cocos2dx-examples/blob/master/examples/AnimationDemo/Resources/littleCandleMonster/littleCandleMonster_violet.plist">plist file</a> and load it into program it like this:</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp">SpriteFrameCache<span style="color:#719e07">*</span> sfc <span style="color:#719e07">=</span> SpriteFrameCache<span style="color:#719e07">::</span>getInstance();
+
+<span style="color:#719e07">const</span> string violetMonsterFN <span style="color:#719e07">=</span> <span style="color:#2aa198">&#34;littleCandleMonster/littleCandleMonster_violet.plist&#34;</span>;
+sfc<span style="color:#719e07">-&gt;</span>addSpriteFramesWithFile(violetMonsterFN);
+
+Vector<span style="color:#719e07">&lt;</span>SpriteFrame<span style="color:#719e07">*&gt;</span> animFrames;
+Animation <span style="color:#719e07">*</span>monsterAnimation <span style="color:#719e07">=</span> Animation<span style="color:#719e07">::</span>create();
+<span style="color:#dc322f">char</span> tmps[<span style="color:#2aa198">256</span>];
+<span style="color:#719e07">for</span> (<span style="color:#dc322f">int</span> i <span style="color:#719e07">=</span> <span style="color:#2aa198">1</span>; i<span style="color:#719e07">&lt;=</span><span style="color:#2aa198">4</span>; i<span style="color:#719e07">++</span>) {
+  sprintf(tmps, <span style="color:#2aa198">&#34;lm-1-%i.png&#34;</span>, i);
+  SpriteFrame <span style="color:#719e07">*</span> sf <span style="color:#719e07">=</span> sfc<span style="color:#719e07">-&gt;</span>getSpriteFrameByName(tmps);
+  monsterAnimation<span style="color:#719e07">-&gt;</span>addSpriteFrame(sf);
+}
+
+monsterAnimation<span style="color:#719e07">-&gt;</span>setDelayPerUnit(<span style="color:#2aa198">0.1</span>);
+
+Animate<span style="color:#719e07">*</span> animate <span style="color:#719e07">=</span> Animate<span style="color:#719e07">::</span>create(monsterAnimation);
+</code></pre></div><p>You can get rid of listing file names in the code by using the <code>addAnimationsWithFile</code> method of the <a href="https://docs.cocos2d-x.org/api-ref/cplusplus/v4x/d6/dc7/classcocos2d_1_1_animation_cache.html">AnimationCache</a> instance. Loading will look like this:</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#719e07">const</span> string plistFilename <span style="color:#719e07">=</span> <span style="color:#2aa198">&#34;skeleton/skeleton_images.plist&#34;</span>;
+SpriteFrameCache<span style="color:#719e07">::</span>getInstance()<span style="color:#719e07">-&gt;</span>addSpriteFramesWithFile(plistFilename);
+
+<span style="color:#719e07">const</span> string animationsPlistFN <span style="color:#719e07">=</span> <span style="color:#2aa198">&#34;skeleton/skeleton_animations.plist&#34;</span>;
+AnimationCache<span style="color:#719e07">::</span>getInstance()<span style="color:#719e07">-&gt;</span>addAnimationsWithFile(animationsPlistFN);
+</code></pre></div><p>and the usage of animation like this:</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp">Animation<span style="color:#719e07">*</span> animation <span style="color:#719e07">=</span> AnimationCache<span style="color:#719e07">::</span>getInstance()<span style="color:#719e07">-&gt;</span>getAnimation(idleAnimationName);
+Animate<span style="color:#719e07">*</span> animate <span style="color:#719e07">=</span> Animate<span style="color:#719e07">::</span>create(animation);
+skeletonSprite<span style="color:#719e07">-&gt;</span>runAction(animate);
+</code></pre></div><p>A small problem of this approach is that it requires some additional <em>plist</em> file. This file is different from those created by <em>TexturePacker</em>. There is no software to create this kind of files, so you&rsquo;ll have to write it manually. However, that&rsquo;s an usual XML, so it&rsquo;s easy to understand and edit. You can find the file for this example <a href="https://github.com/beardog-ukr/cocos2dx-examples/blob/master/examples/AnimationDemo/Resources/skeleton/skeleton_animations.plist">here</a>.</p>
+<p>Anyway, you&rsquo;ll create an <em>Animate</em> instance at the end and this instance can be used as any other <em>Action</em>. For example here the violet creature moves like the green UFO from our <a href="https://beardog-ukr.github.io/cocos2dx-examples/en/post/advanced-actions/">previous examples</a>:</p>
+<figure>
+    <img src="/cocos2dx-examples/en/post/basic-animations-img/violet_monster.gif"/> <figcaption>
+            <h4>Creature moves and changes frames at the same time</h4>
+        </figcaption>
+</figure>
+		</div>
+
+		<div class="post-tags">
+			
+				
+					<nav class="nav tags">
+							<ul class="flat">
+								
+								<li><a href="/cocos2dx-examples/en/tags/animation">Animation</a></li>
+								
+								<li><a href="/cocos2dx-examples/en/tags/animationcache">AnimationCache</a></li>
+								
+								<li><a href="/cocos2dx-examples/en/tags/plist">plist</a></li>
+								
+								<li><a href="/cocos2dx-examples/en/tags/texturepacker">TexturePacker</a></li>
+								
+								<li><a href="/cocos2dx-examples/en/tags/spriteframecache">SpriteFrameCache</a></li>
+								
+							</ul>
+					</nav>
+				
+			
+		</div>
+		</div>
+	<div class="footer wrapper">
+	<nav class="nav">
+		<div> © public domain |  <a href="https://github.com/vividvilla/ezhil">Ezhil theme</a> | Built with <a href="https://gohugo.io">Hugo</a></div>
+	</nav>
+</div>
+
+
+
+<script>feather.replace()</script>
+</body>
+</html>

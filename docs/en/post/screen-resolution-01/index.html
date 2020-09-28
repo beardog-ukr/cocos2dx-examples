@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>Screen size - Cocos2d-x basics</title><meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta property="og:title" content="Screen size" />
+<meta property="og:description" content="We have already learned now to add objects to the screen and how to do some things with them; that&rsquo;s enough for a simple games. But there is one more thing left unexplained about our default program and this is the screen size." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://beardog-ukr.github.io/cocos2dx-examples/en/post/screen-resolution-01/" />
+<meta property="article:published_time" content="2020-09-25T02:30:25+03:00" />
+<meta property="article:modified_time" content="2020-09-25T02:30:25+03:00" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Screen size"/>
+<meta name="twitter:description" content="We have already learned now to add objects to the screen and how to do some things with them; that&rsquo;s enough for a simple games. But there is one more thing left unexplained about our default program and this is the screen size."/>
+<link href="https://fonts.googleapis.com/css?family=Ubuntu:300,400,300italic,400italic|Raleway:200,300" rel="stylesheet">
+
+	<link rel="stylesheet" type="text/css" media="screen" href="https://beardog-ukr.github.io/cocos2dx-examples/en/css/normalize.css" />
+	<link rel="stylesheet" type="text/css" media="screen" href="https://beardog-ukr.github.io/cocos2dx-examples/en/css/main.css" />
+
+	<script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+	<script src="https://beardog-ukr.github.io/cocos2dx-examples/en/js/main.js"></script>
+</head>
+
+<body>
+	<div class="container wrapper post">
+		<div class="header">
+	<h1 class="site-title"><a href="https://beardog-ukr.github.io/cocos2dx-examples/en/">Cocos2d-x basics</a></h1>
+	<div class="site-description"><h2>Some articles about Cocos2d-x framework</h2><nav class="nav social">
+			<ul class="flat"><a href="https://github.com/beardog-ukr/cocos2dx-examples" title="Github"><i data-feather="github"></i></a></ul>
+		</nav>
+	</div>
+
+	<nav class="nav">
+		<ul class="flat">
+			
+			<li>
+				<a href="/cocos2dx-examples/en/">Recent</a>
+			</li>
+			
+			<li>
+				<a href="/cocos2dx-examples/en/posts">All</a>
+			</li>
+			
+			<li>
+				<a href="/cocos2dx-examples/en/about">About</a>
+			</li>
+			
+			<li>
+				<a href="/cocos2dx-examples/en/tags">Tags</a>
+			</li>
+			
+		</ul>
+	</nav>
+</div>
+
+
+		<div class="post-header">
+			<h1 class="title">Screen size</h1>
+			<div class="meta">Posted at &mdash; Sep 25, 2020</div>
+		</div>
+
+		<div class="markdown">
+			<p>We have already learned now to add objects to the screen and how to do some things with them; that&rsquo;s enough for a simple games. But there is one more thing left unexplained about <a href="https://beardog-ukr.github.io/cocos2dx-examples/en/post/first-steps/">our default program</a> and this is the screen size.</p>
+<figure>
+    <img src="/cocos2dx-examples/en/post/first-steps-img/first_app_screenshot.png"/> <figcaption>
+            <h4>Our first program</h4>
+        </figcaption>
+</figure>
+
+<p>The <a href="https://github.com/beardog-ukr/cocos2dx-examples/tree/master/examples/SmokeTest">default program</a> creates a window 480x320 pixels size. This value was specified in <em>AppDelegate.cpp</em> by following statement:</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">static cocos2d::Size designResolutionSize = cocos2d::Size(480, 320);
+</code></pre></div><p>The <em>cocos2d-x</em> developers over-engineered the default example, so you&rsquo;ll see some attempts to use another screen resolutions in that file. That&rsquo;s a <a href="https://github.com/cocos2d/cocos2d-x/issues/18492">known bug</a> actually. That part of code never works and really you can delete it <a href="https://github.com/beardog-ukr/cocos2dx-examples/blob/master/examples/ActionsDemoV1/Classes/AppDelegate.cpp">like here</a>.</p>
+<p>It&rsquo;s too complicated to handle different screen sizes correctly, especially on mobile devices. There will be another post about this <a href="https://beardog-ukr.github.io/cocos2dx-examples/en/post/screen-resolution-02/">later</a>. For now, you should know two things:</p>
+<ul>
+<li>you can set desired screen size for Linux or Windows using <code>designResolutionSize</code> like in above example.</li>
+<li>we&rsquo;ll use absolute hard-coded values wherever we need to position elements. That&rsquo;s not exactly a good practice, but it will make code much simpler.</li>
+</ul>
+		</div>
+
+		<div class="post-tags">
+			
+				
+					<nav class="nav tags">
+							<ul class="flat">
+								
+								<li><a href="/cocos2dx-examples/en/tags/design-resolution">design resolution</a></li>
+								
+								<li><a href="/cocos2dx-examples/en/tags/smoke-test-project">Smoke Test Project</a></li>
+								
+							</ul>
+					</nav>
+				
+			
+		</div>
+		</div>
+	<div class="footer wrapper">
+	<nav class="nav">
+		<div> © public domain |  <a href="https://github.com/vividvilla/ezhil">Ezhil theme</a> | Built with <a href="https://gohugo.io">Hugo</a></div>
+	</nav>
+</div>
+
+
+
+<script>feather.replace()</script>
+</body>
+</html>

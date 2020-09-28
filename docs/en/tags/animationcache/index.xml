@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>AnimationCache on Cocos2d-x basics</title>
+    <link>https://beardog-ukr.github.io/cocos2dx-examples/en/tags/animationcache/</link>
+    <description>Recent content in AnimationCache on Cocos2d-x basics</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>© public domain</copyright>
+    <lastBuildDate>Fri, 25 Sep 2020 19:30:25 +0300</lastBuildDate>
+    
+	<atom:link href="https://beardog-ukr.github.io/cocos2dx-examples/en/tags/animationcache/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Animation</title>
+      <link>https://beardog-ukr.github.io/cocos2dx-examples/en/post/basic-animations/</link>
+      <pubDate>Fri, 25 Sep 2020 19:30:25 +0300</pubDate>
+      
+      <guid>https://beardog-ukr.github.io/cocos2dx-examples/en/post/basic-animations/</guid>
+      <description>&lt;p&gt;There are two &lt;a href=&#34;https://hub.packtpub.com/animations-cocos2d-x/&#34;&gt;kinds of animation&lt;/a&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;frame (spreadsheet) animation: the graphical designers create a series of frames and &lt;em&gt;Cocos2d&lt;/em&gt; draws them one by one using &lt;a href=&#34;https://docs.cocos2d-x.org/api-ref/cplusplus/v4x/d3/dc5/classcocos2d_1_1_animation.html&#34;&gt;Animation&lt;/a&gt; and &lt;a href=&#34;https://docs.cocos2d-x.org/api-ref/cplusplus/v4x/d9/db4/classcocos2d_1_1_animate.html&#34;&gt;Animate&lt;/a&gt; classes. The &lt;em&gt;Animate&lt;/em&gt; is a subclass of Action, so it  will be easy to use.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://en.wikipedia.org/wiki/Skeletal_animation&#34;&gt;Skeletal animation&lt;/a&gt;: a model of the character is created with some special programs and then gets imported to &lt;em&gt;Cocos2d&lt;/em&gt;. There is &lt;a href=&#34;https://beardog-ukr.github.io/cocos2dx-examples/en/post/dragonbones-animation/&#34;&gt;another post&lt;/a&gt; about it.&lt;/li&gt;
+&lt;/ul&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

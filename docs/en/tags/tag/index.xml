@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>tag on Cocos2d-x basics</title>
+    <link>https://beardog-ukr.github.io/cocos2dx-examples/en/tags/tag/</link>
+    <description>Recent content in tag on Cocos2d-x basics</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>© public domain</copyright>
+    <lastBuildDate>Fri, 25 Sep 2020 10:55:25 +0300</lastBuildDate>
+    
+	<atom:link href="https://beardog-ukr.github.io/cocos2dx-examples/en/tags/tag/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Advanced actions</title>
+      <link>https://beardog-ukr.github.io/cocos2dx-examples/en/post/advanced-actions/</link>
+      <pubDate>Fri, 25 Sep 2020 10:55:25 +0300</pubDate>
+      
+      <guid>https://beardog-ukr.github.io/cocos2dx-examples/en/post/advanced-actions/</guid>
+      <description>&lt;p&gt;The &lt;a href=&#34;https://beardog-ukr.github.io/cocos2dx-examples/en/post/basic-actions/&#34;&gt;previous article&lt;/a&gt; described how to use &lt;a href=&#34;https://docs.cocos2d-x.org/api-ref/cplusplus/v4x/db/d61/classcocos2d_1_1_action.html&#34;&gt;Action&lt;/a&gt; to move the objects. Now we&amp;rsquo;ll learn how to do more complicated stuff.&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

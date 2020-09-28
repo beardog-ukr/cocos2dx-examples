@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>Advanced actions - Cocos2d-x basics</title><meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta property="og:title" content="Advanced actions" />
+<meta property="og:description" content="The previous article described how to use Action to move the objects. Now we&rsquo;ll learn how to do more complicated stuff." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://beardog-ukr.github.io/cocos2dx-examples/en/post/advanced-actions/" />
+<meta property="article:published_time" content="2020-09-25T10:55:25+03:00" />
+<meta property="article:modified_time" content="2020-09-25T10:55:25+03:00" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Advanced actions"/>
+<meta name="twitter:description" content="The previous article described how to use Action to move the objects. Now we&rsquo;ll learn how to do more complicated stuff."/>
+<link href="https://fonts.googleapis.com/css?family=Ubuntu:300,400,300italic,400italic|Raleway:200,300" rel="stylesheet">
+
+	<link rel="stylesheet" type="text/css" media="screen" href="https://beardog-ukr.github.io/cocos2dx-examples/en/css/normalize.css" />
+	<link rel="stylesheet" type="text/css" media="screen" href="https://beardog-ukr.github.io/cocos2dx-examples/en/css/main.css" />
+
+	<script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+	<script src="https://beardog-ukr.github.io/cocos2dx-examples/en/js/main.js"></script>
+</head>
+
+<body>
+	<div class="container wrapper post">
+		<div class="header">
+	<h1 class="site-title"><a href="https://beardog-ukr.github.io/cocos2dx-examples/en/">Cocos2d-x basics</a></h1>
+	<div class="site-description"><h2>Some articles about Cocos2d-x framework</h2><nav class="nav social">
+			<ul class="flat"><a href="https://github.com/beardog-ukr/cocos2dx-examples" title="Github"><i data-feather="github"></i></a></ul>
+		</nav>
+	</div>
+
+	<nav class="nav">
+		<ul class="flat">
+			
+			<li>
+				<a href="/cocos2dx-examples/en/">Recent</a>
+			</li>
+			
+			<li>
+				<a href="/cocos2dx-examples/en/posts">All</a>
+			</li>
+			
+			<li>
+				<a href="/cocos2dx-examples/en/about">About</a>
+			</li>
+			
+			<li>
+				<a href="/cocos2dx-examples/en/tags">Tags</a>
+			</li>
+			
+		</ul>
+	</nav>
+</div>
+
+
+		<div class="post-header">
+			<h1 class="title">Advanced actions</h1>
+			<div class="meta">Posted at &mdash; Sep 25, 2020</div>
+		</div>
+
+		<div class="markdown">
+			<p>The <a href="https://beardog-ukr.github.io/cocos2dx-examples/en/post/basic-actions/">previous article</a> described how to use <a href="https://docs.cocos2d-x.org/api-ref/cplusplus/v4x/db/d61/classcocos2d_1_1_action.html">Action</a> to move the objects. Now we&rsquo;ll learn how to do more complicated stuff.</p>
+<h1 id="the-task">The task</h1>
+<p>But first let&rsquo;s create a task to implement.</p>
+<p>We have to create a scene with two elements: a green UFO and a blue ship.</p>
+<ol>
+<li>The UFO should constantly rotate around it&rsquo;s center slightly</li>
+<li>There should be two buttons: left and right arrows. After pressing the button the UFO should start moving in appropriate direction until it reaches the &ldquo;finish&rdquo; position</li>
+<li>If the user presses another button during movement, the ship stops and then starts to move to another side.</li>
+<li>Blue ship starts on the left side of the screen, facing up (north). There is a button (arrow) on the right side of the screen</li>
+<li>After the button is pressed the sheep rotates and then moves towards right.</li>
+<li>When the ship reaches destination it turns nose up again. The arrow button changes direction.</li>
+<li>If the user presses the arrow button again the ship rotates and moves to another side.</li>
+</ol>
+<p>So, the green UFO will work like this:
+<figure>
+    <img src="/cocos2dx-examples/en/post/advanced-actions-img/ufo_move_sides.gif"/> <figcaption>
+            <h4>The green UFO moves from side to side and rotates slightly</h4>
+        </figcaption>
+</figure>
+</p>
+<p>And the blue ship:
+<figure>
+    <img src="/cocos2dx-examples/en/post/advanced-actions-img/blue_ship_move.gif"/> <figcaption>
+            <h4>Blue ship behavior</h4>
+        </figcaption>
+</figure>
+</p>
+<p>I should remind you the images here came from free image sets: <a href="https://evolutionarygames.itch.io/interface-elements-mobile-metallic">buttons</a> and <a href="https://www.kenney.nl/assets/space-shooter-redux">spaceships</a></p>
+<h1 id="action-tags">Action tags</h1>
+<p>The <a href="https://docs.cocos2d-x.org/api-ref/cplusplus/v4x/db/d61/classcocos2d_1_1_action.html">Action</a> class has a special &ldquo;<em>tag</em>&rdquo; parameter. That&rsquo;s an integer value used to distinguish one action from another. You can set this value with <em>setTag</em> method or sometimes provide as a parameter to constructor.</p>
+<p>Also, the <a href="https://docs.cocos2d-x.org/api-ref/cplusplus/V3.12/d3/d82/classcocos2d_1_1_node.html">Node</a> class has some methods for processing action tags:</p>
+<ul>
+<li><code>void stopActionByTag(int tag)</code> stops action with given tag (if there is any)</li>
+<li><code>Action* getActionByTag(int tag)</code> returns a pointer to a running action with this tag. Note there may be few actions with the same tag running at the same time; I guess the behavior for this case is undefined.</li>
+<li><code>ssize_t getNumberOfRunningActionsByTag(int tag) const</code> returns amount of running actions with given tag</li>
+</ul>
+<p>And there is a singleton instance of <a href="https://docs.cocos2d-x.org/api-ref/cplusplus/v4x/d1/d88/classcocos2d_1_1_action_manager.html#details">ActionManager</a> with similar methods, but it&rsquo;s not recommended using it.</p>
+<p>In our example we&rsquo;ll use tags to distinguish UFO rotation and horizontal movement. As for rotation, it&rsquo;s implemented with the corresponding action and the <a href="https://docs.cocos2d-x.org/api-ref/cplusplus/V3.12/d9/d37/classcocos2d_1_1_repeat_forever.html">RepeatForever</a>:</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp">Sequence<span style="color:#719e07">*</span> rseq <span style="color:#719e07">=</span> Sequence<span style="color:#719e07">::</span>create(RotateBy<span style="color:#719e07">::</span>create(<span style="color:#2aa198">3</span>, <span style="color:#2aa198">30</span>),
+                                  RotateBy<span style="color:#719e07">::</span>create(<span style="color:#2aa198">3</span>, <span style="color:#719e07">-</span><span style="color:#2aa198">30</span>), <span style="color:#719e07">nullptr</span>);
+
+RepeatForever<span style="color:#719e07">*</span> reps <span style="color:#719e07">=</span> RepeatForever<span style="color:#719e07">::</span>create(rseq);
+reps<span style="color:#719e07">-&gt;</span>setTag(AT_UFO_ROTATION);
+greenUfo<span style="color:#719e07">-&gt;</span>runAction(reps);
+</code></pre></div><p>Here <code>AT_UFO_ROTATION</code> is an integer constant used as tag value.</p>
+<p>The UFO launch looks like this:</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp">MoveBy<span style="color:#719e07">*</span> moveTo <span style="color:#719e07">=</span> MoveTo<span style="color:#719e07">::</span>create(time, Vec2(newX,<span style="color:#2aa198">240</span>));
+moveTo<span style="color:#719e07">-&gt;</span>setTag(AT_UFO_MOVING);
+greenUfo<span style="color:#719e07">-&gt;</span>runAction(moveTo);
+</code></pre></div><p>and stopping like this</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp">greenUfo<span style="color:#719e07">-&gt;</span>stopAllActionsByTag(AT_UFO_MOVING);
+</code></pre></div><p>Here <code>stopAllActionsByTag</code> stops the action marked by <code>AT_UFO_MOVING</code> tag, but the rotation continues.</p>
+<p>In case of blue ship we&rsquo;ll have to stop the whole sequence. There is not much difference from single action; just set tag to the sequence and not on the action.</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#586e75">// create some actions
+</span><span style="color:#586e75">///....
+</span><span style="color:#586e75"></span>
+Sequence<span style="color:#719e07">*</span> seq <span style="color:#719e07">=</span> Sequence<span style="color:#719e07">::</span>create(rotateAct, moveAct, rotateBackAct, <span style="color:#719e07">nullptr</span>);
+seq<span style="color:#719e07">-&gt;</span>setTag(AT_BS_MOVE);
+
+blueShip<span style="color:#719e07">-&gt;</span>runAction(seq);
+</code></pre></div><h1 id="receiving-an-action">Receiving an action</h1>
+<p>According to the task, it&rsquo;s not allowed to interrupt the blue ship&rsquo;s rotation. In order to do this we&rsquo;ll have to check if the action is running at the moment.</p>
+<p>There are two methods we can use for it : <code>getNumberOfRunningActionsByTag()</code> and <code>getActionByTag()</code>.</p>
+<p>The code will be almost same for both of them:</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#719e07">if</span> (blueShip<span style="color:#719e07">-&gt;</span>getNumberOfRunningActionsByTag(AT_BS_ROTATION_BACK)<span style="color:#719e07">&gt;</span><span style="color:#2aa198">0</span> ) {
+  log(<span style="color:#2aa198">&#34;%s: rotating back, do not interfere with moving&#34;</span>, __func__);
+  <span style="color:#719e07">return</span>;
+}
+</code></pre></div><p>or</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#719e07">if</span> (blueShip<span style="color:#719e07">-&gt;</span>getActionByTag(AT_BS_ROTATION_BACK) <span style="color:#719e07">!=</span> <span style="color:#719e07">nullptr</span>) {
+  log(<span style="color:#2aa198">&#34;%s: rotating back, do not interfere&#34;</span>, __func__);
+  <span style="color:#719e07">return</span>;
+}
+</code></pre></div><h1 id="processing-action-finish">Processing action finish</h1>
+<p>The task says the image on arrow button must be performed right after the ship reaches its destination. We can do it with an instance of  <a href="https://docs.cocos2d-x.org/api-ref/cplusplus/v4x/d3/d32/classcocos2d_1_1_call_func.html#details">CallFunc</a> class. This action calls the function provided to the constructor.</p>
+<p>So, we can create a <a href="https://uk.wikipedia.org/wiki/%D0%9B%D1%8F%D0%BC%D0%B1%D0%B4%D0%B0-%D0%B2%D0%B8%D1%80%D0%B0%D0%B7%D0%B8_%D1%83_%D0%A1%2B%2B">lambda-expression</a>, and provide it to the <em>CallFunc</em>&lsquo;s constructor:</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp">CallFunc<span style="color:#719e07">*</span> finalCf <span style="color:#719e07">=</span> CallFunc<span style="color:#719e07">::</span>create([<span style="color:#719e07">this</span>]() {
+  <span style="color:#586e75">// create and launch action to rotate the ship back
+</span><span style="color:#586e75"></span>  RotateTo<span style="color:#719e07">*</span> ra2 <span style="color:#719e07">=</span> RotateTo<span style="color:#719e07">::</span>create(<span style="color:#2aa198">3</span>, <span style="color:#2aa198">0</span>);
+  ra2<span style="color:#719e07">-&gt;</span>setTag(AT_BS_ROTATION_BACK);
+  <span style="color:#719e07">this</span><span style="color:#719e07">-&gt;</span>blueShip<span style="color:#719e07">-&gt;</span>runAction(ra2);
+
+  <span style="color:#586e75">// change image on the button
+</span><span style="color:#586e75"></span>  <span style="color:#586e75">// ......
+</span><span style="color:#586e75"></span>});
+
+Sequence<span style="color:#719e07">*</span> seq <span style="color:#719e07">=</span> Sequence<span style="color:#719e07">::</span>create(rotateAct, moveAct, finalCf, <span style="color:#719e07">nullptr</span>);
+seq<span style="color:#719e07">-&gt;</span>setTag(AT_BS_MOVE);
+
+blueShip<span style="color:#719e07">-&gt;</span>runAction(seq);
+</code></pre></div><p>As you already know, the <code>Sequence</code> constructor receives all the actions and as parameters and the <code>nullptr</code> at the end. Here we perform three actions: rotation, movement and callback. Then callback will add one more action to rotate the ship back.</p>
+		</div>
+
+		<div class="post-tags">
+			
+				
+					<nav class="nav tags">
+							<ul class="flat">
+								
+								<li><a href="/cocos2dx-examples/en/tags/action">Action</a></li>
+								
+								<li><a href="/cocos2dx-examples/en/tags/tag">tag</a></li>
+								
+								<li><a href="/cocos2dx-examples/en/tags/sequence">Sequence</a></li>
+								
+								<li><a href="/cocos2dx-examples/en/tags/callfunc">CallFunc</a></li>
+								
+							</ul>
+					</nav>
+				
+			
+		</div>
+		</div>
+	<div class="footer wrapper">
+	<nav class="nav">
+		<div> © public domain |  <a href="https://github.com/vividvilla/ezhil">Ezhil theme</a> | Built with <a href="https://gohugo.io">Hugo</a></div>
+	</nav>
+</div>
+
+
+
+<script>feather.replace()</script>
+</body>
+</html>

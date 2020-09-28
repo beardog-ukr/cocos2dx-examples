@@ -7,10 +7,415 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>© public domain</copyright>
-    <lastBuildDate>Mon, 21 Sep 2020 11:30:25 +0300</lastBuildDate>
+    <lastBuildDate>Mon, 28 Sep 2020 04:25:25 +0300</lastBuildDate>
     
 	<atom:link href="https://beardog-ukr.github.io/cocos2dx-examples/en/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>ffmpeg</title>
+      <link>https://beardog-ukr.github.io/cocos2dx-examples/en/tags/ffmpeg/</link>
+      <pubDate>Mon, 28 Sep 2020 04:25:25 +0300</pubDate>
+      
+      <guid>https://beardog-ukr.github.io/cocos2dx-examples/en/tags/ffmpeg/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>gifsicle</title>
+      <link>https://beardog-ukr.github.io/cocos2dx-examples/en/tags/gifsicle/</link>
+      <pubDate>Mon, 28 Sep 2020 04:25:25 +0300</pubDate>
+      
+      <guid>https://beardog-ukr.github.io/cocos2dx-examples/en/tags/gifsicle/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>image processing</title>
+      <link>https://beardog-ukr.github.io/cocos2dx-examples/en/tags/image-processing/</link>
+      <pubDate>Mon, 28 Sep 2020 04:25:25 +0300</pubDate>
+      
+      <guid>https://beardog-ukr.github.io/cocos2dx-examples/en/tags/image-processing/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>imagemagick</title>
+      <link>https://beardog-ukr.github.io/cocos2dx-examples/en/tags/imagemagick/</link>
+      <pubDate>Mon, 28 Sep 2020 04:25:25 +0300</pubDate>
+      
+      <guid>https://beardog-ukr.github.io/cocos2dx-examples/en/tags/imagemagick/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>textures</title>
+      <link>https://beardog-ukr.github.io/cocos2dx-examples/en/tags/textures/</link>
+      <pubDate>Mon, 28 Sep 2020 04:25:25 +0300</pubDate>
+      
+      <guid>https://beardog-ukr.github.io/cocos2dx-examples/en/tags/textures/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>design resolution</title>
+      <link>https://beardog-ukr.github.io/cocos2dx-examples/en/tags/design-resolution/</link>
+      <pubDate>Mon, 28 Sep 2020 02:55:25 +0300</pubDate>
+      
+      <guid>https://beardog-ukr.github.io/cocos2dx-examples/en/tags/design-resolution/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>scrolling</title>
+      <link>https://beardog-ukr.github.io/cocos2dx-examples/en/tags/scrolling/</link>
+      <pubDate>Mon, 28 Sep 2020 02:55:25 +0300</pubDate>
+      
+      <guid>https://beardog-ukr.github.io/cocos2dx-examples/en/tags/scrolling/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>AppDelegate.cpp</title>
+      <link>https://beardog-ukr.github.io/cocos2dx-examples/en/tags/appdelegate.cpp/</link>
+      <pubDate>Sun, 27 Sep 2020 10:55:25 +0300</pubDate>
+      
+      <guid>https://beardog-ukr.github.io/cocos2dx-examples/en/tags/appdelegate.cpp/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>origin</title>
+      <link>https://beardog-ukr.github.io/cocos2dx-examples/en/tags/origin/</link>
+      <pubDate>Sun, 27 Sep 2020 10:55:25 +0300</pubDate>
+      
+      <guid>https://beardog-ukr.github.io/cocos2dx-examples/en/tags/origin/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ResolutionPolicy</title>
+      <link>https://beardog-ukr.github.io/cocos2dx-examples/en/tags/resolutionpolicy/</link>
+      <pubDate>Sun, 27 Sep 2020 10:55:25 +0300</pubDate>
+      
+      <guid>https://beardog-ukr.github.io/cocos2dx-examples/en/tags/resolutionpolicy/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>third-party tools</title>
+      <link>https://beardog-ukr.github.io/cocos2dx-examples/en/tags/third-party-tools/</link>
+      <pubDate>Sat, 26 Sep 2020 20:30:25 +0300</pubDate>
+      
+      <guid>https://beardog-ukr.github.io/cocos2dx-examples/en/tags/third-party-tools/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Tiled</title>
+      <link>https://beardog-ukr.github.io/cocos2dx-examples/en/tags/tiled/</link>
+      <pubDate>Sat, 26 Sep 2020 20:30:25 +0300</pubDate>
+      
+      <guid>https://beardog-ukr.github.io/cocos2dx-examples/en/tags/tiled/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Tileset</title>
+      <link>https://beardog-ukr.github.io/cocos2dx-examples/en/tags/tileset/</link>
+      <pubDate>Sat, 26 Sep 2020 20:30:25 +0300</pubDate>
+      
+      <guid>https://beardog-ukr.github.io/cocos2dx-examples/en/tags/tileset/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>TMXMap</title>
+      <link>https://beardog-ukr.github.io/cocos2dx-examples/en/tags/tmxmap/</link>
+      <pubDate>Sat, 26 Sep 2020 20:30:25 +0300</pubDate>
+      
+      <guid>https://beardog-ukr.github.io/cocos2dx-examples/en/tags/tmxmap/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Director</title>
+      <link>https://beardog-ukr.github.io/cocos2dx-examples/en/tags/director/</link>
+      <pubDate>Sat, 26 Sep 2020 17:30:25 +0300</pubDate>
+      
+      <guid>https://beardog-ukr.github.io/cocos2dx-examples/en/tags/director/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Scene</title>
+      <link>https://beardog-ukr.github.io/cocos2dx-examples/en/tags/scene/</link>
+      <pubDate>Sat, 26 Sep 2020 17:30:25 +0300</pubDate>
+      
+      <guid>https://beardog-ukr.github.io/cocos2dx-examples/en/tags/scene/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Animation</title>
+      <link>https://beardog-ukr.github.io/cocos2dx-examples/en/tags/animation/</link>
+      <pubDate>Sat, 26 Sep 2020 07:30:25 +0300</pubDate>
+      
+      <guid>https://beardog-ukr.github.io/cocos2dx-examples/en/tags/animation/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Dragon Bones</title>
+      <link>https://beardog-ukr.github.io/cocos2dx-examples/en/tags/dragon-bones/</link>
+      <pubDate>Sat, 26 Sep 2020 07:30:25 +0300</pubDate>
+      
+      <guid>https://beardog-ukr.github.io/cocos2dx-examples/en/tags/dragon-bones/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>skeletal animation</title>
+      <link>https://beardog-ukr.github.io/cocos2dx-examples/en/tags/skeletal-animation/</link>
+      <pubDate>Sat, 26 Sep 2020 07:30:25 +0300</pubDate>
+      
+      <guid>https://beardog-ukr.github.io/cocos2dx-examples/en/tags/skeletal-animation/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>AnimationCache</title>
+      <link>https://beardog-ukr.github.io/cocos2dx-examples/en/tags/animationcache/</link>
+      <pubDate>Fri, 25 Sep 2020 19:30:25 +0300</pubDate>
+      
+      <guid>https://beardog-ukr.github.io/cocos2dx-examples/en/tags/animationcache/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>plist</title>
+      <link>https://beardog-ukr.github.io/cocos2dx-examples/en/tags/plist/</link>
+      <pubDate>Fri, 25 Sep 2020 19:30:25 +0300</pubDate>
+      
+      <guid>https://beardog-ukr.github.io/cocos2dx-examples/en/tags/plist/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Sprite</title>
+      <link>https://beardog-ukr.github.io/cocos2dx-examples/en/tags/sprite/</link>
+      <pubDate>Fri, 25 Sep 2020 19:30:25 +0300</pubDate>
+      
+      <guid>https://beardog-ukr.github.io/cocos2dx-examples/en/tags/sprite/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>SpriteFrameCache</title>
+      <link>https://beardog-ukr.github.io/cocos2dx-examples/en/tags/spriteframecache/</link>
+      <pubDate>Fri, 25 Sep 2020 19:30:25 +0300</pubDate>
+      
+      <guid>https://beardog-ukr.github.io/cocos2dx-examples/en/tags/spriteframecache/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>TexturePacker</title>
+      <link>https://beardog-ukr.github.io/cocos2dx-examples/en/tags/texturepacker/</link>
+      <pubDate>Fri, 25 Sep 2020 19:30:25 +0300</pubDate>
+      
+      <guid>https://beardog-ukr.github.io/cocos2dx-examples/en/tags/texturepacker/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>CallFunc</title>
+      <link>https://beardog-ukr.github.io/cocos2dx-examples/en/tags/callfunc/</link>
+      <pubDate>Fri, 25 Sep 2020 18:30:25 +0300</pubDate>
+      
+      <guid>https://beardog-ukr.github.io/cocos2dx-examples/en/tags/callfunc/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>child-parent</title>
+      <link>https://beardog-ukr.github.io/cocos2dx-examples/en/tags/child-parent/</link>
+      <pubDate>Fri, 25 Sep 2020 18:30:25 +0300</pubDate>
+      
+      <guid>https://beardog-ukr.github.io/cocos2dx-examples/en/tags/child-parent/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>memory management</title>
+      <link>https://beardog-ukr.github.io/cocos2dx-examples/en/tags/memory-management/</link>
+      <pubDate>Fri, 25 Sep 2020 18:30:25 +0300</pubDate>
+      
+      <guid>https://beardog-ukr.github.io/cocos2dx-examples/en/tags/memory-management/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>RemoveSelf</title>
+      <link>https://beardog-ukr.github.io/cocos2dx-examples/en/tags/removeself/</link>
+      <pubDate>Fri, 25 Sep 2020 18:30:25 +0300</pubDate>
+      
+      <guid>https://beardog-ukr.github.io/cocos2dx-examples/en/tags/removeself/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>callbacks</title>
+      <link>https://beardog-ukr.github.io/cocos2dx-examples/en/tags/callbacks/</link>
+      <pubDate>Fri, 25 Sep 2020 16:30:25 +0300</pubDate>
+      
+      <guid>https://beardog-ukr.github.io/cocos2dx-examples/en/tags/callbacks/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>CC_CALLBACK</title>
+      <link>https://beardog-ukr.github.io/cocos2dx-examples/en/tags/cc_callback/</link>
+      <pubDate>Fri, 25 Sep 2020 16:30:25 +0300</pubDate>
+      
+      <guid>https://beardog-ukr.github.io/cocos2dx-examples/en/tags/cc_callback/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>event</title>
+      <link>https://beardog-ukr.github.io/cocos2dx-examples/en/tags/event/</link>
+      <pubDate>Fri, 25 Sep 2020 16:30:25 +0300</pubDate>
+      
+      <guid>https://beardog-ukr.github.io/cocos2dx-examples/en/tags/event/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>events</title>
+      <link>https://beardog-ukr.github.io/cocos2dx-examples/en/tags/events/</link>
+      <pubDate>Fri, 25 Sep 2020 16:30:25 +0300</pubDate>
+      
+      <guid>https://beardog-ukr.github.io/cocos2dx-examples/en/tags/events/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Action</title>
+      <link>https://beardog-ukr.github.io/cocos2dx-examples/en/tags/action/</link>
+      <pubDate>Fri, 25 Sep 2020 10:55:25 +0300</pubDate>
+      
+      <guid>https://beardog-ukr.github.io/cocos2dx-examples/en/tags/action/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Sequence</title>
+      <link>https://beardog-ukr.github.io/cocos2dx-examples/en/tags/sequence/</link>
+      <pubDate>Fri, 25 Sep 2020 10:55:25 +0300</pubDate>
+      
+      <guid>https://beardog-ukr.github.io/cocos2dx-examples/en/tags/sequence/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>tag</title>
+      <link>https://beardog-ukr.github.io/cocos2dx-examples/en/tags/tag/</link>
+      <pubDate>Fri, 25 Sep 2020 10:55:25 +0300</pubDate>
+      
+      <guid>https://beardog-ukr.github.io/cocos2dx-examples/en/tags/tag/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Smoke Test Project</title>
+      <link>https://beardog-ukr.github.io/cocos2dx-examples/en/tags/smoke-test-project/</link>
+      <pubDate>Fri, 25 Sep 2020 02:30:25 +0300</pubDate>
+      
+      <guid>https://beardog-ukr.github.io/cocos2dx-examples/en/tags/smoke-test-project/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>MoveTo</title>
+      <link>https://beardog-ukr.github.io/cocos2dx-examples/en/tags/moveto/</link>
+      <pubDate>Thu, 24 Sep 2020 10:55:25 +0300</pubDate>
+      
+      <guid>https://beardog-ukr.github.io/cocos2dx-examples/en/tags/moveto/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>keyboard processing</title>
+      <link>https://beardog-ukr.github.io/cocos2dx-examples/en/tags/keyboard-processing/</link>
+      <pubDate>Wed, 23 Sep 2020 18:30:25 +0300</pubDate>
+      
+      <guid>https://beardog-ukr.github.io/cocos2dx-examples/en/tags/keyboard-processing/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>event processing</title>
+      <link>https://beardog-ukr.github.io/cocos2dx-examples/en/tags/event-processing/</link>
+      <pubDate>Wed, 23 Sep 2020 17:30:25 +0300</pubDate>
+      
+      <guid>https://beardog-ukr.github.io/cocos2dx-examples/en/tags/event-processing/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>std::bind</title>
+      <link>https://beardog-ukr.github.io/cocos2dx-examples/en/tags/stdbind/</link>
+      <pubDate>Wed, 23 Sep 2020 17:30:25 +0300</pubDate>
+      
+      <guid>https://beardog-ukr.github.io/cocos2dx-examples/en/tags/stdbind/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Static Images</title>
+      <link>https://beardog-ukr.github.io/cocos2dx-examples/en/tags/static-images/</link>
+      <pubDate>Wed, 23 Sep 2020 02:30:25 +0300</pubDate>
+      
+      <guid>https://beardog-ukr.github.io/cocos2dx-examples/en/tags/static-images/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>initial</title>
+      <link>https://beardog-ukr.github.io/cocos2dx-examples/en/tags/initial/</link>
+      <pubDate>Tue, 22 Sep 2020 17:30:25 +0300</pubDate>
+      
+      <guid>https://beardog-ukr.github.io/cocos2dx-examples/en/tags/initial/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>files</title>
+      <link>https://beardog-ukr.github.io/cocos2dx-examples/en/tags/files/</link>
+      <pubDate>Tue, 22 Sep 2020 01:30:25 +0300</pubDate>
+      
+      <guid>https://beardog-ukr.github.io/cocos2dx-examples/en/tags/files/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>project structure</title>
+      <link>https://beardog-ukr.github.io/cocos2dx-examples/en/tags/project-structure/</link>
+      <pubDate>Tue, 22 Sep 2020 01:30:25 +0300</pubDate>
+      
+      <guid>https://beardog-ukr.github.io/cocos2dx-examples/en/tags/project-structure/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>resources</title>
+      <link>https://beardog-ukr.github.io/cocos2dx-examples/en/tags/resources/</link>
+      <pubDate>Tue, 22 Sep 2020 01:30:25 +0300</pubDate>
+      
+      <guid>https://beardog-ukr.github.io/cocos2dx-examples/en/tags/resources/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>links</title>
@@ -22,47 +427,11 @@
     </item>
     
     <item>
-      <title>initial</title>
-      <link>https://beardog-ukr.github.io/cocos2dx-examples/en/tags/initial/</link>
-      <pubDate>Sun, 20 Sep 2020 17:30:25 +0300</pubDate>
-      
-      <guid>https://beardog-ukr.github.io/cocos2dx-examples/en/tags/initial/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>installation</title>
       <link>https://beardog-ukr.github.io/cocos2dx-examples/en/tags/installation/</link>
       <pubDate>Sun, 20 Sep 2020 17:30:25 +0300</pubDate>
       
       <guid>https://beardog-ukr.github.io/cocos2dx-examples/en/tags/installation/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Space</title>
-      <link>https://beardog-ukr.github.io/cocos2dx-examples/en/tags/space/</link>
-      <pubDate>Sun, 18 Mar 2018 12:13:30 +0530</pubDate>
-      
-      <guid>https://beardog-ukr.github.io/cocos2dx-examples/en/tags/space/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Primer</title>
-      <link>https://beardog-ukr.github.io/cocos2dx-examples/en/tags/primer/</link>
-      <pubDate>Sun, 18 Mar 2018 02:01:58 +0530</pubDate>
-      
-      <guid>https://beardog-ukr.github.io/cocos2dx-examples/en/tags/primer/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>todo</title>
-      <link>https://beardog-ukr.github.io/cocos2dx-examples/en/tags/todo/</link>
-      <pubDate>Sun, 18 Mar 2018 02:01:58 +0530</pubDate>
-      
-      <guid>https://beardog-ukr.github.io/cocos2dx-examples/en/tags/todo/</guid>
       <description></description>
     </item>
     

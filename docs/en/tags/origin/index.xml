@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>origin on Cocos2d-x basics</title>
+    <link>https://beardog-ukr.github.io/cocos2dx-examples/en/tags/origin/</link>
+    <description>Recent content in origin on Cocos2d-x basics</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>© public domain</copyright>
+    <lastBuildDate>Sun, 27 Sep 2020 10:55:25 +0300</lastBuildDate>
+    
+	<atom:link href="https://beardog-ukr.github.io/cocos2dx-examples/en/tags/origin/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Working with different screen sizes</title>
+      <link>https://beardog-ukr.github.io/cocos2dx-examples/en/post/screen-resolution-02/</link>
+      <pubDate>Sun, 27 Sep 2020 10:55:25 +0300</pubDate>
+      
+      <guid>https://beardog-ukr.github.io/cocos2dx-examples/en/post/screen-resolution-02/</guid>
+      <description>&lt;p&gt;In &lt;a href=&#34;https://beardog-ukr.github.io/cocos2dx-examples/en/post/screen-resolution-01/&#34;&gt;one&lt;/a&gt; of the first articles, I&amp;rsquo;ve recommended to remove from the default &lt;code&gt;AppDelegate.cpp&lt;/code&gt; file everything related to work with multiple screen resolutions.&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

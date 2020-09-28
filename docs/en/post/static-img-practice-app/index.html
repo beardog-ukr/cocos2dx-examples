@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>The Sprite class - Cocos2d-x basics</title><meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta property="og:title" content="The Sprite class" />
+<meta property="og:description" content="In this post we&rsquo;ll try to create our really own program. It will not do much, only show a few spaceships images from a free pack. Our goal is to learn about Sprite class and its common properties." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://beardog-ukr.github.io/cocos2dx-examples/en/post/static-img-practice-app/" />
+<meta property="article:published_time" content="2020-09-23T02:30:25+03:00" />
+<meta property="article:modified_time" content="2020-09-23T02:30:25+03:00" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="The Sprite class"/>
+<meta name="twitter:description" content="In this post we&rsquo;ll try to create our really own program. It will not do much, only show a few spaceships images from a free pack. Our goal is to learn about Sprite class and its common properties."/>
+<link href="https://fonts.googleapis.com/css?family=Ubuntu:300,400,300italic,400italic|Raleway:200,300" rel="stylesheet">
+
+	<link rel="stylesheet" type="text/css" media="screen" href="https://beardog-ukr.github.io/cocos2dx-examples/en/css/normalize.css" />
+	<link rel="stylesheet" type="text/css" media="screen" href="https://beardog-ukr.github.io/cocos2dx-examples/en/css/main.css" />
+
+	<script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+	<script src="https://beardog-ukr.github.io/cocos2dx-examples/en/js/main.js"></script>
+</head>
+
+<body>
+	<div class="container wrapper post">
+		<div class="header">
+	<h1 class="site-title"><a href="https://beardog-ukr.github.io/cocos2dx-examples/en/">Cocos2d-x basics</a></h1>
+	<div class="site-description"><h2>Some articles about Cocos2d-x framework</h2><nav class="nav social">
+			<ul class="flat"><a href="https://github.com/beardog-ukr/cocos2dx-examples" title="Github"><i data-feather="github"></i></a></ul>
+		</nav>
+	</div>
+
+	<nav class="nav">
+		<ul class="flat">
+			
+			<li>
+				<a href="/cocos2dx-examples/en/">Recent</a>
+			</li>
+			
+			<li>
+				<a href="/cocos2dx-examples/en/posts">All</a>
+			</li>
+			
+			<li>
+				<a href="/cocos2dx-examples/en/about">About</a>
+			</li>
+			
+			<li>
+				<a href="/cocos2dx-examples/en/tags">Tags</a>
+			</li>
+			
+		</ul>
+	</nav>
+</div>
+
+
+		<div class="post-header">
+			<h1 class="title">The Sprite class</h1>
+			<div class="meta">Posted at &mdash; Sep 23, 2020</div>
+		</div>
+
+		<div class="markdown">
+			<p>In this post we&rsquo;ll try to create our really own program. It will not do much, only show a few spaceships images from a <a href="https://www.kenney.nl/assets/space-shooter-redux">free pack</a>. Our goal is to learn about <a href="https://docs.cocos2d-x.org/api-ref/cplusplus/v4x/d3/d5c/classcocos2d_1_1_sprite.html">Sprite</a> class and its common properties.</p>
+<h1 id="coordinates-and-the-anchor-point">Coordinates and the anchor point</h1>
+<p>Cocos2d uses &ldquo;classic&rdquo; coordinate system:</p>
+<ul>
+<li>x grows horizontally from left to right</li>
+<li>y grows vertically from down to up.</li>
+<li>origin (0;0) appears at bottom left corner (<a href="https://gamefromscratch.com/cocos2d-x-tutorial-series-basic-sprites-positioning-parenting-and-coordinate-systems/">here</a> you can read more about it)</li>
+</ul>
+<p>Also there is an &ldquo;anchor point&rdquo;. It&rsquo;s a base point for every transformation that&rsquo;s performed on a sprite. You can set it with <a href="https://docs.cocos2d-x.org/api-ref/cplusplus/v4x/d3/d82/classcocos2d_1_1_node.html#abf77210f31f01d0f564600c94c90e2be">setAnchorPoint</a> method which accepts two values from 0 to 1. Usually this values are 0, 0.5 or 1:</p>
+<ul>
+<li>setActionPoint(Vec2(0.5, 0.5)) sets anchor point at the center of the sprite.</li>
+<li>setActionPoint(Vec2(0, 0)) sets anchor to bottom left.</li>
+<li>setActionPoint(Vec2(0, 1)) sets anchor to top left corner.</li>
+</ul>
+<p>When you use <code>setPosition</code> method it actually positions the anchor point and the rest of the sprite gets aligned around it.</p>
+<h1 id="a-program-with-background">A program with background</h1>
+<p>To see how this all works we&rsquo;ll use an image that was made of gray rectangles. Each rectangle is  160x120 size.</p>
+<figure>
+    <img src="/cocos2dx-examples/en/post/static-img-practice-app/empty_grid.png"/> <figcaption>
+            <h4>Empty grid background, axis, sizes</h4>
+        </figcaption>
+</figure>
+
+<p>Following code creates this thing:</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">const char backFilename[] = &#34;background.png&#34;;
+
+Sprite* sprite = Sprite::create(backFilename);
+if (sprite == nullptr) {
+  printf(&#34;Error while loading: %s\n&#34;, backFilename);
+  return false;
+}
+
+sprite-&gt;setAnchorPoint(Vec2(0,0));
+sprite-&gt;setPosition(0,0);
+addChild(sprite, 0);
+</code></pre></div><p>Here we create the sprite object with a static <a href="https://docs.cocos2d-x.org/api-ref/cplusplus/v4x/d3/d5c/classcocos2d_1_1_sprite.html#a3f75a553fe02f3de82042e81b76da010">create</a> method. That&rsquo;s a common practice for <em>cocos2d-x</em>; every class has a method like this and it should be used to create new objects instead of traditional <code>new</code>.</p>
+<p>Then we set the sprite&rsquo;s anchor point at bottom left corner and position the sprite at (0;0) which is a beginning of the scene&rsquo;s coordinate system.</p>
+<p>Finally, we use <code>addChild</code> to add the sprite to the scene. The second parameter for this method is a <em>z-order</em>: this value defines priority during drawing. Elements with larger number will be drawn later, so they&rsquo;ll appear over those ones with lower number.</p>
+<h1 id="more-sprites">More sprites</h1>
+<p>Now let&rsquo;s add some more sprites. One will use following code:</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#719e07">const</span> <span style="color:#dc322f">char</span> shipFilename[] <span style="color:#719e07">=</span> <span style="color:#2aa198">&#34;ships/playerShip3_blue.png&#34;</span>;
+
+Sprite<span style="color:#719e07">*</span> sprite <span style="color:#719e07">=</span> Sprite<span style="color:#719e07">::</span>create(shipFilename);
+
+sprite<span style="color:#719e07">-&gt;</span>setAnchorPoint(Vec2(<span style="color:#2aa198">0.5</span>,<span style="color:#2aa198">0.5</span>));
+sprite<span style="color:#719e07">-&gt;</span>setPosition(Vec2(<span style="color:#2aa198">160</span>, <span style="color:#2aa198">240</span>));
+
+addChild(sprite, <span style="color:#2aa198">10</span>);
+</code></pre></div><p>And another with this code:</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#719e07">const</span> <span style="color:#dc322f">char</span> shipFilename[] <span style="color:#719e07">=</span> <span style="color:#2aa198">&#34;ships/playerShip3_blue.png&#34;</span>;
+Sprite<span style="color:#719e07">*</span> sprite <span style="color:#719e07">=</span> Sprite<span style="color:#719e07">::</span>create(shipFilename);
+
+sprite<span style="color:#719e07">-&gt;</span>setAnchorPoint(Vec2(<span style="color:#2aa198">0.5</span>,<span style="color:#2aa198">0.5</span>));
+sprite<span style="color:#719e07">-&gt;</span>setRotation(<span style="color:#2aa198">45</span>);
+sprite<span style="color:#719e07">-&gt;</span>setPosition(Vec2(<span style="color:#2aa198">160</span>, <span style="color:#2aa198">120</span>));
+
+addChild(sprite, <span style="color:#2aa198">10</span>);
+</code></pre></div><p>The difference here is that second sprite gets rotated by 45 degrees.</p>
+<p>Both sprites have anchor point at (0.5,0.5), so the center of the sprites should appear between the squares on the screen:</p>
+<figure>
+    <img src="/cocos2dx-examples/en/post/static-img-practice-app/normal.png"/> <figcaption>
+            <h4>Blue ships, anchor point at the center</h4>
+        </figcaption>
+</figure>
+
+<p>Now let&rsquo;s add some more sprites:</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#719e07">const</span> <span style="color:#dc322f">char</span> shipFilename[] <span style="color:#719e07">=</span> <span style="color:#2aa198">&#34;ships/playerShip3_green.png&#34;</span>;
+Sprite<span style="color:#719e07">*</span> sprite <span style="color:#719e07">=</span> Sprite<span style="color:#719e07">::</span>create(shipFilename);
+
+sprite<span style="color:#719e07">-&gt;</span>setAnchorPoint(Vec2(<span style="color:#2aa198">0</span>,<span style="color:#2aa198">0</span>));
+sprite<span style="color:#719e07">-&gt;</span>setPosition(Vec2(<span style="color:#2aa198">480</span>, <span style="color:#2aa198">240</span>));
+
+addChild(sprite, <span style="color:#2aa198">10</span>);
+
+</code></pre></div><p>and:</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#719e07">const</span> <span style="color:#dc322f">char</span> shipFilename[] <span style="color:#719e07">=</span> <span style="color:#2aa198">&#34;ships/playerShip3_green.png&#34;</span>;
+Sprite<span style="color:#719e07">*</span> sprite <span style="color:#719e07">=</span> Sprite<span style="color:#719e07">::</span>create(shipFilename);
+
+sprite<span style="color:#719e07">-&gt;</span>setAnchorPoint(Vec2(<span style="color:#2aa198">0</span>,<span style="color:#2aa198">0</span>));
+sprite<span style="color:#719e07">-&gt;</span>setRotation(<span style="color:#2aa198">45</span>);
+sprite<span style="color:#719e07">-&gt;</span>setPosition(Vec2(<span style="color:#2aa198">480</span>, <span style="color:#2aa198">120</span>));
+
+addChild(sprite, <span style="color:#2aa198">10</span>);
+</code></pre></div><p>That&rsquo;s the same as previous pair, but the anchor point is at bottom left corner of the sprite. Again, second sprite gets rotated by 45 degrees.</p>
+<p>Result looks like</p>
+<figure>
+    <img src="/cocos2dx-examples/en/post/static-img-practice-app/cornered.png"/> <figcaption>
+            <h4>Green ships, anchor point at bottom left</h4>
+        </figcaption>
+</figure>
+
+<p>Here the anchor of the sprite is positioned at the crossing, but the sprite itself becomes upper and more to the right. Also, in second case the rotation is performed against the anchor point.</p>
+<h1 id="node">Node</h1>
+<p>The <em>Node</em> object can be used to group few other object together. For example, we can build our own spaceship by adding three images:</p>
+<figure>
+    <img src="/cocos2dx-examples/en/post/static-img-practice-app/mixproj.png"/> <figcaption>
+            <h4>Building a ship from parts</h4>
+        </figcaption>
+</figure>
+
+<p>This can be done like:</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#719e07">const</span> <span style="color:#dc322f">char</span> cockpitFilename[] <span style="color:#719e07">=</span> <span style="color:#2aa198">&#34;parts/cockpitRed.png&#34;</span>;
+Sprite<span style="color:#719e07">*</span> cockpitSprite <span style="color:#719e07">=</span> Sprite<span style="color:#719e07">::</span>create(cockpitFilename);
+
+<span style="color:#719e07">const</span> <span style="color:#dc322f">char</span> wingFilename[] <span style="color:#719e07">=</span> <span style="color:#2aa198">&#34;parts/wingRed.png&#34;</span>;
+Sprite<span style="color:#719e07">*</span> rightWingSprite <span style="color:#719e07">=</span> Sprite<span style="color:#719e07">::</span>create(wingFilename);
+Sprite<span style="color:#719e07">*</span> leftWingSprite <span style="color:#719e07">=</span> Sprite<span style="color:#719e07">::</span>create(wingFilename);
+
+Node<span style="color:#719e07">*</span> resultNode <span style="color:#719e07">=</span> Node<span style="color:#719e07">::</span>create();
+resultNode<span style="color:#719e07">-&gt;</span>setAnchorPoint(Vec2(<span style="color:#2aa198">0.5</span>,<span style="color:#2aa198">0.5</span>));
+
+<span style="color:#586e75">//
+</span><span style="color:#586e75"></span>rightWingSprite<span style="color:#719e07">-&gt;</span>setAnchorPoint(Vec2(<span style="color:#2aa198">0.5</span>,<span style="color:#2aa198">0.5</span>));
+rightWingSprite<span style="color:#719e07">-&gt;</span>setScale(<span style="color:#2aa198">1</span>, <span style="color:#719e07">-</span><span style="color:#2aa198">1</span>);
+rightWingSprite<span style="color:#719e07">-&gt;</span>setPosition(Vec2(<span style="color:#2aa198">60</span>, <span style="color:#2aa198">15</span>));
+rightWingSprite<span style="color:#719e07">-&gt;</span>setRotation(<span style="color:#2aa198">90</span>);
+resultNode<span style="color:#719e07">-&gt;</span>addChild(rightWingSprite);
+
+leftWingSprite<span style="color:#719e07">-&gt;</span>setAnchorPoint(Vec2(<span style="color:#2aa198">0.5</span>,<span style="color:#2aa198">0.5</span>));
+leftWingSprite<span style="color:#719e07">-&gt;</span>setPosition(Vec2(<span style="color:#719e07">-</span><span style="color:#2aa198">60</span>, <span style="color:#2aa198">15</span>));
+leftWingSprite<span style="color:#719e07">-&gt;</span>setRotation(<span style="color:#2aa198">90</span>);
+resultNode<span style="color:#719e07">-&gt;</span>addChild(leftWingSprite);
+
+resultNode<span style="color:#719e07">-&gt;</span>addChild(cockpitSprite);
+<span style="color:#586e75">//
+</span><span style="color:#586e75"></span>resultNode<span style="color:#719e07">-&gt;</span>setAnchorPoint(Vec2(<span style="color:#2aa198">0.5</span>,<span style="color:#2aa198">0.5</span>));
+</code></pre></div><p>First, we create three sprites (body and two wings) and an empty <em>Node</em> object that will join all the parts together.</p>
+<p>We rotate the wing sprites and put them at correct position. Coordinates (60, 15) were selected empirically, just to get something that looks more or less good. Also the right wing sprite should be mirrored, the <code>setScale(1, -1)</code> function does that.</p>
+<p>Finally, all the sprites became the children of the node object. Now this node object can be processed (added to scene, rotated) as any other sprite, so I will not show this code here. You can find the code for the whole project on <a href="https://github.com/beardog-ukr/cocos2dx-examples/blob/master/examples/StaticSprites/Classes/StaticSpritesScene.cpp">github</a>.</p>
+<p>So our resulting program will look like this:</p>
+<figure>
+    <img src="/cocos2dx-examples/en/post/static-img-practice-app/mixed.png"/> <figcaption>
+            <h4>Red ships are a combination of nodes, but you can work with them as with single node.</h4>
+        </figcaption>
+</figure>
+		</div>
+
+		<div class="post-tags">
+			
+				
+					<nav class="nav tags">
+							<ul class="flat">
+								
+								<li><a href="/cocos2dx-examples/en/tags/sprite">Sprite</a></li>
+								
+								<li><a href="/cocos2dx-examples/en/tags/static-images">Static Images</a></li>
+								
+							</ul>
+					</nav>
+				
+			
+		</div>
+		</div>
+	<div class="footer wrapper">
+	<nav class="nav">
+		<div> © public domain |  <a href="https://github.com/vividvilla/ezhil">Ezhil theme</a> | Built with <a href="https://gohugo.io">Hugo</a></div>
+	</nav>
+</div>
+
+
+
+<script>feather.replace()</script>
+</body>
+</html>

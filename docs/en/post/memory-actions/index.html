@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>How to remove objects - Cocos2d-x basics</title><meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta property="og:title" content="How to remove objects" />
+<meta property="og:description" content="Since we already know about actions and other basic things, now we can think about correct memory usage.
+To illustrate it we&rsquo;ll create a simple scene with one sprite and one button. After pressing the button the sprite will out of the scene and then it should be removed somehow." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://beardog-ukr.github.io/cocos2dx-examples/en/post/memory-actions/" />
+<meta property="article:published_time" content="2020-09-25T18:30:25+03:00" />
+<meta property="article:modified_time" content="2020-09-25T18:30:25+03:00" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="How to remove objects"/>
+<meta name="twitter:description" content="Since we already know about actions and other basic things, now we can think about correct memory usage.
+To illustrate it we&rsquo;ll create a simple scene with one sprite and one button. After pressing the button the sprite will out of the scene and then it should be removed somehow."/>
+<link href="https://fonts.googleapis.com/css?family=Ubuntu:300,400,300italic,400italic|Raleway:200,300" rel="stylesheet">
+
+	<link rel="stylesheet" type="text/css" media="screen" href="https://beardog-ukr.github.io/cocos2dx-examples/en/css/normalize.css" />
+	<link rel="stylesheet" type="text/css" media="screen" href="https://beardog-ukr.github.io/cocos2dx-examples/en/css/main.css" />
+
+	<script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+	<script src="https://beardog-ukr.github.io/cocos2dx-examples/en/js/main.js"></script>
+</head>
+
+<body>
+	<div class="container wrapper post">
+		<div class="header">
+	<h1 class="site-title"><a href="https://beardog-ukr.github.io/cocos2dx-examples/en/">Cocos2d-x basics</a></h1>
+	<div class="site-description"><h2>Some articles about Cocos2d-x framework</h2><nav class="nav social">
+			<ul class="flat"><a href="https://github.com/beardog-ukr/cocos2dx-examples" title="Github"><i data-feather="github"></i></a></ul>
+		</nav>
+	</div>
+
+	<nav class="nav">
+		<ul class="flat">
+			
+			<li>
+				<a href="/cocos2dx-examples/en/">Recent</a>
+			</li>
+			
+			<li>
+				<a href="/cocos2dx-examples/en/posts">All</a>
+			</li>
+			
+			<li>
+				<a href="/cocos2dx-examples/en/about">About</a>
+			</li>
+			
+			<li>
+				<a href="/cocos2dx-examples/en/tags">Tags</a>
+			</li>
+			
+		</ul>
+	</nav>
+</div>
+
+
+		<div class="post-header">
+			<h1 class="title">How to remove objects</h1>
+			<div class="meta">Posted at &mdash; Sep 25, 2020</div>
+		</div>
+
+		<div class="markdown">
+			<p>Since we already know about <a href="https://beardog-ukr.github.io/cocos2dx-examples/en/post/basic-actions/">actions</a> and other <a href="https://beardog-ukr.github.io/cocos2dx-examples/en/post/basic-actions/">basic things</a>, now we can think about correct memory usage.</p>
+<p>To illustrate it we&rsquo;ll create a <a href="https://github.com/beardog-ukr/cocos2dx-examples/blob/master/examples/AdvancedActions/Classes/MemoryDemoScene.cpp">simple scene</a> with one sprite and one button. After pressing the button the sprite will out of the scene and then it should be removed somehow.</p>
+<p>Actually, there will be few variants of object removal, so we&rsquo;ll make a menu instead of one button:</p>
+<figure>
+    <img src="/cocos2dx-examples/en/post/advanced-actions-img/memory_remove.gif"/> <figcaption>
+            <h4>Simple illustration scene</h4>
+        </figcaption>
+</figure>
+
+<p>Our variants are</p>
+<ul>
+<li>do nothing and leave the object as is (that&rsquo;s bad, but at least there will be no segfaults).</li>
+<li>use <a href="https://docs.cocos2d-x.org/api-ref/cplusplus/v4x/d4/d11/classcocos2d_1_1_remove_self.html">RemoveSelf</a> which is the best practice</li>
+<li>use <a href="https://docs.cocos2d-x.org/api-ref/cplusplus/v4x/d3/d82/classcocos2d_1_1_node.html">Node</a>&lsquo;s <code>removeChild()</code> is a bit complicated and can be <a href="https://discuss.cocos2d-x.org/t/why-removefromparent-removechild-could-be-dangerous/32223">dangerous</a></li>
+<li>keep the object and use it for a second time.</li>
+</ul>
+<h1 id="a-class-for-debugging">A class for debugging</h1>
+<p>In order to ensure that object gets deleted (or not deleted) we&rsquo;ll create  a special subclass of <a href="https://docs.cocos2d-x.org/api-ref/cplusplus/v4x/d3/d5c/classcocos2d_1_1_sprite.html">Sprite</a>. It will print debugging messages in constructor and destructor.</p>
+<p>Something like this:</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#719e07">class</span> <span style="color:#268bd2">EnhancedSprite</span> <span style="color:#719e07">:</span> <span style="color:#719e07">public</span> cocos2d<span style="color:#719e07">::</span>Sprite {
+<span style="color:#719e07">public</span><span style="color:#719e07">:</span>
+  <span style="color:#719e07">static</span> EnhancedSprite<span style="color:#719e07">*</span> create(<span style="color:#719e07">const</span> std<span style="color:#719e07">::</span>string<span style="color:#719e07">&amp;</span> filename);
+<span style="color:#719e07">protected</span><span style="color:#719e07">:</span>
+  EnhancedSprite();
+  <span style="color:#719e07">virtual</span> <span style="color:#719e07">~</span>EnhancedSprite();
+
+  <span style="color:#dc322f">int</span> objectId;
+};
+
+<span style="color:#719e07">static</span> <span style="color:#dc322f">int</span> objectIdGenerator <span style="color:#719e07">=</span> <span style="color:#2aa198">0</span>;
+
+EnhancedSprite<span style="color:#719e07">::</span>EnhancedSprite() {
+  objectId <span style="color:#719e07">=</span> objectIdGenerator<span style="color:#719e07">++</span>;
+  log(<span style="color:#2aa198">&#34;EnchancedSprite constructor here, id %02d&#34;</span>, objectId);
+}
+
+EnhancedSprite<span style="color:#719e07">::~</span>EnhancedSprite() {
+  log(<span style="color:#2aa198">&#34;EnchancedSprite destructor here, id %02d&#34;</span>, objectId);
+}
+
+EnhancedSprite<span style="color:#719e07">*</span> EnhancedSprite<span style="color:#719e07">::</span>create(<span style="color:#719e07">const</span> std<span style="color:#719e07">::</span>string<span style="color:#719e07">&amp;</span> filename) {
+  EnhancedSprite <span style="color:#719e07">*</span>result <span style="color:#719e07">=</span> <span style="color:#719e07">new</span> (std<span style="color:#719e07">::</span>nothrow) EnhancedSprite();
+  <span style="color:#719e07">if</span> (result <span style="color:#719e07">&amp;&amp;</span> result<span style="color:#719e07">-&gt;</span>initWithFile(filename)) {
+    result<span style="color:#719e07">-&gt;</span>autorelease();
+    <span style="color:#719e07">return</span> result;
+  }
+  CC_SAFE_DELETE(result);
+  <span style="color:#719e07">return</span> <span style="color:#719e07">nullptr</span>;
+}
+</code></pre></div><p>Here each object an <code>objectId</code> field with its own unique value. We can use this value to distinguish one object from another. Everything else remains the same as default <em>Sprite</em>.</p>
+<h1 id="variants">Variants</h1>
+<p>If you do nothing the objects will remain in memory. However, if you&rsquo;ll try to close the application you&rsquo;ll see the destructors called in the end. That&rsquo;s because the sprites are the children of the scene; when the scene finally gets deleted it will delete all the children. So, strictly speaking this is not a memory loss, but still it&rsquo;s a bad situation and everybody should avoid it.</p>
+<p>The best and most simple way to remove the sprite is to add <a href="https://docs.cocos2d-x.org/api-ref/cplusplus/v4x/d4/d11/classcocos2d_1_1_remove_self.html">RemoveSelf</a> to the end of sequence like this:</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp">MoveTo<span style="color:#719e07">*</span> moveAct <span style="color:#719e07">=</span> MoveTo<span style="color:#719e07">::</span>create(<span style="color:#2aa198">5</span>, Vec2(<span style="color:#2aa198">800</span>, <span style="color:#2aa198">120</span>));
+Sequence<span style="color:#719e07">*</span> seq <span style="color:#719e07">=</span> Sequence<span style="color:#719e07">::</span>create(moveAct, RemoveSelf<span style="color:#719e07">::</span>create(), <span style="color:#719e07">nullptr</span>);
+
+blueShip<span style="color:#719e07">-&gt;</span>runAction(seq);
+</code></pre></div><p>This code will move the sprite and later you&rsquo;ll see that destructor was called.</p>
+<p>Also you can use a <a href="https://docs.cocos2d-x.org/api-ref/cplusplus/v4x/d3/d32/classcocos2d_1_1_call_func.html">CallFunc</a> and <code>removeChild()</code>:</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp">MoveTo<span style="color:#719e07">*</span> moveAct <span style="color:#719e07">=</span> MoveTo<span style="color:#719e07">::</span>create(<span style="color:#2aa198">5</span>, Vec2(<span style="color:#2aa198">800</span>, <span style="color:#2aa198">120</span>));
+
+Sprite<span style="color:#719e07">*</span> oldShip <span style="color:#719e07">=</span> blueShip; <span style="color:#586e75">//save blueShip pointer because it may get changed by the time
+</span><span style="color:#586e75"></span>                            <span style="color:#586e75">// the ship reaches &#34;out of range: destination
+</span><span style="color:#586e75"></span>CallFunc<span style="color:#719e07">*</span> finalCf <span style="color:#719e07">=</span> CallFunc<span style="color:#719e07">::</span>create([<span style="color:#719e07">this</span>, oldShip]() {
+  log(<span style="color:#2aa198">&#34;%s: callback implemented in processMenuRemoveChild: move finished&#34;</span>, __func__);
+  <span style="color:#719e07">this</span><span style="color:#719e07">-&gt;</span>removeChild(oldShip);
+});
+
+Sequence<span style="color:#719e07">*</span> seq <span style="color:#719e07">=</span> Sequence<span style="color:#719e07">::</span>create(moveAct, finalCf, <span style="color:#719e07">nullptr</span>);
+
+blueShip<span style="color:#719e07">-&gt;</span>runAction(seq);
+</code></pre></div><p>This second approach is a bit complicated but still good.</p>
+<h1 id="keeping-and-reusing-the-object">Keeping and reusing the object</h1>
+<p>Maybe you want to keep the object and save it into a <a href="https://en.wikipedia.org/wiki/Pool_(computer_science)">pool</a>. That&rsquo;s possible, but requires additional explanations.</p>
+<p>Almost all classes in <em>cocos2d-x</em> are subclassed from the <a href="https://docs.cocos2d-x.org/api-ref/cplusplus/v4x/df/d28/classcocos2d_1_1_ref.html">Ref</a> class. The framework developers wanted to make something similar to Objective-C memory management. So, each object has following methods:</p>
+<ul>
+<li><code>retain()</code> increases reference counter, &ldquo;protects&rdquo; the object from removal</li>
+<li><code>release()</code> decreases reference counter. The object will be removed if the counter gets 0.</li>
+<li><code>autorelease()</code> decreases reference counter, but the counter value will be checked later.</li>
+</ul>
+<p>So, for every <code>retain()</code> there should be one and only one <code>release()</code> or <code>autorelease()</code> call.</p>
+<p>The <code>create()</code> functions always call <code>autorelease()</code> for their objects (you can check the implementation in our <a href="https://github.com/beardog-ukr/cocos2dx-examples/blob/master/examples/AdvancedActions/Classes/EnhancedSprite.cpp">EnhancedSprite</a> class). That means you can create the object, then do nothing with it and it will be removed automatically.</p>
+<p>How does it work? There is a <a href="https://gamefromscratch.com/cocos2d-x-tutorial-series-game-loop-updates-and-action-handling/">game loop</a> and it does something like this:</p>
+<ul>
+<li>the program sleeps for a small (dozens of milliseconds)  amount of time, then wakes up</li>
+<li>processes the input (keyboard, mouse etc)</li>
+<li>redraws the scene. During redraw it reevaluates actions, call callbacks and other stuff.</li>
+<li>finally, checks the reference counters for all objects; if counter is 0 the object gets deleted.</li>
+</ul>
+<p>So, if the <code>autorelease()</code> (or <code>removeChild()</code>) is called then reference counter will be decreased and the object will be deleted after current iteration of the game loop.</p>
+		</div>
+
+		<div class="post-tags">
+			
+				
+					<nav class="nav tags">
+							<ul class="flat">
+								
+								<li><a href="/cocos2dx-examples/en/tags/child-parent">child-parent</a></li>
+								
+								<li><a href="/cocos2dx-examples/en/tags/callfunc">CallFunc</a></li>
+								
+								<li><a href="/cocos2dx-examples/en/tags/removeself">RemoveSelf</a></li>
+								
+								<li><a href="/cocos2dx-examples/en/tags/memory-management">memory management</a></li>
+								
+							</ul>
+					</nav>
+				
+			
+		</div>
+		</div>
+	<div class="footer wrapper">
+	<nav class="nav">
+		<div> © public domain |  <a href="https://github.com/vividvilla/ezhil">Ezhil theme</a> | Built with <a href="https://gohugo.io">Hugo</a></div>
+	</nav>
+</div>
+
+
+
+<script>feather.replace()</script>
+</body>
+</html>

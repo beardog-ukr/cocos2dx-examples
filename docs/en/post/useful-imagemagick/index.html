@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>imagemagick tricks - Cocos2d-x basics</title><meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta property="og:title" content="imagemagick tricks" />
+<meta property="og:description" content="imagemagick is a free console software to create, edit, compose, or convert bitmap images." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://beardog-ukr.github.io/cocos2dx-examples/en/post/useful-imagemagick/" />
+<meta property="article:published_time" content="2020-09-28T04:25:25+03:00" />
+<meta property="article:modified_time" content="2020-09-28T04:25:25+03:00" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="imagemagick tricks"/>
+<meta name="twitter:description" content="imagemagick is a free console software to create, edit, compose, or convert bitmap images."/>
+<link href="https://fonts.googleapis.com/css?family=Ubuntu:300,400,300italic,400italic|Raleway:200,300" rel="stylesheet">
+
+	<link rel="stylesheet" type="text/css" media="screen" href="https://beardog-ukr.github.io/cocos2dx-examples/en/css/normalize.css" />
+	<link rel="stylesheet" type="text/css" media="screen" href="https://beardog-ukr.github.io/cocos2dx-examples/en/css/main.css" />
+
+	<script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+	<script src="https://beardog-ukr.github.io/cocos2dx-examples/en/js/main.js"></script>
+</head>
+
+<body>
+	<div class="container wrapper post">
+		<div class="header">
+	<h1 class="site-title"><a href="https://beardog-ukr.github.io/cocos2dx-examples/en/">Cocos2d-x basics</a></h1>
+	<div class="site-description"><h2>Some articles about Cocos2d-x framework</h2><nav class="nav social">
+			<ul class="flat"><a href="https://github.com/beardog-ukr/cocos2dx-examples" title="Github"><i data-feather="github"></i></a></ul>
+		</nav>
+	</div>
+
+	<nav class="nav">
+		<ul class="flat">
+			
+			<li>
+				<a href="/cocos2dx-examples/en/">Recent</a>
+			</li>
+			
+			<li>
+				<a href="/cocos2dx-examples/en/posts">All</a>
+			</li>
+			
+			<li>
+				<a href="/cocos2dx-examples/en/about">About</a>
+			</li>
+			
+			<li>
+				<a href="/cocos2dx-examples/en/tags">Tags</a>
+			</li>
+			
+		</ul>
+	</nav>
+</div>
+
+
+		<div class="post-header">
+			<h1 class="title">imagemagick tricks</h1>
+			<div class="meta">Posted at &mdash; Sep 28, 2020</div>
+		</div>
+
+		<div class="markdown">
+			<p><a href="https://imagemagick.org/index.php">imagemagick</a> is a free console software to create, edit, compose, or convert bitmap images.</p>
+<h1 id="split-image">Split image</h1>
+<p>Sometimes frames for animated characters come joined into a single image. For example, this is the image for the <a href="https://jesse-m.itch.io/skeleton-pack">Skeleton</a> death:</p>
+<figure>
+    <img src="/cocos2dx-examples/en/post/useful-imagemagick-img/Skeleton_Dead.png"/> <figcaption>
+            <h4>Hit and death of a skeleton</h4>
+        </figcaption>
+</figure>
+
+<p>And the following command splits this image into a series of single pictures:</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">convert ./Skeleton_43x37.png -crop 43x37 skeleton_attack_%02d.png
+</code></pre></div><p>Here</p>
+<ul>
+<li><code>./Skeleton_43x37.png</code> is an input file</li>
+<li><code>-crop 43x37</code> is the size of a single image</li>
+<li><code>skeleton_attack_%02d.png</code> is a mask for result file names</li>
+</ul>
+<h1 id="join-images">Join images</h1>
+<p>That&rsquo;s the opposite of previous task</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">convert +append ./skeleton_attack_00.png ./skeleton_attack_01.png ./jh.png
+convert -append ./skeleton_attack_00.png ./skeleton_attack_01.png ./jv.png
+</code></pre></div><p>Here <code>+append</code> joins the images horizontally (into a single row), and <code>-append</code> does similar thing but vertically (into a column).</p>
+<h1 id="resize-a-gif">Resize a gif</h1>
+<p>It&rsquo;s quite hard to <a href="https://www.imagemagick.org/discourse-server/viewtopic.php?t=29205">make a GIF smaller</a>, and there can be some unexpected side effects.</p>
+<p>However, this command could do the job:</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">convert input.gif -coalesce -scale 385x334 -fuzz 2% +dither -layers Optimize scaled.gif
+</code></pre></div><h1 id="create-an-animation-from-files">Create an animation from files</h1>
+<p>Actually, the <em>imagemagick</em> isn&rsquo;t a good tool for this task, it will be better to  use <em>ffmpeg</em>:</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">ffmpeg -framerate 60 -pattern_type glob -i &#39;./skeleton_attack_*.png&#39; c1.gif
+</code></pre></div><p>Also, the animations in <a href="https://beardog-ukr.github.io/cocos2dx-examples/en/post/basic-actions/">this</a> <a href="https://beardog-ukr.github.io/cocos2dx-examples/en/post/basic-sequence/">articles</a> were made by <a href="https://github.com/phw/peek">Peek</a> tool in Ubuntu.</p>
+<h1 id="remove-some-sequence-from-animation">Remove some sequence from animation</h1>
+<p>A simpler way to remove some frames from a GIF is to split it into separate frames, remove some and join the rest ones back. However, this does not always work.</p>
+<p>There are some <a href="https://askubuntu.com/questions/870855/cut-duration-of-animated-gif">other ways</a> to complete this task. For example, you can use the <code>gifsicle</code> in Ubuntu.</p>
+<p>This command keeps frames from 25th to 78th into another file:</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">gifsicle ./dragon_bones_mecha_03.gif &#39;#25-78&#39; &gt; zz.gif
+</code></pre></div><p>And this one just removes specified frames:</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">gifsicle ./dragon_bones_mecha_03.gif --delete &#39;#01-25&#39; &gt; zz01.gif
+</code></pre></div><p>Also, you can convert GIF files with <a href="https://ezgif.com/effects">this tool</a> online.</p>
+		</div>
+
+		<div class="post-tags">
+			
+				
+					<nav class="nav tags">
+							<ul class="flat">
+								
+								<li><a href="/cocos2dx-examples/en/tags/image-processing">image processing</a></li>
+								
+								<li><a href="/cocos2dx-examples/en/tags/textures">textures</a></li>
+								
+								<li><a href="/cocos2dx-examples/en/tags/imagemagick">imagemagick</a></li>
+								
+								<li><a href="/cocos2dx-examples/en/tags/ffmpeg">ffmpeg</a></li>
+								
+								<li><a href="/cocos2dx-examples/en/tags/gifsicle">gifsicle</a></li>
+								
+							</ul>
+					</nav>
+				
+			
+		</div>
+		</div>
+	<div class="footer wrapper">
+	<nav class="nav">
+		<div> © public domain |  <a href="https://github.com/vividvilla/ezhil">Ezhil theme</a> | Built with <a href="https://gohugo.io">Hugo</a></div>
+	</nav>
+</div>
+
+
+
+<script>feather.replace()</script>
+</body>
+</html>

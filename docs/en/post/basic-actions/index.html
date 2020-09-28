@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>Movement and other object transformations - Cocos2d-x basics</title><meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta property="og:title" content="Movement and other object transformations" />
+<meta property="og:description" content="In previous articles we learned how to show images and process keyboard event. Now it&rsquo;s time to do something interesting with objects on the screen." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://beardog-ukr.github.io/cocos2dx-examples/en/post/basic-actions/" />
+<meta property="article:published_time" content="2020-09-24T10:55:25+03:00" />
+<meta property="article:modified_time" content="2020-09-24T10:55:25+03:00" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Movement and other object transformations"/>
+<meta name="twitter:description" content="In previous articles we learned how to show images and process keyboard event. Now it&rsquo;s time to do something interesting with objects on the screen."/>
+<link href="https://fonts.googleapis.com/css?family=Ubuntu:300,400,300italic,400italic|Raleway:200,300" rel="stylesheet">
+
+	<link rel="stylesheet" type="text/css" media="screen" href="https://beardog-ukr.github.io/cocos2dx-examples/en/css/normalize.css" />
+	<link rel="stylesheet" type="text/css" media="screen" href="https://beardog-ukr.github.io/cocos2dx-examples/en/css/main.css" />
+
+	<script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+	<script src="https://beardog-ukr.github.io/cocos2dx-examples/en/js/main.js"></script>
+</head>
+
+<body>
+	<div class="container wrapper post">
+		<div class="header">
+	<h1 class="site-title"><a href="https://beardog-ukr.github.io/cocos2dx-examples/en/">Cocos2d-x basics</a></h1>
+	<div class="site-description"><h2>Some articles about Cocos2d-x framework</h2><nav class="nav social">
+			<ul class="flat"><a href="https://github.com/beardog-ukr/cocos2dx-examples" title="Github"><i data-feather="github"></i></a></ul>
+		</nav>
+	</div>
+
+	<nav class="nav">
+		<ul class="flat">
+			
+			<li>
+				<a href="/cocos2dx-examples/en/">Recent</a>
+			</li>
+			
+			<li>
+				<a href="/cocos2dx-examples/en/posts">All</a>
+			</li>
+			
+			<li>
+				<a href="/cocos2dx-examples/en/about">About</a>
+			</li>
+			
+			<li>
+				<a href="/cocos2dx-examples/en/tags">Tags</a>
+			</li>
+			
+		</ul>
+	</nav>
+</div>
+
+
+		<div class="post-header">
+			<h1 class="title">Movement and other object transformations</h1>
+			<div class="meta">Posted at &mdash; Sep 24, 2020</div>
+		</div>
+
+		<div class="markdown">
+			<p>In previous articles we learned how to show images and process keyboard event. Now it&rsquo;s time to do something interesting with objects on the screen.</p>
+<p>Imagine you want to move some sprite from one place on the screen to another. You can&rsquo;t just use <code>setPosition</code> because it will look like teleportation. Instead, you should set new object position a bit closer to the target, then after a very small period of time (milliseconds, maybe) change position  again. And again, and again, until after a thousand of small moves the object will appear  where you want to see it. That&rsquo;s not an easy task to implement this in code, so <em>cocos2d-x</em> developers created a special class for it, called <a href="https://docs.cocos2d-x.org/api-ref/cplusplus/v4x/db/d61/classcocos2d_1_1_action.html">Action</a>.</p>
+<p>For example, in order to move something you should use a <code>MoveTo</code> class, which is a subclass of <code>Action</code>. It looks like this:</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#dc322f">void</span> ActionsDemoScene<span style="color:#719e07">::</span>sideButtonCallback(Ref <span style="color:#719e07">*</span>pSender) {
+  MoveTo<span style="color:#719e07">*</span> moveTo <span style="color:#719e07">=</span> MoveTo<span style="color:#719e07">::</span>create(<span style="color:#2aa198">2</span>, Vec2(<span style="color:#2aa198">320</span>,<span style="color:#2aa198">240</span>));
+  greenUfo<span style="color:#719e07">-&gt;</span>runAction(moveTo);
+}
+</code></pre></div><p>Here <em>greenUfo</em> is a sprite on the scene. <code>moveBy</code> is an action that moves the sprite. The <a href="https://en.wikipedia.org/wiki/Factory_method_pattern">factory method</a> <code>MoveTo::create</code> receives two parameters:</p>
+<ul>
+<li>time (in seconds) during which the transformation should be completed</li>
+<li><em>Vec2</em> a two numbers array that defines a destination point.</li>
+</ul>
+<p>As a result, after pressing a button the green ship will start moving and after some amount of time will get to another place.</p>
+<figure>
+    <img src="/cocos2dx-examples/en/post/basic-actions-img/ufo_move_01.gif"/> <figcaption>
+            <h4>Move ship from one point to another</h4>
+        </figcaption>
+</figure>
+
+<h1 id="transformations">Transformations</h1>
+<p>There are a <a href="https://docs.cocos2d-x.org/api-ref/cplusplus/v4x/dd/d0d/group__actions.html">lot of</a> possible transformations in <em>cocos2d-x</em>:</p>
+<ul>
+<li><a href="https://docs.cocos2d-x.org/api-ref/cplusplus/v4x/de/d42/classcocos2d_1_1_move_to.html">MoveTo</a> and <a href="https://docs.cocos2d-x.org/api-ref/cplusplus/v4x/d6/d7c/classcocos2d_1_1_move_by.html">MoveBy</a> move the sprites</li>
+<li><a href="https://docs.cocos2d-x.org/api-ref/cplusplus/v4x/d0/d71/classcocos2d_1_1_rotate_to.html">RotateTo</a> rotate <a href="https://docs.cocos2d-x.org/api-ref/cplusplus/v4x/d0/d28/classcocos2d_1_1_rotate_by.html">RotateBy</a> objects by some degree</li>
+<li><a href="https://docs.cocos2d-x.org/api-ref/cplusplus/v4x/d9/de6/classcocos2d_1_1_fade_to.html">FadeTo</a>, <a href="https://docs.cocos2d-x.org/api-ref/cplusplus/v4x/d0/d0a/classcocos2d_1_1_fade_in.html">FadeIn</a> and <a href="https://docs.cocos2d-x.org/api-ref/cplusplus/v4x/dd/d49/classcocos2d_1_1_fade_out.html">FadeOut</a> change opacity</li>
+<li><a href="https://docs.cocos2d-x.org/api-ref/cplusplus/v4x/d7/d39/classcocos2d_1_1_skew_to.html">SkewTo</a> and <a href="https://docs.cocos2d-x.org/api-ref/cplusplus/v4x/d2/d6c/classcocos2d_1_1_skew_by.html">SkewBy</a> performs something hard to describe, it&rsquo;s better to <a href="https://www.youtube.com/watch?v=X7I-oQYxnnE">see it</a></li>
+</ul>
+<p>Most of the transformations come in two variants: &ldquo;To&rdquo; and &ldquo;By&rdquo;. The first one receives new parameters (angle, point etc) exactly, and the latter gets a difference between current and desired values.</p>
+<h1 id="easing">Easing</h1>
+<p>By default, the <em>Action</em> changes parameters smoothly and equally, but it may be changed. For example the value may be changed slowly at first and more significantly later; this will give an impression of moving a massive body.</p>
+<p>Custom behavior may be implemented with <a href="https://docs.cocos2d-x.org/cocos2d-x/v4/en/actions/basic.html#easing">Easing*</a> classes. There are a lot of different variants of them in <em>cocos2d-x</em>.</p>
+<p>A small example:</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp">MoveBy<span style="color:#719e07">*</span> bma <span style="color:#719e07">=</span> MoveBy<span style="color:#719e07">::</span>create(<span style="color:#2aa198">6</span>, Vec2(<span style="color:#2aa198">360</span>,<span style="color:#2aa198">0</span>));
+EaseIn<span style="color:#719e07">*</span> bea <span style="color:#719e07">=</span> EaseIn<span style="color:#719e07">::</span>create(bma, <span style="color:#2aa198">1.5f</span>);
+blueShip<span style="color:#719e07">-&gt;</span>runAction(bea);
+</code></pre></div><p>Second parameter for <em>EaseIn</em> constructor defines how notably the changes will be. The larger the easier it will be to see the difference in motion.</p>
+<p>Following picture shows the <a href="https://docs.cocos2d-x.org/api-ref/cplusplus/v4x/dd/dde/classcocos2d_1_1_ease_in.html">EaseIn</a> and <a href="https://docs.cocos2d-x.org/api-ref/cplusplus/v4x/da/d63/classcocos2d_1_1_ease_out.html">EaseOut</a> comparing to default movement:</p>
+<p>Результат модифікаторів [:
+<figure>
+    <img src="/cocos2dx-examples/en/post/basic-actions-img/easing_triple.gif"/> <figcaption>
+            <h4>Easing</h4>
+        </figcaption>
+</figure>
+</p>
+<p>Here the green ship moves as default, blue one gets <em>EaseIn</em> and the red one was eased out.</p>
+		</div>
+
+		<div class="post-tags">
+			
+				
+					<nav class="nav tags">
+							<ul class="flat">
+								
+								<li><a href="/cocos2dx-examples/en/tags/action">Action</a></li>
+								
+								<li><a href="/cocos2dx-examples/en/tags/moveto">MoveTo</a></li>
+								
+							</ul>
+					</nav>
+				
+			
+		</div>
+		</div>
+	<div class="footer wrapper">
+	<nav class="nav">
+		<div> © public domain |  <a href="https://github.com/vividvilla/ezhil">Ezhil theme</a> | Built with <a href="https://gohugo.io">Hugo</a></div>
+	</nav>
+</div>
+
+
+
+<script>feather.replace()</script>
+</body>
+</html>

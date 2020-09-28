@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>design resolution on Cocos2d-x basics</title>
+    <link>https://beardog-ukr.github.io/cocos2dx-examples/en/tags/design-resolution/</link>
+    <description>Recent content in design resolution on Cocos2d-x basics</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>© public domain</copyright>
+    <lastBuildDate>Mon, 28 Sep 2020 02:55:25 +0300</lastBuildDate>
+    
+	<atom:link href="https://beardog-ukr.github.io/cocos2dx-examples/en/tags/design-resolution/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Scrolling the map</title>
+      <link>https://beardog-ukr.github.io/cocos2dx-examples/en/post/scrolling/</link>
+      <pubDate>Mon, 28 Sep 2020 02:55:25 +0300</pubDate>
+      
+      <guid>https://beardog-ukr.github.io/cocos2dx-examples/en/post/scrolling/</guid>
+      <description>&lt;p&gt;Sometimes in your game you&amp;rsquo;ll have to scroll the map when your character moves to some new position. For some games the scrolling creates a really significant part of user experience; I&amp;rsquo;d recommend to read &lt;a href=&#34;https://www.gamasutra.com/blogs/ItayKeren/20150511/243083/Scroll_Back_The_Theory_and_Practice_of_Cameras_in_SideScrollers.php&#34;&gt;this article&lt;/a&gt; just to understand how important it is.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Working with different screen sizes</title>
+      <link>https://beardog-ukr.github.io/cocos2dx-examples/en/post/screen-resolution-02/</link>
+      <pubDate>Sun, 27 Sep 2020 10:55:25 +0300</pubDate>
+      
+      <guid>https://beardog-ukr.github.io/cocos2dx-examples/en/post/screen-resolution-02/</guid>
+      <description>&lt;p&gt;In &lt;a href=&#34;https://beardog-ukr.github.io/cocos2dx-examples/en/post/screen-resolution-01/&#34;&gt;one&lt;/a&gt; of the first articles, I&amp;rsquo;ve recommended to remove from the default &lt;code&gt;AppDelegate.cpp&lt;/code&gt; file everything related to work with multiple screen resolutions.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Screen size</title>
+      <link>https://beardog-ukr.github.io/cocos2dx-examples/en/post/screen-resolution-01/</link>
+      <pubDate>Fri, 25 Sep 2020 02:30:25 +0300</pubDate>
+      
+      <guid>https://beardog-ukr.github.io/cocos2dx-examples/en/post/screen-resolution-01/</guid>
+      <description>&lt;p&gt;We have already learned now to add objects to the screen and how to do some things with them; that&amp;rsquo;s enough for a simple games. But there is one more thing left unexplained about &lt;a href=&#34;https://beardog-ukr.github.io/cocos2dx-examples/en/post/first-steps/&#34;&gt;our default program&lt;/a&gt; and this is the screen size.&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

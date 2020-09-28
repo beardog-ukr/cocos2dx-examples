@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>skeletal animation on Cocos2d-x basics</title>
+    <link>https://beardog-ukr.github.io/cocos2dx-examples/en/tags/skeletal-animation/</link>
+    <description>Recent content in skeletal animation on Cocos2d-x basics</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>© public domain</copyright>
+    <lastBuildDate>Sat, 26 Sep 2020 07:30:25 +0300</lastBuildDate>
+    
+	<atom:link href="https://beardog-ukr.github.io/cocos2dx-examples/en/tags/skeletal-animation/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Animation with Dragon Bones</title>
+      <link>https://beardog-ukr.github.io/cocos2dx-examples/en/post/dragonbones-animation/</link>
+      <pubDate>Sat, 26 Sep 2020 07:30:25 +0300</pubDate>
+      
+      <guid>https://beardog-ukr.github.io/cocos2dx-examples/en/post/dragonbones-animation/</guid>
+      <description>&lt;p&gt;There are &lt;a href=&#34;https://www.slant.co/options/15725/alternatives/~dragonbones-pro-alternatives&#34;&gt;many variants&lt;/a&gt; to create a &lt;a href=&#34;https://en.wikipedia.org/wiki/Skeletal_animation&#34;&gt;skeletal animation&lt;/a&gt; but almost all of them are paid and so not available for educational purposes. In this article we&amp;rsquo;ll work with &lt;a href=&#34;https://dragonbones.github.io/en/index.html&#34;&gt;Dragon Bones&lt;/a&gt;, that&amp;rsquo;s a free, but a bit weird tool.&lt;/p&gt;
+&lt;p&gt;The &lt;em&gt;Dragon Bones&lt;/em&gt; has decent functionality and it&amp;rsquo;s free. To be presise the editor itself is free as in beer (closed sources) but the code for integrating models into &lt;em&gt;cocos2d-x&lt;/em&gt; is distributed under MIT license.&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

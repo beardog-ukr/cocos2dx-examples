@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>MoveTo on Cocos2d-x basics</title>
+    <link>https://beardog-ukr.github.io/cocos2dx-examples/en/tags/moveto/</link>
+    <description>Recent content in MoveTo on Cocos2d-x basics</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>© public domain</copyright>
+    <lastBuildDate>Thu, 24 Sep 2020 10:55:25 +0300</lastBuildDate>
+    
+	<atom:link href="https://beardog-ukr.github.io/cocos2dx-examples/en/tags/moveto/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Movement and other object transformations</title>
+      <link>https://beardog-ukr.github.io/cocos2dx-examples/en/post/basic-actions/</link>
+      <pubDate>Thu, 24 Sep 2020 10:55:25 +0300</pubDate>
+      
+      <guid>https://beardog-ukr.github.io/cocos2dx-examples/en/post/basic-actions/</guid>
+      <description>&lt;p&gt;In previous articles we learned how to show images and process keyboard event. Now it&amp;rsquo;s time to do something interesting with objects on the screen.&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

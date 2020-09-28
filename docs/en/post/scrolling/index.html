@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>Scrolling the map - Cocos2d-x basics</title><meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta property="og:title" content="Scrolling the map" />
+<meta property="og:description" content="Sometimes in your game you&rsquo;ll have to scroll the map when your character moves to some new position. For some games the scrolling creates a really significant part of user experience; I&rsquo;d recommend to read this article just to understand how important it is." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://beardog-ukr.github.io/cocos2dx-examples/en/post/scrolling/" />
+<meta property="article:published_time" content="2020-09-28T02:55:25+03:00" />
+<meta property="article:modified_time" content="2020-09-28T02:55:25+03:00" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Scrolling the map"/>
+<meta name="twitter:description" content="Sometimes in your game you&rsquo;ll have to scroll the map when your character moves to some new position. For some games the scrolling creates a really significant part of user experience; I&rsquo;d recommend to read this article just to understand how important it is."/>
+<link href="https://fonts.googleapis.com/css?family=Ubuntu:300,400,300italic,400italic|Raleway:200,300" rel="stylesheet">
+
+	<link rel="stylesheet" type="text/css" media="screen" href="https://beardog-ukr.github.io/cocos2dx-examples/en/css/normalize.css" />
+	<link rel="stylesheet" type="text/css" media="screen" href="https://beardog-ukr.github.io/cocos2dx-examples/en/css/main.css" />
+
+	<script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+	<script src="https://beardog-ukr.github.io/cocos2dx-examples/en/js/main.js"></script>
+</head>
+
+<body>
+	<div class="container wrapper post">
+		<div class="header">
+	<h1 class="site-title"><a href="https://beardog-ukr.github.io/cocos2dx-examples/en/">Cocos2d-x basics</a></h1>
+	<div class="site-description"><h2>Some articles about Cocos2d-x framework</h2><nav class="nav social">
+			<ul class="flat"><a href="https://github.com/beardog-ukr/cocos2dx-examples" title="Github"><i data-feather="github"></i></a></ul>
+		</nav>
+	</div>
+
+	<nav class="nav">
+		<ul class="flat">
+			
+			<li>
+				<a href="/cocos2dx-examples/en/">Recent</a>
+			</li>
+			
+			<li>
+				<a href="/cocos2dx-examples/en/posts">All</a>
+			</li>
+			
+			<li>
+				<a href="/cocos2dx-examples/en/about">About</a>
+			</li>
+			
+			<li>
+				<a href="/cocos2dx-examples/en/tags">Tags</a>
+			</li>
+			
+		</ul>
+	</nav>
+</div>
+
+
+		<div class="post-header">
+			<h1 class="title">Scrolling the map</h1>
+			<div class="meta">Posted at &mdash; Sep 28, 2020</div>
+		</div>
+
+		<div class="markdown">
+			<p>Sometimes in your game you&rsquo;ll have to scroll the map when your character moves to some new position. For some games the scrolling creates a really significant part of user experience; I&rsquo;d recommend to read <a href="https://www.gamasutra.com/blogs/ItayKeren/20150511/243083/Scroll_Back_The_Theory_and_Practice_of_Cameras_in_SideScrollers.php">this article</a> just to understand how important it is.</p>
+<p>For your example we&rsquo;ll take an <a href="https://luizmelo.itch.io/evil-wizard">evil mage</a> animation. Our mage will walk through a long long level that looks like some <a href="https://szadiart.itch.io/rogue-fantasy-castle">castle</a>.</p>
+<figure>
+    <img src="/cocos2dx-examples/en/post/scrolling-img/dungeon02.png"/> <figcaption>
+            <h4>The level map is few times wider than the screen width</h4>
+        </figcaption>
+</figure>
+
+<p>The simplest way to implement map scrolling in <em>cocos2d-x</em> is by using the <a href="https://docs.cocos2d-x.org/api-ref/cplusplus/v4x/d6/d2b/classcocos2d_1_1_camera.html">Camera</a> class.</p>
+<p><a href="https://docs.cocos2d-x.org/api-ref/cplusplus/v4x/d6/d2b/classcocos2d_1_1_camera.html">Camera</a> is another <a href="https://docs.cocos2d-x.org/api-ref/cplusplus/v4x/d3/d82/classcocos2d_1_1_node.html">Node</a> subclass, so we can use some usual  <a href="https://docs.cocos2d-x.org/api-ref/cplusplus/v4x/de/d42/classcocos2d_1_1_move_to.html">MoveTo</a> action to move it. However, unlike most of the other objects, the camera lives in 3D, so coordinates are specified a bit differently.</p>
+<p>That&rsquo;s how we move the camera to the mage&rsquo;s position:</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp">cocos2d<span style="color:#719e07">::</span>Vec2 expectedMagePos; <span style="color:#586e75">// mage position
+</span><span style="color:#586e75"></span><span style="color:#719e07">&lt;</span>....<span style="color:#719e07">&gt;</span>
+Camera<span style="color:#719e07">*</span> camera <span style="color:#719e07">=</span> getDefaultCamera();
+<span style="color:#719e07">const</span> Vec3 currentCameraPos <span style="color:#719e07">=</span> camera<span style="color:#719e07">-&gt;</span>getPosition3D();
+Vec3 newCameraPos <span style="color:#719e07">=</span> Vec3(expectedMagePos.x, expectedMagePos.y, currentCameraPos.z);
+MoveTo<span style="color:#719e07">*</span> cameraMoveAction <span style="color:#719e07">=</span> MoveTo<span style="color:#719e07">::</span>create(<span style="color:#2aa198">1</span>, newCameraPos);
+camera<span style="color:#719e07">-&gt;</span>runAction(cameraMoveAction);
+</code></pre></div><p>Here we create a new position point for the camera; it&rsquo;s same as the mage position, but also it keeps Z position of the camera.</p>
+<p>And that&rsquo;s all, nothing more. You can see how it works in the <a href="https://github.com/beardog-ukr/cocos2dx-examples/blob/master/examples/TiledBackground/Classes/scenes/HorizontalScrollScene.cpp">demo program</a>. The camera moves each time the mage goes close enough to the right wall:</p>
+<figure>
+    <img src="/cocos2dx-examples/en/post/scrolling-img/mage_walks.gif"/> <figcaption>
+            <h4>Mage moves right</h4>
+        </figcaption>
+</figure>
+
+<p>You could also notice the sceletons here, and there are two important things to say about them. First, some of them move out of the screen borders, so there probably is some waste of CPU resources for calculating their position. You could think it will be better to somehow turn off the animations for all the objects that are too far from the main game character. But this idea is an <a href="https://gamedev.stackexchange.com/questions/141399/why-is-it-so-bad-to-optimize-too-early">early optimization</a>, and it&rsquo;s better to <a href="https://love2d.org/wiki/Optimising">avoid it</a>.</p>
+<p>Second, since there are few skeleton persons on the map it will be better to create a special class for a skeleton. Actually, the mage also could use its own class, but to simplify the code I&rsquo;ve stored all related data in the main class of <a href="https://github.com/beardog-ukr/cocos2dx-examples/blob/master/examples/TiledBackground/Classes/scenes/HorizontalScrollScene.h">the scene</a>.</p>
+<p>There are two possible ways for creating an object&rsquo;s class in <em>cocos2d-x</em>:</p>
+<ul>
+<li>you can subclass your class from <a href="https://docs.cocos2d-x.org/api-ref/cplusplus/v4x/d3/d5c/classcocos2d_1_1_sprite.html">cocos2d::Sprite</a> (or from <a href="https://docs.cocos2d-x.org/api-ref/cplusplus/v4x/d3/d82/classcocos2d_1_1_node.html">Node</a> if it consists from multiple sprites)</li>
+<li>create a class that will manage the <a href="https://docs.cocos2d-x.org/api-ref/cplusplus/v4x/d3/d5c/classcocos2d_1_1_sprite.html">cocos2d::Sprite</a> instance</li>
+</ul>
+<p>Both solutions are <a href="https://discuss.cocos2d-x.org/t/cocos2d-x-general-question-about-class-design-and-inheritance/24893">quite good</a>. Sometimes it comes to more common question &ldquo;<a href="https://en.wikipedia.org/wiki/Composition_over_inheritance">composition over inheritance</a>&rdquo; and all possible choices have some bad and good sides. Here in the example I&rsquo;ve used <a href="https://github.com/beardog-ukr/cocos2dx-examples/blob/master/examples/TiledBackground/Classes/scenes/SkeletonPerson.h">inheritance</a>, but if you prefer composition you can find some useful advices in <a href="http://becomingindiedev.blogspot.com/2015/06/correct-composition-design-in-cocos2d-x.html">this article</a>.</p>
+		</div>
+
+		<div class="post-tags">
+			
+				
+					<nav class="nav tags">
+							<ul class="flat">
+								
+								<li><a href="/cocos2dx-examples/en/tags/design-resolution">design resolution</a></li>
+								
+								<li><a href="/cocos2dx-examples/en/tags/scrolling">scrolling</a></li>
+								
+							</ul>
+					</nav>
+				
+			
+		</div>
+		</div>
+	<div class="footer wrapper">
+	<nav class="nav">
+		<div> © public domain |  <a href="https://github.com/vividvilla/ezhil">Ezhil theme</a> | Built with <a href="https://gohugo.io">Hugo</a></div>
+	</nav>
+</div>
+
+
+
+<script>feather.replace()</script>
+</body>
+</html>
